@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-// ─── Logo ───────────────────────────────────────────────────────────────────
 const Logo = ({ small }) => (
   <svg
     width={small ? 48 : 58}
@@ -13,35 +12,32 @@ const Logo = ({ small }) => (
     style={{ borderRadius: 16 }}
   >
     <rect width="120" height="120" rx="24" fill="#6B0AC9" />
-    <text x="10" y="72" fontFamily="'Syne',sans-serif" fontSize="52" fontWeight="900" fill="white">10</text>
+    <text x="10" y="72" fontFamily="'Plus Jakarta Sans',sans-serif" fontSize="52" fontWeight="900" fill="white">10</text>
     <line x1="62" y1="18" x2="110" y2="80" stroke="#E8002A" strokeWidth="14" strokeLinecap="round"/>
     <line x1="110" y1="18" x2="62" y2="80" stroke="#E8002A" strokeWidth="14" strokeLinecap="round"/>
-    <text x="14" y="108" fontFamily="'Syne',sans-serif" fontSize="22" fontWeight="900" fill="#FFD700" letterSpacing="3">BIZZ</text>
+    <text x="14" y="108" fontFamily="'Plus Jakarta Sans',sans-serif" fontSize="22" fontWeight="900" fill="#FFD700" letterSpacing="3">BIZZ</text>
   </svg>
 );
 
-// ─── Nav Items ───────────────────────────────────────────────────────────────
 const NAV_ITEMS = [
   { label: "Home", path: "/" },
   {
     label: "Services",
     path: "/services",
     dropdown: [
-      { label: "CRM Automation", path: "/services/crm-automation" },
-      { label: "Lead Generation", path: "/services/lead-generation" },
+      { label: "Consultation", path: "/services/marketing-consultation" },
+      { label: "CRM", path: "/services/crm-automation" },
       { label: "Facebook Ads", path: "/services/facebook-ads" },
+      { label: "Lead Generation", path: "/services/lead-generation" },
       { label: "Sales Funnel", path: "/services/sales-funnel" },
       { label: "WhatsApp Automation", path: "/services/whatsapp-automation" },
-      { label: "Marketing Consultation", path: "/services/marketing-consultation" },
     ],
   },
   { label: "Case Studies", path: "/case-studies" },
+  { label: "Process", path: "/process" },
   { label: "About", path: "/about" },
-  { label: "Blog", path: "/blog" },
-  { label: "Videos", path: "/videos" },
 ];
 
-// ─── Chevron ─────────────────────────────────────────────────────────────────
 const ChevronDown = ({ open }) => (
   <svg
     width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -53,7 +49,6 @@ const ChevronDown = ({ open }) => (
   </svg>
 );
 
-// ─── Desktop Dropdown ─────────────────────────────────────────────────────────
 const DropdownMenu = ({ items, visible }) => (
   <div
     className={`absolute top-full left-0 mt-3 w-52 bg-white border border-purple-100 rounded-xl overflow-hidden shadow-2xl shadow-purple-100/60 z-50 transition-all duration-200 ${
@@ -73,7 +68,6 @@ const DropdownMenu = ({ items, visible }) => (
   </div>
 );
 
-// ─── Mobile Drawer ───────────────────────────────────────────────────────────
 const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
   <>
     <div
@@ -122,7 +116,7 @@ const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
                 to={item.path || "#"}
                 onClick={(e) => { if (item.dropdown) e.preventDefault(); else onClose(); }}
                 className="flex-1 text-sm font-bold uppercase tracking-wider no-underline transition-colors duration-150"
-                style={{ fontFamily: "'Syne', sans-serif", color: openMenu === item.label ? "#6B0AC9" : "#333" }}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: openMenu === item.label ? "#6B0AC9" : "#333" }}
               >
                 {item.label}
               </Link>
@@ -174,7 +168,7 @@ const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
           onClick={onClose}
           className="flex items-center justify-center gap-2 no-underline w-full py-4 rounded-xl font-extrabold text-sm text-white transition-opacity duration-200 hover:opacity-90"
           style={{
-            fontFamily: "'Syne', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             background: "linear-gradient(101.78deg, #6400A1 0%, #FF1920 100%)",
             letterSpacing: "0.05em",
           }}
@@ -189,7 +183,6 @@ const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
   </>
 );
 
-// ─── MAIN NAVBAR ─────────────────────────────────────────────────────────────
 export default function Navbar() {
   const [scrolled, setScrolled]           = useState(false);
   const [openMenu, setOpenMenu]           = useState(null);
@@ -214,16 +207,17 @@ export default function Navbar() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
-        * { font-family: 'DM Sans', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+        * { font-family: 'Plus Jakarta Sans', sans-serif; }
 
         .nav-link {
           position: relative;
-          font-family: 'Syne', sans-serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-weight: 700;
-          font-size: 0.82rem;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
+          font-size: 14px;
+          font-style: normal;
+          letter-spacing: 0.01em;
           color: #333;
           transition: color 0.2s;
           padding-bottom: 2px;
@@ -243,6 +237,9 @@ export default function Navbar() {
         .nav-link.active-link::after { width: 100%; }
         .nav-link.active-link { color: #6400A1; }
 
+        /* ✅ Remove hover bg on nav items */
+        .nav-link-wrap:hover { background: transparent !important; }
+
         @keyframes shimmer {
           0%   { left: -60%; }
           100% { left: 160%; }
@@ -257,10 +254,9 @@ export default function Navbar() {
         }
       `}</style>
 
-      {/* ── STICKY WRAPPER ── */}
       <div className="fixed top-0 left-0 right-0 z-50">
 
-        {/* ── PROMO BANNER ── */}
+        {/* PROMO BANNER */}
         {bannerVisible && (
           <div
             className="promo-shimmer relative w-full flex items-center justify-center gap-3 overflow-hidden"
@@ -270,13 +266,12 @@ export default function Navbar() {
               <span className="text-base">🔥</span>
               <span
                 className="text-sm text-gray-900"
-                style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600 }}
               >
                 <strong className="font-extrabold">Limited Offer:</strong> Get Free CRM Setup Worth ₹9,999
               </span>
             </div>
 
-            {/* pill-shaped Claim Now */}
             <a
               href="#"
               className="inline-flex items-center justify-center flex-shrink-0 font-extrabold uppercase text-white transition-all duration-150"
@@ -287,7 +282,7 @@ export default function Navbar() {
                 borderRadius: 9999,
                 background: "linear-gradient(104.34deg, #FF1920 0%, #FED303 100%)",
                 boxShadow: "0 2px 8px rgba(255,25,32,0.35)",
-                fontFamily: "'Syne', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 textDecoration: "none",
               }}
               onMouseEnter={e => {
@@ -312,145 +307,139 @@ export default function Navbar() {
           </div>
         )}
 
-        {/* ── NAVBAR SHELL ──
-            scroll=false → full width, no padding, no radius, bottom border only
-            scroll=true  → 8px side inset, 6px top/bottom, rounded-[20px], shadow
-        ── */}
-        <div
-          className="transition-all duration-500 ease-in-out"
+        {/* ✅ NAVBAR — no rounding, no side padding, always full width, pure white */}
+        <nav
+          className="w-full transition-all duration-300"
           style={{
-            paddingLeft:   scrolled ? 8  : 0,
-            paddingRight:  scrolled ? 8  : 0,
-            paddingTop:    scrolled ? 6  : 0,
-            paddingBottom: scrolled ? 6  : 0,
+            background: "#ffffff",
+            backdropFilter: "none",
+            WebkitBackdropFilter: "none",
+            borderRadius: 0,
+            boxShadow: scrolled
+              ? "0 2px 16px rgba(0,0,0,0.08)"
+              : "none",
+            borderBottom: "1px solid rgba(0,0,0,0.07)",
           }}
         >
-          <nav
-            className="w-full transition-all duration-500 ease-in-out"
+          <div
+            className="mx-auto flex items-center justify-between"
             style={{
-              background: "rgba(255,255,255,0.70)",
-              backdropFilter: "blur(18px)",
-              WebkitBackdropFilter: "blur(18px)",
-              borderRadius: scrolled ? 20 : 0,
-              boxShadow: scrolled
-                ? "0 4px 20px rgba(0,0,0,0.08)"
-                : "none",
-              borderBottom: scrolled ? "none" : "1px solid rgba(0,0,0,0.07)",
-              outline: scrolled ? "1px solid rgba(255,255,255,0.5)" : "none",
+              maxWidth: 1280,
+              padding: scrolled ? "10px 28px" : "12px 28px",
             }}
           >
-            <div
-              className="flex items-center justify-between"
-              style={{ padding: scrolled ? "10px 20px" : "12px 28px" }}
-            >
 
-              {/* Logo */}
-              <Link to="/" className="flex items-center gap-3 flex-shrink-0 no-underline">
-                <Logo small={scrolled} />
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-3 flex-shrink-0 no-underline">
+              <Logo small={scrolled} />
+            </Link>
+
+            {/* Desktop nav */}
+            <ul className="hidden lg:flex items-center gap-1 xl:gap-2 list-none m-0 p-0">
+              {NAV_ITEMS.map((item) => (
+                <li
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => item.dropdown && handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {/* ✅ nav-link-wrap removes hover bg */}
+                  <Link
+                    to={item.path || "#"}
+                    className={`nav-link nav-link-wrap flex items-center px-3 py-2 rounded-lg transition-all duration-150 ${
+                      openMenu === item.label ? "active-link" : ""
+                    }`}
+                    style={{ background: "transparent" }}
+                  >
+                    {item.label}
+                    {item.dropdown && <ChevronDown open={openMenu === item.label} />}
+                  </Link>
+                  {item.dropdown && <DropdownMenu items={item.dropdown} visible={openMenu === item.label} />}
+                </li>
+              ))}
+            </ul>
+
+            {/* Right side */}
+            <div className="flex items-center gap-2 lg:gap-3">
+
+              {/* WhatsApp — desktop */}
+              <a
+                href="https://wa.me/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden lg:inline-flex items-center gap-2 no-underline font-bold transition-all duration-150"
+                style={{
+                  color: "#6400A1",
+                  border: "1.5px solid #6400A1",
+                  borderRadius: 10,
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 14,
+                  padding: scrolled ? "7px 14px" : "9px 18px",
+                  background: "transparent",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(100,0,161,0.05)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
+              >
+                <svg width="15" height="15" viewBox="0 0 32 32" fill="#6400A1">
+                  <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.666 4.785 1.82 6.774L2 30l7.418-1.794A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.45 11.45 0 01-5.836-1.596l-.418-.248-4.404 1.065 1.1-4.282-.272-.44A11.47 11.47 0 014.5 16C4.5 9.649 9.649 4.5 16 4.5S27.5 9.649 27.5 16 22.351 27.5 16 27.5zm6.29-8.61c-.345-.172-2.04-1.006-2.356-1.12-.316-.115-.547-.172-.777.172s-.892 1.12-1.093 1.351c-.2.23-.402.259-.747.086-.345-.173-1.455-.537-2.771-1.71-1.024-.912-1.715-2.04-1.916-2.385-.2-.345-.021-.532.15-.703.155-.154.345-.402.517-.603.172-.2.23-.345.345-.575.115-.23.057-.43-.029-.603-.086-.172-.777-1.873-1.064-2.564-.28-.672-.565-.58-.777-.59l-.661-.012c-.23 0-.603.086-.92.43s-1.208 1.18-1.208 2.876 1.237 3.337 1.41 3.567c.172.23 2.434 3.716 5.898 5.21.824.356 1.468.568 1.968.728.827.263 1.58.226 2.174.137.663-.1 2.04-.834 2.327-1.638.287-.804.287-1.493.2-1.638-.085-.144-.316-.23-.66-.402z"/>
+                </svg>
+                WhatsApp
+              </a>
+
+              {/* Book Strategy Call — desktop */}
+              <Link
+                to="/contact"
+                className="hidden lg:inline-flex items-center gap-2 no-underline font-bold text-white transition-all duration-150"
+                style={{
+                  background: "linear-gradient(101.78deg, #6400A1 0%, #FF1920 100%)",
+                  borderRadius: 10,
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 14,
+                  letterSpacing: "0.02em",
+                  padding: scrolled ? "7px 16px" : "9px 20px",
+                  boxShadow: "0 4px 14px rgba(100,0,161,0.28)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "0 6px 20px rgba(100,0,161,0.38)";
+                  e.currentTarget.style.filter = "brightness(1.08)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 14px rgba(100,0,161,0.28)";
+                  e.currentTarget.style.filter = "brightness(1)";
+                }}
+              >
+                Book Strategy Call
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
               </Link>
 
-              {/* Desktop nav */}
-              <ul className="hidden lg:flex items-center gap-1 xl:gap-2 list-none m-0 p-0">
-                {NAV_ITEMS.map((item) => (
-                  <li
-                    key={item.label}
-                    className="relative"
-                    onMouseEnter={() => item.dropdown && handleMouseEnter(item.label)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <Link
-                      to={item.path || "#"}
-                      className={`nav-link flex items-center px-3 py-2 rounded-lg hover:bg-purple-50 transition-all duration-150 ${
-                        openMenu === item.label ? "active-link bg-purple-50" : ""
-                      }`}
-                    >
-                      {item.label}
-                      {item.dropdown && <ChevronDown open={openMenu === item.label} />}
-                    </Link>
-                    {item.dropdown && <DropdownMenu items={item.dropdown} visible={openMenu === item.label} />}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Right side */}
-              <div className="flex items-center gap-2 lg:gap-3">
-
-                {/* WhatsApp — desktop */}
-                <a
-                  href="https://wa.me/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden lg:inline-flex items-center gap-2 no-underline font-bold transition-all duration-150 hover:bg-purple-50"
-                  style={{
-                    color: "#6400A1",
-                    border: "1.5px solid #6400A1",
-                    borderRadius: 10,
-                    fontFamily: "'Syne', sans-serif",
-                    fontSize: scrolled ? "0.78rem" : "0.85rem",
-                    padding: scrolled ? "7px 14px" : "9px 18px",
-                    background: "transparent",
-                  }}
-                >
-                  <svg width="15" height="15" viewBox="0 0 32 32" fill="#6400A1">
-                    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.666 4.785 1.82 6.774L2 30l7.418-1.794A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.45 11.45 0 01-5.836-1.596l-.418-.248-4.404 1.065 1.1-4.282-.272-.44A11.47 11.47 0 014.5 16C4.5 9.649 9.649 4.5 16 4.5S27.5 9.649 27.5 16 22.351 27.5 16 27.5zm6.29-8.61c-.345-.172-2.04-1.006-2.356-1.12-.316-.115-.547-.172-.777.172s-.892 1.12-1.093 1.351c-.2.23-.402.259-.747.086-.345-.173-1.455-.537-2.771-1.71-1.024-.912-1.715-2.04-1.916-2.385-.2-.345-.021-.532.15-.703.155-.154.345-.402.517-.603.172-.2.23-.345.345-.575.115-.23.057-.43-.029-.603-.086-.172-.777-1.873-1.064-2.564-.28-.672-.565-.58-.777-.59l-.661-.012c-.23 0-.603.086-.92.43s-1.208 1.18-1.208 2.876 1.237 3.337 1.41 3.567c.172.23 2.434 3.716 5.898 5.21.824.356 1.468.568 1.968.728.827.263 1.58.226 2.174.137.663-.1 2.04-.834 2.327-1.638.287-.804.287-1.493.2-1.638-.085-.144-.316-.23-.66-.402z"/>
-                  </svg>
-                  WhatsApp
-                </a>
-
-                {/* Book Strategy Call — desktop */}
-                <Link
-                  to="/contact"
-                  className="hidden lg:inline-flex items-center gap-2 no-underline font-bold text-white transition-all duration-150"
-                  style={{
-                    background: "linear-gradient(101.78deg, #6400A1 0%, #FF1920 100%)",
-                    borderRadius: 10,
-                    fontFamily: "'Syne', sans-serif",
-                    letterSpacing: "0.04em",
-                    fontSize: scrolled ? "0.78rem" : "0.85rem",
-                    padding: scrolled ? "7px 16px" : "9px 20px",
-                    boxShadow: "0 4px 14px rgba(100,0,161,0.28)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                    e.currentTarget.style.boxShadow = "0 6px 20px rgba(100,0,161,0.38)";
-                    e.currentTarget.style.filter = "brightness(1.08)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow = "0 4px 14px rgba(100,0,161,0.28)";
-                    e.currentTarget.style.filter = "brightness(1)";
-                  }}
-                >
-                  Book Strategy Call
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </Link>
-
-                {/* Hamburger — mobile */}
-                <button
-                  className="lg:hidden flex flex-col justify-center items-center gap-[5px] cursor-pointer flex-shrink-0"
-                  style={{
-                    width: 42, height: 42,
-                    background: "rgba(100,0,161,0.08)",
-                    border: "1.5px solid rgba(100,0,161,0.3)",
-                    borderRadius: 9,
-                  }}
-                  onClick={() => setMobileOpen(true)}
-                  aria-label="Open menu"
-                >
-                  <span className="block rounded-sm" style={{ width: 20, height: 2, background: "#6400A1" }} />
-                  <span className="block rounded-sm" style={{ width: 20, height: 2, background: "#6400A1" }} />
-                  <span className="block rounded-sm self-end" style={{ width: 13, height: 2, background: "#6400A1", marginRight: 3 }} />
-                </button>
-              </div>
-
+              {/* Hamburger — mobile */}
+              <button
+                className="lg:hidden flex flex-col justify-center items-center gap-[5px] cursor-pointer flex-shrink-0"
+                style={{
+                  width: 42, height: 42,
+                  background: "rgba(100,0,161,0.08)",
+                  border: "1.5px solid rgba(100,0,161,0.3)",
+                  borderRadius: 9,
+                }}
+                onClick={() => setMobileOpen(true)}
+                aria-label="Open menu"
+              >
+                <span className="block rounded-sm" style={{ width: 20, height: 2, background: "#6400A1" }} />
+                <span className="block rounded-sm" style={{ width: 20, height: 2, background: "#6400A1" }} />
+                <span className="block rounded-sm self-end" style={{ width: 13, height: 2, background: "#6400A1", marginRight: 3 }} />
+              </button>
             </div>
-          </nav>
-        </div>
+
+          </div>
+        </nav>
       </div>
 
-      {/* Mobile Drawer */}
       <MobileDrawer
         open={mobileOpen}
         onClose={() => { setMobileOpen(false); setOpenMenu(null); }}
