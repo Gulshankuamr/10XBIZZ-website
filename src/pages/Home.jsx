@@ -11,7 +11,7 @@ import FaqSection from "../components/services/FaqSection";
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
      
       {/* <ProblemSection /> */}

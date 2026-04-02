@@ -7,7 +7,7 @@ import Hero from "../../components/services/sales-funnel/Hero";
 export default function SalesFunnel() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Features />
       <CTA />

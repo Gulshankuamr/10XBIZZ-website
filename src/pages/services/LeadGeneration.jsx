@@ -7,7 +7,7 @@ import Hero from "../../components/services/lead-generation/Hero";
 export default function LeadGeneration() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Features />
       <CTA />

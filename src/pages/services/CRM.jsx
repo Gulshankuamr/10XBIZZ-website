@@ -7,7 +7,7 @@ import Navbar from "../../components/layout/Navbar";
 export default function CRM() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Features />
       <CTA />

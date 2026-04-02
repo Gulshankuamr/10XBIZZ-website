@@ -9,7 +9,7 @@ import Navbar from "../components/layout/Navbar";
 export default function Process() {
   return (
     <div className="min-h-screen">
-      <Navbar />
+      {/* <Navbar /> */}
       <ProcessSection />
       <FinancialGoal />
       <StatsSection />

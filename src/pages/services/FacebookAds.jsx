@@ -7,7 +7,7 @@ import Hero from "../../components/services/facebook-ads/Hero";
 export default function FacebookAds() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Features />
       <CTA />

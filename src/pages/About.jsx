@@ -7,7 +7,7 @@ import Team from "../components/about/Team";
 export default function About() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Story />
       <Team />

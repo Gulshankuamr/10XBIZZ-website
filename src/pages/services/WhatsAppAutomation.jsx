@@ -7,7 +7,7 @@ import Hero from "../../components/services/whatsapp-automation/Hero";
 export default function WhatsAppAutomation() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Features />
       <CTA />

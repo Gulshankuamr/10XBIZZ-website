@@ -7,7 +7,7 @@ import Hero from "../../components/services/consultation/Hero";
 export default function Consultation() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Features />
       <CTA />

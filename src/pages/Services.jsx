@@ -12,7 +12,7 @@ export default function Services() {
   return (
     <div className="bg-white">
       
-      <Navbar />
+      {/* <Navbar /> */}
 
       <main className="flex flex-col gap-16 md:gap-20">
 

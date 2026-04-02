@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navbar from "@/components/layout/Navbar.jsx";
+// import Navbar from "@/components/layout/Navbar.jsx";
 import Footer from "@/components/layout/Footer.jsx";
 
 import MoneyFlyButton from "../ui/Moneyflybutton";
@@ -183,7 +183,7 @@ export default function ServicesPages() {
                 }
             `}</style>
 
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* ══ HERO — exact same BG as Hero.jsx ══ */}
             <section style={{
