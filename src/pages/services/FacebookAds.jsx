@@ -11,7 +11,7 @@ export default function FacebookAds() {
       <Hero />
       <Features />
       <CTA />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

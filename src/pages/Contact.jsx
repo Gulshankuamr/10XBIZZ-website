@@ -7,7 +7,7 @@ export default function Contact() {
     <>
       <Navbar />
       <ContactSection />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -11,7 +11,7 @@ export default function WhatsAppAutomation() {
       <Hero />
       <Features />
       <CTA />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

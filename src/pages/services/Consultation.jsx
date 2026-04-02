@@ -11,7 +11,7 @@ export default function Consultation() {
       <Hero />
       <Features />
       <CTA />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

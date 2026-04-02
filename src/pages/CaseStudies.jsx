@@ -7,7 +7,7 @@ export default function CaseStudies() {
     <>
       <Navbar />
       <List />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

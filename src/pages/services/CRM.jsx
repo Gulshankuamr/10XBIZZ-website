@@ -11,7 +11,7 @@ export default function CRM() {
       <Hero />
       <Features />
       <CTA />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

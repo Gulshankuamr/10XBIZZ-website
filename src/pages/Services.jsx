@@ -31,7 +31,7 @@ export default function Services() {
 
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
 
     </div>
   );

@@ -11,7 +11,7 @@ export default function About() {
       <Hero />
       <Story />
       <Team />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

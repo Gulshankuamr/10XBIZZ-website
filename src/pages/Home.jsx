@@ -24,7 +24,7 @@ export default function Home() {
       {/* <FinancialPlan /> */}
       <FaqSection/>
       <CTA />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

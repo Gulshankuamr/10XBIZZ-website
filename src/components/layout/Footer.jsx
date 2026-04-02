@@ -1,3 +1,5 @@
+import StickyWhatsapp from "../ui/StickyWhatsapp";
+
 const links = [
   { label: "Services", href: "#services" },
   { label: "Benefits", href: "#benefits" },
@@ -7,7 +9,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="border-t bg-white">
+    <footer className="relative border-t bg-white">
       <div className="container-page grid gap-10 py-12 md:grid-cols-3">
         <div>
           <p className="text-base font-extrabold tracking-tight text-brand-ink">
@@ -58,6 +60,7 @@ export default function Footer() {
           <p>Performance marketing, done right.</p>
         </div>
       </div>
+      <StickyWhatsapp />
     </footer>
   );
 }

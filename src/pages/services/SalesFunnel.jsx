@@ -11,7 +11,7 @@ export default function SalesFunnel() {
       <Hero />
       <Features />
       <CTA />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -11,7 +11,7 @@ export default function LeadGeneration() {
       <Hero />
       <Features />
       <CTA />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

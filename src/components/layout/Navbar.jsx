@@ -2,22 +2,41 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Logo = ({ small }) => (
-  <svg
-    width={small ? 48 : 58}
-    height={small ? 48 : 58}
-    viewBox="0 0 120 120"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="transition-all duration-300"
-    style={{ borderRadius: 16 }}
+  <div
+    style={{
+      backgroundColor: "#6B0AC9",
+      borderRadius: "999px",
+      padding: small ? "4px 6px" : "6px 10px",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
   >
-    <rect width="120" height="120" rx="24" fill="#6B0AC9" />
-    <text x="10" y="72" fontFamily="'Plus Jakarta Sans',sans-serif" fontSize="52" fontWeight="900" fill="white">10</text>
-    <line x1="62" y1="18" x2="110" y2="80" stroke="#E8002A" strokeWidth="14" strokeLinecap="round"/>
-    <line x1="110" y1="18" x2="62" y2="80" stroke="#E8002A" strokeWidth="14" strokeLinecap="round"/>
-    <text x="14" y="108" fontFamily="'Plus Jakarta Sans',sans-serif" fontSize="22" fontWeight="900" fill="#FFD700" letterSpacing="3">BIZZ</text>
-  </svg>
+    <div
+      style={{
+        width: small ? 40 : 93,
+        height: small ? 25 : 58,
+        borderRadius: "999px",
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <img
+        src="/logonew.png"
+        alt="10XBIZZ"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "contain",
+          borderRadius: "999px",
+        }}
+      />
+    </div>
+  </div>
 );
+
 
 const NAV_ITEMS = [
   { label: "Home", path: "/" },
@@ -259,7 +278,7 @@ export default function Navbar() {
         {/* PROMO BANNER */}
         {bannerVisible && (
           <div
-            className="promo-shimmer relative w-full flex items-center justify-center gap-3 overflow-hidden"
+            className="promo-shimmer relative w-full hidden md:flex items-center justify-center gap-3 overflow-hidden "
             style={{ background: "#FED303", minHeight: 44, padding: "8px 44px 8px 16px" }}
           >
             <div className="flex items-center gap-1.5 flex-wrap justify-center">
@@ -363,29 +382,7 @@ export default function Navbar() {
             <div className="flex items-center gap-2 lg:gap-3">
 
               {/* WhatsApp — desktop */}
-              <a
-                href="https://wa.me/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden lg:inline-flex items-center gap-2 no-underline font-bold transition-all duration-150"
-                style={{
-                  color: "#6400A1",
-                  border: "1.5px solid #6400A1",
-                  borderRadius: 10,
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontWeight: 700,
-                  fontSize: 14,
-                  padding: scrolled ? "7px 14px" : "9px 18px",
-                  background: "transparent",
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = "rgba(100,0,161,0.05)"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
-              >
-                <svg width="15" height="15" viewBox="0 0 32 32" fill="#6400A1">
-                  <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.666 4.785 1.82 6.774L2 30l7.418-1.794A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.45 11.45 0 01-5.836-1.596l-.418-.248-4.404 1.065 1.1-4.282-.272-.44A11.47 11.47 0 014.5 16C4.5 9.649 9.649 4.5 16 4.5S27.5 9.649 27.5 16 22.351 27.5 16 27.5zm6.29-8.61c-.345-.172-2.04-1.006-2.356-1.12-.316-.115-.547-.172-.777.172s-.892 1.12-1.093 1.351c-.2.23-.402.259-.747.086-.345-.173-1.455-.537-2.771-1.71-1.024-.912-1.715-2.04-1.916-2.385-.2-.345-.021-.532.15-.703.155-.154.345-.402.517-.603.172-.2.23-.345.345-.575.115-.23.057-.43-.029-.603-.086-.172-.777-1.873-1.064-2.564-.28-.672-.565-.58-.777-.59l-.661-.012c-.23 0-.603.086-.92.43s-1.208 1.18-1.208 2.876 1.237 3.337 1.41 3.567c.172.23 2.434 3.716 5.898 5.21.824.356 1.468.568 1.968.728.827.263 1.58.226 2.174.137.663-.1 2.04-.834 2.327-1.638.287-.804.287-1.493.2-1.638-.085-.144-.316-.23-.66-.402z"/>
-                </svg>
-                WhatsApp
-              </a>
+             
 
               {/* Book Strategy Call — desktop */}
               <Link

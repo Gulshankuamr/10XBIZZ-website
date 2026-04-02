@@ -15,7 +15,7 @@ export default function Process() {
       <StatsSection />
       <Team />
       <CTA />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
