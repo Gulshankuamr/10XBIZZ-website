@@ -70,9 +70,8 @@ const ChevronDown = ({ open }) => (
 
 const DropdownMenu = ({ items, visible }) => (
   <div
-    className={`absolute top-full left-0 mt-3 w-52 bg-white border border-purple-100 rounded-xl overflow-hidden shadow-2xl shadow-purple-100/60 z-50 transition-all duration-200 ${
-      visible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
-    }`}
+    className={`absolute top-full left-0 mt-3 w-52 bg-white border border-purple-100 rounded-xl overflow-hidden shadow-2xl shadow-purple-100/60 z-50 transition-all duration-200 ${visible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+      }`}
   >
     {items.map((item, i) => (
       <Link
@@ -203,11 +202,11 @@ const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
 );
 
 export default function Navbar() {
-  const [scrolled, setScrolled]           = useState(false);
-  const [openMenu, setOpenMenu]           = useState(null);
-  const [mobileOpen, setMobileOpen]       = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
-  const closeTimer                        = useRef(null);
+  const closeTimer = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -365,9 +364,8 @@ export default function Navbar() {
                   {/* ✅ nav-link-wrap removes hover bg */}
                   <Link
                     to={item.path || "#"}
-                    className={`nav-link nav-link-wrap flex items-center px-3 py-2 rounded-lg transition-all duration-150 ${
-                      openMenu === item.label ? "active-link" : ""
-                    }`}
+                    className={`nav-link nav-link-wrap flex items-center px-3 py-2 rounded-lg transition-all duration-150 ${openMenu === item.label ? "active-link" : ""
+                      }`}
                     style={{ background: "transparent" }}
                   >
                     {item.label}
@@ -382,37 +380,96 @@ export default function Navbar() {
             <div className="flex items-center gap-2 lg:gap-3">
 
               {/* WhatsApp — desktop */}
-             
+
 
               {/* Book Strategy Call — desktop */}
               <Link
                 to="/contact"
-                className="hidden lg:inline-flex items-center gap-2 no-underline font-bold text-white transition-all duration-150"
+                className="hidden lg:inline-flex items-center gap-2 no-underline"
                 style={{
-                  background: "linear-gradient(101.78deg, #6400A1 0%, #FF1920 100%)",
-                  borderRadius: 10,
+                  position: "relative",
+                  background: "linear-gradient(135deg, #7B00C2 0%, #a020f0 40%, #FF1920 100%)",
+                  borderRadius: "9999px",
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontWeight: 700,
-                  fontSize: 14,
+                  fontSize: scrolled ? 13 : 14,
                   letterSpacing: "0.02em",
-                  padding: scrolled ? "7px 16px" : "9px 20px",
-                  boxShadow: "0 4px 14px rgba(100,0,161,0.28)",
+                  padding: scrolled ? "7px 18px" : "9px 22px",
+                  color: "#fff",
+                  textShadow: "0 1px 3px rgba(0,0,0,0.3)",
+                  boxShadow: `
+      0 4px 0px #4a0075,
+      0 6px 16px rgba(100,0,161,0.40),
+      0 0 28px rgba(168,85,247,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.22)
+    `,
+                  transform: "translateY(0)",
+                  transition: "transform 0.13s ease, box-shadow 0.13s ease",
+                  overflow: "hidden",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 6px 20px rgba(100,0,161,0.38)";
-                  e.currentTarget.style.filter = "brightness(1.08)";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.boxShadow = `
+      0 7px 0px #4a0075,
+      0 12px 24px rgba(100,0,161,0.52),
+      0 0 48px rgba(168,85,247,0.30),
+      inset 0 1px 0 rgba(255,255,255,0.22)
+    `;
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 14px rgba(100,0,161,0.28)";
-                  e.currentTarget.style.filter = "brightness(1)";
+                  e.currentTarget.style.boxShadow = `
+      0 4px 0px #4a0075,
+      0 6px 16px rgba(100,0,161,0.40),
+      0 0 28px rgba(168,85,247,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.22)
+    `;
+                }}
+                onMouseDown={(e) => {
+                  e.currentTarget.style.transform = "translateY(3px)";
+                  e.currentTarget.style.boxShadow = `
+      0 1px 0px #4a0075,
+      0 3px 8px rgba(100,0,161,0.30),
+      inset 0 1px 0 rgba(255,255,255,0.15)
+    `;
+                }}
+                onMouseUp={(e) => {
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.boxShadow = `
+      0 7px 0px #4a0075,
+      0 12px 24px rgba(100,0,161,0.52),
+      0 0 48px rgba(168,85,247,0.30),
+      inset 0 1px 0 rgba(255,255,255,0.22)
+    `;
                 }}
               >
+                {/* shine layer */}
+                <span style={{
+                  position: "absolute",
+                  inset: 0,
+                  borderRadius: "9999px",
+                  background: "linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 60%)",
+                  pointerEvents: "none",
+                }} />
+
                 Book Strategy Call
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                </svg>
+
+                {/* arrow circle */}
+                <span style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: 22,
+                  height: 22,
+                  background: "rgba(255,255,255,0.22)",
+                  borderRadius: "50%",
+                  flexShrink: 0,
+                }}>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </span>
               </Link>
 
               {/* Hamburger — mobile */}
