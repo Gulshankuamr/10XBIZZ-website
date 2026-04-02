@@ -5,7 +5,7 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center px-8"
+      className="min-h-screen flex items-center justify-center px-8 -mt-20"
       style={{ backgroundColor: "#F8F9FF" }}
     >
       {/* CTC Card — exact Figma specs */}

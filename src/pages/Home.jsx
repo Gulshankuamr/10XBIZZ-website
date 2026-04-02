@@ -6,6 +6,7 @@ import Hero from "../components/home/Hero";
 import StatsSection from "../components/home/StatsSection";
 import VideoSection from "../components/home/VideoSection";
 import Team from "../components/about/Team";
+import FaqSection from "../components/services/FaqSection";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <StatsSection />
       <Team />
       {/* <FinancialPlan /> */}
+      <FaqSection/>
       <CTA />
       <Footer />
     </div>

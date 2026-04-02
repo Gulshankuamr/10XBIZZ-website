@@ -41,7 +41,6 @@ export default function Hero() {
         .fade-in { opacity: 1; transform: translateY(0); }
         .fade-out { opacity: 0; transform: translateY(10px); }
 
-        /* ✅ FIX: justify paragraph — left straight, right justified */
         .hero-paragraph {
           text-align: justify;
           text-align-last: left;
@@ -51,7 +50,6 @@ export default function Hero() {
           hanging-punctuation: first last;
         }
 
-        /* Mobile: normal left align */
         @media (max-width: 640px) {
           .hero-paragraph {
             text-align: left;
@@ -62,6 +60,8 @@ export default function Hero() {
         /* Glowing border container */
         .hero-image-wrapper {
           position: relative;
+          width: 100%;
+          max-width: 560px;
           display: inline-block;
           border-radius: 32px;
           padding: 3px;
@@ -90,7 +90,7 @@ export default function Hero() {
           display: block;
           border-radius: 30px;
           width: 100%;
-          max-width: 580px;
+          max-width: 100%;
           height: auto;
           position: relative;
           z-index: 1;
@@ -143,56 +143,136 @@ export default function Hero() {
           50%       { transform: translateY(-12px); }
         }
 
-        /* ✅ FIX: animation property was missing 'animation:' keyword */
         .hero-image-float {
           animation: floatImage 6s ease-in-out infinite;
+          width: 100%;
+          max-width: 560px;
         }
 
-        /* Responsive */
+        /* Buttons */
+        .btn-primary {
+          background: linear-gradient(104deg, #6400A1 0%, #FF1920 100%);
+          color: #fff;
+          font-weight: 600;
+          border-radius: 9999px;
+          padding: 12px 28px;
+          box-shadow: 0 4px 20px rgba(100,0,161,0.25);
+          transition: transform 0.2s, box-shadow 0.2s;
+          border: none;
+          cursor: pointer;
+          font-size: 15px;
+          white-space: nowrap;
+        }
+        .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 28px rgba(100,0,161,0.35);
+        }
+
+        .btn-whatsapp {
+          background: #fff;
+          color: #25D366;
+          font-weight: 600;
+          border-radius: 9999px;
+          padding: 12px 28px;
+          border: 2px solid #25D366;
+          cursor: pointer;
+          font-size: 15px;
+          white-space: nowrap;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: transform 0.2s, background 0.2s, color 0.2s;
+        }
+        .btn-whatsapp:hover {
+          background: #25D366;
+          color: #fff;
+          transform: translateY(-2px);
+        }
+
+        /* Trust indicators */
+        .trust-bar {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px 16px;
+          margin-top: 18px;
+          align-items: center;
+        }
+        .trust-item {
+          font-size: 13px;
+          color: #667085;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+        .trust-dot {
+          color: #c0c0c0;
+          font-size: 12px;
+        }
+
         @media (max-width: 1024px) {
-          .hero-left { margin-left: 0 !important; max-width: 100% !important; }
-          .hero-image-wrapper img { max-width: 100%; }
+          .hero-left { max-width: 100% !important; }
+          .hero-image-float { max-width: 100%; }
         }
       `}</style>
 
       <section className="relative overflow-hidden bg-white">
-       <div className="mx-auto grid max-w-[1280px] grid-cols-1 lg:grid-cols-2 gap-12 px-6 py-14 lg:py-16 items-center">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-12 px-6 py-14 lg:py-16 items-center">
 
           {/* LEFT SECTION */}
-         <div className="hero-left max-w-[520px] lg:-ml-8 xl:-ml-20 mt-6 lg:mt-40">
+          <div className="hero-left max-w-[520px] mt-6 lg:mt-24">
 
             <div className="inline-flex rounded-full bg-[#F7E9FF] px-4 py-2 text-xs font-semibold tracking-[0.18em] text-[#8A1AC8]">
               CRM Growth System
             </div>
 
             <h1 className="mt-6 text-[38px] sm:text-[42px] font-bold leading-[1.15] text-[#111]">
-              Grow Your Business<br />
-              with CRM Automation That{" "}
+              Generate More Leads and Automate Your Sales Process With CRM Automation That{" "}
               <span className={`hero-rotate ${fade ? "fade-in" : "fade-out"}`}>
                 {ROTATING_TEXTS[textIdx]}
               </span>
             </h1>
 
-            {/* ✅ FIXED: hero-paragraph class applied */}
             <p className="mt-6 text-lg text-[#667085] leading-[1.75] hero-paragraph">
-              We help businesses generate high-quality leads and automate
-              their sales process using CRM systems, paid ads and conversion
-              funnels.
+              We help small businesses, coaches, tutors, and service providers
+              grow using CRM automation, paid ads, funnels, and WhatsApp
+              follow-up systems.
             </p>
 
-            <button
-              onClick={() => setOpenModal(true)}
-              className="mt-8 rounded-full px-7 py-3 text-white font-semibold shadow-lg hover:-translate-y-1 transition"
-              style={{
-                background: "linear-gradient(104deg,#6400A1 0%,#FF1920 100%)",
-              }}
-            >
-              Get Free Marketing Plan →
-            </button>
+            {/* Buttons */}
+            <div className="mt-8 flex flex-wrap gap-4 items-center">
+              <button
+                onClick={() => setOpenModal(true)}
+                className="btn-primary"
+              >
+                Book Free Strategy Call →
+              </button>
+
+              <a
+                href="https://wa.me/YOUR_NUMBER"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Chat on WhatsApp
+              </a>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="trust-bar">
+              <span className="trust-item">⚡ Faster lead response</span>
+              <span className="trust-dot">•</span>
+              <span className="trust-item">🔁 Better follow-up</span>
+              <span className="trust-dot">•</span>
+              <span className="trust-item">🎯 More qualified enquiries</span>
+            </div>
+
           </div>
 
           {/* RIGHT SECTION — Hero Image */}
-          <div className="flex items-center justify-center lg:justify-end mt-40">
+          <div className="flex items-center justify-center lg:justify-end mt-12 lg:mt-0 w-full">
             <div className="hero-image-float">
               <div className="hero-image-wrapper">
                 <div className="hero-image-mask">
