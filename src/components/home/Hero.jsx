@@ -244,7 +244,7 @@ export default function Hero() {
                 onClick={() => setOpenModal(true)}
                 className="btn-primary"
               >
-                Book Free Strategy Call →
+                See How It Works →
               </button>
 
               <a
