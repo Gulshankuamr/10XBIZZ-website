@@ -14,8 +14,8 @@ const Logo = ({ small }) => (
   >
     <div
       style={{
-        width: small ? 40 : 93,
-        height: small ? 25 : 58,
+        width: small ? 48 : 85,
+        height: small ? 28 : 50,
         borderRadius: "999px",
         overflow: "hidden",
         display: "flex",
