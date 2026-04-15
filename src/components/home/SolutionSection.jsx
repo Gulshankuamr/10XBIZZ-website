@@ -4,9 +4,12 @@ import {
   BarChart3,
   Database,
   MessageSquare,
-  MousePointerClick,
+  Megaphone,
   Sparkles,
-  Target
+  Target,
+  TrendingUp,
+  Users,
+  Zap
 } from 'lucide-react';
 
 const SolutionSection = () => {
@@ -75,12 +78,13 @@ const SolutionSection = () => {
     []
   );
 
-  const flowItems = [
-    { label: 'Attract', icon: MousePointerClick },
-    { label: 'Capture', icon: Database },
-    { label: 'Automate', icon: MessageSquare },
-    { label: 'Optimize', icon: BarChart3 }
-  ];
+const flowItems = [
+  { label: 'Ads', icon: Megaphone },
+  { label: 'Leads', icon: Users },
+  { label: 'CRM', icon: Database },
+  { label: 'Automation', icon: Zap },
+  { label: 'Sales', icon: TrendingUp }
+];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -147,7 +151,7 @@ const SolutionSection = () => {
             Main Conversion Flow
           </p>
 
-          <div className="relative z-10 grid grid-cols-2 gap-x-6 gap-y-8 pt-2 md:grid-cols-4 md:gap-x-8">
+          <div className="relative z-10 flex flex-nowrap items-start justify-between gap-4 overflow-x-auto pt-2 pb-1">
             {flowItems.map((item, idx) => {
               const FlowIcon = item.icon;
               return (
@@ -157,14 +161,14 @@ const SolutionSection = () => {
                   animate={controls}
                   variants={itemVariants}
                   transition={{ delay: idx * 0.08 }}
-                  className="relative text-center"
+                  className="relative min-w-[170px] flex-1 text-center"
                 >
                   {idx < flowItems.length - 1 && (
                     <motion.div
                       initial={{ opacity: 0, scaleX: 0.9 }}
                       animate={{ opacity: 1, scaleX: 1 }}
                       transition={{ duration: 0.65, delay: 0.25 + idx * 0.12 }}
-                      className="pointer-events-none absolute left-[58%] top-[6px] hidden h-24 w-[86%] rounded-[90px] border-[3px] border-[#dddded] border-b-0 md:block"
+                      className="pointer-events-none absolute left-[58%] top-[6px] h-24 w-[86%] rounded-[90px] border-[3px] border-[#dddded] border-b-0"
                     />
                   )}
 
