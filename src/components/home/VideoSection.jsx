@@ -433,7 +433,7 @@ export default function VideoSection() {
         }
       `}</style>
 
-      <section className="vs-section">
+      <section className="vs-section ">
         <div className="vs-glow-left" />
 
         <div className="vs-inner">

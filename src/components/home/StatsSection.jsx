@@ -3,8 +3,8 @@ import { useState } from "react";
 const chaosItems = [
   {
     id: 1,
-    title: "Scattered Tools",
-    desc: "Spreadsheets, WhatsApp, and Emails all in different silos. Nothing talks to each other.",
+    title: "Leads Come In, No Fast Response",
+    desc: "Every minute of delay kills the deal. By the time you reply, the prospect has moved on to your competitor.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BB000F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
@@ -14,12 +14,46 @@ const chaosItems = [
   },
   {
     id: 2,
-    title: "Slow Follow-ups",
-    desc: "Leads go cold in minutes. Manual replies take hours. You're losing 60% of potential revenue.",
+    title: "No System to Track Enquiries",
+    desc: "Spreadsheets, WhatsApp, and Emails in different silos. Nothing talks to each other — leads fall through the cracks daily.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BB000F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/>
         <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+      </svg>
+    ),
+  },
+  {
+    id: 3,
+    title: "Ads Spend but No ROI Clarity",
+    desc: "You're burning budget on campaigns but can't trace which lead came from where, or what actually converted.",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BB000F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/>
+        <rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/>
+      </svg>
+    ),
+  },
+  {
+    id: 4,
+    title: "WhatsApp Chats Get Lost",
+    desc: "Hot leads buried under unread messages. No context, no history, no way to pick up where you left off.",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BB000F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    ),
+  },
+  {
+    id: 5,
+    title: "No Proper Follow-up Process",
+    desc: "Manual follow-ups depend on memory. Most leads get one message and then nothing — you're losing 60% of potential revenue.",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BB000F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="17 1 21 5 17 9"/>
+        <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+        <polyline points="7 23 3 19 7 15"/>
+        <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
       </svg>
     ),
   },
@@ -28,8 +62,8 @@ const chaosItems = [
 const edgeItems = [
   {
     id: 1,
-    title: "Unified Intelligence",
-    desc: "One central source of truth. Every lead, interaction, and conversion synced in real-time.",
+    title: "Instant Lead Response",
+    desc: "AI-powered engagement within 5 seconds of capture. You talk to them while they're still hot — before any competitor can.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6400A1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="3"/>
@@ -39,8 +73,8 @@ const edgeItems = [
   },
   {
     id: 2,
-    title: "Instant Response",
-    desc: "AI-powered engagement within 5 seconds of capture. We talk while they're still hot.",
+    title: "Unified Lead Tracking System",
+    desc: "One central source of truth. Every enquiry, interaction, and conversion synced in real-time — nothing lost, everything visible.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6400A1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
@@ -49,8 +83,8 @@ const edgeItems = [
   },
   {
     id: 3,
-    title: "Smart Lead Scoring",
-    desc: "Every lead gets scored automatically. Focus only on high-intent prospects ready to convert.",
+    title: "Full ROI Clarity on Ad Spend",
+    desc: "Know exactly which campaign, ad, or channel brought each lead. Smart lead scoring shows you where to double down.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6400A1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -59,8 +93,18 @@ const edgeItems = [
   },
   {
     id: 4,
-    title: "Automated Nurturing",
-    desc: "Multi-channel follow-up sequences that run 24/7 — email, WhatsApp, SMS, all on autopilot.",
+    title: "WhatsApp + All Channels, Unified",
+    desc: "Every WhatsApp, email, and SMS thread in one place. Full conversation history. Never lose context on a lead again.",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6400A1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    ),
+  },
+  {
+    id: 5,
+    title: "Automated Follow-up Sequences",
+    desc: "Multi-channel nurturing that runs 24/7 — email, WhatsApp, SMS — all on autopilot. No lead goes cold ever again.",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6400A1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
@@ -73,7 +117,6 @@ export default function ChaosVsEdge() {
   const [activeBar, setActiveBar] = useState(true);
 
   return (
-    // ✅ Section: width 1280, padding 128px top/bottom, 32px left/right
     <section className="bg-white w-full">
       <div
         className="mx-auto w-full"
@@ -85,7 +128,16 @@ export default function ChaosVsEdge() {
           paddingRight: 32,
         }}
       >
-        {/* ✅ Grid: full height, equal columns */}
+        {/* Section Header */}
+        <div className="text-center mb-14">
+          <h2 className="text-[34px] sm:text-[40px] font-extrabold text-[#111] leading-[1.12] tracking-tight mb-4">
+            Still Struggling to Turn Leads Into Customers?
+          </h2>
+          <p className="text-[16px] text-[#667085] max-w-xl mx-auto leading-relaxed">
+            You're getting enquiries… but conversions are not happening.
+          </p>
+        </div>
+
         <div
           className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8"
           style={{ minHeight: 660 }}
@@ -96,7 +148,6 @@ export default function ChaosVsEdge() {
             className="relative bg-[#fafafa] rounded-[24px] flex flex-col justify-between overflow-hidden border border-[#f0f0f0]"
             style={{ padding: "48px 48px 40px 48px" }}
           >
-            {/* Red glow */}
             <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-[#BB000F08] pointer-events-none" />
 
             <div>
@@ -147,6 +198,12 @@ export default function ChaosVsEdge() {
                 <div className="h-2 bg-[#BB000F08] rounded-full w-1/2" />
               </div>
             </div>
+
+            {/* Bottom line */}
+            <div className="mt-4 rounded-xl bg-[#BB000F08] border border-[#BB000F15] px-5 py-3 flex items-center gap-3">
+              <span className="text-[#BB000F] font-bold text-[15px]">→</span>
+              <span className="text-[13px] font-semibold text-[#111]">Every missed lead is lost revenue.</span>
+            </div>
           </div>
 
           {/* ── RIGHT: THE KINETIC EDGE ── */}
@@ -154,7 +211,6 @@ export default function ChaosVsEdge() {
             className="relative bg-white rounded-[24px] flex flex-col justify-between overflow-hidden border border-[#f0f0f0] shadow-[0_8px_48px_rgba(100,0,161,0.09)]"
             style={{ padding: "48px 48px 40px 48px" }}
           >
-            {/* Purple glow */}
             <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[#6400A10C] pointer-events-none" />
             <div className="absolute top-16 right-16 w-36 h-36 rounded-full bg-[#FF192008] pointer-events-none" />
 
@@ -224,6 +280,13 @@ export default function ChaosVsEdge() {
 
               <span className="text-[12px] text-white/70 font-medium">
                 Conversion Velocity: +340%
+              </span>
+            </div>
+
+            {/* Transition callout */}
+            <div className="mt-4 rounded-xl bg-[#6400A10A] border border-[#6400A118] px-5 py-3 text-center">
+              <span className="text-[13px] font-bold text-[#6400A1]">
+                The problem is not your ads. The problem is your system.
               </span>
             </div>
           </div>
