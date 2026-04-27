@@ -129,7 +129,7 @@ export default function ChaosVsEdge() {
         }}
       >
         {/* Section Header */}
-        <div className="text-center mb-14">
+        <div className="text-center  -mt-12">
           <h2 className="text-[34px] sm:text-[40px] font-extrabold text-[#111] leading-[1.12] tracking-tight mb-4">
             Still Struggling to Turn Leads Into Customers?
           </h2>

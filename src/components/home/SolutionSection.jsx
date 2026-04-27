@@ -109,7 +109,7 @@ const flowItems = [
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-white to-[#f5f7ff] px-4 py-20 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-white to-[#f5f7ff] px-4 -mt-8 my-6 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
         <motion.div

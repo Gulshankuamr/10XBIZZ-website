@@ -147,7 +147,7 @@ export default function CoreArchitecture() {
 
   return (
     // ✅ FIX 1: bg white
-    <section className="bg-white px-4  sm:px-6">
+    <section className="bg-white px-4 mb-16 sm:px-6">
       
       <div className="mx-auto w-full max-w-[1216px]">
 

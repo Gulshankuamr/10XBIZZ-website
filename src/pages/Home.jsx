@@ -22,10 +22,11 @@ export default function Home() {
       <FinancialGoal />
       <VideoSection />
       <StatsSection />
-      <Team />
+    
       <SolutionSection/>
       {/* <FinancialPlan /> */}
-      <FaqSection/>
+      {/* <FaqSection/> */}
+      {/* <Team /> */}
       <CTA />
       {/* <Footer /> */}
     </div>
