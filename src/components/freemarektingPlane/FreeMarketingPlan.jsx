@@ -1,432 +1,650 @@
 import { useState, useEffect } from "react";
 
-// ── Money bill SVG decoration ──────────────────────────────────
-const Bill = ({ style, rotate = 0, scale = 1 }) => (
-  <div
-    className="pointer-events-none absolute"
-    style={{ ...style, transform: `rotate(${rotate}deg) scale(${scale})`, zIndex: 0 }}
-  >
-    <svg width="64" height="42" viewBox="0 0 64 42" fill="none">
-      <rect width="64" height="42" rx="6" fill="#4CAF72" />
-      <rect x="4" y="4" width="56" height="34" rx="4" fill="none" stroke="#3d9960" strokeWidth="1.5" />
-      <circle cx="32" cy="21" r="9" fill="#3d9960" />
-      <text x="32" y="25.5" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#a8f0c2" fontFamily="sans-serif">$</text>
-      <rect x="6" y="9" width="10" height="6" rx="2" fill="#3d9960" />
-      <rect x="48" y="27" width="10" height="6" rx="2" fill="#3d9960" />
-    </svg>
-  </div>
-);
-
-// ── Step configs matching the wireframe ────────────────────────
 const STEPS = [
   {
-    // 1st modal — multi-select pills
-    heading: "What do you need help with?",
-    sub: "Select all that apply",
+    heading: "Let's Build Your Lead Generation & Conversion System",
+    sub: "Choose one or multiple services, and we'll build the right growth strategy for your business.",
     type: "multi",
     options: [
-      "Paid Advertising",
-      "Content Marketing",
-      "Creative Work",
+      "Google Ads",
+      "Meta Ads",
       "Search Engine Optimization (SEO)",
-      "Conversion Rate Optimization (CRO)",
-      "Paid Search",
-      "Paid Social",
-      "Other",
+      "Google My Business Optimization",
+      "CRM Setup & Lead Management",
+      "WhatsApp Automation",
+      "Business Automation",
+      "Funnel & Landing Pages",
+      "Complete Growth System",
     ],
-    btn: "START MY FREE MARKETING PLAN",
+    btn: "Get My Custom Strategy",
   },
   {
-    // 2nd modal — goals, grid of pill-style buttons
-    heading: "What are your goals?",
-    sub: "Select all that apply",
+    heading: "What Do You Want to Improve in Your Business?",
+    sub: "Select all that apply — this helps us build the right system for you.",
     type: "multi-grid",
     options: [
-      "Increase revenue",
-      "Find more profit",
-      "Get more conversions",
-      "Lower my acquisition cost",
-      "Improve my ROI",
-      "All of the above",
-      "Other",
+      "Get more qualified leads",
+      "Improve lead conversion",
+      "Reduce cost per lead (CPL)",
+      "Fix follow-up & response system",
+      "Track and manage all enquiries",
+      "Automate my lead handling",
+      "Build a complete growth system",
+      "Scale my existing campaigns",
+      "Not sure — need expert guidance",
     ],
-    btn: "CONTINUE",
+    btn: "Build My Custom Strategy",
   },
   {
-    // 3rd modal — budget range buttons in a grid
-    heading: "What's your current monthly digital marketing budget?",
-    sub: "Don't worry, we won't judge – an estimated guess is fine too",
+    heading: "What's Your Approx Monthly Marketing Budget?",
+    sub: "No worries — just an estimate helps us suggest the right strategy for you.",
     type: "budget",
     options: [
-      "$0 – $1,000",
-      "$1,001 – $5,000",
-      "$5,001 – $10,000",
-      "$10,001 – $25,000",
-      "$25,001 – $100,000",
-      "$100,001+",
+      "₹5,000 – ₹10,000",
+      "₹10,000 – ₹25,000",
+      "₹25,000 – ₹50,000",
+      "₹50,000 – ₹1,00,000",
+      "₹1,00,000+",
+      "Not sure",
     ],
-    btn: "CONTINUE",
+    btn: "Get My Custom Plan",
   },
   {
-    // 4th modal — website URL input
-    heading: "What's your company's website?",
-    sub: "",
+    heading: "Do You Have a Website or Online Presence?",
+    sub: "This helps us understand your current setup and suggest the right strategy.",
     type: "website",
-    placeholder: "yoursite.com",
-    btn: "LAST STEP",
+    options: [
+      "I have a website",
+      "I don't have a website yet",
+      "I only use WhatsApp / Social media",
+      "Not sure",
+    ],
+    btn: "Get My Custom Growth Plan",
   },
   {
-    // 5th modal — final contact form
-    heading: "We're putting your marketing plan & pricing options together. Who can we send them to?",
-    sub: "",
+    heading: "Let's Build Your Custom Growth Plan",
+    sub: "We've understood your requirements — now let's connect and create the right strategy for your business.",
     type: "contact",
     btn: "SEND MY FREE MARKETING PLAN",
   },
   {
-    // Done screen
-    heading: "🎉 Your Plan is Ready!",
-    sub: "We'll review your answers and send your custom marketing plan shortly. Check your inbox!",
+    heading: "Your Growth Plan Is Ready 🚀",
+    sub: "We've reviewed your inputs and prepared the next step to help you grow your business.",
     type: "done",
     btn: "CLOSE",
   },
 ];
 
+const TRUST_TEXT = {
+  0: "🔒 No spam. No pressure. Just a strategy built for your business goals.",
+  1: "📊 No spam. No pressure. Just a strategy tailored for your business.",
+  2: "💰 Tailored strategy, zero pressure, and built purely around your business goals.",
+  3: "🌐 Tell us your setup — we'll build the right system for you.",
+  4: "✔️ No spam. No unnecessary calls &nbsp; ✔️ 100% tailored strategy &nbsp; ✔️ Quick response within 24 hours",
+};
+
 const TOTAL_STEPS = STEPS.length - 1;
 
-// ── Component ──────────────────────────────────────────────────
 export default function FreeMarketingPlan({ onClose }) {
   const [step, setStep] = useState(0);
   const [multiSel, setMultiSel] = useState([]);
   const [multiGridSel, setMultiGridSel] = useState([]);
   const [budgetSel, setBudgetSel] = useState(null);
-  const [website, setWebsite] = useState("");
+  const [websiteOption, setWebsiteOption] = useState("");
+  const [websiteInput, setWebsiteInput] = useState("");
   const [name, setName] = useState("");
-  const [bizEmail, setBizEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [countryCode, setCountryCode] = useState("+91");
+  const [whatsappPref, setWhatsappPref] = useState(false);
 
   const current = STEPS[step];
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, []);
 
   const toggleMulti = (opt) =>
-    setMultiSel((p) => p.includes(opt) ? p.filter((x) => x !== opt) : [...p, opt]);
+    setMultiSel((p) =>
+      p.includes(opt) ? p.filter((x) => x !== opt) : [...p, opt]
+    );
 
   const toggleMultiGrid = (opt) =>
-    setMultiGridSel((p) => p.includes(opt) ? p.filter((x) => x !== opt) : [...p, opt]);
+    setMultiGridSel((p) =>
+      p.includes(opt) ? p.filter((x) => x !== opt) : [...p, opt]
+    );
 
   const canProceed = () => {
     if (current.type === "multi") return multiSel.length > 0;
     if (current.type === "multi-grid") return multiGridSel.length > 0;
     if (current.type === "budget") return !!budgetSel;
-    if (current.type === "website") return website.trim().length > 0;
-    if (current.type === "contact") return name.trim().length > 0 && bizEmail.trim().length > 0 && phone.trim().length > 0;
-    return true;
+    if (current.type === "website") {
+      if (!websiteOption) return false;
+      if (websiteOption === "I have a website")
+        return websiteInput.trim().length > 0;
+      return true;
+    }
+    if (current.type === "contact")
+      return name.trim().length > 0 && phone.trim().length > 0;
+    if (current.type === "done") return true;
+    return false;
   };
 
   const handleNext = () => {
-    if (current.type === "done") { onClose?.(); return; }
+    if (current.type === "done") {
+      onClose?.();
+      return;
+    }
     if (!canProceed()) return;
     setStep((s) => s + 1);
   };
 
   const isDone = current.type === "done";
-  const progress = ((step + 1) / TOTAL_STEPS) * 100;
+  const progress = Math.round(((step + 1) / TOTAL_STEPS) * 100);
+
+  const GRAD = "linear-gradient(104.17deg, #6400A1 0%, #FF1920 100%)";
 
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        .fmp-root * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
 
-        .fmp-wrap * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
-
-        /* ── Pill (multi-select, step 1) ── */
-        .fmp-pill {
-          cursor: pointer; user-select: none;
-          border-radius: 12px; border: 2px solid #d0d7e2;
-          padding: 10px 18px; font-size: 13.5px; font-weight: 500;
-          background: #fff; color: #253046;
-          box-shadow: 0 2px 6px -2px rgba(15,23,42,0.09);
-          transition: all 0.15s ease;
-        }
-        .fmp-pill:hover:not(.fmp-pill-on) { border-color: #e8736e; color: #e8736e; }
-        .fmp-pill-on { background: #e8736e !important; border-color: #e8736e !important; color: #fff !important; box-shadow: 0 4px 14px -4px rgba(232,115,110,0.40) !important; }
-
-        /* ── Grid option (multi-grid, step 2) ── */
-        .fmp-grid-opt {
-          cursor: pointer; user-select: none;
-          border-radius: 10px; border: 2px solid #d8dde6;
-          padding: 12px 16px; font-size: 13.5px; font-weight: 500;
-          background: #fff; color: #253046; text-align: center;
-          transition: all 0.15s ease;
-        }
-        .fmp-grid-opt:hover:not(.fmp-grid-on) { border-color: #e8736e; color: #e8736e; background: #fff7f7; }
-        .fmp-grid-on { border-color: #e8736e !important; background: #fff0ef !important; color: #e8736e !important; }
-
-        /* ── Budget option (step 3) ── */
-        .fmp-budget-opt {
-          cursor: pointer; user-select: none;
-          border-radius: 10px; border: 2px solid #d8dde6;
-          padding: 14px 20px; font-size: 13.5px; font-weight: 600;
-          background: #fff; color: #253046; text-align: center;
-          transition: all 0.15s ease;
-        }
-        .fmp-budget-opt:hover:not(.fmp-budget-on) { border-color: #e8736e; color: #e8736e; background: #fff7f7; }
-        .fmp-budget-on { border-color: #e8736e !important; background: #fff0ef !important; color: #e8736e !important; }
-
-        /* ── Input ── */
-        .fmp-input {
-          width: 100%; border-radius: 10px; border: 2px solid #d8dde6;
-          padding: 13px 18px; font-size: 14px; color: #0d1326;
-          outline: none; background: #fff;
-          transition: border-color 0.17s ease;
-        }
-        .fmp-input:focus { border-color: #e8736e; }
-        .fmp-input::placeholder { color: #a0aab8; }
-
-        /* ── Phone row ── */
-        .fmp-phone-wrap { display: flex; gap: 10px; }
-        .fmp-country-sel {
-          border-radius: 10px; border: 2px solid #d8dde6;
-          padding: 13px 12px; font-size: 14px; color: #0d1326;
-          background: #fff; outline: none; cursor: pointer;
-          min-width: 88px; transition: border-color 0.17s ease;
-        }
-        .fmp-country-sel:focus { border-color: #e8736e; }
-
-        /* ── CTA button ── */
-        .fmp-cta-btn {
-          position: relative; z-index: 10;
-          border-radius: 12px; border: none;
-          padding: 16px 32px;
-          font-size: 12.5px; font-weight: 800;
-          letter-spacing: 0.16em; text-transform: uppercase; color: #fff;
-          background: #e8736e; cursor: pointer;
-          transition: filter 0.15s ease, transform 0.15s ease;
-          min-width: 280px;
-        }
-        .fmp-cta-btn:hover:not(:disabled) { filter: brightness(1.08); transform: translateY(-1px); }
-        .fmp-cta-btn:disabled { opacity: 0.38; cursor: not-allowed; }
-        .fmp-cta-shadow {
-          position: absolute; inset: 0; border-radius: 12px;
-          background: #3d4756; transform: translate(5px, 5px); z-index: -1;
-        }
-
-        /* ── Progress ── */
-        .fmp-progress { height: 4px; background: #eef0f4; border-radius: 99px; overflow: hidden; margin-bottom: 18px; }
-        .fmp-progress-fill { height: 100%; background: #e8736e; border-radius: 99px; transition: width 0.35s ease; }
-
-        /* ── Animation ── */
-        .fmp-in { animation: fmpSlide 0.22s ease; }
-        @keyframes fmpSlide {
-          from { opacity: 0; transform: translateY(16px) scale(0.97); }
+        .fmp-step { animation: fmpIn 0.22s ease; }
+        @keyframes fmpIn {
+          from { opacity: 0; transform: translateY(12px) scale(0.97); }
           to   { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* ── Label ── */
-        .fmp-label { font-size: 11.5px; font-weight: 600; color: #8a96a8; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; }
+        .fmp-modal::before {
+          content: '';
+          position: absolute; top: 0; left: 0; right: 0; height: 3px;
+          background: ${GRAD};
+        }
+
+        .fmp-pill-active {
+          background: ${GRAD} !important;
+          border-color: transparent !important;
+          color: #fff !important;
+          box-shadow: 0 4px 14px rgba(100,0,161,0.35) !important;
+        }
+
+        .fmp-opt-active {
+          background: ${GRAD} !important;
+          border-color: transparent !important;
+          color: #fff !important;
+          box-shadow: 0 4px 14px rgba(100,0,161,0.28) !important;
+        }
+
+        .fmp-field:focus {
+          outline: none;
+          border-color: #6400A1 !important;
+          box-shadow: 0 0 0 3px rgba(100,0,161,0.12) !important;
+        }
+
+        .fmp-cta {
+          background: ${GRAD};
+          box-shadow:
+            0 6px 0px #3d006a,
+            0 10px 28px rgba(100,0,161,0.45),
+            0 0 40px rgba(255,25,32,0.18),
+            inset 0 1px 0 rgba(255,255,255,0.22);
+          transition: transform 0.13s ease, box-shadow 0.13s ease;
+          text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+        }
+        .fmp-cta::before {
+          content: '';
+          position: absolute; inset: 0; border-radius: 9999px;
+          background: linear-gradient(180deg, rgba(255,255,255,0.16) 0%, transparent 55%);
+          pointer-events: none;
+        }
+        .fmp-cta:hover:not(:disabled) {
+          transform: translateY(-3px);
+          box-shadow:
+            0 9px 0px #3d006a,
+            0 16px 36px rgba(100,0,161,0.55),
+            0 0 60px rgba(255,25,32,0.28),
+            inset 0 1px 0 rgba(255,255,255,0.22);
+        }
+        .fmp-cta:active:not(:disabled) {
+          transform: translateY(4px);
+          box-shadow:
+            0 2px 0px #3d006a,
+            0 4px 10px rgba(100,0,161,0.3);
+        }
+        .fmp-cta:disabled { opacity: 0.38; cursor: not-allowed; }
+        .fmp-cta:hover .fmp-arrow { transform: translateX(4px); }
+        .fmp-arrow { transition: transform 0.2s; }
+
+        .fmp-progress-bar {
+          height: 4px;
+          border-radius: 9999px;
+          background: #f0f0f0;
+          overflow: hidden;
+          margin-bottom: 20px;
+        }
+        
+
+        .fmp-checkbox {
+          width: 18px; height: 18px;
+          border-radius: 4px;
+          border: 2px solid #ccc;
+          cursor: pointer;
+          appearance: none;
+          -webkit-appearance: none;
+          transition: all 0.15s;
+          flex-shrink: 0;
+          position: relative;
+        }
+        .fmp-checkbox:checked {
+          background: ${GRAD};
+          border-color: transparent;
+        }
+        .fmp-checkbox:checked::after {
+          content: '✓';
+          position: absolute; top: -1px; left: 2px;
+          font-size: 12px; color: white; font-weight: 700;
+        }
+
+        .fmp-wa-btn {
+          background: #25D366;
+          color: white;
+          border: none;
+          border-radius: 9999px;
+          padding: 14px 28px;
+          font-size: 14px;
+          font-weight: 700;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: transform 0.13s, box-shadow 0.13s;
+          box-shadow: 0 6px 0px #1a9e4a, 0 10px 24px rgba(37,211,102,0.35);
+          text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+        }
+        .fmp-wa-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 0px #1a9e4a, 0 14px 30px rgba(37,211,102,0.45);
+        }
+
+        .fmp-cal-btn {
+          background: white;
+          color: #6400A1;
+          border: 2px solid #6400A1;
+          border-radius: 9999px;
+          padding: 13px 28px;
+          font-size: 14px;
+          font-weight: 700;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: all 0.13s;
+        }
+        .fmp-cal-btn:hover {
+          background: #6400A1;
+          color: white;
+          transform: translateY(-2px);
+        }
+
+        .fmp-done-check {
+          width: 56px; height: 56px;
+          border-radius: 50%;
+          background: ${GRAD};
+          display: flex; align-items: center; justify-content: center;
+          margin: 0 auto 12px;
+          font-size: 24px;
+          box-shadow: 0 8px 24px rgba(100,0,161,0.3);
+        }
       `}</style>
 
       {/* Backdrop */}
       <div
-        className="fmp-wrap"
+        className="fmp-root fixed inset-0 z-[9999] flex items-center justify-center p-4"
         style={{
-          position: "fixed", inset: 0, zIndex: 9999,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          padding: "16px",
-          backgroundColor: "rgba(13,19,38,0.62)",
-          backdropFilter: "blur(6px)",
+          backgroundColor: "rgba(13,19,38,0.65)",
+          backdropFilter: "blur(8px)",
         }}
-        onClick={(e) => { if (e.target === e.currentTarget) onClose?.(); }}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) onClose?.();
+        }}
       >
-        {/* Modal */}
+        {/* Gradient Border Shell */}
         <div
-          className="fmp-in"
+          className="w-full rounded-3xl"
           style={{
-            position: "relative",
-            width: "100%",
-            maxWidth: step === 4 ? 620 : 660,
-            background: "#fff",
-            borderRadius: 20,
-            border: "2.5px solid #c8d2e0",
-            boxShadow: "0 32px 80px -20px rgba(15,23,42,0.38)",
-            padding: "2rem 2.5rem 1.75rem",
+            maxWidth: 660,
+            padding: "2.5px",
+            background: GRAD,
+            boxShadow:
+              "0 32px 80px -10px rgba(100,0,161,0.45), 0 8px 32px rgba(255,25,32,0.15)",
           }}
         >
-          {/* Close */}
-          <button
-            onClick={onClose}
-            style={{
-              position: "absolute", top: 14, right: 14,
-              width: 30, height: 30, borderRadius: "50%",
-              border: "none", background: "transparent",
-              cursor: "pointer", color: "#8a96a8", fontSize: 14,
-              display: "flex", alignItems: "center", justifyContent: "center",
-            }}
-          >✕</button>
+          {/* White Modal */}
+          <div
+            className="fmp-modal fmp-step relative bg-white rounded-[22px] overflow-hidden px-10 pt-8 pb-7"
+            key={step}
+          >
+            {/* Close button */}
+            <button
+              onClick={onClose}
+              className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full border border-slate-200 bg-slate-50 text-slate-400 text-xs flex items-center justify-center cursor-pointer transition-all hover:bg-red-50 hover:border-red-300 hover:text-red-500"
+            >
+              ✕
+            </button>
 
-          {/* Progress bar */}
-          {!isDone && (
-            <div className="fmp-progress">
-              <div className="fmp-progress-fill" style={{ width: `${progress}%` }} />
+            {/* Progress Bar */}
+           
+
+            {/* Heading */}
+            <div className="text-center mb-6">
+              <h2
+                className="font-extrabold tracking-tight text-[#0d1326] m-0"
+                style={{ fontSize: step === 4 ? "1.15rem" : "1.35rem", lineHeight: 1.25 }}
+              >
+                {current.heading}
+              </h2>
+              {current.sub && (
+                <p className="mt-2 text-sm text-gray-400">{current.sub}</p>
+              )}
             </div>
-          )}
 
-          {/* Step counter */}
-          {!isDone && (
-            <p className="fmp-label" style={{ marginBottom: 16 }}>
-              STEP {step + 1} OF {TOTAL_STEPS}
-            </p>
-          )}
-
-          {/* Heading */}
-          <div style={{ textAlign: "center", marginBottom: 24 }}>
-            <h2 style={{ fontSize: step === 4 ? "1.15rem" : "1.45rem", fontWeight: 800, color: "#0d1326", letterSpacing: "-0.02em", margin: 0 }}>
-              {current.heading}
-            </h2>
-            {current.sub && (
-              <p style={{ marginTop: 8, fontSize: 14, color: "#5e6574" }}>{current.sub}</p>
+            {/* STEP 1: Multi-select pills */}
+            {current.type === "multi" && (
+              <div className="flex flex-wrap justify-center gap-2.5 mb-7">
+                {current.options.map((opt) => (
+                  <button
+                    key={opt}
+                    onClick={() => toggleMulti(opt)}
+                    className={`fmp-pill cursor-pointer select-none rounded-full border-2 border-slate-200 px-5 py-2 text-sm font-semibold bg-white text-gray-600 transition-all hover:border-purple-400 hover:text-purple-700 hover:bg-purple-50 ${
+                      multiSel.includes(opt) ? "fmp-pill-active" : ""
+                    }`}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
             )}
-          </div>
 
-          {/* ── STEP 1: Multi-select pills ── */}
-          {current.type === "multi" && (
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10, marginBottom: 32 }}>
-              {current.options.map((opt) => (
-                <button
-                  key={opt}
-                  className={`fmp-pill ${multiSel.includes(opt) ? "fmp-pill-on" : ""}`}
-                  onClick={() => toggleMulti(opt)}
-                >
-                  {opt}
-                </button>
-              ))}
-            </div>
-          )}
+            {/* STEP 2: Goals 3-col grid */}
+            {current.type === "multi-grid" && (
+              <div className="grid grid-cols-3 gap-2.5 mb-6">
+                {current.options.map((opt) => (
+                  <button
+                    key={opt}
+                    onClick={() => toggleMultiGrid(opt)}
+                    className={`fmp-opt cursor-pointer select-none rounded-xl border-2 border-slate-200 px-3 py-3 text-sm font-semibold bg-white text-gray-600 text-center transition-all hover:border-purple-400 hover:text-purple-700 hover:bg-purple-50 ${
+                      multiGridSel.includes(opt) ? "fmp-opt-active" : ""
+                    }`}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+            )}
 
-          {/* ── STEP 2: Multi-grid goals ── */}
-          {current.type === "multi-grid" && (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10, marginBottom: 28 }}>
-              {current.options.map((opt) => (
-                <button
-                  key={opt}
-                  className={`fmp-grid-opt ${multiGridSel.includes(opt) ? "fmp-grid-on" : ""}`}
-                  onClick={() => toggleMultiGrid(opt)}
-                >
-                  {opt}
-                </button>
-              ))}
-            </div>
-          )}
+            {/* STEP 3: Budget 2-col grid */}
+            {current.type === "budget" && (
+              <div className="grid grid-cols-2 gap-2.5 mb-6">
+                {current.options.map((opt) => (
+                  <button
+                    key={opt}
+                    onClick={() => setBudgetSel(opt)}
+                    className={`fmp-opt cursor-pointer select-none rounded-xl border-2 border-slate-200 px-4 py-4 text-sm font-semibold bg-white text-gray-600 text-center transition-all hover:border-purple-400 hover:text-purple-700 hover:bg-purple-50 ${
+                      budgetSel === opt ? "fmp-opt-active" : ""
+                    }`}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+            )}
 
-          {/* ── STEP 3: Budget grid ── */}
-          {current.type === "budget" && (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10, marginBottom: 28 }}>
-              {current.options.map((opt) => (
-                <button
-                  key={opt}
-                  className={`fmp-budget-opt ${budgetSel === opt ? "fmp-budget-on" : ""}`}
-                  onClick={() => setBudgetSel(opt)}
-                >
-                  {opt}
-                </button>
-              ))}
-            </div>
-          )}
+            {/* STEP 4: Website */}
+            {current.type === "website" && (
+              <div className="mb-7 space-y-4">
+                {/* Options first */}
+                <div className="space-y-2">
+                  {current.options.map((opt) => (
+                    <button
+                      key={opt}
+                      onClick={() => {
+                        setWebsiteOption(opt);
+                        setWebsiteInput("");
+                      }}
+                      className={`w-full text-left px-4 py-3 rounded-xl border-2 text-sm font-semibold transition-all cursor-pointer ${
+                        websiteOption === opt
+                          ? "fmp-opt-active"
+                          : "border-slate-200 text-gray-600 bg-white hover:border-purple-400 hover:text-purple-700 hover:bg-purple-50"
+                      }`}
+                    >
+                      {opt}
+                    </button>
+                  ))}
+                </div>
 
-          {/* ── STEP 4: Website input ── */}
-          {current.type === "website" && (
-            <div style={{ marginBottom: 28 }}>
-              <input
-                className="fmp-input"
-                type="text"
-                placeholder={current.placeholder}
-                value={website}
-                onChange={(e) => setWebsite(e.target.value)}
-              />
-            </div>
-          )}
-
-          {/* ── STEP 5: Contact form ── */}
-          {current.type === "contact" && (
-            <div style={{ display: "grid", gap: 12, marginBottom: 28 }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                <div>
-                  <p className="fmp-label">Your Name *</p>
+                {/* Conditional UI */}
+                {websiteOption === "I have a website" && (
                   <input
-                    className="fmp-input"
+                    type="text"
+                    placeholder="Enter your website URL (example: yourwebsite.com)"
+                    value={websiteInput}
+                    onChange={(e) => setWebsiteInput(e.target.value)}
+                    className="fmp-field w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm text-[#0d1326] bg-[#fdfdff] placeholder-slate-300 transition-all"
+                  />
+                )}
+
+                {websiteOption === "I don't have a website yet" && (
+                  <div className="bg-purple-50 border border-purple-100 rounded-xl px-4 py-3">
+                    <p className="text-sm text-purple-700 font-medium">
+                      👉 No problem — we can help you build a high-converting landing page
+                    </p>
+                  </div>
+                )}
+
+                {websiteOption === "I only use WhatsApp / Social media" && (
+                  <input
+                    type="text"
+                    placeholder="Share your Instagram / Facebook / WhatsApp link (optional)"
+                    value={websiteInput}
+                    onChange={(e) => setWebsiteInput(e.target.value)}
+                    className="fmp-field w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm text-[#0d1326] bg-[#fdfdff] placeholder-slate-300 transition-all"
+                  />
+                )}
+
+                <p className="text-[12px] text-gray-400 text-center">
+                  ✔️ No website? No problem. We build complete systems from scratch.
+                </p>
+                <p className="text-[13px] text-gray-700 text-center font-semibold">
+                  We don't just run ads — we build the complete system your business needs.
+                </p>
+              </div>
+            )}
+
+            {/* STEP 5: Contact form */}
+            {current.type === "contact" && (
+              <div className="grid gap-3.5 mb-6">
+                {/* Name */}
+                <div>
+                  <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">
+                    Your Name *
+                  </label>
+                  <input
+                    className="fmp-field w-full rounded-xl border-2 border-slate-200 px-4 py-3.5 text-sm text-[#0d1326] bg-[#fdfdff] placeholder-slate-300 transition-all"
                     type="text"
                     placeholder="John Smith"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
+
+                {/* Phone */}
                 <div>
-                  <p className="fmp-label">Your Business Email *</p>
+                  <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">
+                    Phone Number *
+                  </label>
+                  <div className="flex gap-2">
+                    <select
+                      className="fmp-field rounded-xl border-2 border-slate-200 px-3 py-3.5 text-sm text-[#0d1326] bg-[#fdfdff] cursor-pointer transition-all min-w-[90px]"
+                      value={countryCode}
+                      onChange={(e) => setCountryCode(e.target.value)}
+                    >
+                      <option value="+91">🇮🇳 +91</option>
+                      <option value="+1">🇺🇸 +1</option>
+                      <option value="+44">🇬🇧 +44</option>
+                      <option value="+61">🇦🇺 +61</option>
+                      <option value="+971">🇦🇪 +971</option>
+                      <option value="+65">🇸🇬 +65</option>
+                    </select>
+                    <div className="relative flex-1">
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-base">📱</span>
+                      <input
+                        className="fmp-field w-full rounded-xl border-2 border-slate-200 pl-10 pr-4 py-3.5 text-sm text-[#0d1326] bg-[#fdfdff] placeholder-slate-300 transition-all"
+                        type="tel"
+                        placeholder="98765 43210"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Email - optional */}
+                <div>
+                  <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">
+                    Email <span className="text-slate-300 normal-case font-normal">(optional)</span>
+                  </label>
                   <input
-                    className="fmp-input"
+                    className="fmp-field w-full rounded-xl border-2 border-slate-200 px-4 py-3.5 text-sm text-[#0d1326] bg-[#fdfdff] placeholder-slate-300 transition-all"
                     type="email"
                     placeholder="john@company.com"
-                    value={bizEmail}
-                    onChange={(e) => setBizEmail(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
-              </div>
-              <div>
-                <p className="fmp-label">Your Phone Number *</p>
-                <div className="fmp-phone-wrap">
-                  <select
-                    className="fmp-country-sel"
-                    value={countryCode}
-                    onChange={(e) => setCountryCode(e.target.value)}
-                  >
-                    <option value="+91">🇮🇳 +91</option>
-                    <option value="+1">🇺🇸 +1</option>
-                    <option value="+44">🇬🇧 +44</option>
-                    <option value="+61">🇦🇺 +61</option>
-                    <option value="+971">🇦🇪 +971</option>
-                    <option value="+65">🇸🇬 +65</option>
-                  </select>
+
+                {/* WhatsApp preference */}
+                <label className="flex items-center gap-3 cursor-pointer select-none bg-green-50 border border-green-100 rounded-xl px-4 py-3">
                   <input
-                    className="fmp-input"
-                    style={{ flex: 1 }}
-                    type="tel"
-                    placeholder="+1"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    type="checkbox"
+                    className="fmp-checkbox"
+                    checked={whatsappPref}
+                    onChange={(e) => setWhatsappPref(e.target.checked)}
                   />
+                  <span className="text-sm font-semibold text-gray-700">
+                    💬 Prefer WhatsApp communication
+                  </span>
+                </label>
+
+                {/* Positioning line */}
+                <p className="text-[12.5px] text-gray-500 text-center italic">
+                  "We'll personally review your business and suggest the best growth system."
+                </p>
+              </div>
+            )}
+
+            {/* Done Screen */}
+            {isDone && (
+              <div className="text-center py-2 pb-4">
+                <div className="fmp-done-check">🚀</div>
+
+                <p className="text-[15px] text-gray-500 leading-relaxed mb-6">
+                  {current.sub}
+                </p>
+
+                {/* WhatsApp CTA */}
+                <div className="flex flex-col items-center gap-3">
+                  <p className="text-sm font-semibold text-gray-700">
+                    👉 Want faster response?
+                  </p>
+
+                  <button
+                    className="fmp-wa-btn"
+                    onClick={() =>
+                      window.open("https://wa.me/919999999999", "_blank")
+                    }
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Chat on WhatsApp
+                  </button>
+
+                  <span className="text-xs text-gray-400">OR</span>
+
+                  <button className="fmp-cal-btn">
+                    📅 Book Your Free Strategy Call
+                  </button>
+                </div>
+
+                {/* What we'll do */}
+                <div className="mt-5 bg-slate-50 rounded-2xl px-5 py-4 text-left">
+                  <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">In this call, we will:</p>
+                  <div className="space-y-1.5">
+                    {[
+                      "Understand your business",
+                      "Identify growth opportunities",
+                      "Suggest the right system",
+                    ].map((item) => (
+                      <p key={item} className="text-sm text-gray-700 font-medium flex items-center gap-2">
+                        <span
+                          className="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-xs font-bold flex-shrink-0"
+                          style={{ background: GRAD }}
+                        >
+                          ✓
+                        </span>
+                        {item}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
+            )}
+
+            {/* CTA Button */}
+            <div className="flex flex-col items-center pt-2 gap-2">
+              {!isDone && (
+                <>
+                  <button
+                    onClick={handleNext}
+                    disabled={!canProceed()}
+                    className="fmp-cta relative inline-flex items-center justify-center gap-2.5 rounded-full px-10 py-4 text-[13px] font-extrabold tracking-widest uppercase text-white border-none cursor-pointer"
+                    style={{ minWidth: 260 }}
+                  >
+                    {current.btn}
+                    <span
+                      className="fmp-arrow inline-flex items-center justify-center w-6 h-6 rounded-full text-sm"
+                      style={{ background: "rgba(255,255,255,0.2)" }}
+                    >
+                      →
+                    </span>
+                  </button>
+
+                  {TRUST_TEXT[step] && (
+                    <p
+                      className="text-[12px] text-gray-400 text-center max-w-xs my-1"
+                      dangerouslySetInnerHTML={{ __html: TRUST_TEXT[step] }}
+                    />
+                  )}
+                </>
+              )}
+
+              {isDone && (
+                <button
+                  onClick={onClose}
+                  className="mt-3 text-xs text-gray-400 underline cursor-pointer bg-transparent border-none"
+                >
+                  Close this window
+                </button>
+              )}
             </div>
-          )}
-
-          {/* ── Done ── */}
-          {isDone && (
-            <div style={{ textAlign: "center", padding: "12px 0 24px" }}>
-              <div style={{ fontSize: 56, marginBottom: 12 }}>🎉</div>
-            </div>
-          )}
-
-          {/* ── CTA + bills ── */}
-          <div style={{ position: "relative", display: "flex", justifyContent: "center", minHeight: 72, alignItems: "flex-end" }}>
-            <Bill style={{ left: -12, bottom: 2 }} rotate={-20} scale={0.88} />
-            <Bill style={{ left: 42, bottom: 14 }} rotate={-9} scale={0.70} />
-            <Bill style={{ right: -12, bottom: 2 }} rotate={20} scale={0.88} />
-            <Bill style={{ right: 42, bottom: 14 }} rotate={9} scale={0.70} />
-
-            <button
-              className="fmp-cta-btn"
-              onClick={handleNext}
-              disabled={!canProceed()}
-            >
-              <span className="fmp-cta-shadow" />
-              {current.btn}
-            </button>
           </div>
+          {/* end white modal */}
         </div>
+        {/* end gradient border */}
       </div>
     </>
   );
