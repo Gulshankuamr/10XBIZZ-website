@@ -332,7 +332,7 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="mt-6 text-lg text-[#667085] leading-[1.75] hero-paragraph">
+            <p className="mt-6 text-lg text-[#000000] leading-[1.75] hero-paragraph">
               We help small businesses, coaches, tutors, and service providers
               grow using CRM automation, paid ads, funnels, and WhatsApp
               follow-up systems.

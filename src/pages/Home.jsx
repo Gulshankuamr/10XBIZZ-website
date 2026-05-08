@@ -9,6 +9,8 @@ import VideoSection from "../components/home/VideoSection";
 import Team from "../components/about/Team";
 import FaqSection from "../components/services/FaqSection";
 import SolutionSection from "../components/home/SolutionSection";
+import { SiCucumber } from "react-icons/si";
+import SuccessStories from "../components/home/SuccessStories";
 
 export default function Home() {
   return (
@@ -22,8 +24,9 @@ export default function Home() {
       <FinancialGoal />
       <VideoSection />
       <StatsSection />
+      <SiCucumber/>
     
-      <SolutionSection/>
+    <SuccessStories/>
       {/* <FinancialPlan /> */}
       {/* <FaqSection/> */}
       {/* <Team /> */}

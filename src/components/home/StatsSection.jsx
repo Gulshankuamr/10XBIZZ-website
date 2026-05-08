@@ -133,7 +133,7 @@ export default function ChaosVsEdge() {
           <h2 className="text-[34px] sm:text-[40px] font-extrabold text-[#111] leading-[1.12] tracking-tight mb-4">
             Still Struggling to Turn Leads Into Customers?
           </h2>
-          <p className="text-[16px] text-[#667085] max-w-xl mx-auto leading-relaxed">
+          <p className="text-[16px] text-[#000000] max-w-xl mx-auto leading-relaxed">
             You're getting enquiries… but conversions are not happening.
           </p>
         </div>
@@ -168,7 +168,7 @@ export default function ChaosVsEdge() {
                     <div>
                       <h4 className="text-[15px] font-bold text-[#111] mb-1">{item.title}</h4>
                       <p
-                        className="text-[13px] text-[#667085] leading-[1.65] text-justify"
+                        className="text-[13px] text-[#000000] leading-[1.65] text-justify"
                         style={{ textAlignLast: "left" }}
                       >
                         {item.desc}
@@ -232,7 +232,7 @@ export default function ChaosVsEdge() {
                     <div>
                       <h4 className="text-[15px] font-bold text-[#111] mb-1">{item.title}</h4>
                       <p
-                        className="text-[13px] text-[#667085] leading-[1.65] text-justify"
+                        className="text-[13px] text-[#000000] leading-[1.65] text-justify"
                         style={{ textAlignLast: "left" }}
                       >
                         {item.desc}

@@ -1,115 +1,86 @@
-import { useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
+import { MessageCircle, Calendar, Sparkles } from "lucide-react";
 
-export default function App() {
-  const [hoveredBtn, setHoveredBtn] = useState(null);
-
+const CallToAction = () => {
   return (
-    <div
-      className="min-h-screen flex items-center justify-center px-8 -mt-20"
-      style={{ backgroundColor: "#F8F9FF" }}
-    >
-      {/* CTC Card — exact Figma specs */}
-      <div
-        className="flex flex-col items-center justify-center text-center"
+    <section className="relative flex items-center justify-center px-6 py-12 bg-[#F8F9FF] font-['Montserrat',sans-serif]">
+      {/* Main Container */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="relative w-full max-w-[1216px] overflow-hidden rounded-[48px] shadow-[0_24px_60px_rgba(100,0,161,0.2)]"
         style={{
           background: "linear-gradient(109.31deg, #6400A1 0%, #BB000F 100%)",
-          width: "1216px",
-          maxWidth: "1280px",
-          height: "426px",
-          borderRadius: "48px",
-          padding: "64px",
-          opacity: 1,
-          boxShadow:
-            "0 24px 60px rgba(100,0,161,0.25), 0 8px 24px rgba(187,0,15,0.18)",
         }}
       >
-        {/* Heading */}
-        <h2
-          className="text-white font-extrabold leading-tight mb-4"
-          style={{
-            fontSize: "42px",
-            letterSpacing: "-0.5px",
-            fontFamily: "'Segoe UI', system-ui, sans-serif",
-          }}
-        >
-          Ready to Build Your <br /> Kinetic Engine?
-        </h2>
+        {/* Background Pattern Overlay */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
 
-        {/* Subtext */}
-        <p
-          className="font-normal mb-9"
-          style={{
-            color: "rgba(255,255,255,0.75)",
-            fontSize: "15px",
-            letterSpacing: "0.1px",
-            fontFamily: "'Segoe UI', system-ui, sans-serif",
-          }}
-        >
-          Stop losing leads to chaos. Start building your automated future today.
-        </p>
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-8 py-12">
+          
+          {/* Top Label */}
+    
 
-        {/* Buttons */}
-        <div className="flex items-center justify-center gap-4 flex-wrap">
-          {/* Book Strategy Call — White Button */}
-          <button
-            onMouseEnter={() => setHoveredBtn("book")}
-            onMouseLeave={() => setHoveredBtn(null)}
-            className="font-bold cursor-pointer"
+          {/* Heading - Now exactly matches your font specs and 1-line requirement */}
+          <h2 
+            className="text-white mb-6 leading-tight"
             style={{
-              backgroundColor: hoveredBtn === "book" ? "#6400A1" : "#ffffff",
-              color: hoveredBtn === "book" ? "#ffffff" : "#1a1a1a",
-              border: hoveredBtn === "book"
-                ? "2px solid #ffffff"
-                : "2px solid transparent",
-              borderRadius: "8px",
-              padding: "14px 32px",
-              fontSize: "15px",
-              fontFamily: "'Segoe UI', system-ui, sans-serif",
-              letterSpacing: "0.1px",
-              minWidth: "180px",
-              transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-              transform: hoveredBtn === "book" ? "translateY(-2px)" : "translateY(0)",
-              boxShadow:
-                hoveredBtn === "book"
-                  ? "0 8px 24px rgba(100,0,161,0.4)"
-                  : "0 2px 8px rgba(0,0,0,0.08)",
+              fontSize: "clamp(24px, 4vw, 42px)",
+              fontWeight: 800,
+              letterSpacing: "-0.5px",
+              whiteSpace: "normal" // Allows wrap on mobile, but font-size makes it 1 line on desktop
             }}
           >
-            Book Strategy Call
-          </button>
+            Ready to Build Your Kinetic Engine?
+          </h2>
 
-          {/* WhatsApp Us — Frosted Outlined Button */}
-          <button
-            onMouseEnter={() => setHoveredBtn("whatsapp")}
-            onMouseLeave={() => setHoveredBtn(null)}
-            className="font-bold cursor-pointer"
+          {/* Subtext */}
+          <p
+            className="mx-auto mb-10 max-w-2xl leading-relaxed"
             style={{
-              backgroundColor:
-                hoveredBtn === "whatsapp" ? "#ffffff" : "rgba(255,255,255,0.12)",
-              color: hoveredBtn === "whatsapp" ? "#BB000F" : "#ffffff",
-              border: "2px solid",
-              borderColor:
-                hoveredBtn === "whatsapp" ? "#ffffff" : "rgba(255,255,255,0.5)",
-              borderRadius: "8px",
-              padding: "14px 32px",
-              fontSize: "15px",
-              fontFamily: "'Segoe UI', system-ui, sans-serif",
-              letterSpacing: "0.1px",
-              minWidth: "180px",
-              transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-              transform:
-                hoveredBtn === "whatsapp" ? "translateY(-2px)" : "translateY(0)",
-              boxShadow:
-                hoveredBtn === "whatsapp"
-                  ? "0 8px 24px rgba(255,255,255,0.25)"
-                  : "none",
-              backdropFilter: "blur(4px)",
+              color: "rgba(255,255,255,0.75)",
+              fontSize: "16px",
+              fontWeight: 400
             }}
           >
-            WhatsApp Us
-          </button>
+            Stop losing leads to chaos. Join 50+ businesses scaling with our <br className="hidden md:block" /> automated high-intent acquisition systems.
+          </p>
+
+          {/* Buttons Section */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto">
+            
+            {/* White Primary Button */}
+            <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center justify-center gap-3 bg-white text-[#111111] font-bold py-4 px-10 rounded-xl shadow-xl transition-all duration-300 w-full sm:w-auto"
+            >
+              <Calendar className="w-5 h-5" />
+              <span className="text-[15px]">Book Strategy Call</span>
+            </motion.button>
+
+            {/* Frosted Secondary Button */}
+            <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center justify-center gap-3 bg-white/10 text-white font-bold py-4 px-10 rounded-xl border-2 border-white/30 backdrop-blur-md hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span className="text-[15px]">WhatsApp Us</span>
+            </motion.button>
+
+          </div>
+
+          {/* Minimal Trust Badge */}
+          <div className="mt-10 text-white/40 text-[11px] font-bold tracking-[0.2em] uppercase">
+            Trusted by High-Growth DTC & B2B Brands
+          </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </section>
   );
-}
+};
+
+export default CallToAction;

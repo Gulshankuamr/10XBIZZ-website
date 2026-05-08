@@ -1,240 +1,287 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
-const cards = [
+const services = [
   {
-    id: 1,
+    id: "google",
+    title: "Google Ads Management",
+    desc: "Generate high-intent leads from Google Search with campaigns designed to attract people actively searching for your services. We focus on better targeting and lower wasted spend.",
+    bullets: ["Lead generation services", "Conversion optimization"],
+    imageUrl: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=800&q=80",
+    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>),
+  },
+  {
+    id: "meta",
+    title: "Meta Ads (FB & Instagram)",
+    desc: "Reach the right audience with scroll-stopping ad campaigns that increase brand visibility and improve lead generation.",
+    bullets: ["Digital marketing services", "Meta Ads Expert"],
+    imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80",
+    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>),
+  },
+  {
+    id: "seo",
+    title: "SEO Services",
+    desc: "Improve Google rankings, increase organic traffic, and generate long-term leads through sustainable growth.",
+    bullets: ["SEO services", "Organic Growth"],
+    imageUrl: "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?w=800&q=80",
+    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>),
+  },
+  {
+    id: "crm",
     title: "CRM Automation",
-    desc: "Replace manual data entry with intelligent, triggered workflows that move leads through your pipe instantly.",
-    bg: "bg-[#44007008] hover:bg-[#44007014]",
-    hoverShadow: "hover:shadow-[0_20px_48px_rgba(68,0,112,0.13)]",
-    corner: "bg-[#44007018]",
-    iconBg: "bg-[#44007018]",
-    iconStroke: "#6400A1",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/>
-      </svg>
-    ),
-    footer: (
-      <div className="flex gap-2 items-center mt-5">
-        <div className="h-[5px] flex-1 bg-[#44007015] rounded-full"><div className="h-[5px] w-[70%] bg-[#6400A1] rounded-full"/></div>
-        <div className="h-[5px] flex-1 bg-[#44007015] rounded-full"><div className="h-[5px] w-[45%] bg-[#9B40CC] rounded-full"/></div>
-        <div className="h-[5px] flex-1 bg-[#44007015] rounded-full"><div className="h-[5px] w-[85%] bg-[#6400A1] rounded-full"/></div>
-      </div>
-    ),
+    desc: "Organize enquiries in one system and manage your sales pipeline efficiently so no customer gets missed.",
+    bullets: ["CRM automation", "Lead Management"],
+    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>),
   },
   {
-    id: 2,
-    title: "Lead Gen",
-    desc: "Targeted multi-channel acquisition that fills your funnel with high-intent prospects daily.",
-    bg: "bg-[#BB000F0D] hover:bg-[#BB000F18]",
-    hoverShadow: "hover:shadow-[0_20px_48px_rgba(187,0,15,0.13)]",
-    corner: "bg-[#BB000F1A]",
-    iconBg: "bg-[#BB000F18]",
-    iconStroke: "#BB000F",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-      </svg>
-    ),
-    footer: (
-      <div className="flex gap-2 items-center mt-5">
-        {["#BB000F26","#BB000F40","#BB000F59"].map((bg, i) => (
-          <div key={i} className="w-[30px] h-[30px] rounded-full flex items-center justify-center" style={{ background: bg }}>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#BB000F" strokeWidth="2"><circle cx="12" cy="12" r="9"/></svg>
-          </div>
-        ))}
-      </div>
-    ),
+    id: "whatsapp",
+    title: "WhatsApp Automation",
+    desc: "Automate follow-ups and lead nurturing using smart WhatsApp systems that improve response speed.",
+    bullets: ["WhatsApp automation", "Business automation"],
+    imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
+    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>),
   },
   {
-    id: 3,
-    title: "WhatsApp Flow",
-    desc: "Interactive AI-driven chat sequences that qualify and convert customers where they already live.",
-    bg: "bg-[#F0FDF4] hover:bg-[#dcfce7]",
-    hoverShadow: "hover:shadow-[0_20px_48px_rgba(34,197,94,0.13)]",
-    corner: "bg-[#22C55E22]",
-    iconBg: "bg-[#bbf7d0]",
-    iconStroke: "#16a34a",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      </svg>
-    ),
-    footer: (
-      <div className="mt-5">
-        <div className="bg-white rounded-xl px-3 py-2 inline-block border border-[#dcfce7]">
-          <p className="text-xs text-[#667085] m-0">I need a quote...</p>
-        </div>
-      </div>
-    ),
+    id: "funnel",
+    title: "Landing Page Optimization",
+    desc: "High-converting funnels designed to turn visitors into leads through optimized layouts.",
+    bullets: ["Landing page optimization", "Conversion strategy"],
+    imageUrl: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
+    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>),
   },
   {
-    id: 4,
-    title: "Funnel Design",
-    desc: "Psychology-backed conversion paths designed to reduce friction and maximize average order value.",
-    bg: "bg-[#FEFCE8] hover:bg-[#fef9c3]",
-    hoverShadow: "hover:shadow-[0_20px_48px_rgba(234,179,8,0.13)]",
-    corner: "bg-[#EAB30822]",
-    iconBg: "bg-[#fde68a]",
-    iconStroke: "#b45309",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
-      </svg>
-    ),
-    footer: (
-      <div className="flex gap-[5px] items-end h-8 mt-5">
-        {[16,24,32,20,28].map((h,i) => (
-          <div key={i} className="w-[11px] rounded-t-sm" style={{ height: h, background: ["#fde68a","#fbbf24","#f59e0b","#fbbf24","#d97706"][i] }}/>
-        ))}
-      </div>
-    ),
-  },
-  {
-    id: 5,
-    title: "Ad Management",
-    desc: "Data-driven performance marketing across Meta, Google, and LinkedIn for maximum ROI.",
-    bg: "bg-[#EFF6FF] hover:bg-[#dbeafe]",
-    hoverShadow: "hover:shadow-[0_20px_48px_rgba(59,130,246,0.13)]",
-    corner: "bg-[#3B82F622]",
-    iconBg: "bg-[#bfdbfe]",
-    iconStroke: "#1d4ed8",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-      </svg>
-    ),
-    footer: (
-      <div className="flex gap-[5px] items-end h-8 mt-5">
-        {[18,26,32,22,29].map((h,i) => (
-          <div key={i} className="w-[13px] rounded-t-sm" style={{ height: h, background: ["#bfdbfe","#93c5fd","#60a5fa","#93c5fd","#3b82f6"][i] }}/>
-        ))}
-      </div>
-    ),
-  },
-  {
-    id: 6,
-    title: "Custom Architecture",
-    desc: "Bespoke software integrations and tailored stack development for enterprise-scale operations.",
-    bg: "bg-[#F5F3FF] hover:bg-[#ede9fe]",
-    hoverShadow: "hover:shadow-[0_20px_48px_rgba(124,58,237,0.13)]",
-    corner: "bg-[#7C3AED22]",
-    iconBg: "bg-[#ddd6fe]",
-    iconStroke: "#7c3aed",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/>
-        <line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/>
-        <line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/>
-        <line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/>
-        <line x1="17" y1="16" x2="23" y2="16"/>
-      </svg>
-    ),
-    footer: (
-      <div className="flex gap-[6px] items-center mt-5">
-        <div className="h-[5px] flex-1 bg-[#ddd6fe] rounded-full"/>
-        <div className="h-[5px] flex-[2] bg-[#c4b5fd] rounded-full"/>
-        <div className="h-[5px] flex-1 bg-[#a78bfa] rounded-full"/>
-      </div>
-    ),
+    id: "growth",
+    title: "Business Automation",
+    desc: "Scalable growth systems that drive measurable results and compound over time.",
+    bullets: ["Business automation", "Lead gen services"],
+    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>),
   },
 ];
 
-export default function CoreArchitecture() {
-  const [hovered, setHovered] = useState(null);
+const ACCENT = "#6400A1";
 
+// Card Background Component Logic
+function CardBg({ imageUrl, isHovered, forceImage }) {
+  const showImage = forceImage || isHovered;
   return (
-    // ✅ FIX 1: bg white
-    <section className="bg-white px-4 mb-16 sm:px-6">
-      
-      <div className="mx-auto w-full max-w-[1216px]">
+    <>
+      <div style={{
+        position: "absolute", inset: 0,
+        backgroundImage: `url(${imageUrl})`,
+        backgroundSize: "cover", backgroundPosition: "center",
+        opacity: showImage ? 1 : 0,
+        transition: "opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)", zIndex: 0,
+        transform: isHovered ? "scale(1.05)" : "scale(1)",
+      }}/>
+      <div style={{
+        position: "absolute", inset: 0,
+        background: showImage 
+          ? "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(100,0,161,0.4) 100%)" 
+          : "transparent",
+        opacity: showImage ? 1 : 0,
+        transition: "opacity 0.6s ease", zIndex: 1,
+      }}/>
+      <div style={{
+        position: "absolute", inset: 0, background: "#fff",
+        opacity: showImage ? 0 : 1,
+        transition: "opacity 0.6s ease", zIndex: 0,
+      }}/>
+    </>
+  );
+}
 
-        {/* ✅ Header — minHeight 116, space-between */}
-        <div
-          className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10"
-          style={{ minHeight: 116 }}
-        >
-          <div className="flex flex-col justify-center">
-            <h2 className="text-[28px] sm:text-[32px] font-extrabold text-[#111] tracking-tight mb-2 leading-tight text-left">
-              Core Architecture
-            </h2>
-            {/* ✅ FIX 3: text-justify + textAlignLast left */}
-            <p
-              className="text-sm text-[#667085] max-w-[480px] leading-relaxed text-justify"
-              style={{ textAlignLast: "left" }}
-            >
-              Each module is built to integrate flawlessly, creating a singular,
-              cohesive revenue generation engine.
-            </p>
-          </div>
+function ServiceCard({ service, isHovered, onEnter, onLeave, forceImage, height = 350 }) {
+  return (
+    <motion.div
+      className="service-card"
+      onMouseEnter={onEnter} onMouseLeave={onLeave}
+      initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      style={{
+        position: "relative", borderRadius: 28, overflow: "hidden",
+        cursor: "pointer", height: height,
+        border: `1.5px solid ${isHovered || forceImage ? ACCENT : "#EEE"}`,
+        boxShadow: isHovered ? "0 30px 60px rgba(100,0,161,0.15)" : "0 4px 20px rgba(0,0,0,0.03)",
+        transition: "all 0.4s ease", background: "#fff",
+      }}
+    >
+      <CardBg imageUrl={service.imageUrl} isHovered={isHovered} forceImage={forceImage} />
 
-          {/* ✅ FIX 2: <a> tag properly closed */}
-          <a
-            href="#"
-            className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-[#6400A1] border border-[#6400A130] bg-white hover:bg-[#6400A108] transition-all duration-200 whitespace-nowrap flex-shrink-0"
-          >
-            Explore Technical Specs
-            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
-              {"→"}
-            </span>
-          </a>
+      <div style={{
+        position: "relative", zIndex: 10, height: "100%",
+        padding: "clamp(18px, 2.6vw, 32px)", display: "flex", flexDirection: "column", justifyContent: "flex-end",
+      }}>
+        <div style={{
+          width: 44, height: 44, borderRadius: 12, marginBottom: 16,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          background: (isHovered || forceImage) ? "rgba(255,255,255,0.15)" : "#F5F0FF",
+          color: (isHovered || forceImage) ? "#fff" : ACCENT,
+          backdropFilter: (isHovered || forceImage) ? "blur(10px)" : "none",
+          transition: "all 0.3s ease",
+        }}>
+          {service.icon}
         </div>
 
-        {/* ✅ FIX 4: gap-5 for better spacing */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {cards.map((card) => (
-            <div
-              key={card.id}
-              onMouseEnter={() => setHovered(card.id)}
-              onMouseLeave={() => setHovered(null)}
-              className={`
-                relative rounded-[20px] p-7 overflow-hidden flex flex-col min-h-[230px]
-                transition-all duration-[220ms] ease-out cursor-pointer
-                ${card.bg} ${card.hoverShadow}
-                hover:-translate-y-[6px] hover:scale-[1.01]
-              `}
-            >
-              {/* Corner blob */}
-              <div
-                className={`absolute w-[120px] h-[120px] rounded-full -top-8 -right-8 pointer-events-none transition-all duration-300 ${card.corner}`}
-                style={{
-                  transform: hovered === card.id ? "scale(1.2)" : "scale(1)",
-                  opacity: hovered === card.id ? 0.85 : 1,
-                }}
-              />
+        <h3 style={{
+          fontSize: "clamp(18px, 1.7vw, 20px)", fontWeight: "800",
+          color: (isHovered || forceImage) ? "#fff" : "#111",
+          marginBottom: "10px", lineHeight: 1.2, transition: "color 0.3s",
+        }}>{service.title}</h3>
 
-              {/* Icon */}
-              <div
-                className={`w-11 h-11 rounded-xl flex items-center justify-center mb-[18px] flex-shrink-0 transition-transform duration-200 ${card.iconBg}`}
-                style={{
-                  color: card.iconStroke,
-                  transform: hovered === card.id ? "scale(1.1)" : "scale(1)",
-                }}
-              >
-                {card.icon}
-              </div>
+        <p style={{
+          fontSize: "clamp(13px, 1.2vw, 14px)", color: (isHovered || forceImage) ? "rgba(255,255,255,0.8)" : "#666",
+          lineHeight: "1.6", margin: "0 0 16px", transition: "color 0.3s",
+        }}>{service.desc}</p>
 
-              {/* Title */}
-              <h3 className="text-[17px] font-bold text-[#111] mb-2 tracking-[-0.2px] text-left">
-                {card.title}
-              </h3>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+          {service.bullets.map((b, i) => (
+            <span key={i} style={{
+              fontSize: "clamp(10px, 1vw, 11px)", fontWeight: "700", textTransform: "uppercase",
+              color: (isHovered || forceImage) ? "#fff" : ACCENT,
+              background: (isHovered || forceImage) ? "rgba(255,255,255,0.1)" : "rgba(100,0,161,0.05)",
+              padding: "4px 10px", borderRadius: "6px", transition: "all 0.3s",
+            }}>{b}</span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
-              {/* ✅ FIX 3: description justify */}
-              <p
-                className="text-[13px] text-[#667085] leading-[1.65] flex-1 text-justify"
-                style={{ textAlignLast: "left" }}
-              >
-                {card.desc}
-              </p>
+export default function OurServices() {
+  const [hovered, setHovered] = useState(null);
+  
+  return (
+    <section style={{ fontFamily: "'Montserrat', sans-serif", background: "#F8F9FC", padding: "clamp(60px, 8vw, 100px) clamp(14px, 3vw, 24px)" }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
 
-              {card.footer}
-            </div>
+        .services-top-grid {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr 1fr;
+          gap: 20px;
+          margin-bottom: 20px;
+        }
+
+        .services-bottom-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+        }
+
+        .services-cta-wrap {
+          text-align: center;
+          margin-top: clamp(44px, 7vw, 80px);
+        }
+
+        @media (max-width: 1100px) {
+          .services-top-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .services-top-grid .service-card:first-child {
+            grid-column: span 2;
+          }
+
+          .services-bottom-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 700px) {
+          .services-top-grid,
+          .services-bottom-grid {
+            grid-template-columns: 1fr;
+            gap: 14px;
+          }
+
+          .services-top-grid {
+            margin-bottom: 14px;
+          }
+
+          .services-top-grid .service-card:first-child {
+            grid-column: span 1;
+          }
+        }
+      `}</style>
+
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "clamp(34px, 5vw, 64px)" }}>
+          <span style={{ fontSize: "clamp(10px, 1.4vw, 12px)", fontWeight: "800", color: ACCENT, letterSpacing: "2.4px", textTransform: "uppercase" }}>✦ GROWTH SYSTEMS</span>
+          <h2 style={{ fontSize: "clamp(26px, 4vw, 48px)", fontWeight: "900", color: "#0D0D1A", marginTop: "16px", letterSpacing: "clamp(-0.6px, -0.1vw, -1.5px)", lineHeight: 1.2 }}>
+            Smart Lead Generation & <span style={{ color: ACCENT }}>Business Automation</span>
+          </h2>
+        </div>
+
+        {/* TOP ROW: 3 Cards (1 Large with direct image + 2 small with hover) */}
+        <div className="services-top-grid">
+          <ServiceCard 
+            service={services[0]} 
+            forceImage={true} 
+            isHovered={hovered === services[0].id}
+            onEnter={() => setHovered(services[0].id)}
+            onLeave={() => setHovered(null)}
+            height="clamp(320px, 58vw, 420px)"
+          />
+          <ServiceCard 
+            service={services[1]} 
+            isHovered={hovered === services[1].id}
+            onEnter={() => setHovered(services[1].id)}
+            onLeave={() => setHovered(null)}
+            height="clamp(300px, 56vw, 420px)"
+          />
+          <ServiceCard 
+            service={services[2]} 
+            isHovered={hovered === services[2].id}
+            onEnter={() => setHovered(services[2].id)}
+            onLeave={() => setHovered(null)}
+            height="clamp(300px, 56vw, 420px)"
+          />
+        </div>
+
+        {/* BOTTOM ROW: 4 Cards (All with hover image reveal) */}
+        <div className="services-bottom-grid">
+          {services.slice(3).map((s) => (
+            <ServiceCard 
+              key={s.id}
+              service={s} 
+              isHovered={hovered === s.id}
+              onEnter={() => setHovered(s.id)}
+              onLeave={() => setHovered(null)}
+              height="clamp(300px, 54vw, 400px)"
+            />
           ))}
         </div>
 
+        {/* Bottom CTA */}
+        <div className="services-cta-wrap">
+
+  
+  <a
+    href="/services"
+    className="inline-flex items-center gap-2 px-7 sm:px-10 py-3.5 sm:py-4 rounded-full
+    bg-[#6400A1] text-white font-extrabold text-[15px] sm:text-[16px]
+    shadow-[0_12px_30px_rgba(100,0,161,0.28)]
+    hover:scale-[1.04]
+    hover:shadow-[0_18px_45px_rgba(100,0,161,0.38)]
+    transition-all duration-300"
+  >
+    See All Services
+    
+    <span className="transition-transform duration-300 group-hover:translate-x-1">
+      →
+    </span>
+  </a>
+
+
+
+</div>
       </div>
     </section>
   );
 }
+

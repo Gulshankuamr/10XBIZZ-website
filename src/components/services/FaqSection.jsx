@@ -81,34 +81,6 @@ const faqs = [
   },
 ];
 
-const FaqArtwork = () => (
-  <div className="relative mx-auto h-[220px] w-[230px] sm:h-[260px] sm:w-[280px]">
-    <div className="absolute left-2 top-3 h-[138px] w-[154px] rounded-[28px] border-[8px] border-[#5d6488] bg-white shadow-[0_12px_24px_-18px_rgba(0,0,0,0.2)] sm:h-[164px] sm:w-[182px]">
-      <div className="absolute right-4 top-4 h-6 w-6 rounded-tr-[12px] border-r-[6px] border-t-[6px] border-[#dcecff]" />
-      <div
-        className="absolute inset-0 flex items-center justify-center text-[82px] font-extrabold text-[#5d6488] sm:text-[96px]"
-        style={{ fontFamily: "'Syne', sans-serif" }}
-      >
-        ?
-      </div>
-      <div className="absolute bottom-[-36px] left-14 h-0 w-0 border-l-[0px] border-r-[38px] border-t-[38px] border-l-transparent border-r-transparent border-t-[#5d6488] sm:left-16" />
-      <div className="absolute bottom-[-26px] left-[61px] h-0 w-0 border-l-[0px] border-r-[28px] border-t-[28px] border-l-transparent border-r-transparent border-t-white sm:left-[69px]" />
-    </div>
-
-    <div className="absolute bottom-0 right-0 h-[128px] w-[168px] rounded-[26px] border-[8px] border-[#5d6488] bg-[#ffe79c] shadow-[0_12px_24px_-18px_rgba(0,0,0,0.2)] sm:h-[150px] sm:w-[190px]">
-      <div className="absolute right-4 top-4 h-6 w-6 rounded-tr-[12px] border-r-[6px] border-t-[6px] border-[#fff4d2]" />
-      <div className="absolute left-[48px] top-[34px] h-3 w-6 rounded-full border-t-[6px] border-[#5d6488] sm:left-[58px]" />
-      <div className="absolute left-[90px] top-[34px] h-3 w-6 rounded-full border-t-[6px] border-[#5d6488] sm:left-[102px]" />
-      <div className="absolute left-[58px] top-[58px] h-4 w-4 rounded-full bg-[#5d6488] sm:left-[70px]" />
-      <div className="absolute left-[95px] top-[58px] h-4 w-4 rounded-full bg-[#5d6488] sm:left-[107px]" />
-      <div className="absolute left-[61px] top-[63px] h-[5px] w-[5px] rounded-full bg-white sm:left-[73px]" />
-      <div className="absolute left-[98px] top-[63px] h-[5px] w-[5px] rounded-full bg-white sm:left-[110px]" />
-      <div className="absolute left-[58px] top-[82px] h-5 w-[52px] rounded-b-[24px] rounded-t-[8px] bg-[#ef7774] sm:left-[70px] sm:w-[58px]" />
-      <div className="absolute bottom-[-34px] right-[36px] h-0 w-0 border-l-[34px] border-t-[34px] border-l-transparent border-t-[#5d6488]" />
-      <div className="absolute bottom-[-24px] right-[43px] h-0 w-0 border-l-[24px] border-t-[24px] border-l-transparent border-t-[#ffe79c]" />
-    </div>
-  </div>
-);
 
 const FaqSection = () => {
   const [openIndex, setOpenIndex] = useState(-1);
@@ -126,26 +98,35 @@ const FaqSection = () => {
         style={{ paddingTop: "80px", paddingBottom: "80px" }}
       >
         <div className="mx-auto max-w-[1120px]">
-          <div className="mx-auto mb-12 w-full max-w-[800px] px-5 text-center">
-            <h2
-              className="mt-5 text-[clamp(2rem,4.5vw,3.6rem)] font-extrabold tracking-[-0.04em] leading-[1.1] text-[#0d1326]"
-              style={{ fontFamily: "'Syne', sans-serif" }}
-            >
-              <span className="block">Frequently Answered Questions -</span>
-              <span className="mt-1 block">Go Ahead, Stump Us</span>
-            </h2>
+        <div className="mx-auto mb-12 w-full max-w-[950px] px-5 text-center">
 
-            <p
-              className="mx-auto mt-5 max-w-[600px] text-base font-normal leading-8 text-[#3d4756]"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Anything missing? Include your question when getting your custom marketing plan.
-            </p>
-          </div>
+  <h2
+    className="mt-5 text-[clamp(1.8rem,3.5vw,3rem)] font-extrabold tracking-[-0.04em] leading-[1.15] text-[#0d1326]"
+    style={{ fontFamily: "'Syne', sans-serif" }}
+  >
+    <span className="inline text-[#0d1326]">
+      Frequently Asked
+    </span>{" "}
 
-          <div className="mt-12">
-            <FaqArtwork />
-          </div>
+    <span className="inline bg-gradient-to-r from-[#6400A1] to-[#FF1920] bg-clip-text text-transparent">
+      Questions & Answers
+    </span>{" "}
+
+    <span className="inline text-[clamp(0.95rem,1.5vw,1.1rem)] font-semibold tracking-normal text-[#667085]">
+      — Go Ahead, Stump Us.
+    </span>
+  </h2>
+
+  <p
+    className="mx-auto mt-4 max-w-[680px] text-[15px] font-normal leading-7 text-[#667085]"
+    style={{ fontFamily: "'Inter', sans-serif" }}
+  >
+    Anything missing? Include your question when getting your custom marketing plan.
+  </p>
+
+</div>
+
+       
 
           <div className="mx-auto mt-14 max-w-[1020px] space-y-4">
             {faqs.map((faq, index) => {
@@ -220,23 +201,7 @@ const FaqSection = () => {
             })}
           </div>
 
-          <div className="mx-auto mt-12 max-w-[1020px] rounded-[20px] bg-[#eceeed] px-6 py-10 text-center sm:px-8 sm:py-12">
-            <p
-              className="text-[clamp(1.05rem,2vw,1.3rem)] font-bold text-[#0d1326]"
-              style={{ fontFamily: "'Syne', sans-serif" }}
-            >
-              Got other questions that aren&apos;t answered?
-            </p>
-
-            <a
-              href="#"
-              className="mt-5 inline-flex items-center gap-2 text-base font-semibold text-[#e8736e] transition-all duration-200 hover:gap-3"
-              style={{ fontFamily: "'Inter', sans-serif", textDecoration: "none" }}
-            >
-              Get them answered in your free marketing plan
-              <span className="text-[1.15rem] leading-none">→</span>
-            </a>
-          </div>
+      
         </div>
       </section>
     </>
