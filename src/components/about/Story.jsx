@@ -1,66 +1,115 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { TrendingUp, Users, Target, CheckCircle } from "lucide-react";
+
 export default function Story() {
   return (
-    <section
-      className="relative py-[60px] md:py-[100px] px-4 md:px-8 lg:px-16 overflow-hidden"
-      style={{ background: "#ffffff" }}
-    >
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "#e2e6ef" }} />
-      <div
-        style={{
-          position: "absolute",
-          top: "-60px",
-          right: "-80px",
-          width: "420px",
-          height: "420px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(26,78,166,0.05) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
+    <section className="relative py-20 md:py-32 px-6 lg:px-16 overflow-hidden bg-white font-['DM_Sans',sans-serif]">
+      {/* Fonts Import */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap');
+      `}</style>
 
-      <div className="relative z-[2] max-w-7xl mx-auto">
-        <h2
-          className="font-extrabold leading-[1.08] tracking-[-1.5px] mb-16"
-          style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(2rem,4vw,3.2rem)", color: "#0d1326" }}
+      {/* Background Decor */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-slate-200" />
+      <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-purple-50 rounded-full blur-[120px] pointer-events-none opacity-60" />
+      <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-red-50 rounded-full blur-[100px] pointer-events-none opacity-40" />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        
+        {/* Eyebrow Tag */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 px-4 py-2 rounded-full mb-8"
         >
-          Our Story in a Nutshell:
-          <br />
-          We Show Up <span style={{ color: "#eb8a80" }}>When It</span> <span style={{ color: "#1a4ea6" }}>Matters</span>
-        </h2>
+          <span className="w-2 h-2 rounded-full bg-[#6400A1] animate-pulse" />
+          <span className="text-[12px] font-bold tracking-widest text-slate-600 uppercase">Our Origin Story</span>
+        </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-          <div className="flex-1 space-y-7">
-            <p className="text-[15px] leading-[1.9] font-light" style={{ fontFamily: "'DM Sans',sans-serif", color: "#4e556d" }}>
-              Our growth practice is built around financial clarity, operational discipline, and campaigns that translate into measurable business outcomes.
+        {/* Heading */}
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-extrabold leading-[1.1] tracking-tight mb-16 text-[#0d1326] font-['Syne']"
+          style={{ fontSize: "clamp(1.5rem, 3vw, 3rem)" }}
+        >
+          Why We Started <br />
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6400A1] to-[#BB000F]">
+            10xBizz
+          </span> — A Mission <br />
+          Built on <span className="italic underline decoration-[#BB000F]/20 text-slate-800">Real Results.</span>
+        </motion.h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          
+          {/* LEFT CONTENT */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <p className="text-xl text-slate-500 leading-relaxed font-light">
+              We didn't just start another agency. We started a movement to end the cycle of wasted marketing budgets and missed opportunities.
             </p>
 
-            <div style={{ width: "48px", height: "2px", borderRadius: "9999px", background: "linear-gradient(to right,#1a4ea6,transparent)" }} />
-
-            <p className="text-[15px] leading-[1.9] font-light" style={{ fontFamily: "'DM Sans',sans-serif", color: "#4e556d" }}>
-              We partner closely with founders and teams to replace guesswork with systems that scale.
-            </p>
-
-            <p className="text-[15px] leading-[1.9] font-light" style={{ fontFamily: "'DM Sans',sans-serif", color: "#4e556d" }}>
-              Today, 10XBIZZ stands as a <span style={{ color: "#1a4ea6", fontWeight: 500 }}>hub for innovation, growth, and impact</span>, with a team focused on long-term brand momentum.
-            </p>
-          </div>
-
-          <div className="flex-1 relative h-[360px] md:h-[500px]">
-            <div
-              className="absolute top-0 left-0 right-0 bottom-[90px] rounded-2xl overflow-hidden group"
-              style={{
-                border: "1px solid #e2e6ef",
-                boxShadow: "0 24px 60px rgba(13,19,38,0.08), 0 0 0 1px rgba(13,19,38,0.03)",
-              }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800"
-                alt="Team at work"
-                className="w-full h-full object-cover block transition-transform duration-600 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(26,78,166,0.12) 0%, transparent 50%)" }} />
+            <div className="border-l-4 border-[#6400A1] pl-6 py-2 bg-slate-50/50 rounded-r-xl">
+              <p className="text-lg text-slate-800 font-semibold leading-relaxed">
+                We saw businesses burning money on ads without a system to capture and convert. Leads were getting lost, and growth was left to chance.
+              </p>
             </div>
-          </div>
+
+            <div className="space-y-6 text-[17px] text-slate-600 leading-[1.8]">
+              <p>
+                Leads were drowning in WhatsApp chats and forgotten spreadsheets. Follow-ups depended on busy owners' memories. We realized the problem wasn't traffic—it was the <span className="text-[#6400A1] font-bold">Leaky Bucket</span>.
+              </p>
+              
+              <p>
+                10xBizz was born to provide the <strong>Plug</strong>. We build complete lead generation and conversion ecosystems that work 24/7. Not just clicks, but real, measurable revenue.
+              </p>
+            </div>
+
+            {/* Stats Row */}
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-100">
+              <div>
+                <h4 className="text-3xl font-extrabold text-[#0d1326] font-['Syne']">10x</h4>
+                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Growth Scaling</p>
+              </div>
+              <div className="w-px h-full bg-slate-100" />
+              <div>
+                <h4 className="text-3xl font-extrabold text-[#0d1326] font-['Syne']">98%</h4>
+                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Client Retention</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT IMAGE SECTION */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            {/* Main Image Wrap - Increased Size */}
+            <div className="relative z-10 w-full h-[500px] lg:h-[650px] rounded-[2.5rem] overflow-hidden shadow-[0_32px_80px_rgba(13,19,38,0.15)] group border border-slate-200">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200"
+                alt="10xBizz Strategy"
+                className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+            </div>
+
+            {/* Floating Solution Card */}
+          
+
+            {/* Accent Circle */}
+            <div className="absolute -top-10 -right-10 size-40 border-[20px] border-slate-50 rounded-full z-0" />
+          </motion.div>
+
         </div>
       </div>
     </section>

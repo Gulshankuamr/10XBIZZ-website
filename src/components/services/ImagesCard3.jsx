@@ -68,17 +68,13 @@ const specialityCards = [
 
 const OurSpeciality = () => {
   return (
-    <section className="py-24 px-6 bg-[#f8f9fc] font-['Outfit',sans-serif]">
+    <section className="py-24 px-6 bg-[linear-gradient(125.94deg,#6400A1_0%,#BB000F_100%)] font-['Outfit',sans-serif]">
       {/* Heading Section */}
       <div className="max-w-7xl mx-auto text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-[#0f172a] tracking-tight font-['Plus_Jakarta_Sans'] mb-4">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-[#fff] tracking-tight font-['Plus_Jakarta_Sans'] mb-4">
           Our Speciality
         </h2>
-        <div className="flex justify-center items-center gap-1.5">
-          <span className="w-12 h-1.5 bg-indigo-600 rounded-full"></span>
-          <span className="w-4 h-1.5 bg-indigo-600 opacity-50 rounded-full"></span>
-          <span className="w-2 h-1.5 bg-indigo-600 opacity-25 rounded-full"></span>
-        </div>
+       
       </div>
 
       {/* Bento Grid Layout */}
