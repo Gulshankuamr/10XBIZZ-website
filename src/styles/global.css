@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -14,7 +14,11 @@ html {
 
 body {
   @apply bg-white text-brand-ink antialiased;
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif !important;
 }
 
 ::selection {
@@ -26,22 +30,31 @@ body {
 }
 
 .heading-main {
-  font-family: "Syne", ui-sans-serif, system-ui, sans-serif;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   text-wrap: balance;
+  color: #111111;
 }
 
 .highlight-span {
-  display: inline-block;
-  margin-top: 0.35rem;
-  background: #000;
-  color: #fff;
-  padding: 0.25rem 0.55rem;
-  border-radius: 0.4rem;
+  background: linear-gradient(104.17deg, #6400a1 0%, #ff1920 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 800;
 }
 
 .body-copy {
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: #667085;
+}
+
+@media (min-width: 768px) {
+  .body-copy {
+    font-size: 17px;
+  }
 }
