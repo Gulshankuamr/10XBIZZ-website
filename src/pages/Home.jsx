@@ -10,7 +10,9 @@ import FaqSection from "../components/services/FaqSection";
 import SolutionSection from "../components/home/SolutionSection";
 import { SiCucumber } from "react-icons/si";
 import SuccessStories from "../components/home/SuccessStories";
-import ProcessSection from "../components/home/ProcessSection";
+
+import ExpertiseSection from "../components/home/ExpertiseSection";
+import AwardWinningAgency from "../components/home/AwardWinningAgency";
 
 export default function Home() {
   return (
@@ -19,12 +21,15 @@ export default function Home() {
       <Hero />
      
       {/* <ProblemSection /> */}
-      <ProcessSection />
+      <AwardWinningAgency/>
+  
+      <ExpertiseSection/>
       {/* <ServicesPreview /> */}
       <FinancialGoal />
       <VideoSection />
       <StatsSection />
       <SiCucumber/>
+        
     
     <SuccessStories/>
       {/* <FinancialPlan /> */}

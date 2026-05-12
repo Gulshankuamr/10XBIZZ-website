@@ -9,7 +9,7 @@ export default function Process() {
   return (
     <div className="min-h-screen">
       {/* <Navbar /> */}
-      <ProcessSection />
+     <ProcessSection />
       <FinancialGoal />
       <StatsSection />
       <Team />
