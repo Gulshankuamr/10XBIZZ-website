@@ -1,5 +1,4 @@
-import Footer from "../components/layout/Footer";
-import Navbar from "../components/layout/Navbar";
+
 import CTA from "../components/home/CTA";
 import FinancialGoal from "../components/home/FinancialGoal";
 

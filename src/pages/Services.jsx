@@ -1,5 +1,4 @@
-import Footer from "../components/layout/Footer";
-import Navbar from "../components/layout/Navbar";
+
 import CTA from "../components/services/CTA";
 import ServicesHero from "../components/services/ServicesHero";
 import ServicesListCard from "../components/services/ServicesListCard";
