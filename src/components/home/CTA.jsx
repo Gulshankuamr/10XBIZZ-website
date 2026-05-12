@@ -1,114 +1,71 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MessageCircle, Calendar, Sparkles } from "lucide-react";
+import HeroActionButton from "../ui/HeroActionButton"; // Button component import karein
 
 const CallToAction = () => {
-  return (
-    <section style={{ fontFamily: "'Poppins', sans-serif", padding: "20px 16px" }}>
-      <div style={{
-        position: "relative", borderRadius: "28px", overflow: "hidden",
-        background: "linear-gradient(135deg, #4C0083 0%, #2A0060 40%, #180047 100%)",
-        padding: "60px 52px", display: "flex", flexWrap: "wrap",
-        alignItems: "center", justifyContent: "space-between", gap: "32px"
-      }}>
+  const stats = [
+    { num: "50+", label: "Businesses scaled" },
+    { num: "3×", label: "Avg lead growth" },
+    { num: "24h", label: "Setup time" },
+    { num: "9AM", label: "Mon–Fri support" },
+  ];
 
+  return (
+    <section className="my-20 px-4 font-['Poppins']">
+      <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#4C0083] via-[#2A0060] to-[#180047] px-8 py-12 md:px-14 md:py-16 flex flex-wrap items-center justify-between gap-8">
+        
         {/* Dot grid overlay */}
-        <div style={{
-          position: "absolute", inset: 0, pointerEvents: "none",
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
-          backgroundSize: "28px 28px"
-        }} />
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-40" 
+          style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)", backgroundSize: "28px 28px" }}
+        />
 
         {/* Glow blobs */}
-        <div style={{
-          position: "absolute", top: "-60px", right: "-60px",
-          width: "340px", height: "340px", borderRadius: "50%", pointerEvents: "none",
-          background: "radial-gradient(circle, rgba(180,80,255,0.22) 0%, transparent 70%)"
-        }} />
-        <div style={{
-          position: "absolute", bottom: "-80px", left: "10%",
-          width: "260px", height: "260px", borderRadius: "50%", pointerEvents: "none",
-          background: "radial-gradient(circle, rgba(100,0,161,0.3) 0%, transparent 70%)"
-        }} />
+        <div className="absolute -top-16 -right-16 w-[340px] h-[340px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(180,80,255,0.22)_0%,transparent_70%)]" />
+        <div className="absolute -bottom-20 left-[10%] w-[260px] h-[260px] rounded-full pointer-events-none bg-[radial-gradient(circle,rgba(100,0,161,0.3)_0%,transparent_70%)]" />
 
-        {/* LEFT: text */}
-        <div style={{ position: "relative", zIndex: 2, flex: 1, minWidth: "240px" }}>
-          <div style={{
-            display: "inline-flex", alignItems: "center", gap: "6px",
-            background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.18)",
-            borderRadius: "100px", padding: "5px 14px",
-            fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.85)",
-            marginBottom: "18px"
-          }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#b97bff", display: "inline-block" }} />
+        {/* LEFT CONTENT */}
+        <div className="relative z-10 flex-1 min-w-[280px]">
+          <div className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3.5 py-1 text-[12px] font-medium text-white/90 mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#b97bff] animate-pulse" />
             AI-Powered Growth System
           </div>
 
-          <h2 style={{
-            fontSize: "clamp(1.55rem, 3.5vw, 2.4rem)", fontWeight: 700,
-            lineHeight: 1.22, color: "#fff", margin: "0 0 10px", letterSpacing: "-0.5px"
-          }}>
-            Ready to{" "}
-            <span style={{
-              background: "linear-gradient(90deg,#fff 0%,#CAABFF 100%)",
-              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent"
-            }}>
-              10x your business
-            </span>
-            <br />with smart AI tools?
+          <h2 className="text-3xl md:text-5xl font-bold leading-[1.2] text-white mb-3 tracking-tight">
+            Ready to <span className="bg-gradient-to-r from-white to-[#CAABFF] bg-clip-text text-transparent">10x your business</span> <br className="hidden md:block" /> with smart AI tools?
           </h2>
 
-          <p style={{ fontSize: "0.92rem", fontWeight: 300, lineHeight: 1.7, color: "rgba(255,255,255,0.55)", margin: 0, maxWidth: "420px" }}>
-            Stop losing leads to chaos. Join 50+ businesses scaling with our automated
-            high-intent acquisition systems — built for DTC &amp; B2B brands.
+          <p className="text-sm md:text-[15px] font-light leading-relaxed text-white/50 max-w-[420px]">
+            Stop losing leads to chaos. Join 50+ businesses scaling with our automated high-intent acquisition systems.
           </p>
         </div>
 
-        {/* RIGHT: buttons */}
-        <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "12px" }}>
-          <button style={{
-            display: "inline-flex", alignItems: "center", gap: "10px",
-            background: "#fff", color: "#1a0035", fontSize: "14px", fontWeight: 600,
-            padding: "14px 28px", borderRadius: "14px", border: "none", cursor: "pointer",
-            boxShadow: "0 6px 24px rgba(120,0,255,0.18)", whiteSpace: "nowrap"
-          }}>
+        {/* RIGHT BUTTONS */}
+        <div className="relative z-10 flex flex-col items-start gap-3">
+          <HeroActionButton variant="primary">
             📅 Book Strategy Call
-          </button>
-          <button style={{
-            display: "inline-flex", alignItems: "center", gap: "10px",
-            background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)",
-            color: "#fff", fontSize: "14px", fontWeight: 500,
-            padding: "13px 28px", borderRadius: "14px", cursor: "pointer", whiteSpace: "nowrap"
-          }}>
-            💬 WhatsApp Us
-          </button>
-          <p style={{ fontSize: "11px", letterSpacing: "1.5px", color: "rgba(255,255,255,0.28)", textTransform: "uppercase", margin: 0 }}>
+          </HeroActionButton>
+       <HeroActionButton className="bg-white text-[#1a0035] hover:bg-white/90 border-none my-2">
+  💬 WhatsApp Us
+</HeroActionButton>
+          <p className="text-[10px] tracking-[1.5px] text-white/30 uppercase mt-1">
             Trusted by High-Growth Brands
           </p>
         </div>
 
-        {/* BOTTOM: stats bar */}
-        <div style={{
-          position: "relative", zIndex: 2, width: "100%",
-          display: "flex", flexWrap: "wrap", gap: 0,
-          borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "28px"
-        }}>
-          {[
-            { num: "50+", label: "Businesses scaled" },
-            { num: "3×", label: "Avg lead growth" },
-            { num: "24h", label: "Setup time" },
-            { num: "9AM", label: "Mon–Fri support" },
-          ].map((s, i, arr) => (
-            <div key={i} style={{
-              flex: 1, minWidth: "120px", padding: "0 24px",
-              borderRight: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
-              paddingLeft: i === 0 ? 0 : undefined
-            }}>
-              <div style={{ fontSize: "1.5rem", fontWeight: 700, color: "#fff" }}>{s.num}</div>
-              <div style={{ fontSize: "11px", fontWeight: 300, color: "rgba(255,255,255,0.4)", marginTop: "4px" }}>{s.label}</div>
+        {/* BOTTOM STATS BAR */}
+        <div className="relative z-10 w-full flex flex-wrap gap-y-6 border-t border-white/10 pt-8 mt-4">
+          {stats.map((s, i) => (
+            <div 
+              key={i} 
+              className={`flex-1 min-w-[140px] px-6 ${i !== stats.length - 1 ? 'md:border-r border-white/10' : ''} first:pl-0`}
+            >
+              <div className="text-2xl font-bold text-white">{s.num}</div>
+              <div className="text-[11px] font-light text-white/40 mt-1 uppercase tracking-wider">{s.label}</div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
