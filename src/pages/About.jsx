@@ -1,23 +1,18 @@
-
 import Hero from "../components/about/Hero";
 import Story from "../components/about/Story";
 import Team from "../components/about/Team";
-import Whowehelp from "../components/about/Whowehelp";
+import WhoWehelp from "../components/about/WhoWehelp";
 import Mission from "../components/about/Mission";
 import WhyChooseUs from "../components/about/WhyChooseUs";
-
 
 export default function About() {
   return (
     <>
-      {/* <Navbar /> */}
       <Hero />
       <Story />
-      <Whowehelp/>
-      <Mission/>
-      <WhyChooseUs/>
-      {/* <Team /> */}
-      {/* <Footer /> */}
+      <WhoWehelp />
+      <Mission />
+      <WhyChooseUs />
     </>
   );
 }
