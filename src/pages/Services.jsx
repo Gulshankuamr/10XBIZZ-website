@@ -1,5 +1,5 @@
 
-import CTA from "../components/services/CTA";
+
 import ServicesHero from "../components/services/ServicesHero";
 import ServicesListCard from "../components/services/ServicesListCard";
 import ServicesListCard2 from "../components/services/ServicesListCard2";
@@ -33,7 +33,6 @@ export default function Services() {
         <ImagesCard4 />
         <FaqSection/>
 
-        <CTA />
 
       </main>
 

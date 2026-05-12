@@ -13,7 +13,7 @@ export default function Process() {
       <FinancialGoal />
       <StatsSection />
       <Team />
-      <CTA />
+     
       {/* <Footer /> */}
     </div>
   );

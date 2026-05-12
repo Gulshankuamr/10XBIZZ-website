@@ -4,6 +4,7 @@ import Team from "../components/about/Team";
 import WhoWehelp from "../components/about/WhoWehelp";
 import Mission from "../components/about/Mission";
 import WhyChooseUs from "../components/about/WhyChooseUs";
+import FounderSection from "../components/about/FounderSection";
 
 export default function About() {
   return (
@@ -13,6 +14,7 @@ export default function About() {
       <WhoWehelp />
       <Mission />
       <WhyChooseUs />
+      <FounderSection/>
     </>
   );
 }
