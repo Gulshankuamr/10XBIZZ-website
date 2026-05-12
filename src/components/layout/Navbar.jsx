@@ -255,7 +255,7 @@ export default function Navbar() {
         .nav-link.active-link::after { width: 100%; }
         .nav-link.active-link { color: #6400A1; }
 
-        /* ✅ Remove hover bg on nav items */
+        /* Remove hover bg on nav items */
         .nav-link-wrap:hover { background: transparent !important; }
 
         @keyframes shimmer {
@@ -281,12 +281,12 @@ export default function Navbar() {
             style={{ background: "#FED303", minHeight: 44, padding: "8px 44px 8px 16px" }}
           >
             <div className="flex items-center gap-1.5 flex-wrap justify-center">
-              <span className="text-base">🔥</span>
+              <span className="text-base" aria-hidden="true">HOT</span>
               <span
                 className="text-sm text-gray-900"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600 }}
               >
-                <strong className="font-extrabold">Limited Offer:</strong> Get Free CRM Setup Worth ₹9,999
+                <strong className="font-extrabold">Limited Offer:</strong> Get Free CRM Setup Worth Rs 9,999
               </span>
             </div>
 
@@ -320,12 +320,12 @@ export default function Navbar() {
               aria-label="Close banner"
               className="absolute right-3 top-1/2 -translate-y-1/2 bg-transparent border-0 cursor-pointer text-black/50 hover:text-black/90 transition-colors text-base leading-none p-1"
             >
-              ✕
+              x
             </button>
           </div>
         )}
 
-        {/* ✅ NAVBAR — no rounding, no side padding, always full width, pure white */}
+        {/* NAVBAR: no rounding, no side padding, always full width, pure white */}
         <nav
           className="w-full transition-all duration-300"
           style={{
@@ -361,7 +361,7 @@ export default function Navbar() {
                   onMouseEnter={() => item.dropdown && handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  {/* ✅ nav-link-wrap removes hover bg */}
+                  {/* nav-link-wrap removes hover bg */}
                   <Link
                     to={item.path || "#"}
                     className={`nav-link nav-link-wrap flex items-center px-3 py-2 rounded-lg transition-all duration-150 ${openMenu === item.label ? "active-link" : ""
@@ -379,10 +379,10 @@ export default function Navbar() {
             {/* Right side */}
             <div className="flex items-center gap-2 lg:gap-3">
 
-              {/* WhatsApp — desktop */}
+              {/* WhatsApp - desktop */}
 
 
-              {/* Book Strategy Call — desktop */}
+              {/* Book Strategy Call - desktop */}
               <Link
                 to="/contact"
                 className="hidden lg:inline-flex items-center gap-2 no-underline"
@@ -472,7 +472,7 @@ export default function Navbar() {
                 </span>
               </Link>
 
-              {/* Hamburger — mobile */}
+              {/* Hamburger - mobile */}
               <button
                 className="lg:hidden flex flex-col justify-center items-center gap-[5px] cursor-pointer flex-shrink-0"
                 style={{

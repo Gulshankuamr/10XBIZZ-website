@@ -39,6 +39,7 @@ export default function App() {
         <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
         <Route path="/process" element={<Process />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Home />} />
 
       </Route>
 
