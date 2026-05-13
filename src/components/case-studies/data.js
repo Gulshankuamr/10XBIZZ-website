@@ -2,76 +2,100 @@ export const caseStudies = [
   {
     slug: "performance-marketing-revenue-sprint",
     category: "Performance Marketing",
+    industry: "D2C Fitness",
+    resultPercent: "+240% Qualified Leads",
     readTime: "8 min read",
     title: "From Ad Spend Chaos to Predictable Revenue in 90 Days",
     excerpt:
-      "How we rebuilt a service brand's paid media engine with creative testing, funnel mapping, and daily budget logic to drive qualified pipeline.",
+      "How we rebuilt a paid media engine with creative testing, funnel mapping, and lead-quality feedback loops.",
     coverImage:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
-    heroStat: "3.4x ROAS",
+    clientImage:
+      "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=600&q=80",
     problem:
-      "The brand had strong demand but unstable lead quality. Cost per lead was rising, sales teams were chasing low-intent inquiries, and campaign decisions depended on weekly guesses.",
-    strategy: [
-      "Created a full-funnel media map separating awareness, consideration, and conversion campaigns with unique KPIs.",
-      "Built an offer-first landing system with segmented messaging for founders, marketing managers, and agency owners.",
-      "Launched a weekly creative testing cycle with clear hooks, proof blocks, and objection-focused ad variants.",
-      "Connected CRM feedback to ad sets so budget shifted toward high-close-rate audience clusters."
+      "Lead quality was unstable, CAC was increasing, and sales follow-up time was too high for paid demand.",
+    strategy:
+      "We split campaigns by buyer intent, rebuilt message architecture, and mapped landing pages to audience maturity.",
+    execution: [
+      "Weekly creative sprint with objection-first ad variants.",
+      "Audience-layer budget rules tied to CRM close-rate signals.",
+      "Offer-specific landing page clusters with proof-led blocks."
     ],
-    results: [
-      "Reduced cost per qualified lead by 42% in 7 weeks.",
-      "Increased booked-call show-up rate from 58% to 79%.",
-      "Generated 216 sales-qualified opportunities in one quarter.",
-      "Improved blended ROAS to 3.4x while maintaining profitable CAC."
-    ]
+    results:
+      "The system reduced wasted spend and improved pipeline quality within seven weeks.",
+    metrics: [
+      { label: "Cost per Qualified Lead", value: "-42%" },
+      { label: "Show-up Rate", value: "79%" },
+      { label: "Blended ROAS", value: "3.4x" },
+      { label: "SQLs in Quarter", value: "216" }
+    ],
+    finalOutcome:
+      "A predictable demand engine with daily optimization logic and stronger sales confidence."
   },
   {
     slug: "content-marketing-authority-engine",
     category: "Content Marketing",
+    industry: "B2B SaaS",
+    resultPercent: "+310% Organic Inbound",
     readTime: "7 min read",
-    title: "Building an Authority Content Engine That Compounds Every Month",
+    title: "Building an Authority Content Engine That Compounds Monthly",
     excerpt:
-      "A modern content marketing framework turning founder insights into SEO pages, social micro-content, and email nurture journeys.",
+      "A content operating model turning expert insights into SEO pages, social assets, and nurture emails.",
     coverImage:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80",
-    heroStat: "4.1x Organic Leads",
+    clientImage:
+      "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=600&q=80",
     problem:
-      "The company published random content with no distribution loop. Traffic was flat, blogs were not converting, and email nurture had no strategic narrative.",
-    strategy: [
-      "Defined 4 pillar themes aligned to revenue conversations: demand generation, automation, growth ops, and conversion design.",
-      "Designed a content repurposing pipeline from one long-form article to 12 short-form distribution assets.",
-      "Introduced intent-led CTAs and content upgrades on blog pages to capture qualified subscribers.",
-      "Set up monthly performance sprints focused on ranking movement, session quality, and assisted pipeline impact."
+      "Publishing was random, conversion intent was weak, and distribution had no consistent process.",
+    strategy:
+      "We created four revenue-aligned content pillars and built a repurposing framework for every long-form asset.",
+    execution: [
+      "Topic maps built around high-intent search and sales objections.",
+      "Every article mapped to one CTA and one nurture handoff.",
+      "Distribution sprint launched across email and short-form social."
     ],
-    results: [
-      "Organic inbound leads grew 4.1x in 5 months.",
-      "Average blog engagement time improved from 1m 24s to 3m 11s.",
-      "Email nurture contribution to pipeline increased by 67%.",
-      "Three pillar pages reached page-one rankings for high-intent keywords."
-    ]
+    results:
+      "Traffic quality improved and content started generating reliable pipeline support.",
+    metrics: [
+      { label: "Organic Leads", value: "+4.1x" },
+      { label: "Avg. Engagement Time", value: "3m 11s" },
+      { label: "Email Assist to Pipeline", value: "+67%" },
+      { label: "Page-One Keywords", value: "28" }
+    ],
+    finalOutcome:
+      "A repeatable content engine that compounds reach, trust, and conversions every month."
   },
   {
     slug: "full-funnel-growth-playbook",
-    category: "Growth Marketing",
+    category: "Growth Operations",
+    industry: "EdTech",
+    resultPercent: "+62% Pipeline Velocity",
     readTime: "9 min read",
-    title: "Unifying Ads, Content, and CRM Into One Full-Funnel Growth Playbook",
+    title: "Unifying Ads, Content, and CRM Into One Growth Playbook",
     excerpt:
-      "How a disconnected growth stack was transformed into one measurable system that sales and marketing both trust.",
+      "How we transformed a disconnected stack into one full-funnel system trusted by marketing and sales.",
     coverImage:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80",
-    heroStat: "62% Faster Pipeline Velocity",
+    clientImage:
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=600&q=80",
     problem:
-      "Marketing and sales were operating in silos. Attribution was unclear, lead handoff lagged, and reporting did not reflect true buyer journeys.",
-    strategy: [
-      "Mapped lifecycle stages with shared definitions for MQL, SQL, and opportunity readiness.",
-      "Implemented multi-touch reporting that combined ad clicks, content interactions, and CRM milestones.",
-      "Rebuilt nurture automation with behavior-based triggers and sales alerts for high-intent activity.",
-      "Standardized weekly growth reviews with one dashboard for channel, funnel, and revenue metrics."
+      "Attribution gaps and siloed teams caused delayed handoffs, weak reporting, and slow revenue decisions.",
+    strategy:
+      "We standardized lifecycle definitions and connected channel data directly to CRM milestones.",
+    execution: [
+      "Launched multi-touch funnel dashboards for weekly reviews.",
+      "Implemented behavior-driven nurture and sales alerts.",
+      "Aligned MQL, SQL, and opportunity definitions across teams."
     ],
-    results: [
-      "Pipeline velocity improved by 62% within one quarter.",
-      "Lead-to-opportunity conversion increased by 31%.",
-      "Sales follow-up SLA dropped from 18 hours to under 4 hours.",
-      "Executive reporting confidence improved with accurate channel attribution."
-    ]
+    results:
+      "Sales and marketing started optimizing from one source of truth with faster cycle times.",
+    metrics: [
+      { label: "Pipeline Velocity", value: "+62%" },
+      { label: "Lead to Opportunity", value: "+31%" },
+      { label: "Sales SLA", value: "< 4 hrs" },
+      { label: "Reporting Accuracy", value: "+90%" }
+    ],
+    finalOutcome:
+      "One measurable growth operating system that scales without losing attribution clarity."
   }
 ];
