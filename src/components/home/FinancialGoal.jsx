@@ -1,288 +1,199 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 
-
-const services = [
+const cards = [
   {
-    id: "google",
-    title: "Google Ads Management",
-    desc: "Generate high-intent leads from Google Search with campaigns designed to attract people actively searching for your services. We focus on better targeting and lower wasted spend.",
-    bullets: ["Lead generation services", "Conversion optimization"],
-    imageUrl: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=800&q=80",
-    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>),
+    id: 1,
+    image: "/magnific_futuristic-3d-meta-facebo_2972572110.png", // Meta 3D style
+    alt: "Meta Facebook Ads",
+    title: "Meta / Facebook Ads",
+    category: "Targeted Social Campaigns",
+    services: ["Audience Targeting", "Ad Creatives"],
+    stack: ["Meta Ads", "Pixel Tracking"],
+    description: "High-engagement Meta Ads campaigns designed to reach click-ready audiences.",
+    stackColor: "rgba(0, 122, 255, 0.2)",
+    stackTextColor: "#007AFF",
   },
   {
-    id: "meta",
-    title: "Meta Ads (FB & Instagram)",
-    desc: "Reach the right audience with scroll-stopping ad campaigns that increase brand visibility and improve lead generation.",
-    bullets: ["Digital marketing services", "Meta Ads Expert"],
-    imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80",
-    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>),
+    id: 2,
+    image: "/magnific_glowing-google-logo-and-a_2972577706.png", // Google G style
+    alt: "Google Ads",
+    title: "Google Ads",
+    category: "High-Intent Traffic",
+    services: ["Search Ads", "Performance Bidding"],
+    stack: ["Google Ads", "Analytics"],
+    description: "Conversion-first Google Ads strategies that capture demand from ready-to-buy searchers.",
+    stackColor: "rgba(234, 67, 53, 0.2)",
+    stackTextColor: "#EA4335",
   },
   {
-    id: "seo",
-    title: "SEO Services",
-    desc: "Improve Google rankings, increase organic traffic, and generate long-term leads through sustainable growth.",
-    bullets: ["SEO services", "Organic Growth"],
-    imageUrl: "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?w=800&q=80",
-    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>),
-  },
-  {
-    id: "crm",
+    id: 3,
+    image: "/magnific_futuristic-crm-automation_2972586956.png", // CRM/Growth
+    alt: "CRM Automation",
     title: "CRM Automation",
-    desc: "Organize enquiries in one system and manage your sales pipeline efficiently so no customer gets missed.",
-    bullets: ["CRM automation", "Lead Management"],
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>),
+    category: "Pipeline & Lead Management",
+    services: ["Lead Scoring", "Workflow Alerts"],
+    stack: ["HubSpot", "Zapier"],
+    description: "Automated CRM workflows that move leads faster through the funnel.",
+    stackColor: "rgba(255, 122, 0, 0.2)",
+    stackTextColor: "#FF7A00",
   },
   {
-    id: "whatsapp",
+    id: 4,
+ image: "/magnific_glowing-green-whatsapp-lo_2972604451.png",
     title: "WhatsApp Automation",
-    desc: "Automate follow-ups and lead nurturing using smart WhatsApp systems that improve response speed.",
-    bullets: ["WhatsApp automation", "Business automation"],
-    imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
-    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>),
+    category: "Automated Customer Messaging",
+    services: ["Chat Funnels", "Follow-up Bots"],
+    stack: ["WhatsApp API", "CRM Sync"],
+    description: "WhatsApp automation that delivers fast, personalized replies automatically.",
+    stackColor: "rgba(37, 211, 102, 0.2)",
+    stackTextColor: "#25D366",
   },
   {
-    id: "funnel",
-    title: "Landing Page Optimization",
-    desc: "High-converting funnels designed to turn visitors into leads through optimized layouts.",
-    bullets: ["Landing page optimization", "Conversion strategy"],
-    imageUrl: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
-    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>),
+    id: 5,
+    image: "/Generated Image May 13, 2026 - 1_05PM.png", // Web Design/UI
+    alt: "Website Design",
+    title: "Website & Landing Page",
+    category: "Conversion-Focused Design",
+    services: ["Landing Pages", "UX Optimization"],
+    stack: ["Webflow", "Figma"],
+    description: "Landing pages built to capture attention and increase lead volume.",
+    stackColor: "rgba(168, 85, 247, 0.2)",
+    stackTextColor: "#A855F7",
   },
   {
-    id: "growth",
-    title: "Business Automation",
-    desc: "Scalable growth systems that drive measurable results and compound over time.",
-    bullets: ["Business automation", "Lead gen services"],
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>),
+    id: 6,
+    image: "/futuristic_marketing_strategy_illustration_glowing_neon_target_with_arrow.png", // Strategy/Target
+    alt: "Consultation",
+    title: "Marketing Consultation",
+    category: "Expert Growth Guidance",
+    services: ["Strategy", "Roadmap"],
+    stack: ["Growth Audit", "Campaign Planning"],
+    description: "Strategic consultation that aligns your roadmap with revenue goals.",
+    stackColor: "rgba(244, 63, 94, 0.2)",
+    stackTextColor: "#F43F5E",
   },
 ];
 
-const ACCENT = "#6400A1";
+function HoverCard({ card }) {
+  const [hovered, setHovered] = useState(false);
 
-// Card Background Component Logic
-function CardBg({ imageUrl, isHovered, forceImage }) {
-  const showImage = forceImage || isHovered;
   return (
-    <>
-      <div style={{
-        position: "absolute", inset: 0,
-        backgroundImage: `url(${imageUrl})`,
-        backgroundSize: "cover", backgroundPosition: "center",
-        opacity: showImage ? 1 : 0,
-        transition: "opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)", zIndex: 0,
-        transform: isHovered ? "scale(1.05)" : "scale(1)",
-      }}/>
-      <div style={{
-        position: "absolute", inset: 0,
-        background: showImage 
-          ? "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(100,0,161,0.4) 100%)" 
-          : "transparent",
-        opacity: showImage ? 1 : 0,
-        transition: "opacity 0.6s ease", zIndex: 1,
-      }}/>
-      <div style={{
-        position: "absolute", inset: 0, background: "#fff",
-        opacity: showImage ? 0 : 1,
-        transition: "opacity 0.6s ease", zIndex: 0,
-      }}/>
-    </>
-  );
-}
-
-function ServiceCard({ service, isHovered, onEnter, onLeave, forceImage, height = 350 }) {
-  return (
-    <motion.div
-      className="service-card"
-      onMouseEnter={onEnter} onMouseLeave={onLeave}
-      initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      style={{
-        position: "relative", borderRadius: 28, overflow: "hidden",
-        cursor: "pointer", height: height,
-        border: `1.5px solid ${isHovered || forceImage ? ACCENT : "#EEE"}`,
-        boxShadow: isHovered ? "0 30px 60px rgba(100,0,161,0.15)" : "0 4px 20px rgba(0,0,0,0.03)",
-        transition: "all 0.4s ease", background: "#fff",
-      }}
+    <div
+      className="relative h-[440px] overflow-hidden rounded-[2.5rem] cursor-pointer bg-[#0a0a0a] border border-white/5 shadow-2xl"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <CardBg imageUrl={service.imageUrl} isHovered={isHovered} forceImage={forceImage} />
+      {/* Background Image with Zoom effect */}
+      <div
+        className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out"
+        style={{ transform: hovered ? "scale(1.15)" : "scale(1)" }}
+      >
+        <img 
+          src={card.image} 
+          alt={card.alt} 
+          className="w-full h-full object-cover opacity-60" 
+        />
+        {/* Deep Overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+      </div>
 
-      <div style={{
-        position: "relative", zIndex: 10, height: "100%",
-        padding: "clamp(18px, 2.6vw, 32px)", display: "flex", flexDirection: "column", justifyContent: "flex-end",
-      }}>
-        <div style={{
-          width: 44, height: 44, borderRadius: 12, marginBottom: 16,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          background: (isHovered || forceImage) ? "rgba(255,255,255,0.15)" : "#F5F0FF",
-          color: (isHovered || forceImage) ? "#fff" : ACCENT,
-          backdropFilter: (isHovered || forceImage) ? "blur(10px)" : "none",
-          transition: "all 0.3s ease",
-        }}>
-          {service.icon}
-        </div>
+      {/* Top Label - Always visible or fades out on hover if preferred */}
+      <div className={`absolute top-6 left-6 z-10 transition-opacity duration-300 ${hovered ? 'opacity-40' : 'opacity-100'}`}>
+        <span className="text-[10px] font-bold tracking-[0.2em] uppercase px-4 py-2 rounded-full bg-white/5 text-white/80 backdrop-blur-md border border-white/10 font-syne">
+          {card.category}
+        </span>
+      </div>
 
-        <h3 style={{
-          fontSize: "clamp(18px, 1.7vw, 20px)", fontWeight: "800",
-          color: (isHovered || forceImage) ? "#fff" : "#111",
-          marginBottom: "10px", lineHeight: 1.2, transition: "color 0.3s",
-        }}>{service.title}</h3>
+      {/* Content Container - Slides Up */}
+      <div
+        className="absolute left-0 right-0 p-8 z-20 transition-all duration-700 ease-[cubic-bezier(0.23, 1, 0.32, 1)]"
+        style={{ 
+          bottom: hovered ? "0px" : "-160px",
+          background: hovered ? "linear-gradient(to top, rgba(0,0,0,0.95), transparent)" : "transparent"
+        }}
+      >
+        <h3 className="text-white font-extrabold text-2xl mb-4 tracking-tight font-syne">
+          {card.title}
+        </h3>
 
-        <p style={{
-          fontSize: "clamp(13px, 1.2vw, 14px)", color: (isHovered || forceImage) ? "rgba(255,255,255,0.8)" : "#666",
-          lineHeight: "1.6", margin: "0 0 16px", transition: "color 0.3s",
-        }}>{service.desc}</p>
+        {/* Hover-only content */}
+        <div className={`transition-all duration-500 delay-75 ${hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {card.services.map((s) => (
+              <span key={s} className="px-3 py-1.5 rounded-xl text-[0.75rem] bg-white/10 text-white/90 border border-white/5 font-sans font-medium backdrop-blur-sm">
+                {s}
+              </span>
+            ))}
+            {card.stack.map((t) => (
+              <span 
+                key={t} 
+                className="px-3 py-1.5 rounded-xl text-[0.75rem] font-bold border border-white/5"
+                style={{ background: card.stackColor, color: card.stackTextColor }}
+              >
+                {t}
+              </span>
+            ))}
+          </div>
 
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-          {service.bullets.map((b, i) => (
-            <span key={i} style={{
-              fontSize: "clamp(10px, 1vw, 11px)", fontWeight: "700", textTransform: "uppercase",
-              color: (isHovered || forceImage) ? "#fff" : ACCENT,
-              background: (isHovered || forceImage) ? "rgba(255,255,255,0.1)" : "rgba(100,0,161,0.05)",
-              padding: "4px 10px", borderRadius: "6px", transition: "all 0.3s",
-            }}>{b}</span>
-          ))}
+          <p className="text-[0.95rem] text-white/60 leading-relaxed font-sans font-normal">
+            {card.description}
+          </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
-export default function OurServices() {
-  const [hovered, setHovered] = useState(null);
-  
+export default function HoverRevealSection() {
   return (
-    <section style={{ fontFamily: "'Montserrat', sans-serif", background: "#F8F9FC", padding: "clamp(60px, 8vw, 100px) clamp(14px, 3vw, 24px)" }}>
+    <div className="bg-[#fdfaff] min-h-screen font-sans overflow-x-hidden">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
-
-        .services-top-grid {
-          display: grid;
-          grid-template-columns: 1.5fr 1fr 1fr;
-          gap: 20px;
-          margin-bottom: 20px;
-        }
-
-        .services-bottom-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-        }
-
-        .services-cta-wrap {
-          text-align: center;
-          margin-top: clamp(44px, 7vw, 80px);
-        }
-
-        @media (max-width: 1100px) {
-          .services-top-grid {
-            grid-template-columns: 1fr 1fr;
-          }
-
-          .services-top-grid .service-card:first-child {
-            grid-column: span 2;
-          }
-
-          .services-bottom-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-
-        @media (max-width: 700px) {
-          .services-top-grid,
-          .services-bottom-grid {
-            grid-template-columns: 1fr;
-            gap: 14px;
-          }
-
-          .services-top-grid {
-            margin-bottom: 14px;
-          }
-
-          .services-top-grid .service-card:first-child {
-            grid-column: span 1;
-          }
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap');
+        .font-syne { font-family: 'Syne', sans-serif; }
+        .text-gradient {
+          background: linear-gradient(135deg, #2D1B69 0%, #5B53FF 50%, #FF2D55 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       `}</style>
 
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section className="max-w-7xl mx-auto py-8 px-8">
+        {/* Header Section from image_566258.jpg */}
         
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "clamp(34px, 5vw, 64px)" }}>
-          <span style={{ fontSize: "clamp(10px, 1.4vw, 12px)", fontWeight: "800", color: ACCENT, letterSpacing: "2.4px", textTransform: "uppercase" }}>✦ GROWTH SYSTEMS</span>
-          <h2 style={{ fontSize: "clamp(26px, 4vw, 48px)", fontWeight: "900", color: "#0D0D1A", marginTop: "16px", letterSpacing: "clamp(-0.6px, -0.1vw, -1.5px)", lineHeight: 1.2 }}>
-            Smart Lead Generation & <span style={{ color: ACCENT }}>Business Automation</span>
-          </h2>
-        </div>
-
-        {/* TOP ROW: 3 Cards (1 Large with direct image + 2 small with hover) */}
-        <div className="services-top-grid">
-          <ServiceCard 
-            service={services[0]} 
-            forceImage={true} 
-            isHovered={hovered === services[0].id}
-            onEnter={() => setHovered(services[0].id)}
-            onLeave={() => setHovered(null)}
-            height="clamp(320px, 58vw, 420px)"
-          />
-          <ServiceCard 
-            service={services[1]} 
-            isHovered={hovered === services[1].id}
-            onEnter={() => setHovered(services[1].id)}
-            onLeave={() => setHovered(null)}
-            height="clamp(300px, 56vw, 420px)"
-          />
-          <ServiceCard 
-            service={services[2]} 
-            isHovered={hovered === services[2].id}
-            onEnter={() => setHovered(services[2].id)}
-            onLeave={() => setHovered(null)}
-            height="clamp(300px, 56vw, 420px)"
-          />
-        </div>
-
-        {/* BOTTOM ROW: 4 Cards (All with hover image reveal) */}
-        <div className="services-bottom-grid">
-          {services.slice(3).map((s) => (
-            <ServiceCard 
-              key={s.id}
-              service={s} 
-              isHovered={hovered === s.id}
-              onEnter={() => setHovered(s.id)}
-              onLeave={() => setHovered(null)}
-              height="clamp(300px, 54vw, 400px)"
-            />
-          ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="services-cta-wrap">
-
+        {/* Header Section */}
+<div className="mb-8 flex flex-col items-center text-center">
   
-  <a
-    href="/services"
-    className="inline-flex items-center gap-2 px-7 sm:px-10 py-3.5 sm:py-4 rounded-full
-    bg-[#6400A1] text-white font-extrabold text-[15px] sm:text-[16px]
-    shadow-[0_12px_30px_rgba(100,0,161,0.28)]
-    hover:scale-[1.04]
-    hover:shadow-[0_18px_45px_rgba(100,0,161,0.38)]
-    transition-all duration-300"
-  >
-    See All Services
-    
-    <span className="transition-transform duration-300 group-hover:translate-x-1">
-      →
+  {/* Top Label */}
+  <div className="flex items-center justify-center gap-3 mb-4">
+    <span className="text-[10px] md:text-[11px] font-bold tracking-[0.28em] uppercase text-[#5B53FF] font-syne">
+      Marketing Services
     </span>
-  </a>
+  </div>
 
+  {/* Heading */}
+  <h2 className="font-syne font-extrabold text-[clamp(2rem,4vw,3.1rem)] leading-[1.04] tracking-[-0.06em] text-[#111827] max-w-[760px]">
+    Growth-driven campaigns for every funnel stage,
+    <br />
+    <span className="bg-gradient-to-r from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent">
+      from traffic to conversion.
+    </span>
+  </h2>
 
+  {/* Description */}
+  <p className="mt-5 text-[#111827]/55 text-[0.98rem] md:text-[1.05rem] max-w-[620px] leading-relaxed font-medium">
+    Scalable performance marketing, AI-driven automation, and
+    conversion-optimized design to 10x your business.
+  </p>
 
 </div>
-      </div>
-    </section>
+
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {cards.map((card) => (
+            <HoverCard key={card.id} card={card} />
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }
-

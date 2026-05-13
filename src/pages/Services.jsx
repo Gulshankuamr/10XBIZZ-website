@@ -1,10 +1,11 @@
 
 
-import ServicesHero from "../components/services/ServicesHero";
+// import ServicesHero from "../components/services/ServicesHero";
+import  ServicesHero  from "../components/services/ServicesHero";
 import ServicesListCard from "../components/services/ServicesListCard";
 import ServicesListCard2 from "../components/services/ServicesListCard2";
 import ImagesCard3 from "../components/services/ImagesCard3";
-import ImagesCard4 from "../components/services/ImagesCard4";
+// import ImagesCard4 from "../components/services/ImagesCard4";
 import FaqSection from "../components/services/FaqSection";
 import ProblemSection from "../components/services/ProblemSection";
 import TransitionSection from "../components/services/TransitionSection";
@@ -30,7 +31,7 @@ export default function Services() {
          
         <ImagesCard3 />
 
-        <ImagesCard4 />
+        {/* <ImagesCard4 /> */}
         <FaqSection/>
 
 

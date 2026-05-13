@@ -1,5 +1,5 @@
 {
-  "name": "react-tailwind-js",
+  "name": "react-tailwind",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -26,5 +26,18 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "vite": "^5.4.19"
-  }
+  },
+  "description": "- React (JavaScript) - Vite - Tailwind CSS - React Router",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gulshankuamr/10XBIZZ-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gulshankuamr/10XBIZZ-website/issues"
+  },
+  "homepage": "https://github.com/Gulshankuamr/10XBIZZ-website#readme"
 }
