@@ -14,7 +14,7 @@ import CRM from "./pages/services/CRM";
 import Consultation from "./pages/services/Consultation";
 import FacebookAds from "./pages/services/FacebookAds";
 import LeadGeneration from "./pages/services/LeadGeneration";
-import SalesFunnel from "./pages/services/SalesFunnel";
+import GoogleAdsManagement from "./pages/services/GoogleAdsManagement";
 import WhatsAppAutomation from "./pages/services/WhatsAppAutomation";
 
 export default function App() {
@@ -31,7 +31,7 @@ export default function App() {
         <Route path="/services/crm-automation" element={<CRM />} />
         <Route path="/services/lead-generation" element={<LeadGeneration />} />
         <Route path="/services/facebook-ads" element={<FacebookAds />} />
-        <Route path="/services/sales-funnel" element={<SalesFunnel />} />
+        <Route path="/services/google-ads-management" element={<GoogleAdsManagement />} />
         <Route path="/services/whatsapp-automation" element={<WhatsAppAutomation />} />
         <Route path="/services/marketing-consultation" element={<Consultation />} />
 
