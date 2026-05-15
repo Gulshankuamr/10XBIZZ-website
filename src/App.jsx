@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 
 import CRM from "./pages/services/CRM";
-import Consultation from "./pages/services/Consultation";
+import MetaAdsServish from "./pages/services/MetaAdsServish";
 import FacebookAds from "./pages/services/FacebookAds";
 import LeadGeneration from "./pages/services/LeadGeneration";
 import GoogleAdsManagement from "./pages/services/GoogleAdsManagement";
@@ -33,7 +33,7 @@ export default function App() {
         <Route path="/services/facebook-ads" element={<FacebookAds />} />
         <Route path="/services/google-ads-management" element={<GoogleAdsManagement />} />
         <Route path="/services/whatsapp-automation" element={<WhatsAppAutomation />} />
-        <Route path="/services/marketing-consultation" element={<Consultation />} />
+        <Route path="/services/marketing-meta-ads-servish" element={<MetaAdsServish />} />
 
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />

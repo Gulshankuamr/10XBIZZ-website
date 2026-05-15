@@ -55,8 +55,8 @@ const NAV_ITEMS = [
     path: "/services",
     dropdown: [
       { 
-        label: "Consultation", 
-        path: "/services/marketing-consultation",
+        label: "Meta Ads Services", 
+        path: "/services/marketing-meta-ads-servish",
         icon: <Headphones size={20} className="text-blue-600" />
       },
       { 

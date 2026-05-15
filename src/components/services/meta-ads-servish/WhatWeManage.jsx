@@ -1,0 +1,84 @@
+'use client'
+
+import React from 'react'
+import { motion } from 'framer-motion'
+import { Users, BarChart3, Target } from 'lucide-react'
+
+const managementData = [
+  {
+    title: 'Ad Creative',
+    description: 'We craft thumb-stopping creatives for Facebook and Instagram that drive clicks and keep your brand memorable.',
+    icon: <Users className="w-6 h-6 text-orange-600" />,
+    bgColor: 'bg-orange-50',
+  },
+  {
+    title: 'Audience Signals',
+    description: 'We analyze behavior, interests, and remarketing signals to reach customers who are ready to convert.',
+    icon: <BarChart3 className="w-6 h-6 text-orange-600" />,
+    bgColor: 'bg-orange-50',
+  },
+  {
+    title: 'Conversion Scaling',
+    description: 'Our campaigns are built to scale with strong cost per lead and meaningful return on ad spend.',
+    icon: <Target className="w-6 h-6 text-orange-600" />,
+    bgColor: 'bg-orange-50',
+  },
+]
+
+export default function WhatWeManage() {
+  return (
+    <section className="py-20 px-6 bg-white font-sans">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
+          <div className="max-w-xl">
+            <p className="text-sm font-black uppercase tracking-tighter mb-4 text-black">
+              WHAT WE MANAGE
+            </p>
+            <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight text-gray-900">
+              We manage every Meta touchpoint
+            </h2>
+          </div>
+
+          <div className="max-w-md md:pt-10">
+            <p className="text-gray-600 leading-relaxed mb-6">
+              From Facebook feeds to Instagram Reels, we handle the creative, targeting, and optimization so your brand reaches the right audience with the right message.
+            </p>
+            <a
+              href="#"
+              className="inline-flex items-center text-sm font-bold uppercase tracking-widest border-b-2 border-orange-500 pb-1 hover:text-orange-600 transition-colors"
+            >
+              MORE ABOUT US
+            </a>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {managementData.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+              className="p-10 rounded-[40px] border border-gray-100 shadow-sm hover:shadow-xl transition-all bg-white flex flex-col h-full"
+            >
+              <div className="flex justify-between items-start mb-8">
+                <h3 className="text-3xl font-bold text-gray-900 leading-tight max-w-[150px]">
+                  {item.title}
+                </h3>
+                <div className={`p-4 rounded-full ${item.bgColor}`}>
+                  {item.icon}
+                </div>
+              </div>
+
+              <p className="text-gray-600 leading-relaxed text-lg">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

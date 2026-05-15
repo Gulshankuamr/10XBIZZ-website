@@ -7,6 +7,8 @@ import {
   Search, Monitor, ShoppingBag, Youtube, Zap, MapPin 
 } from "lucide-react"
 
+import HeroActionButton from "../../ui/HeroActionButton"
+
 const cn = (...classes) => classes.filter(Boolean).join(" ")
 
 // --- UI COMPONENTS ---
@@ -82,15 +84,17 @@ export default function IntegratedStackPage() {
           <span className="bg-purple-100 text-[#6400A1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
             Our Workflow
           </span>
-          <h2 className="text-4xl md:text-6xl font-black mt-6 mb-6 leading-[1.1] font-serif">
-            How we scale <span className="text-[#6400A1]">your business</span>
-          </h2>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mt-6 mb-6 leading-[1.05] tracking-tight font-serif max-w-md md:max-w-lg">
+  How we scale <span className="bg-gradient-to-br from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent">
+  your business
+</span>
+</h2>
           <p className="text-slate-500 text-lg max-w-sm mb-8 leading-relaxed">
             A systematic approach to Google Ads ensuring every rupee spent is a calculated investment.
           </p>
-          <button className="flex items-center gap-2 bg-[#6400A1] text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-xl shadow-purple-200">
+          <HeroActionButton className="flex items-center gap-2 bg-[#6400A1] text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-xl shadow-purple-200">
             Get Started <ArrowRight className="w-5 h-5" />
-          </button>
+          </HeroActionButton>
         </div>
 
         <ContainerScroll className="min-h-[300vh] space-y-10">
