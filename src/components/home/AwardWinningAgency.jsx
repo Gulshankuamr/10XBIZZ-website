@@ -66,11 +66,11 @@ function FadeUp({ children, delay = 0, className = "" }) {
 export default function AboutSection() {
   return (
     <section
-      className="w-full py-20 lg:py-32 overflow-hidden"
+      className="w-full py-20 lg:py-32 overflow-hidden font-['Montserrat',ui-sans-serif,system-ui,sans-serif]"
       style={{ background: "#F4F4F0" }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Epilogue:wght@700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
 
         .badge-pill {
           display: inline-flex;
@@ -80,11 +80,13 @@ export default function AboutSection() {
           border: 1.5px solid #E2E2DC;
           border-radius: 100px;
           padding: 8px 18px;
-          font-size: 14px;
-          font-weight: 600;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
           color: #1a1a1a;
           transition: all 0.3s ease;
-          font-family: 'Sora', sans-serif;
+          font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
         }
         .badge-pill:hover {
           border-color: #FED303;
@@ -101,8 +103,9 @@ export default function AboutSection() {
           padding: 16px 36px;
           font-size: 16px;
           font-weight: 700;
+          line-height: 1;
           transition: all 0.3s ease;
-          font-family: 'Sora', sans-serif;
+          font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
         }
         .enq-btn:hover {
           background: #FED303;
@@ -117,7 +120,7 @@ export default function AboutSection() {
         }
         .stat-card:last-child { border-right: none; }
         .highlight-yellow {
-          color: #6400A1;; /* Slightly deeper yellow for readability on light bg */
+          color: #6400A1;
         }
         @media (max-width: 1023px) {
           .stat-card { border-right: none; border-bottom: 1.5px solid #F4F4F0; }
@@ -130,10 +133,12 @@ export default function AboutSection() {
           <div className="lg:col-span-5">
             <FadeUp>
               <div className="w-12 h-1 bg-black mb-8" />
-              <h1 className="font-['Epilogue',sans-serif] font-black leading-tight tracking-tight text-[20px] md:text-[44px] max-w-[620px] mb-8 text-[#1a1a1a]">
+              <h1 className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-[34px] md:text-[50px] lg:text-[58px] font-bold leading-[1.05] tracking-[-0.02em] max-w-[900px] mb-8 text-[#1a1a1a]">
                 Trusted Growth Partner <br className="hidden md:block" />
                 For Businesses{" "}
-                <span className="text-[#6400A1]">Ready To Scale</span>
+                <span className="text-[#6400A1] inline-block font-bold tracking-[-0.02em]">
+                  Ready To Scale
+                </span>
               </h1>
 
               <HeroActionButton className="enq-btn">
@@ -145,27 +150,27 @@ export default function AboutSection() {
           {/* RIGHT COLUMN: Description & Data */}
           <div className="lg:col-span-7 flex flex-col gap-10">
             <FadeUp delay={0.1}>
-              <div className="space-y-6 text-[#444] font-['Sora',sans-serif]">
-                <p className="text-xl font-bold text-[#1a1a1a] leading-snug">
+              <div className="space-y-6 text-[#444] font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
+                <p className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-[#1a1a1a]">
                   We deliver—results that speak for themselves.
                 </p>
-                <p className="text-lg leading-[1.8]">
-                  At <strong className="text-black">10xBizz</strong>, we help
+                <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
+                  At <strong className="font-bold text-black">10xBizz</strong>, we help
                   businesses build complete lead generation and conversion
                   systems designed to attract qualified leads, automate
                   follow-ups, and improve sales performance.
                 </p>
-                <p className="text-lg leading-[1.8]">
+                <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
                   From Google Ads and Meta Ads to CRM setup and WhatsApp
                   automation, we create systems that help businesses grow with{" "}
-                  <strong className="text-black">
+                  <strong className="font-bold text-black">
                     clarity instead of guesswork.
                   </strong>
                 </p>
-                <p className="text-lg leading-[1.8]">
+                <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
                   Whether you want to generate more leads or build a complete
                   business growth system — we help you create a{" "}
-                  <strong className="text-black">scalable foundation</strong>{" "}
+                  <strong className="font-bold text-black">scalable foundation</strong>{" "}
                   for long-term success.
                 </p>
               </div>
@@ -176,10 +181,10 @@ export default function AboutSection() {
               <div className="grid grid-cols-2 lg:grid-cols-4 rounded-[24px] overflow-hidden border-[1.5px] border-[#E2E2DC] shadow-sm">
                 {stats.map((s, i) => (
                   <div key={i} className="stat-card">
-                    <div className="font-['Epilogue',sans-serif] font-black text-4xl mb-2 highlight-yellow">
+                    <div className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px] mb-2 highlight-yellow">
                       <CountUp target={s.value} />
                     </div>
-                    <div className="text-[12px] uppercase tracking-wider font-bold text-[#888] leading-tight whitespace-pre-line">
+                    <div className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#888] leading-tight whitespace-pre-line">
                       {s.label}
                     </div>
                   </div>
@@ -190,7 +195,7 @@ export default function AboutSection() {
             {/* Badges */}
             {/* <FadeUp delay={0.3}>
               <div className="space-y-4">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#999]">
+                <p className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#999]">
                   Growth Built On Systems
                 </p>
                 <div className="flex flex-wrap gap-3">

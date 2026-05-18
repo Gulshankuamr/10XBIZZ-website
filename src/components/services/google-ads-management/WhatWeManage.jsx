@@ -27,29 +27,29 @@ const managementData = [
 
 export default function WhatWeManage() {
   return (
-    <section className="py-20 px-6 bg-white font-sans">
+    <section className="py-20 px-6 bg-white font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
       <div className="max-w-7xl mx-auto">
         
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
           <div className="max-w-xl">
-            <p className="text-sm font-black uppercase tracking-tighter mb-4 text-black">
+            <p className="text-sm font-bold uppercase tracking-[-0.02em]er mb-4 text-black">
               WHAT WE MANAGE
             </p>
-            <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight text-gray-900">
+            <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-[-0.02em] text-gray-900">
               We sniff out digital challenges
             </h2>
           </div>
           
           <div className="max-w-md md:pt-10">
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-gray-600 leading-[1.7] mb-6">
               Focused on business outcomes, we help our clients achieve tangible, 
               measurable results. We're a different breed of marketers, and we bring a 
               unique set of expertise to the table to help your business grow.
             </p>
             <a 
               href="#" 
-              className="inline-flex items-center text-sm font-bold uppercase tracking-widest border-b-2 border-orange-500 pb-1 hover:text-orange-600 transition-colors"
+              className="inline-flex items-center text-sm font-bold uppercase tracking-[0.05em] border-b-2 border-orange-500 pb-1 hover:text-orange-600 transition-colors"
             >
               MORE ABOUT US
             </a>
@@ -77,7 +77,7 @@ export default function WhatWeManage() {
                 </div>
               </div>
               
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <p className="text-gray-600 leading-[1.7] text-lg">
                 {item.description}
               </p>
             </motion.div>

@@ -9,7 +9,7 @@ export default function Detail() {
   if (!study) {
     return (
       <section className="bg-[#F8F9FF] mt-[86px] px-6 py-20 text-center font-[Montserrat,sans-serif]">
-        <h1 className="text-4xl font-black text-slate-900">Case study not found</h1>
+        <h1 className="text-4xl font-bold text-slate-900">Case study not found</h1>
         <Link to="/case-studies" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#6400A1]">
           <ArrowLeft size={14} /> Back to case studies
         </Link>
@@ -30,11 +30,11 @@ export default function Detail() {
           </div>
           <div className="p-7 sm:p-10">
             <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-[#6400A1]">{study.category}</p>
-            <h1 className="mt-2 text-[clamp(2rem,4.5vw,3.5rem)] font-black leading-[1.08] tracking-tight text-slate-900">{study.title}</h1>
+            <h1 className="mt-2 text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.08] tracking-[-0.02em] text-slate-900">{study.title}</h1>
             <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm font-semibold text-slate-500">
               <span>{study.industry}</span>
               <span>{study.readTime}</span>
-              <span className="font-black text-[#6400A1]">{study.resultPercent}</span>
+              <span className="font-bold text-[#6400A1]">{study.resultPercent}</span>
             </div>
           </div>
         </header>
@@ -57,7 +57,7 @@ export default function Detail() {
             {study.execution.map((step, idx) => (
               <div key={step} className="rounded-2xl border border-slate-200 bg-[#F8F9FF] p-4">
                 <p className="text-sm font-bold text-[#6400A1]">Phase {idx + 1}</p>
-                <p className="mt-1 text-sm font-medium leading-relaxed text-slate-700">{step}</p>
+                <p className="mt-1 text-sm font-medium leading-[1.7] text-slate-700">{step}</p>
               </div>
             ))}
           </div>
@@ -75,7 +75,7 @@ export default function Detail() {
               {study.metrics.map((metric) => (
                 <div key={metric.label} className="rounded-2xl border border-[#6400A1]/15 bg-[linear-gradient(125.94deg,rgba(100,0,161,0.08)_0%,rgba(187,0,15,0.06)_100%)] p-4">
                   <p className="text-xs font-bold uppercase tracking-[0.1em] text-slate-500">{metric.label}</p>
-                  <p className="mt-2 text-2xl font-black text-[#6400A1]">{metric.value}</p>
+                  <p className="mt-2 text-2xl font-bold text-[#6400A1]">{metric.value}</p>
                 </div>
               ))}
             </div>

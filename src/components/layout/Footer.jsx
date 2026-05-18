@@ -89,8 +89,8 @@ export default function Footer() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
-        .font-syne { font-family: 'Syne', sans-serif; }
-        .font-dm  { font-family: 'DM Sans', sans-serif; }
+        .font-syne { font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif; }
+        .font-dm  { font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif; }
         .footer-text-stroke {
           color: transparent;
           -webkit-text-stroke: 1px rgba(255,255,255,0.07);
@@ -274,7 +274,7 @@ export default function Footer() {
         <div className="relative overflow-hidden" style={{ lineHeight: 0, marginTop: 0 }}>
           <div className="wordmark-glow" />
           <span
-            className="font-syne footer-text-stroke block w-full text-center font-extrabold tracking-[-2px] select-none"
+            className="font-syne footer-text-stroke block w-full text-center font-bold tracking-[-2px] select-none"
             style={{
               fontSize: "clamp(3.5rem, 13vw, 12rem)",
               lineHeight: 0.82,

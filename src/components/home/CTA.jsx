@@ -11,7 +11,7 @@ const CallToAction = () => {
   ];
 
   return (
-    <section className="my-20 px-4 font-['Poppins']">
+    <section className="my-20 px-4 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
       <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#4C0083] via-[#2A0060] to-[#180047] px-8 py-12 md:px-14 md:py-16 flex flex-wrap items-center justify-between gap-8">
         
         {/* Dot grid overlay */}
@@ -31,11 +31,11 @@ const CallToAction = () => {
             AI-Powered Growth System
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-bold leading-[1.2] text-white mb-3 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold leading-[1.2] text-white mb-3 tracking-[-0.02em]">
             Ready to <span className="bg-gradient-to-r from-white to-[#CAABFF] bg-clip-text text-transparent">10x your business</span> <br className="hidden md:block" /> with smart AI tools?
           </h2>
 
-          <p className="text-sm md:text-[15px] font-light leading-relaxed text-white/50 max-w-[420px]">
+          <p className="text-sm md:text-[15px] font-light leading-[1.7] text-white/50 max-w-[420px]">
             Stop losing leads to chaos. Join 50+ businesses scaling with our automated high-intent acquisition systems.
           </p>
         </div>

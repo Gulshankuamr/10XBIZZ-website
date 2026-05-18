@@ -39,7 +39,7 @@ export default function ProcessSection() {
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="px-4 py-1.5 rounded-full border border-blue-200 text-blue-600 text-xs font-bold tracking-widest uppercase"
+            className="px-4 py-1.5 rounded-full border border-blue-200 text-blue-600 text-xs font-bold tracking-[0.05em] uppercase"
           >
             Our Process
           </motion.span>
@@ -48,7 +48,7 @@ export default function ProcessSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-extrabold text-[#0F172A] mt-6 mb-4"
+            className="text-4xl md:text-5xl font-bold text-[#0F172A] mt-6 mb-4"
           >
             How We Run Your Meta Ad <br /> Campaigns
           </motion.h2>
@@ -91,7 +91,7 @@ export default function ProcessSection() {
                 </div>
 
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
+                <p className="text-gray-500 text-sm leading-[1.7]">
                   {step.description}
                 </p>
 

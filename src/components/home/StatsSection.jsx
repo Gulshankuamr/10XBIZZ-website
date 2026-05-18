@@ -173,7 +173,7 @@ export default function ChaosVsEdge() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4"
           >
             Still Struggling to Turn{" "}
             <span className="bg-gradient-to-r from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent">
@@ -185,7 +185,7 @@ export default function ChaosVsEdge() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-base md:text-[18px] text-gray-600 max-w-2xl mx-auto"
           >
             You're getting enquiries… but conversions are not happening.
           </motion.p>
@@ -260,11 +260,11 @@ export default function ChaosVsEdge() {
 
                         <div className="flex-1 min-w-0">
                           {/* Title — bold & black always */}
-                          <h3 className="text-base md:text-lg font-extrabold text-gray-900 mb-1 leading-snug">
+                          <h3 className="text-base md:text-[18px] font-bold text-gray-900 mb-1 leading-snug">
                             {item.title}
                           </h3>
                           {/* Description — bold black, larger */}
-                          <p className="text-sm md:text-[15px] font-bold text-gray-500 leading-relaxed line-clamp-2">
+                          <p className="text-sm md:text-[15px] font-bold text-gray-500 leading-[1.7] line-clamp-2">
                             {item.desc}
                           </p>
                         </div>
@@ -344,13 +344,13 @@ export default function ChaosVsEdge() {
                           />
                         </div>
                         {/* Card headline — bolder, bigger, black */}
-                        <h3 className="text-2xl md:text-[28px] font-black text-gray-900 leading-tight tracking-tight">
+                        <h3 className="text-2xl md:text-[28px] font-bold text-gray-900 leading-tight tracking-[-0.02em]">
                           {currentItem.title}
                         </h3>
                       </div>
 
                       {/* Description — bold black */}
-                      <p className="text-gray-900 text-base md:text-[17px] font-bold leading-relaxed mb-8">
+                      <p className="text-gray-900 text-base md:text-[17px] font-bold leading-[1.7] mb-8">
                         {currentItem.desc}
                       </p>
 
@@ -418,7 +418,7 @@ export default function ChaosVsEdge() {
         >
           <p className="text-gray-500 text-sm">
             The problem is not your ads.{" "}
-            <span className="font-black text-gray-900">The problem is your system.</span>
+            <span className="font-bold text-gray-900">The problem is your system.</span>
           </p>
         </motion.div>
       </div>

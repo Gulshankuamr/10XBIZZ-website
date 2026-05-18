@@ -11,7 +11,7 @@ const TRUST_POINTS = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative w-full py-20 bg-white overflow-hidden font-sans">
+    <section className="relative w-full py-20 bg-white overflow-hidden font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
       {/* Decorative Background Elements (Matching your theme) */}
       <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#6400A1]/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#BB000F]/5 rounded-full blur-[100px] pointer-events-none" />
@@ -25,11 +25,11 @@ export default function WhyChooseUs() {
             Trust / Authority
           </div>
           
-          <h2 className="text-[36px] md:text-[50px] font-black text-gray-900 leading-tight tracking-tight mb-6 font-['Montserrat']">
+          <h2 className="text-[36px] md:text-[50px] font-bold text-gray-900 leading-tight tracking-[-0.02em] mb-6 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
             Why Businesses <span className="italic text-[#6400A1]">Choose Us</span>
           </h2>
           
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+          <p className="text-gray-600 text-base md:text-[18px] leading-[1.7]">
             Our mission is to drive progress and enhance the lives of our customers by 
             delivering superior products and services that exceed expectations.
           </p>
@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
         {/* Content & Trust Points Grid */}
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <div className="space-y-6">
-            <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+            <p className="text-gray-600 leading-[1.7] text-sm md:text-base">
               There are many variations of passages of Lorem Ipsum available, but the 
               majority have suffered alteration in some form, by injected humour, or 
               randomized words which don't look even slightly believable. We focus on 
@@ -78,7 +78,7 @@ export default function WhyChooseUs() {
                 className="flex items-center gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-[#6400A1]/30 transition-colors"
               >
                 <span className="text-xl">{point.icon}</span>
-                <span className="font-bold text-gray-800 text-sm tracking-tight">
+                <span className="font-bold text-gray-800 text-sm tracking-[-0.02em]">
                   {point.title}
                 </span>
               </motion.div>

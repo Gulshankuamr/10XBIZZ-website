@@ -16,7 +16,7 @@ export default function StickyContactButton() {
         }}
       >
         <span
-          className="inline-flex items-center px-3 py-6 text-[13px] tracking-widest font-black uppercase text-white"
+          className="inline-flex items-center px-3 py-6 text-[13px] tracking-[0.05em] font-bold uppercase text-white"
           style={{
             // Inner content bhi flat rakha hai
             background: "linear-gradient(125.94deg, #7B00C2 0%, #BB000F 100%)",

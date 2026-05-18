@@ -63,7 +63,7 @@ export default function MoneyFlyButton({
           color: #fff;
           background: #f3877f;
           border-radius: 10px;
-          font-family: 'Syne', sans-serif;
+          font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
           font-weight: 700;
           letter-spacing: 0.04em;
           font-size: clamp(0.9rem, 1.4vw, 1.15rem);

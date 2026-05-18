@@ -45,7 +45,7 @@ const ImagesCard4 = () => {
         <div className="relative mx-auto max-w-[980px]">
        <div className="mb-12 text-center px-5 w-full max-w-[800px] mx-auto">
 
-  <h2 className="mt-5 text-[#0d1326] font-extrabold tracking-[-0.04em] leading-[1.1] text-[clamp(2rem,4.5vw,3.6rem)] font-serif">
+  <h2 className="mt-5 text-[#0d1326] font-bold tracking-[-0.04em] leading-[1.1] text-[clamp(2rem,4.5vw,3.6rem)] font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
     
     <span className="block">
      Invest In Quality Work &
@@ -57,7 +57,7 @@ const ImagesCard4 = () => {
 
   </h2>
 
-  <p className="mx-auto mt-5 max-w-[600px] text-[#3d4756] text-base leading-8 font-normal font-sans">
+  <p className="mx-auto mt-5 max-w-[600px] text-[#3d4756] text-base leading-8 font-normal font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
     Raise the bar on your creative and see how it makes it easier
 for all your marketing to achieve its goals.
   </p>

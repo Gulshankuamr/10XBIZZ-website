@@ -155,7 +155,7 @@ export default function WhatsIncluded() {
             </span>
           </div>
 
-          <h2 className="text-[clamp(32px,5vw,54px)] font-black leading-tight tracking-[-2px] text-[#111]">
+          <h2 className="text-[clamp(32px,5vw,54px)] font-bold leading-tight tracking-[-2px] text-[#111]">
             Everything You Need To{" "}
             <span className="bg-gradient-to-r from-[#6400A1] to-[#FF1920] bg-clip-text text-transparent">
               Generate & Convert Leads
@@ -242,7 +242,7 @@ export default function WhatsIncluded() {
 
                   {/* Title */}
                   <h3
-                    className="text-[24px] font-extrabold text-center leading-tight mb-3"
+                    className="text-[24px] font-bold text-center leading-tight mb-3"
                     style={{
                       color: isHovered ? "#fff" : "#111827",
                     }}

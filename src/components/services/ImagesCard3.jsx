@@ -68,10 +68,10 @@ const specialityCards = [
 
 const OurSpeciality = () => {
   return (
-    <section className="py-24 px-6 bg-[linear-gradient(125.94deg,#6400A1_0%,#BB000F_100%)] font-['Outfit',sans-serif]">
+    <section className="py-24 px-6 bg-[linear-gradient(125.94deg,#6400A1_0%,#BB000F_100%)] font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
       {/* Heading Section */}
       <div className="max-w-7xl mx-auto text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-[#fff] tracking-tight font-['Plus_Jakarta_Sans'] mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#fff] tracking-[-0.02em] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] mb-4">
           Our Speciality
         </h2>
        
@@ -105,7 +105,7 @@ const OurSpeciality = () => {
 
             {/* Text Label */}
             <div className="absolute bottom-6 left-6 right-6 z-10">
-              <p className="text-white text-xl font-extrabold font-['Plus_Jakarta_Sans'] leading-tight drop-shadow-md">
+              <p className="text-white text-xl font-bold font-['Montserrat',ui-sans-serif,system-ui,sans-serif] leading-tight drop-shadow-md">
                 {card.label}
               </p>
             </div>

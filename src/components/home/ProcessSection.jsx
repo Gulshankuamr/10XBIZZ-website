@@ -183,7 +183,7 @@ export default function HomeProcese() {
       minHeight: "100vh", width: "100%",
       display: "flex", alignItems: "center", justifyContent: "center",
       padding: "40px 15px",
-      fontFamily: "'DM Sans',sans-serif",
+      fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif",
       position: "relative", overflowX: "hidden",
     }}>
       <style>{`

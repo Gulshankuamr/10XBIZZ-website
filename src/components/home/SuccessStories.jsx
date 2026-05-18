@@ -75,13 +75,13 @@ export default function SuccessStories() {
   };
 
   return (
-    <div className="w-full bg-[linear-gradient(125.94deg,#6400A1_0%,#BB000F_100%)] font-['Outfit'] antialiased overflow-hidden">
+    <div className="w-full bg-[linear-gradient(125.94deg,#6400A1_0%,#BB000F_100%)] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] antialiased overflow-hidden">
       {/* ── Header ── */}
       <div className="text-center pt-10 pb-4 px-4">
         <p className="text-[10px] font-bold tracking-[0.15em] text-white/40 uppercase mb-1">
           ✦ Client Success
         </p>
-        <h2 className="font-['Nunito'] text-[clamp(1.7rem,3vw,2.5rem)] font-black text-white tracking-tight mb-2">
+        <h2 className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-[clamp(1.7rem,3vw,2.5rem)] font-bold text-white tracking-[-0.02em] mb-2">
           Explore our Success Stories
         </h2>
         <div className="w-16 h-[2px] bg-white/20 rounded-full mx-auto" />
@@ -128,7 +128,7 @@ export default function SuccessStories() {
                 {/* Left side: Content */}
                 <div className="order-2 lg:order-1">
                   <div
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase mb-4"
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[9px] font-bold tracking-[0.05em] uppercase mb-4"
                     style={{ 
                       backgroundColor: `${story.accent}15`, 
                       border: `1px solid ${story.accent}40`,
@@ -139,11 +139,11 @@ export default function SuccessStories() {
                     {story.tag}
                   </div>
 
-                  <h3 className="font-['Nunito'] text-white font-black text-xl md:text-3xl leading-tight mb-4">
+                  <h3 className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-white font-bold text-xl md:text-3xl leading-tight mb-4">
                     {story.title}
                   </h3>
                   
-                  <p className="text-white/60 text-sm md:text-base leading-relaxed mb-6 max-w-xl">
+                  <p className="text-white/60 text-sm md:text-base leading-[1.7] mb-6 max-w-xl">
                     {story.desc}
                   </p>
 
@@ -151,7 +151,7 @@ export default function SuccessStories() {
                     <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-2">
                       <span className="text-lg">🚀</span>
                       <div className="flex flex-col">
-                        <span className="text-[9px] text-white/40 uppercase tracking-tighter">Result</span>
+                        <span className="text-[9px] text-white/40 uppercase tracking-[-0.02em]er">Result</span>
                         <span className="text-xs md:text-sm font-bold text-white">{story.stat}</span>
                       </div>
                     </div>
@@ -178,7 +178,7 @@ export default function SuccessStories() {
                       className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 right-4 text-[10px] font-black text-white/50 tracking-widest">
+                    <div className="absolute bottom-4 right-4 text-[10px] font-bold text-white/50 tracking-[0.05em]">
                       REF / 0{idx + 1}
                     </div>
                   </div>

@@ -63,13 +63,13 @@ const SERVICE_CARDS = [
 
 export default function MetaAdsServices() {
   return (
-    <main className="bg-white font-sans text-slate-900 selection:bg-purple-200">
+    <main className="bg-white font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-slate-900 selection:bg-purple-200">
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
-          <span className="bg-purple-100 text-[#6400A1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
+          <span className="bg-purple-100 text-[#6400A1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.05em]">
             Expert Services
           </span>
-          <h2 className="text-4xl md:text-5xl font-black mt-6 mb-6 font-serif">
+          <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-6 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
             High-Performance Meta <span className="text-[#6400A1]">Campaigns</span>
           </h2>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto">
@@ -91,15 +91,15 @@ export default function MetaAdsServices() {
                 </div>
               </div>
 
-              <span className="inline-block px-3 py-1 rounded-full text-[11px] md:text-xs font-bold tracking-widest uppercase bg-purple-50 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white mb-4 transition-colors">
+              <span className="inline-block px-3 py-1 rounded-full text-[11px] md:text-xs font-bold tracking-[0.05em] uppercase bg-purple-50 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white mb-4 transition-colors">
                 {card.tag}
               </span>
 
-              <h3 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-white font-serif transition-colors">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-white font-['Montserrat',ui-sans-serif,system-ui,sans-serif] transition-colors">
                 {card.title}
               </h3>
 
-              <p className="text-slate-500 text-base md:text-sm leading-relaxed group-hover:text-purple-100 mb-6 transition-colors">
+              <p className="text-slate-500 text-base md:text-sm leading-[1.7] group-hover:text-purple-100 mb-6 transition-colors">
                 {card.desc}
               </p>
 

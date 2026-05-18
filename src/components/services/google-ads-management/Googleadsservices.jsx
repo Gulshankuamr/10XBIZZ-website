@@ -75,21 +75,21 @@ const SERVICE_CARDS = [
 
 export default function IntegratedStackPage() {
   return (
-    <main className="bg-white font-sans text-slate-900 selection:bg-purple-200">
+    <main className="bg-white font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-slate-900 selection:bg-purple-200">
       
       {/* 1. PROCESS SECTION */}
       <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 border-b border-slate-100">
         {/* Added pt-28 so text doesn't stick to the very top edge */}
         <div className="sticky top-0 pt-28 h-fit self-start">
-          <span className="bg-purple-100 text-[#6400A1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
+          <span className="bg-purple-100 text-[#6400A1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.05em]">
             Our Workflow
           </span>
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mt-6 mb-6 leading-[1.05] tracking-tight font-serif max-w-md md:max-w-lg">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mt-6 mb-6 leading-[1.05] tracking-[-0.02em] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] max-w-md md:max-w-lg">
   How we scale <span className="bg-gradient-to-br from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent">
   your business
 </span>
 </h2>
-          <p className="text-slate-500 text-lg max-w-sm mb-8 leading-relaxed">
+          <p className="text-slate-500 text-lg max-w-sm mb-8 leading-[1.7]">
             A systematic approach to Google Ads ensuring every rupee spent is a calculated investment.
           </p>
           <HeroActionButton className="flex items-center gap-2 bg-[#6400A1] text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-xl shadow-purple-200">
@@ -109,10 +109,10 @@ export default function IntegratedStackPage() {
                 <div className="w-14 h-14 bg-purple-50 flex items-center justify-center rounded-2xl text-[#6400A1]">
                   {React.cloneElement(phase.icon, { className: "w-7 h-7" })}
                 </div>
-                {/* <span className="text-6xl font-black text-slate-100 font-serif">0{i+1}</span> */}
+                {/* <span className="text-6xl font-bold text-slate-100 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">0{i+1}</span> */}
               </div>
-              <h3 className="text-2xl font-bold mb-4 font-serif">{phase.title}</h3>
-              <p className="text-slate-500 leading-relaxed text-lg">{phase.desc}</p>
+              <h3 className="text-2xl font-bold mb-4 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">{phase.title}</h3>
+              <p className="text-slate-500 leading-[1.7] text-lg">{phase.desc}</p>
             </CardSticky>
           ))}
         </ContainerScroll>
@@ -121,10 +121,10 @@ export default function IntegratedStackPage() {
       {/* 2. SERVICES SECTION */}
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
-          <span className="bg-purple-100 text-[#6400A1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
+          <span className="bg-purple-100 text-[#6400A1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.05em]">
             Expert Services
           </span>
-          <h2 className="text-4xl md:text-5xl font-black mt-6 mb-6 font-serif">
+          <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-6 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
             High-Performance <span className="text-[#6400A1]">Campaigns</span>
           </h2>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto">
@@ -145,20 +145,20 @@ export default function IntegratedStackPage() {
                 <div className="w-12 h-12 bg-purple-100 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white flex items-center justify-center rounded-xl transition-colors">
                   {React.cloneElement(card.icon, { className: "w-6 h-6" })}
                 </div>
-                {/* <span className="text-5xl font-black text-slate-50 group-hover:text-white/10 font-serif transition-colors">
+                {/* <span className="text-5xl font-bold text-slate-50 group-hover:text-white/10 font-['Montserrat',ui-sans-serif,system-ui,sans-serif] transition-colors">
                   {card.number}
                 </span> */}
               </div>
 
-              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-purple-50 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white mb-4 transition-colors">
+              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.05em] uppercase bg-purple-50 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white mb-4 transition-colors">
                 {card.tag}
               </span>
 
-              <h3 className="text-xl font-bold mb-3 group-hover:text-white font-serif transition-colors">
+              <h3 className="text-xl font-bold mb-3 group-hover:text-white font-['Montserrat',ui-sans-serif,system-ui,sans-serif] transition-colors">
                 {card.title}
               </h3>
               
-              <p className="text-slate-500 text-sm leading-relaxed group-hover:text-purple-100 mb-6 transition-colors">
+              <p className="text-slate-500 text-sm leading-[1.7] group-hover:text-purple-100 mb-6 transition-colors">
                 {card.desc}
               </p>
 

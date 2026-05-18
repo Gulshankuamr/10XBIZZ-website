@@ -4,7 +4,7 @@ import { TrendingUp, Users, Target, CheckCircle } from "lucide-react";
 
 export default function Story() {
   return (
-    <section className="relative py-20 md:py-32 px-6 lg:px-16 overflow-hidden bg-white font-['DM_Sans',sans-serif]">
+    <section className="relative py-20 md:py-32 px-6 lg:px-16 overflow-hidden bg-white font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
       {/* Fonts Import */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap');
@@ -25,7 +25,7 @@ export default function Story() {
           className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 px-4 py-2 rounded-full mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-[#6400A1] animate-pulse" />
-          <span className="text-[12px] font-bold tracking-widest text-slate-600 uppercase">Our Origin Story</span>
+          <span className="text-[12px] font-bold tracking-[0.05em] text-slate-600 uppercase">Our Origin Story</span>
         </motion.div>
 
         {/* Heading */}
@@ -33,7 +33,7 @@ export default function Story() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-extrabold leading-[1.1] tracking-tight mb-16 text-[#0d1326] font-['Syne']"
+          className="font-bold leading-[1.1] tracking-[-0.02em] mb-16 text-[#0d1326] font-['Montserrat',ui-sans-serif,system-ui,sans-serif]"
           style={{ fontSize: "clamp(1.5rem, 3vw, 3rem)" }}
         >
           Why We Started <br />
@@ -52,12 +52,12 @@ export default function Story() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <p className="text-xl text-slate-500 leading-relaxed font-light">
+            <p className="text-xl text-slate-500 leading-[1.7] font-light">
               We didn't just start another agency. We started a movement to end the cycle of wasted marketing budgets and missed opportunities.
             </p>
 
             <div className="border-l-4 border-[#6400A1] pl-6 py-2 bg-slate-50/50 rounded-r-xl">
-              <p className="text-lg text-slate-800 font-semibold leading-relaxed">
+              <p className="text-lg text-slate-800 font-semibold leading-[1.7]">
                 We saw businesses burning money on ads without a system to capture and convert. Leads were getting lost, and growth was left to chance.
               </p>
             </div>
@@ -75,13 +75,13 @@ export default function Story() {
             {/* Stats Row */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-100">
               <div>
-                <h4 className="text-3xl font-extrabold text-[#0d1326] font-['Syne']">10x</h4>
-                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Growth Scaling</p>
+                <h4 className="text-3xl font-bold text-[#0d1326] font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">10x</h4>
+                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-[0.05em] mt-1">Growth Scaling</p>
               </div>
               <div className="w-px h-full bg-slate-100" />
               <div>
-                <h4 className="text-3xl font-extrabold text-[#0d1326] font-['Syne']">98%</h4>
-                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-1">Client Retention</p>
+                <h4 className="text-3xl font-bold text-[#0d1326] font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">98%</h4>
+                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-[0.05em] mt-1">Client Retention</p>
               </div>
             </div>
           </motion.div>

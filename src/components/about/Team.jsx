@@ -55,7 +55,7 @@ export default function Testimonials() {
       >
         {/* Header — center aligned */}
         <div className="text-center mb-14">
-          <h2 className="text-[32px] sm:text-[38px] font-extrabold text-[#111] tracking-tight mb-3">
+          <h2 className="text-[32px] sm:text-[38px] font-bold text-[#111] tracking-[-0.02em] mb-3">
             Architecture That Works
           </h2>
           <p className="text-[15px] text-[#667085]">

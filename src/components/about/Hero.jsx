@@ -76,9 +76,9 @@ export default function AboutHero() {
           variants={fadeUp}
           transition={{ duration: 0.6 }}
           className="
-            text-center text-[#111111] font-extrabold
+            text-center text-[#111111] font-bold
             text-[32px] md:text-[42px] lg:text-[52px]
-            leading-[1.1] tracking-tight
+            leading-[1.1] tracking-[-0.02em]
             max-w-3xl
           "
         >

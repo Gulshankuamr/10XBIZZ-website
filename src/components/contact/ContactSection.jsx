@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-['Plus_Jakarta_Sans']">
+    <div className="min-h-screen bg-gray-50 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
       {/* ── HERO SECTION ── */}
       <div className="relative overflow-hidden bg-gradient-to-br from-[#6400A1] via-[#3a006e] to-[#1a0033] px-6 py-20 text-center text-white md:px-10 md:pb-32 md:pt-24">
         {/* Background Decorative Shapes */}
@@ -45,13 +45,13 @@ export default function Contact() {
      <div className="relative z-10 mx-auto max-w-3xl">
   
   {/* Top Badge */}
-  <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[9px] font-extrabold uppercase tracking-[0.2em] md:text-[10px]">
+  <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[9px] font-bold uppercase tracking-[0.2em] md:text-[10px]">
     <span className="h-2 w-2 animate-pulse rounded-full bg-[#FF1920]" />
     Free Strategy Session — Limited Slots
   </div>
 
   {/* Heading */}
-  <h1 className="mb-5 text-[34px] font-black leading-[1.15] tracking-tight md:text-[56px]">
+  <h1 className="mb-5 text-[34px] font-bold leading-[1.15] tracking-[-0.02em] md:text-[56px]">
     Grow Your Business{" "}
     <span className="bg-[linear-gradient(104.17deg,#6400A1_0%,#FF1920_100%)] bg-clip-text text-transparent">
       10X Faster
@@ -103,7 +103,7 @@ export default function Contact() {
                   {c.icon}
                 </div>
                 <div>
-                  <p className="text-[10px] font-extrabold uppercase tracking-wider text-[#6400A1]">{c.title}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#6400A1]">{c.title}</p>
                   <p className="text-base font-bold text-gray-900">{c.val}</p>
                   <p className="text-xs text-gray-400">{c.sub}</p>
                 </div>
@@ -118,7 +118,7 @@ export default function Contact() {
                 { num: "3X", lbl: "Avg ROI" },
               ].map((s) => (
                 <div key={s.lbl} className="rounded-2xl border border-purple-50 bg-gradient-to-br from-purple-50/50 to-red-50/50 p-5 text-center">
-                  <p className="text-2xl font-black text-[#6400A1]">{s.num}</p>
+                  <p className="text-2xl font-bold text-[#6400A1]">{s.num}</p>
                   <p className="mt-1 text-[10px] font-bold uppercase tracking-wide text-gray-400">{s.lbl}</p>
                 </div>
               ))}
@@ -133,11 +133,11 @@ export default function Contact() {
                   <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#6400A1] to-[#FF1920] text-4xl shadow-lg">
                     🎉
                   </div>
-                  <h3 className="mb-3 text-2xl font-black text-gray-900">Request Submitted!</h3>
-                  <p className="mx-auto mb-8 max-w-xs text-gray-500 leading-relaxed">
+                  <h3 className="mb-3 text-2xl font-bold text-gray-900">Request Submitted!</h3>
+                  <p className="mx-auto mb-8 max-w-xs text-gray-500 leading-[1.7]">
                     Thank you, <span className="font-bold text-gray-800">{formData.firstName}</span>! Our team will contact you within 24 hours.
                   </p>
-                  <Link to="/" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6400A1] to-[#FF1920] px-8 py-3 text-sm font-extrabold text-white transition-transform hover:scale-105 active:scale-95">
+                  <Link to="/" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6400A1] to-[#FF1920] px-8 py-3 text-sm font-bold text-white transition-transform hover:scale-105 active:scale-95">
                     Back to Home
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                   </Link>
@@ -145,7 +145,7 @@ export default function Contact() {
               ) : (
                 <>
                   <div className="mb-8">
-                    <h2 className="text-2xl font-black text-gray-900 md:text-3xl">Book Your Free Strategy Call 🚀</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">Book Your Free Strategy Call 🚀</h2>
                     <p className="mt-2 text-sm text-gray-400">Fill in the details below and we'll reach out within 24 hours.</p>
                   </div>
 
@@ -197,12 +197,12 @@ export default function Contact() {
 
                     <div className="flex gap-3 pt-2">
                       <input type="checkbox" id="agree" name="agree" checked={formData.agree} onChange={handleChange} className="mt-1 h-4 w-4 shrink-0 accent-[#6400A1]" />
-                      <label htmlFor="agree" className="text-xs leading-relaxed text-gray-400">
+                      <label htmlFor="agree" className="text-xs leading-[1.7] text-gray-400">
                         I agree to the <a href="/terms" className="font-bold text-[#6400A1] hover:underline">Terms</a> and <a href="/privacy" className="font-bold text-[#6400A1] hover:underline">Privacy Policy</a>. I consent to being contacted via phone, email, or WhatsApp.
                       </label>
                     </div>
 
-                    <button type="submit" disabled={loading} className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-[#6400A1] to-[#FF1920] p-4 text-sm font-black text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70">
+                    <button type="submit" disabled={loading} className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-[#6400A1] to-[#FF1920] p-4 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70">
                       <span className="relative z-10 flex items-center justify-center gap-3">
                         {loading ? "Submitting..." : "Book My Free Strategy Call"}
                         {!loading && (
@@ -259,7 +259,7 @@ export default function Contact() {
 function FormGroup({ label, children, required }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="text-[10px] font-extrabold uppercase tracking-widest text-gray-500">
+      <label className="text-[10px] font-bold uppercase tracking-[0.05em] text-gray-500">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       {children}

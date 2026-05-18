@@ -76,7 +76,7 @@ function GrowthGridSection() {
             </div>
           </div>
 
-          <h2 className="heading-main mx-auto max-w-[720px] text-[clamp(2rem,5vw,3.2rem)] font-extrabold text-[#050b1b] leading-tight flex flex-col items-center gap-1">
+          <h2 className="heading-main mx-auto max-w-[720px] text-[clamp(2rem,5vw,3.2rem)] font-bold text-[#050b1b] leading-tight flex flex-col items-center gap-1">
             <span className="md:whitespace-nowrap">
               <span className="bg-[#020711] text-white px-2 py-0.5 rounded-sm">Financial Acumen</span>{" "}
               So High, We Already
@@ -84,7 +84,7 @@ function GrowthGridSection() {
             <span className="md:whitespace-nowrap">Know What&apos;s Next For Your Growth</span>
           </h2>
 
-          <p className="body-copy mx-auto mt-4 max-w-[820px] text-[clamp(0.95rem,1.2vw,1.1rem)] leading-relaxed text-[#1f2740]">
+          <p className="body-copy mx-auto mt-4 max-w-[820px] text-[clamp(0.95rem,1.2vw,1.1rem)] leading-[1.7] text-[#1f2740]">
             Meet our "Growth Grid" that takes your financial business metrics & attribution models to find where your current & next best dollars are spent.
             We do the math in{" "}
             <span className="text-[#eb8a80]">your free marketing plan.</span>
@@ -125,7 +125,7 @@ function GrowthGridSection() {
         <div className="mt-6 hidden md:block">
           <div className="grid grid-cols-[0.8fr_1.9fr_2.4fr_1.2fr_1.1fr] rounded-xl border-[3px] border-[#596184] bg-[#62c4e2] overflow-hidden shadow-[5px_5px_0_#c8ced8]">
             {cols.map((h, i, arr) => (
-              <div key={h} className={`px-4 py-3 text-center text-[0.9rem] font-extrabold text-white tracking-wide ${i < arr.length - 1 ? "border-r-[3px] border-[#596184]" : ""}`}>
+              <div key={h} className={`px-4 py-3 text-center text-[0.9rem] font-bold text-white tracking-wide ${i < arr.length - 1 ? "border-r-[3px] border-[#596184]" : ""}`}>
                 {h}
               </div>
             ))}
@@ -133,9 +133,9 @@ function GrowthGridSection() {
           <div className="mt-3 flex flex-col gap-3">
             {rows.map((r) => (
               <div key={r.p} className="grid grid-cols-[0.8fr_1.9fr_2.4fr_1.2fr_1.1fr] rounded-xl border-[3px] border-[#596184] bg-white overflow-hidden shadow-[5px_5px_0_#d0d5df]">
-                <div className="flex items-center justify-center border-r-[3px] border-[#596184] px-3 py-5 text-[1rem] font-extrabold text-[#445178]">{r.p}</div>
+                <div className="flex items-center justify-center border-r-[3px] border-[#596184] px-3 py-5 text-[1rem] font-bold text-[#445178]">{r.p}</div>
                 <div className="flex flex-col items-center justify-center border-r-[3px] border-[#596184] px-3 py-5 text-center">
-                  <p className="m-0 text-[1rem] font-extrabold text-[#445178]">{r.gain}</p>
+                  <p className="m-0 text-[1rem] font-bold text-[#445178]">{r.gain}</p>
                   <p className="m-0 text-[0.76rem] font-semibold text-[#6878a0] mt-0.5">{r.sub}</p>
                   {r.note && <p className="m-0 text-[0.7rem] text-[#8892b0] mt-0.5">{r.note}</p>}
                 </div>
@@ -153,7 +153,7 @@ function GrowthGridSection() {
           {/* Mobile Header */}
           <div className="grid grid-cols-[0.6fr_1.4fr_1.5fr_1fr_0.8fr] rounded-xl border-[3px] border-[#596184] bg-[#62c4e2] overflow-hidden shadow-[4px_4px_0_#c8ced8]">
             {cols.map((h, i, arr) => (
-              <div key={h} className={`px-1.5 py-2.5 text-center text-[0.62rem] font-extrabold text-white leading-tight ${i < arr.length - 1 ? "border-r-[3px] border-[#596184]" : ""}`}>
+              <div key={h} className={`px-1.5 py-2.5 text-center text-[0.62rem] font-bold text-white leading-tight ${i < arr.length - 1 ? "border-r-[3px] border-[#596184]" : ""}`}>
                 {h}
               </div>
             ))}
@@ -164,12 +164,12 @@ function GrowthGridSection() {
             {rows.map((r) => (
               <div key={r.p} className="grid grid-cols-[0.6fr_1.4fr_1.5fr_1fr_0.8fr] rounded-xl border-[3px] border-[#596184] bg-white overflow-hidden shadow-[4px_4px_0_#d0d5df]">
                 {/* Priority */}
-                <div className="flex items-center justify-center border-r-[3px] border-[#596184] px-1 py-4 text-[0.82rem] font-extrabold text-[#445178]">
+                <div className="flex items-center justify-center border-r-[3px] border-[#596184] px-1 py-4 text-[0.82rem] font-bold text-[#445178]">
                   {r.p}
                 </div>
                 {/* Gain */}
                 <div className="flex flex-col items-center justify-center border-r-[3px] border-[#596184] px-1.5 py-4 text-center">
-                  <p className="m-0 text-[0.75rem] font-extrabold text-[#445178] leading-tight">{r.gain}</p>
+                  <p className="m-0 text-[0.75rem] font-bold text-[#445178] leading-tight">{r.gain}</p>
                   <p className="m-0 text-[0.6rem] font-semibold text-[#6878a0] mt-0.5 leading-tight">{r.sub}</p>
                   {r.note && <p className="m-0 text-[0.55rem] text-[#8892b0] mt-0.5 leading-tight">{r.note}</p>}
                 </div>
@@ -207,7 +207,7 @@ function SoftwareSection() {
             <br />
             <span className="highlight-span">&amp; Helps Achieve All Your Goals</span>
           </h2>
-          <p className="body-copy mx-auto mt-4 max-w-[760px] text-[clamp(0.95rem,1.2vw,1.1rem)] leading-relaxed text-[#1f2740]">
+          <p className="body-copy mx-auto mt-4 max-w-[760px] text-[clamp(0.95rem,1.2vw,1.1rem)] leading-[1.7] text-[#1f2740]">
             Meet Kite, our home-built software that tracks anomalies, performance bleeds, growth opportunities, and much much more, 24/7.
             We&apos;ll show you in <span className="text-[#eb8a80]">your free marketing plan.</span>
           </p>

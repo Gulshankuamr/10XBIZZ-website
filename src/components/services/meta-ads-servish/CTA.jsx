@@ -8,10 +8,10 @@ export default function CTA() {
           <span className="text-sm font-bold uppercase tracking-[0.35em] text-[#6400A1]">
             Ready to scale
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
             Launch Facebook & Instagram ads that move revenue and lower CPA.
           </h2>
-          <p className="text-gray-600 text-lg leading-relaxed max-w-xl">
+          <p className="text-gray-600 text-lg leading-[1.7] max-w-xl">
             Work with a team that builds attention-getting creatives, multiplatform funnels, and retargeting flows for high-value conversions.
           </p>
         </div>
@@ -21,7 +21,7 @@ export default function CTA() {
             <p className="text-sm uppercase tracking-[0.35em] text-[#6400A1] mb-3">
               Strategic + creative
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 leading-[1.7]">
               Reels ads, lookalike targeting, pixel optimization, and conversion-first campaigns designed to grow your business.
             </p>
           </div>

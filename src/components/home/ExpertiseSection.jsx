@@ -55,11 +55,11 @@ export default function ExpertiseSection() {
 
   return (
     <section
-      className="min-h-screen w-full py-12 lg:py-[72px] pb-16 lg:pb-20 font-['DM_Sans',sans-serif]"
+      className="min-h-screen w-full py-12 lg:py-[72px] pb-16 lg:pb-20 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]"
       style={{ background: "#6400A1" }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
       `}</style>
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
@@ -75,7 +75,7 @@ export default function ExpertiseSection() {
                 style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}
               />
               <span
-                className="text-[16px] lg:text-[20px] font-semibold tracking-[0.12em] uppercase"
+                className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase"
                 style={{
                   background: "linear-gradient(90deg,#6400A1,#BB000F)",
                   color: "black",
@@ -85,11 +85,12 @@ export default function ExpertiseSection() {
               </span>
             </div>
             <h2
-              className="font-extrabold leading-[1.12] tracking-[-0.02em] text-[24px] sm:text-[30px] lg:text-[38px]"
+              className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px]"
               style={{ color: "#fff" }}
             >
               Assuring seamless{" "}
               <span
+                className="inline-block font-bold tracking-[-0.02em]"
                 style={{
                   background: "linear-gradient(90deg,#6400A1,#BB000F)",
                   color: "black",
@@ -103,17 +104,17 @@ export default function ExpertiseSection() {
 
           {/* Right: Body copy */}
           <div className="w-full lg:flex-1 lg:max-w-[480px] lg:pt-2">
-            <p className="text-[14px] lg:text-[15px] leading-[1.8] font-normal" style={{ color: "#fff" }}>
+            <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl" style={{ color: "#fff" }}>
               With over a decade of experience. We have served over{" "}
-              <span className="font-semibold" style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}>
+              <span className="inline-block font-bold tracking-[-0.02em]" style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}>
                 250+ brands
               </span>{" "}
               across{" "}
-              <span className="font-semibold" style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}>
+              <span className="inline-block font-bold tracking-[-0.02em]" style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}>
                 10+ countries
               </span>{" "}
               and delivered over{" "}
-              <span className="font-semibold" style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}>
+              <span className="inline-block font-bold tracking-[-0.02em]" style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}>
                 350+ projects
               </span>{" "}
               for successfully achieving our clients brand marketing goals
@@ -122,7 +123,6 @@ export default function ExpertiseSection() {
         </div>
 
         {/* ── Main Layout ── */}
-        {/* Desktop: two columns | Mobile: stacked (image first, then tabs) */}
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-[480px_1fr] gap-6 lg:gap-8 items-stretch lg:min-h-[520px]">
 
           {/* LEFT: Service Tabs */}
@@ -164,10 +164,10 @@ export default function ExpertiseSection() {
                   )}
 
                   <span
-                    className="text-[13px] lg:text-[15px] tracking-[-0.01em] transition-all duration-300 text-left"
+                    className="text-sm md:text-base leading-[1.5] transition-all duration-300 text-left"
                     style={{
                       color: isActive ? "#FFFFFF" : "#374151",
-                      fontWeight: isActive ? 700 : 500,
+                      fontWeight: isActive ? 700 : 600,
                     }}
                   >
                     {service.label}
@@ -233,13 +233,13 @@ export default function ExpertiseSection() {
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute bottom-0 left-0 right-0 px-5 lg:px-8 pb-5 lg:pb-8 pt-4 lg:pt-6"
               >
-                <h3 className="text-white font-bold leading-[1.3] tracking-[-0.01em] mb-2 text-[14px] sm:text-[16px] lg:text-[20px]">
+                <h3 className="text-white text-[20px] md:text-[24px] font-bold leading-[1.3] mb-2">
                   {activeService.title}
                 </h3>
-                <p className="text-white/70 text-[12px] lg:text-[13px] leading-[1.65] mb-3 max-w-[680px]">
+                <p className="text-white/70 text-sm md:text-base font-semibold leading-[1.5] mb-3 max-w-[650px]">
                   {activeService.description}
                 </p>
-                <p className="text-amber-400 text-[12px] lg:text-[13px] font-semibold leading-[1.5]">
+                <p className="text-amber-400 text-sm md:text-base font-semibold leading-[1.5]">
                   {activeService.cta}
                 </p>
               </motion.div>

@@ -3,7 +3,7 @@ import { useState } from "react";
 const cards = [
   {
     id: 1,
-    image: "/magnific_futuristic-3d-meta-facebo_2972572110.png", // Meta 3D style
+    image: "/magnific_futuristic-3d-meta-facebo_2972572110.png",
     alt: "Meta Facebook Ads",
     title: "Meta / Facebook Ads",
     category: "Targeted Social Campaigns",
@@ -15,7 +15,7 @@ const cards = [
   },
   {
     id: 2,
-    image: "/magnific_glowing-google-logo-and-a_2972577706.png", // Google G style
+    image: "/magnific_glowing-google-logo-and-a_2972577706.png",
     alt: "Google Ads",
     title: "Google Ads",
     category: "High-Intent Traffic",
@@ -27,7 +27,7 @@ const cards = [
   },
   {
     id: 3,
-    image: "/magnific_futuristic-crm-automation_2972586956.png", // CRM/Growth
+    image: "/magnific_futuristic-crm-automation_2972586956.png",
     alt: "CRM Automation",
     title: "CRM Automation",
     category: "Pipeline & Lead Management",
@@ -39,7 +39,7 @@ const cards = [
   },
   {
     id: 4,
- image: "/magnific_glowing-green-whatsapp-lo_2972604451.png",
+    image: "/magnific_glowing-green-whatsapp-lo_2972604451.png",
     title: "WhatsApp Automation",
     category: "Automated Customer Messaging",
     services: ["Chat Funnels", "Follow-up Bots"],
@@ -50,7 +50,7 @@ const cards = [
   },
   {
     id: 5,
-    image: "/Generated Image May 13, 2026 - 1_05PM.png", // Web Design/UI
+    image: "/Generated Image May 13, 2026 - 1_05PM.png",
     alt: "Website Design",
     title: "Website & Landing Page",
     category: "Conversion-Focused Design",
@@ -62,7 +62,7 @@ const cards = [
   },
   {
     id: 6,
-    image: "/futuristic_marketing_strategy_illustration_glowing_neon_target_with_arrow.png", // Strategy/Target
+    image: "/futuristic_marketing_strategy_illustration_glowing_neon_target_with_arrow.png",
     alt: "Consultation",
     title: "Marketing Consultation",
     category: "Expert Growth Guidance",
@@ -79,7 +79,7 @@ function HoverCard({ card }) {
 
   return (
     <div
-      className="relative h-[440px] overflow-hidden rounded-[2.5rem] cursor-pointer bg-[#0a0a0a] border border-white/5 shadow-2xl"
+      className="relative h-[440px] overflow-hidden rounded-[2.5rem] cursor-pointer bg-[#0a0a0a] border border-white/5 shadow-2xl font-['Montserrat',ui-sans-serif,system-ui,sans-serif]"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -97,9 +97,9 @@ function HoverCard({ card }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
       </div>
 
-      {/* Top Label - Always visible or fades out on hover if preferred */}
+      {/* Top Label */}
       <div className={`absolute top-6 left-6 z-10 transition-opacity duration-300 ${hovered ? 'opacity-40' : 'opacity-100'}`}>
-        <span className="text-[10px] font-bold tracking-[0.2em] uppercase px-4 py-2 rounded-full bg-white/5 text-white/80 backdrop-blur-md border border-white/10 font-syne">
+        <span className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase px-4 py-2 rounded-full bg-white/5 text-white/80 backdrop-blur-md border border-white/10">
           {card.category}
         </span>
       </div>
@@ -112,7 +112,7 @@ function HoverCard({ card }) {
           background: hovered ? "linear-gradient(to top, rgba(0,0,0,0.95), transparent)" : "transparent"
         }}
       >
-        <h3 className="text-white font-extrabold text-2xl mb-4 tracking-tight font-syne">
+        <h3 className="text-white text-[20px] md:text-[24px] font-bold leading-[1.3] mb-4">
           {card.title}
         </h3>
 
@@ -120,14 +120,14 @@ function HoverCard({ card }) {
         <div className={`transition-all duration-500 delay-75 ${hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           <div className="flex flex-wrap gap-2 mb-6">
             {card.services.map((s) => (
-              <span key={s} className="px-3 py-1.5 rounded-xl text-[0.75rem] bg-white/10 text-white/90 border border-white/5 font-sans font-medium backdrop-blur-sm">
+              <span key={s} className="px-3 py-1.5 rounded-xl text-sm md:text-base font-semibold leading-[1.5] bg-white/10 text-white/90 border border-white/5 backdrop-blur-sm">
                 {s}
               </span>
             ))}
             {card.stack.map((t) => (
               <span 
                 key={t} 
-                className="px-3 py-1.5 rounded-xl text-[0.75rem] font-bold border border-white/5"
+                className="px-3 py-1.5 rounded-xl text-sm md:text-base font-semibold leading-[1.5] border border-white/5"
                 style={{ background: card.stackColor, color: card.stackTextColor }}
               >
                 {t}
@@ -135,7 +135,7 @@ function HoverCard({ card }) {
             ))}
           </div>
 
-          <p className="text-[0.95rem] text-white/60 leading-relaxed font-sans font-normal">
+          <p className="text-sm md:text-base font-semibold leading-[1.5] text-white/60">
             {card.description}
           </p>
         </div>
@@ -146,46 +146,38 @@ function HoverCard({ card }) {
 
 export default function HoverRevealSection() {
   return (
-    <div className="bg-[#fdfaff] min-h-screen font-sans overflow-x-hidden">
+    <div className="bg-[#fdfaff] min-h-screen font-['Montserrat',ui-sans-serif,system-ui,sans-serif] overflow-x-hidden">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap');
-        .font-syne { font-family: 'Syne', sans-serif; }
-        .text-gradient {
-          background: linear-gradient(135deg, #2D1B69 0%, #5B53FF 50%, #FF2D55 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
       `}</style>
 
       <section className="max-w-7xl mx-auto py-8 px-8">
-        {/* Header Section from image_566258.jpg */}
         
         {/* Header Section */}
-<div className="mb-8 flex flex-col items-center text-center">
-  
-  {/* Top Label */}
-  <div className="flex items-center justify-center gap-3 mb-4">
-    <span className="text-[10px] md:text-[11px] font-bold tracking-[0.28em] uppercase text-[#5B53FF] font-syne">
-      Marketing Services
-    </span>
-  </div>
+        <div className="mb-8 flex flex-col items-center text-center">
+          
+          {/* Top Label */}
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#5B53FF]">
+              Marketing Services
+            </span>
+          </div>
 
-  {/* Heading */}
-  <h2 className="font-syne font-extrabold text-[clamp(2rem,4vw,3.1rem)] leading-[1.04] tracking-[-0.06em] text-[#111827] max-w-[760px]">
-    Growth-driven campaigns for every funnel stage,
-    <br />
-    <span className="bg-gradient-to-r from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent">
-      from traffic to conversion.
-    </span>
-  </h2>
+          {/* Heading */}
+          <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px] text-[#111827]">
+            Growth-driven campaigns for every funnel stage,{" "}
+            <span className="bg-gradient-to-r from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent inline-block font-bold tracking-[-0.02em]">
+              from traffic to conversion.
+            </span>
+          </h2>
 
-  {/* Description */}
-  <p className="mt-5 text-[#111827]/55 text-[0.98rem] md:text-[1.05rem] max-w-[620px] leading-relaxed font-medium">
-    Scalable performance marketing, AI-driven automation, and
-    conversion-optimized design to 10x your business.
-  </p>
+          {/* Description */}
+          <p className="mt-5 text-[#111827]/55 text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
+            Scalable performance marketing, AI-driven automation, and
+            conversion-optimized design to 10x your business.
+          </p>
 
-</div>
+        </div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -101,8 +101,8 @@ const FaqSection = () => {
         <div className="mx-auto mb-12 w-full max-w-[950px] px-5 text-center">
 
   <h2
-    className="mt-5 text-[clamp(1.8rem,3.5vw,3rem)] font-extrabold tracking-[-0.04em] leading-[1.15] text-[#0d1326]"
-    style={{ fontFamily: "'Syne', sans-serif" }}
+    className="mt-5 text-[clamp(1.8rem,3.5vw,3rem)] font-bold tracking-[-0.04em] leading-[1.15] text-[#0d1326]"
+    style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
   >
     <span className="inline text-[#0d1326]">
       Frequently Asked
@@ -119,7 +119,7 @@ const FaqSection = () => {
 
   <p
     className="mx-auto mt-4 max-w-[680px] text-[15px] font-normal leading-7 text-[#667085]"
-    style={{ fontFamily: "'Inter', sans-serif" }}
+    style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
   >
     Anything missing? Include your question when getting your custom marketing plan.
   </p>
@@ -145,7 +145,7 @@ const FaqSection = () => {
                   >
                     <span
                       className="pr-4 text-[15px] font-semibold leading-7 text-[#141a25] sm:text-[17px]"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
                     >
                       {index + 1}. {faq.question}
                     </span>
@@ -187,7 +187,7 @@ const FaqSection = () => {
                             <p
                               key={paragraph}
                               className="mb-4 text-[15px] font-normal leading-7 text-[#5e6574] last:mb-0 sm:text-[16px]"
-                              style={{ fontFamily: "'Inter', sans-serif" }}
+                              style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
                             >
                               {paragraph}
                             </p>

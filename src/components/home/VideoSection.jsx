@@ -82,7 +82,7 @@ export default function VideoSection() {
           /* ✅ FIXED: exact gradient from image */
           background: linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%);
           padding: 5.5rem 1.5rem 5rem;
-          font-family: 'Inter', sans-serif;
+          font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
           position: relative;
           overflow: hidden;
         }
@@ -449,7 +449,7 @@ export default function VideoSection() {
             </div>
 
             {/* Title */}
-            <h2 className="m-0 text-white font-extrabold text-[clamp(1.6rem,4vw,2.4rem)] leading-[1.3] tracking-tight">
+            <h2 className="m-0 text-white font-bold text-[clamp(1.6rem,4vw,2.4rem)] leading-[1.3] tracking-[-0.02em]">
               Leads that{" "}
               <span className="bg-white text-[#6400A1] px-2 py-0.5 rounded-sm inline">
                 convert
@@ -461,7 +461,7 @@ export default function VideoSection() {
             </h2>
 
             {/* Sub */}
-            <p className="mt-3.5 mx-auto max-w-[480px] leading-relaxed text-white/70 text-[clamp(0.9rem,1.5vw,1rem)]">
+            <p className="mt-3.5 mx-auto max-w-[480px] leading-[1.7] text-white/70 text-[clamp(0.9rem,1.5vw,1rem)]">
               See exactly how our marketing system generates qualified leads,
               reduces cost-per-acquisition, and scales your business — all in under{" "}
               <span className="text-[#ffaaaa] font-semibold">3 minutes.</span>

@@ -18,7 +18,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-sm font-semibold tracking-widest uppercase mb-4"
+          className="text-sm font-semibold tracking-[0.05em] uppercase mb-4"
           style={{
             background: 'linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)',
             WebkitBackgroundClip: 'text',
@@ -57,7 +57,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-600 text-base md:text-lg leading-relaxed"
+            className="text-gray-600 text-base md:text-[18px] leading-[1.7]"
           >
             <p className="mb-5">
               We build Facebook & Instagram ad campaigns that help businesses{' '}

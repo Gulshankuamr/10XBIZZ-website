@@ -120,7 +120,7 @@ export default function GoogleAdsServicePage() {
             {stats.map((stat, idx) => (
               <div key={idx}>
                 <div
-                  className="text-3xl md:text-4xl font-black bg-clip-text text-transparent"
+                  className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent"
                   style={{
                     backgroundImage:
                       "linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)",
@@ -145,7 +145,7 @@ export default function GoogleAdsServicePage() {
             transition={{ duration: 0.65 }}
           >
             <p
-              className="text-xs font-bold tracking-widest uppercase mb-3 bg-clip-text text-transparent"
+              className="text-xs font-bold tracking-[0.05em] uppercase mb-3 bg-clip-text text-transparent"
               style={{
                 background:
                   "linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)",
@@ -169,7 +169,7 @@ export default function GoogleAdsServicePage() {
                 We Drive Revenue
               </span>
             </h2>
-            <p className="text-gray-600 text-base leading-relaxed mb-8">
+            <p className="text-gray-600 text-base leading-[1.7] mb-8">
               Most agencies set and forget. We obsess over every rupee of your
               budget — testing, refining, and scaling only what delivers real
               business results.
@@ -253,7 +253,7 @@ export default function GoogleAdsServicePage() {
           className="text-center mb-14"
         >
           <p
-            className="text-xs font-bold tracking-widest uppercase mb-3 bg-clip-text text-transparent"
+            className="text-xs font-bold tracking-[0.05em] uppercase mb-3 bg-clip-text text-transparent"
             style={{
               background:
                 "linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)",
@@ -296,7 +296,7 @@ export default function GoogleAdsServicePage() {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="px-6 pb-5 text-gray-500 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                <div className="px-6 pb-5 text-gray-500 text-sm leading-[1.7] border-t border-gray-100 pt-4">
                   {faq.a}
                 </div>
               </motion.div>

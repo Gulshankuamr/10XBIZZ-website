@@ -136,7 +136,7 @@ const flowItems = [
             </span>
           </motion.h2>
 
-          <motion.p variants={itemVariants} className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600">
+          <motion.p variants={itemVariants} className="mx-auto max-w-3xl text-lg leading-[1.7] text-slate-600">
             A streamlined lead engine that attracts, captures, follows up, and converts automatically.
           </motion.p>
         </motion.div>
@@ -219,7 +219,7 @@ const flowItems = [
                   </div>
 
                   <h3 className="mb-3 text-2xl font-bold text-slate-900">{step.title}</h3>
-                  <p className="mb-6 text-base leading-relaxed text-slate-600">{step.description}</p>
+                  <p className="mb-6 text-base leading-[1.7] text-slate-600">{step.description}</p>
 
                   <motion.div
                     animate={{ opacity: isActive ? 1 : 0.75 }}

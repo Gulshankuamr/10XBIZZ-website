@@ -14,7 +14,7 @@ const content = {
 
 export default function LeadConversionSection() {
   return (
-    <section className="bg-[#F8F9FF] font-['Montserrat'] py-16 md:py-24 px-6 overflow-hidden">
+    <section className="bg-[#F8F9FF] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] py-16 md:py-24 px-6 overflow-hidden">
       {/* External Font Import */}
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');`}</style>
 
@@ -50,7 +50,7 @@ export default function LeadConversionSection() {
           transition={{ duration: 0.6 }}
           className="order-1 lg:order-2"
         >
-          <h2 className="text-[30px] md:text-[40px] lg:text-[48px] text-[#111111] font-extrabold leading-[1.1] mb-6">
+          <h2 className="text-[30px] md:text-[40px] lg:text-[48px] text-[#111111] font-bold leading-[1.1] mb-6">
             Turn Your{" "}
             <span className="bg-clip-text text-transparent bg-[linear-gradient(104.17deg,#6400A1_0%,#FF1920_100%)]">
               Leads Into Customers
@@ -58,7 +58,7 @@ export default function LeadConversionSection() {
             — Automatically
           </h2>
 
-          <p className="text-[#667085] text-base md:text-lg leading-relaxed mb-8 font-medium">
+          <p className="text-[#667085] text-base md:text-[18px] leading-[1.7] mb-8 font-medium">
             We help businesses generate high-quality leads, organize them in CRM, and automate follow-ups — so you never miss a potential customer.
           </p>
 

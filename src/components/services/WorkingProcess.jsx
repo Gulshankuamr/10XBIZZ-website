@@ -46,7 +46,7 @@ const steps = [
 
 export default function WorkingProcess() {
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-[linear-gradient(125.94deg,#6400A1_0%,#BB000F_100%)] font-['Outfit'] overflow-hidden">
+    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-[linear-gradient(125.94deg,#6400A1_0%,#BB000F_100%)] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] overflow-hidden">
       {/* Background Decor */}
 
 
@@ -57,7 +57,7 @@ export default function WorkingProcess() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-black text-[#fff] mt-4 mb-8 tracking-tight"
+            className="text-4xl md:text-6xl font-bold text-[#fff] mt-4 mb-8 tracking-[-0.02em]"
           >
             How Our <span className="bg-white text-[#6400A1] px-2 py-0.5 rounded-sm inline">Performance System</span> Works
           </motion.h2>
@@ -65,7 +65,7 @@ export default function WorkingProcess() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl md:text-2xl text-black max-w-4xl mx-auto font-medium leading-relaxed"
+            className="text-xl md:text-2xl text-black max-w-4xl mx-auto font-medium leading-[1.7]"
           >
             We build a complete performance system — <span className="text-[#fff] font-bold">not just campaigns.</span> From audience targeting to conversion tracking, every step is optimized for lead quality and business growth.
           </motion.p>
@@ -94,7 +94,7 @@ export default function WorkingProcess() {
               </div>
 
               {/* Title */}
-              <h3 className="relative z-10 text-lg font-black text-[#fff] mb-4 uppercase tracking-tighter">
+              <h3 className="relative z-10 text-lg font-bold text-[#fff] mb-4 uppercase tracking-[-0.02em]er">
                 {step.title}
               </h3>
 
@@ -126,7 +126,7 @@ export default function WorkingProcess() {
               className="flex flex-col sm:flex-row items-center sm:items-start gap-6 p-8 rounded-3xl bg-gray-50 border border-gray-100 relative overflow-hidden"
             >
               {/* Background ID for Mobile */}
-              <span className="absolute right-4 bottom-0 text-7xl font-black text-gray-200/50">
+              <span className="absolute right-4 bottom-0 text-7xl font-bold text-gray-200/50">
                 {step.id}
               </span>
 
@@ -138,8 +138,8 @@ export default function WorkingProcess() {
               </div>
 
               <div className="text-center sm:text-left relative z-10">
-                <h3 className="text-xl font-black text-[#fff] mb-2 uppercase">{step.title}</h3>
-                <p className="text-lg text-gray-800 font-bold leading-relaxed">
+                <h3 className="text-xl font-bold text-[#fff] mb-2 uppercase">{step.title}</h3>
+                <p className="text-lg text-gray-800 font-bold leading-[1.7]">
                   {step.desc}
                 </p>
               </div>

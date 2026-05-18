@@ -60,7 +60,7 @@ export default function ProblemSection() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section className="font-['Montserrat'] bg-[#FAFBFF] py-24 px-6 relative overflow-hidden">
+    <section className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] bg-[#FAFBFF] py-24 px-6 relative overflow-hidden">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');`}</style>
 
       {/* Bg Decor */}
@@ -73,7 +73,7 @@ export default function ProblemSection() {
           <motion.span className="text-[12px] font-bold tracking-[4px] text-red-500 uppercase mb-4 block">
             Critical Issues
           </motion.span>
-          <motion.h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight">
+          <motion.h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-[-0.02em]">
             Why Most <span style={{ color: ACCENT }}>Google Ads</span> Fail
           </motion.h2>
           <motion.p className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">

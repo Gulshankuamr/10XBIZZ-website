@@ -9,7 +9,7 @@ export default function BlogDetail() {
   if (!post) {
     return (
       <section className="bg-[#F8F9FF] mt-[86px] px-6 py-20 text-center font-[Montserrat,sans-serif]">
-        <h1 className="text-4xl font-black text-slate-900">Blog not found</h1>
+        <h1 className="text-4xl font-bold text-slate-900">Blog not found</h1>
         <Link to="/blog" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#6400A1]">
           <ArrowLeft size={14} /> Back to blog
         </Link>
@@ -28,7 +28,7 @@ export default function BlogDetail() {
           <span className="inline-flex rounded-full border border-[#6400A1]/20 bg-[#6400A1]/5 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#6400A1]">
             {post.category}
           </span>
-          <h1 className="mt-4 text-[clamp(2rem,4.2vw,3.6rem)] font-black leading-[1.1] tracking-tight text-slate-900">
+          <h1 className="mt-4 text-[clamp(2rem,4.2vw,3.6rem)] font-bold leading-[1.1] tracking-[-0.02em] text-slate-900">
             {post.title}
           </h1>
           <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm font-semibold text-slate-500">
@@ -47,7 +47,7 @@ export default function BlogDetail() {
             {post.content.map((block, idx) => {
               if (block.type === "heading") {
                 return (
-                  <h2 key={idx} className="text-3xl font-black leading-tight tracking-tight text-slate-900">
+                  <h2 key={idx} className="text-3xl font-bold leading-tight tracking-[-0.02em] text-slate-900">
                     {block.text}
                   </h2>
                 );
@@ -96,7 +96,7 @@ export default function BlogDetail() {
               <span className="rounded-xl border border-slate-200 px-2 py-2">X</span>
               <span className="rounded-xl border border-slate-200 px-2 py-2">FB</span>
             </div>
-            <blockquote className="mt-5 rounded-xl bg-[#6400A1]/5 p-4 text-sm font-semibold leading-relaxed text-slate-700">
+            <blockquote className="mt-5 rounded-xl bg-[#6400A1]/5 p-4 text-sm font-semibold leading-[1.7] text-slate-700">
               {post.highlightQuote}
             </blockquote>
           </aside>

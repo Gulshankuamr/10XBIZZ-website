@@ -10,10 +10,10 @@ export default function List() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.17),transparent_45%)]" />
         <div className="relative mx-auto max-w-[1400px] px-6 py-20 text-white sm:px-10 lg:px-16">
           <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-white/75">Case Studies</p>
-          <h1 className="mt-3 max-w-4xl text-[clamp(2rem,5vw,3.6rem)] font-black leading-[1.08] tracking-tight">
+          <h1 className="mt-3 max-w-4xl text-[clamp(2rem,5vw,3.6rem)] font-bold leading-[1.08] tracking-[-0.02em]">
             Real Client Growth Stories
           </h1>
-          <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-white/85 sm:text-base">
+          <p className="mt-4 max-w-2xl text-sm font-medium leading-[1.7] text-white/85 sm:text-base">
             Practical breakdowns of strategy, execution, and measurable outcomes across industries.
           </p>
         </div>
@@ -39,11 +39,11 @@ export default function List() {
                 </div>
 
                 <div className="p-6">
-                  <p className="text-sm font-black text-[#6400A1]">{study.resultPercent}</p>
-                  <h2 className="mt-2 text-[22px] font-black leading-[1.2] tracking-tight text-slate-900">
+                  <p className="text-sm font-bold text-[#6400A1]">{study.resultPercent}</p>
+                  <h2 className="mt-2 text-[22px] font-bold leading-[1.2] tracking-[-0.02em] text-slate-900">
                     {study.title}
                   </h2>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">{study.excerpt}</p>
+                  <p className="mt-3 text-sm font-medium leading-[1.7] text-slate-600">{study.excerpt}</p>
 
                   <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-[linear-gradient(125.94deg,#6400A1_0%,#BB000F_100%)] px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 group-hover:gap-3">
                     View Case Study <ArrowUpRight size={14} />

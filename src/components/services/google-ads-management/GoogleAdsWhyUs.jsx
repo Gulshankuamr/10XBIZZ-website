@@ -71,7 +71,7 @@ export default function GoogleAdsWhyChooseUs() {
             </span>
           </motion.h3>
           
-          <div className="space-y-6 text-xl text-gray-600 leading-relaxed">
+          <div className="space-y-6 text-xl text-gray-600 leading-[1.7]">
             <p>
               Hum sirf ads nahi chalate; hum engineer karte hain 
               <span 

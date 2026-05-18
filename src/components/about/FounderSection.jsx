@@ -30,7 +30,7 @@ export default function FounderSection() {
         width: "100%",
         position: "relative",
         overflow: "hidden",
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif",
         display: "flex",
         alignItems: "center",
       }}

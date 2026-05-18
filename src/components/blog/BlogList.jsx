@@ -26,10 +26,10 @@ export default function BlogList() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_44%)]" />
         <div className="relative mx-auto max-w-[1400px] px-6 py-20 text-white sm:px-10 lg:px-16">
           <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-white/70">Blog</p>
-          <h1 className="mt-3 max-w-4xl text-[clamp(2rem,5vw,3.6rem)] font-black leading-[1.08] tracking-tight">
+          <h1 className="mt-3 max-w-4xl text-[clamp(2rem,5vw,3.6rem)] font-bold leading-[1.08] tracking-[-0.02em]">
             Insights & Growth Stories
           </h1>
-          <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-white/85 sm:text-base">
+          <p className="mt-4 max-w-2xl text-sm font-medium leading-[1.7] text-white/85 sm:text-base">
             Practical ideas on marketing, branding, SEO, and growth systems designed for consistent business outcomes.
           </p>
         </div>
@@ -86,10 +86,10 @@ export default function BlogList() {
                   <span className="inline-flex rounded-full border border-[#6400A1]/20 bg-[#6400A1]/5 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#6400A1]">
                     {post.category}
                   </span>
-                  <h2 className="mt-4 text-[22px] font-black leading-[1.2] tracking-tight text-slate-900">
+                  <h2 className="mt-4 text-[22px] font-bold leading-[1.2] tracking-[-0.02em] text-slate-900">
                     {post.title}
                   </h2>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">{post.excerpt}</p>
+                  <p className="mt-3 text-sm font-medium leading-[1.7] text-slate-600">{post.excerpt}</p>
                   <div className="mt-5 flex items-center justify-between text-xs font-semibold text-slate-500">
                     <span>{post.author}</span>
                     <span>{post.date}</span>

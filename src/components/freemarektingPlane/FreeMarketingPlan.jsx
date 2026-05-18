@@ -151,7 +151,7 @@ export default function FreeMarketingPlan({ onClose }) {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        .fmp-root * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+        .fmp-root * { font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif; box-sizing: border-box; }
 
         .fmp-step { animation: fmpIn 0.22s ease; }
         @keyframes fmpIn {
@@ -342,7 +342,7 @@ export default function FreeMarketingPlan({ onClose }) {
             {/* Heading */}
             <div className="text-center mb-6">
               <h2
-                className="font-extrabold tracking-tight text-[#0d1326] m-0"
+                className="font-bold tracking-[-0.02em] text-[#0d1326] m-0"
                 style={{ fontSize: step === 4 ? "1.15rem" : "1.35rem", lineHeight: 1.25 }}
               >
                 {current.heading}
@@ -469,7 +469,7 @@ export default function FreeMarketingPlan({ onClose }) {
               <div className="grid gap-3.5 mb-6">
                 {/* Name */}
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">
+                  <label className="block text-[11px] font-bold uppercase tracking-[0.05em] text-slate-400 mb-1.5">
                     Your Name *
                   </label>
                   <input
@@ -483,7 +483,7 @@ export default function FreeMarketingPlan({ onClose }) {
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">
+                  <label className="block text-[11px] font-bold uppercase tracking-[0.05em] text-slate-400 mb-1.5">
                     Phone Number *
                   </label>
                   <div className="flex gap-2">
@@ -514,7 +514,7 @@ export default function FreeMarketingPlan({ onClose }) {
 
                 {/* Email - optional */}
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">
+                  <label className="block text-[11px] font-bold uppercase tracking-[0.05em] text-slate-400 mb-1.5">
                     Email <span className="text-slate-300 normal-case font-normal">(optional)</span>
                   </label>
                   <input
@@ -551,7 +551,7 @@ export default function FreeMarketingPlan({ onClose }) {
               <div className="text-center py-2 pb-4">
                 <div className="fmp-done-check">🚀</div>
 
-                <p className="text-[15px] text-gray-500 leading-relaxed mb-6">
+                <p className="text-[15px] text-gray-500 leading-[1.7] mb-6">
                   {current.sub}
                 </p>
 
@@ -582,7 +582,7 @@ export default function FreeMarketingPlan({ onClose }) {
 
                 {/* What we'll do */}
                 <div className="mt-5 bg-slate-50 rounded-2xl px-5 py-4 text-left">
-                  <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">In this call, we will:</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.05em] text-slate-400 mb-2">In this call, we will:</p>
                   <div className="space-y-1.5">
                     {[
                       "Understand your business",
@@ -611,7 +611,7 @@ export default function FreeMarketingPlan({ onClose }) {
                   <button
                     onClick={handleNext}
                     disabled={!canProceed()}
-                    className="fmp-cta relative inline-flex items-center justify-center gap-2.5 rounded-full px-10 py-4 text-[13px] font-extrabold tracking-widest uppercase text-white border-none cursor-pointer"
+                    className="fmp-cta relative inline-flex items-center justify-center gap-2.5 rounded-full px-10 py-4 text-[13px] font-bold tracking-[0.05em] uppercase text-white border-none cursor-pointer"
                     style={{ minWidth: 260 }}
                   >
                     {current.btn}

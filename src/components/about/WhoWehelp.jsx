@@ -82,7 +82,7 @@ export default function WhoWeHelp() {
   };
 
   return (
-    <section className="relative w-full min-h-screen py-16 flex items-center overflow-hidden font-sans text-white bg-gradient-to-br from-[#6400A1] to-[#BB000F]">
+    <section className="relative w-full min-h-screen py-16 flex items-center overflow-hidden font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-white bg-gradient-to-br from-[#6400A1] to-[#BB000F]">
       {/* Noise Texture */}
     
 
@@ -97,11 +97,11 @@ export default function WhoWeHelp() {
                 Who We Help
               </div>
 
-              <h2 className="text-[30px] sm:text-[38px] md:text-[48px] lg:text-[54px] font-black leading-[1.05] tracking-[-2px] text-white mb-5 font-['Montserrat']">
+              <h2 className="text-[30px] sm:text-[38px] md:text-[48px] lg:text-[54px] font-bold leading-[1.05] tracking-[-2px] text-white mb-5 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
                 Who We <span className="italic opacity-70">Work With</span>
               </h2>
 
-              <p className="text-white/70 text-sm md:text-[16px] leading-[1.8] max-w-[520px] font-medium font-['Montserrat']">
+              <p className="text-white/70 text-sm md:text-[16px] leading-[1.8] max-w-[520px] font-medium font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
                 We partner with businesses ready to stop guessing and start growing.
                 Choose your category to see how we help scale brands through
                 strategy and automation.
@@ -183,7 +183,7 @@ export default function WhoWeHelp() {
                     <span className="inline-block px-3 py-1 rounded-full bg-white/20 border border-white/30 text-[10px] font-bold uppercase tracking-wider mb-3">
                       {SERVICES[activeIndex].tag}
                     </span>
-                    <h4 className="text-3xl font-serif font-black">{SERVICES[activeIndex].title}</h4>
+                    <h4 className="text-3xl font-['Montserrat',ui-sans-serif,system-ui,sans-serif] font-bold">{SERVICES[activeIndex].title}</h4>
                   </div>
                 </motion.div>
               </AnimatePresence>
