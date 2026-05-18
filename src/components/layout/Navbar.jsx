@@ -26,35 +26,35 @@ const NAV_ITEMS = [
     label: "Services",
     path: "/services",
     dropdown: [
-      { 
-        label: "Meta Ads Services", 
+      {
+        label: "Meta Ads Services",
         path: "/services/marketing-meta-ads-servish",
-        icon: <Headphones size={20} className="text-blue-600" />
+        icon: <Headphones size={18} className="text-blue-600" />,
       },
-      { 
-        label: "CRM Automation", 
+      {
+        label: "CRM Automation",
         path: "/services/crm-automation",
-        icon: <Database size={20} className="text-blue-600" />
+        icon: <Database size={18} className="text-blue-600" />,
       },
-      { 
-        label: "Seo Services", 
+      {
+        label: "SEO Services",
         path: "/services/seo-services",
-        icon: <Facebook size={20} className="text-blue-600" />
+        icon: <Facebook size={18} className="text-blue-600" />,
       },
-      { 
-        label: "Google My Business Services", 
+      {
+        label: "Google My Business",
         path: "/services/google-my-business-services",
-        icon: <UserPlus size={20} className="text-blue-600" />
+        icon: <UserPlus size={18} className="text-blue-600" />,
       },
-      { 
-        label: "Google Ads Management", 
+      {
+        label: "Google Ads Management",
         path: "/services/google-ads-management",
-        icon: <Search size={20} className="text-blue-600" />
+        icon: <Search size={18} className="text-blue-600" />,
       },
-      { 
-        label: "WhatsApp Automation", 
+      {
+        label: "WhatsApp Automation",
         path: "/services/whatsapp-automation",
-        icon: <MessageSquare size={20} className="text-blue-600" />
+        icon: <MessageSquare size={18} className="text-blue-600" />,
       },
     ],
   },
@@ -75,32 +75,32 @@ const ChevronDown = ({ open }) => (
   </svg>
 );
 
-// ─── Dropdown ────────────────────────────────────────────────────────────────
+// ─── Desktop Dropdown ─────────────────────────────────────────────────────────
 const DropdownMenu = ({ items, visible, onClose }) => (
   <div
-    className={`absolute top-[calc(100%)] left-1/2 -translate-x-1/2 w-[580px] bg-white border border-gray-200 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] z-50 transition-opacity duration-200 ${
-      visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+    className={`absolute top-[calc(100%)] left-1/2 -translate-x-1/2 w-[580px] z-50 transition-all duration-200 ${
+      visible ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-1"
     }`}
-    style={{ paddingTop: "8px" }} // स्मूथ होवर के लिए गैप को पैडिंग से भरा
+    style={{ paddingTop: "8px" }}
   >
-    <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+    <div className="bg-white border border-gray-200 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] overflow-hidden">
       <div className="grid grid-cols-2 gap-1 p-2">
         {items.map((item, i) => (
           <Link
             key={i}
             to={item.path}
             onClick={onClose}
-            className="flex items-center gap-3 px-3 py-2 rounded-xl no-underline text-gray-700 text-[14px] font-semibold hover:bg-purple-50 transition-colors duration-150"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-xl no-underline text-gray-700 text-[14px] font-semibold hover:bg-purple-50 transition-colors duration-150"
           >
-            <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
               {item.icon}
             </div>
             {item.label}
           </Link>
         ))}
       </div>
-      <div className="bg-gray-50 border-t border-gray-200 rounded-b-2xl px-5 py-2 flex justify-between items-center">
-        <span className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">
+      <div className="bg-gray-50 border-t border-gray-200 px-5 py-2 flex justify-between items-center">
+        <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">
           Growth Focused Solutions
         </span>
         <div className="w-10 h-1 bg-purple-200 rounded-full" />
@@ -110,91 +110,122 @@ const DropdownMenu = ({ items, visible, onClose }) => (
 );
 
 // ─── Mobile Drawer ────────────────────────────────────────────────────────────
-const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
-  <>
-    <div
-      onClick={onClose}
-      className={`lg:hidden fixed inset-0 z-[60] bg-black/50 transition-opacity duration-300 ${
-        open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-      }`}
-    />
-    <div
-      className={`lg:hidden fixed top-0 right-0 h-full z-[70] flex flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
-        open ? "translate-x-0" : "translate-x-full"
-      }`}
-      style={{ width: "85%", maxWidth: 310 }}
-    >
-      <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
-        <span className="text-[12px] font-bold text-purple-700 uppercase tracking-widest">Menu</span>
-        <button
-          onClick={onClose}
-          className="w-8 h-8 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 border-none cursor-pointer"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
-      </div>
+const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => {
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        onClick={onClose}
+        className={`lg:hidden fixed inset-0 z-[1000] bg-black/50 transition-opacity duration-300 ${
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      />
 
-      <div className="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-0.5">
-        {NAV_ITEMS.map((item) => (
-          <div key={item.label}>
-            <div
-              onClick={() => {
-                if (item.dropdown) {
-                  setOpenMenu(openMenu === item.label ? null : item.label);
-                } else {
-                  onClose();
-                  window.location.href = item.path;
-                }
-              }}
-              className={`flex items-center justify-between px-4 py-2.5 rounded-xl cursor-pointer ${
-                openMenu === item.label ? "bg-purple-50 text-purple-700" : "text-gray-800"
-              }`}
-            >
-              <span className="text-[15px] font-bold uppercase tracking-wide">{item.label}</span>
-              {item.dropdown && <ChevronDown open={openMenu === item.label} />}
-            </div>
+      {/* Drawer Panel */}
+      <div
+        className={`lg:hidden fixed top-0 right-0 h-full z-[1010] flex flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+        style={{ width: "85%", maxWidth: 310 }}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
+          <span className="text-[12px] font-bold text-purple-700 uppercase tracking-widest">Menu</span>
+          <button
+            onClick={onClose}
+            className="w-8 h-8 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 border-none cursor-pointer"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
 
-            {item.dropdown && (
+        {/* Nav Links */}
+        <div className="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-0.5">
+          {NAV_ITEMS.map((item) => (
+            <div key={item.label}>
+
+              {/* Row: Label navigates, Chevron toggles dropdown */}
               <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openMenu === item.label ? "max-h-[400px]" : "max-h-0"
+                className={`flex items-center justify-between rounded-xl ${
+                  openMenu === item.label ? "bg-purple-50" : ""
                 }`}
               >
-                <div className="ml-5 pl-4 border-l-2 border-purple-200 flex flex-col gap-0.5 py-0.5">
-                  {item.dropdown.map((sub, i) => (
-                    <Link
-                      key={i}
-                      to={sub.path}
-                      onClick={onClose}
-                      className="block py-2 text-[14px] font-semibold text-gray-500 no-underline"
-                    >
-                      {sub.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+                {/* Clicking label → always navigate to that page */}
+                <Link
+                  to={item.path}
+                  onClick={onClose}
+                  className={`flex-1 text-left px-4 py-3 text-[15px] font-bold uppercase tracking-wide no-underline ${
+                    openMenu === item.label ? "text-[#6400A1]" : "text-gray-800"
+                  }`}
+                >
+                  {item.label}
+                </Link>
 
-      <div className="p-3 border-t border-gray-100">
-        <Link
-          to="/contact"
-          onClick={onClose}
-          className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-[15px] text-white no-underline"
-          style={{ background: "linear-gradient(101deg, #6400A1 0%, #FF1920 100%)" }}
-        >
-          Book Free Strategy Call
-          <ArrowRight size={15} strokeWidth={3} />
-        </Link>
+                {/* Chevron → only toggles sub-menu, does NOT navigate */}
+                {item.dropdown && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpenMenu(openMenu === item.label ? null : item.label);
+                    }}
+                    className={`px-4 py-3 bg-transparent border-none cursor-pointer ${
+                      openMenu === item.label ? "text-[#6400A1]" : "text-gray-400"
+                    }`}
+                    aria-label={`Toggle ${item.label} submenu`}
+                  >
+                    <ChevronDown open={openMenu === item.label} />
+                  </button>
+                )}
+              </div>
+
+              {/* Dropdown Sub-items — each navigates on click */}
+              {item.dropdown && (
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openMenu === item.label ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="ml-4 pl-4 border-l-2 border-purple-200 flex flex-col gap-0.5 py-1">
+                    {item.dropdown.map((sub, i) => (
+                      <Link
+                        key={i}
+                        to={sub.path}
+                        onClick={onClose}
+                        className="flex items-center gap-3 py-2.5 px-2 text-[13.5px] font-semibold text-gray-500 no-underline text-left w-full rounded-lg hover:bg-purple-50 hover:text-purple-700 transition-colors"
+                      >
+                        <div className="w-7 h-7 rounded-md bg-blue-50 flex items-center justify-center shrink-0">
+                          {sub.icon}
+                        </div>
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="p-3 border-t border-gray-100">
+          <Link
+            to="/contact"
+            onClick={onClose}
+            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-[15px] text-white no-underline"
+            style={{ background: "linear-gradient(101deg, #6400A1 0%, #FF1920 100%)" }}
+          >
+            Book Free Strategy Call
+            <ArrowRight size={15} strokeWidth={3} />
+          </Link>
+        </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
 
 // ─── Main Navbar ──────────────────────────────────────────────────────────────
 export default function Navbar() {
@@ -213,11 +244,21 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
+      // Outside click close is only needed for desktop hover dropdown.
+      // On mobile, drawer is rendered outside navRef and this handler
+      // can swallow submenu link clicks before navigation fires.
+      if (window.innerWidth < 1024) return;
       if (navRef.current && !navRef.current.contains(e.target)) setOpenMenu(null);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Auto-close drawer & dropdown on every route change
+  useEffect(() => {
+    setMobileOpen(false);
+    setOpenMenu(null);
+  }, [location.pathname]);
 
   return (
     <>
@@ -248,11 +289,9 @@ export default function Navbar() {
               <span className="bg-red-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">
                 Hot
               </span>
-           <p
-  className="m-0 text-[14px] font-semibold text-white"
->
-  Limited Offer: Get Free CRM Setup Worth Rs 9,999
-</p>
+              <p className="m-0 text-[14px] font-semibold text-white">
+                Limited Offer: Get Free CRM Setup Worth Rs 9,999
+              </p>
             </div>
             <a
               href="/contact"
@@ -291,34 +330,22 @@ export default function Navbar() {
                     : location.pathname.startsWith(item.path);
 
                 return (
-                  <li 
-                    key={item.label} 
-                    className="relative py-4" 
+                  <li
+                    key={item.label}
+                    className="relative py-4"
                     onMouseEnter={() => item.dropdown && setOpenMenu(item.label)}
                     onMouseLeave={() => item.dropdown && setOpenMenu(null)}
                   >
-                    {item.dropdown ? (
-                      <Link
-                        to={item.path}
-                        onClick={() => setOpenMenu(null)}
-                        className={`flex items-center text-[14px] font-bold no-underline cursor-pointer p-0 m-0 ${
-                          isActive || openMenu === item.label ? "text-[#6400A1]" : "text-gray-600"
-                        }`}
-                      >
-                        {item.label}
-                        <ChevronDown open={openMenu === item.label} />
-                      </Link>
-                    ) : (
-                      <Link
-                        to={item.path}
-                        onClick={() => setOpenMenu(null)}
-                        className={`text-[14px] font-bold no-underline ${
-                          isActive ? "text-[#6400A1]" : "text-gray-600"
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                    )}               
+                    <Link
+                      to={item.path}
+                      onClick={() => setOpenMenu(null)}
+                      className={`flex items-center text-[14px] font-bold no-underline cursor-pointer p-0 m-0 ${
+                        isActive || openMenu === item.label ? "text-[#6400A1]" : "text-gray-600"
+                      }`}
+                    >
+                      {item.label}
+                      {item.dropdown && <ChevronDown open={openMenu === item.label} />}
+                    </Link>
 
                     {item.dropdown && (
                       <DropdownMenu
