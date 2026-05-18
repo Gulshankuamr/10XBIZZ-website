@@ -12,8 +12,8 @@ import {
 
 // ─── Logo ────────────────────────────────────────────────────────────────────
 const Logo = ({ small }) => (
-  <div className={`bg-[#6B0AC9] rounded-full inline-flex items-center justify-center ${small ? "px-1.5 py-1" : "px-2.5 py-1.5"}`}>
-    <div className={`rounded-full overflow-hidden flex items-center justify-center ${small ? "w-12 h-7" : "w-[85px] h-[50px]"}`}>
+  <div className={`bg-[#6B0AC9] rounded-full inline-flex items-center justify-center ${small ? "px-1.5 py-0.5" : "px-2.5 py-1"}`}>
+    <div className={`rounded-full overflow-hidden flex items-center justify-center ${small ? "w-12 h-6" : "w-[85px] h-[46px]"}`}>
       <img src="/logonew.png" alt="10XBIZZ" className="w-full h-full object-contain" />
     </div>
   </div>
@@ -26,17 +26,41 @@ const NAV_ITEMS = [
     label: "Services",
     path: "/services",
     dropdown: [
-      { label: "Meta Ads Services",     path: "/services/marketing-meta-ads-servish",  icon: <Headphones size={18} /> },
-      { label: "CRM Automation",        path: "/services/crm-automation",              icon: <Database size={18} /> },
-      { label: "SEO Services",          path: "/services/seo-services",                icon: <Facebook size={18} /> },
-      { label: "Google My Business",    path: "/services/google-my-business-services", icon: <UserPlus size={18} /> },
-      { label: "Google Ads Management", path: "/services/google-ads-management",       icon: <Search size={18} /> },
-      { label: "WhatsApp Automation",   path: "/services/whatsapp-automation",         icon: <MessageSquare size={18} /> },
+      { 
+        label: "Meta Ads Services", 
+        path: "/services/marketing-meta-ads-servish",
+        icon: <Headphones size={20} className="text-blue-600" />
+      },
+      { 
+        label: "CRM Automation", 
+        path: "/services/crm-automation",
+        icon: <Database size={20} className="text-blue-600" />
+      },
+      { 
+        label: "Seo Services", 
+        path: "/services/seo-services",
+        icon: <Facebook size={20} className="text-blue-600" />
+      },
+      { 
+        label: "Google My Business Services", 
+        path: "/services/google-my-business-services",
+        icon: <UserPlus size={20} className="text-blue-600" />
+      },
+      { 
+        label: "Google Ads Management", 
+        path: "/services/google-ads-management",
+        icon: <Search size={20} className="text-blue-600" />
+      },
+      { 
+        label: "WhatsApp Automation", 
+        path: "/services/whatsapp-automation",
+        icon: <MessageSquare size={20} className="text-blue-600" />
+      },
     ],
   },
   { label: "Case Studies", path: "/case-studies" },
-  { label: "Blog",         path: "/blog" },
-  { label: "About",        path: "/about" },
+  { label: "Blog", path: "/blog" },
+  { label: "About", path: "/about" },
 ];
 
 // ─── Chevron ─────────────────────────────────────────────────────────────────
@@ -54,30 +78,33 @@ const ChevronDown = ({ open }) => (
 // ─── Dropdown ────────────────────────────────────────────────────────────────
 const DropdownMenu = ({ items, visible, onClose }) => (
   <div
-    className={`absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-[580px] bg-white border border-gray-200 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] z-50 transition-opacity duration-200 ${
+    className={`absolute top-[calc(100%)] left-1/2 -translate-x-1/2 w-[580px] bg-white border border-gray-200 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] z-50 transition-opacity duration-200 ${
       visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
     }`}
+    style={{ paddingTop: "8px" }} // स्मूथ होवर के लिए गैप को पैडिंग से भरा
   >
-    <div className="grid grid-cols-2 gap-1 p-3">
-      {items.map((item, i) => (
-        <Link
-          key={i}
-          to={item.path}
-          onClick={onClose}
-          className="flex items-center gap-3 px-3 py-3 rounded-xl no-underline text-gray-700 text-[13px] font-semibold hover:bg-purple-50 transition-colors duration-150"
-        >
-          <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
-            {item.icon}
-          </div>
-          {item.label}
-        </Link>
-      ))}
-    </div>
-    <div className="bg-gray-50 border-t border-gray-200 rounded-b-2xl px-5 py-2.5 flex justify-between items-center">
-      <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">
-        Growth Focused Solutions
-      </span>
-      <div className="w-10 h-1 bg-purple-200 rounded-full" />
+    <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+      <div className="grid grid-cols-2 gap-1 p-2">
+        {items.map((item, i) => (
+          <Link
+            key={i}
+            to={item.path}
+            onClick={onClose}
+            className="flex items-center gap-3 px-3 py-2 rounded-xl no-underline text-gray-700 text-[14px] font-semibold hover:bg-purple-50 transition-colors duration-150"
+          >
+            <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+              {item.icon}
+            </div>
+            {item.label}
+          </Link>
+        ))}
+      </div>
+      <div className="bg-gray-50 border-t border-gray-200 rounded-b-2xl px-5 py-2 flex justify-between items-center">
+        <span className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">
+          Growth Focused Solutions
+        </span>
+        <div className="w-10 h-1 bg-purple-200 rounded-full" />
+      </div>
     </div>
   </div>
 );
@@ -97,8 +124,8 @@ const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
       }`}
       style={{ width: "85%", maxWidth: 310 }}
     >
-      <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-        <span className="text-[11px] font-bold text-purple-700 uppercase tracking-widest">Menu</span>
+      <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
+        <span className="text-[12px] font-bold text-purple-700 uppercase tracking-widest">Menu</span>
         <button
           onClick={onClose}
           className="w-8 h-8 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 border-none cursor-pointer"
@@ -110,7 +137,7 @@ const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
         </button>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-1">
+      <div className="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-0.5">
         {NAV_ITEMS.map((item) => (
           <div key={item.label}>
             <div
@@ -122,11 +149,11 @@ const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
                   window.location.href = item.path;
                 }
               }}
-              className={`flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer ${
+              className={`flex items-center justify-between px-4 py-2.5 rounded-xl cursor-pointer ${
                 openMenu === item.label ? "bg-purple-50 text-purple-700" : "text-gray-800"
               }`}
             >
-              <span className="text-[14px] font-bold uppercase tracking-wide">{item.label}</span>
+              <span className="text-[15px] font-bold uppercase tracking-wide">{item.label}</span>
               {item.dropdown && <ChevronDown open={openMenu === item.label} />}
             </div>
 
@@ -136,13 +163,13 @@ const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
                   openMenu === item.label ? "max-h-[400px]" : "max-h-0"
                 }`}
               >
-                <div className="ml-5 pl-4 border-l-2 border-purple-200 flex flex-col gap-0.5 py-1">
+                <div className="ml-5 pl-4 border-l-2 border-purple-200 flex flex-col gap-0.5 py-0.5">
                   {item.dropdown.map((sub, i) => (
                     <Link
                       key={i}
                       to={sub.path}
                       onClick={onClose}
-                      className="block py-2.5 text-[13px] font-semibold text-gray-500 no-underline"
+                      className="block py-2 text-[14px] font-semibold text-gray-500 no-underline"
                     >
                       {sub.label}
                     </Link>
@@ -154,11 +181,11 @@ const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => (
         ))}
       </div>
 
-      <div className="p-4 border-t border-gray-100">
+      <div className="p-3 border-t border-gray-100">
         <Link
           to="/contact"
           onClick={onClose}
-          className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold text-[14px] text-white no-underline"
+          className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-[15px] text-white no-underline"
           style={{ background: "linear-gradient(101deg, #6400A1 0%, #FF1920 100%)" }}
         >
           Book Free Strategy Call
@@ -216,25 +243,20 @@ export default function Navbar() {
 
         {/* Promo Banner */}
         {bannerVisible && (
-          <div className="promo-shimmer relative hidden md:flex items-center justify-center gap-4 overflow-hidden bg-[#0a0a0a] px-10 py-2.5">
+          <div className="promo-shimmer relative hidden md:flex items-center justify-center gap-4 overflow-hidden bg-[#0a0a0a] px-10 py-1.5">
             <div className="relative z-10 flex items-center gap-2">
               <span className="bg-red-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">
                 Hot
               </span>
-              <p
-                className="m-0 text-[13px] font-semibold"
-                style={{
-                  background: "linear-gradient(125deg,#6400A1,#BB000F)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Limited Offer: Get Free CRM Setup Worth Rs 9,999
-              </p>
+           <p
+  className="m-0 text-[14px] font-semibold text-white"
+>
+  Limited Offer: Get Free CRM Setup Worth Rs 9,999
+</p>
             </div>
             <a
-              href="#"
-              className="relative z-10 bg-[#6400A1] text-white text-[11px] font-bold uppercase tracking-wider px-5 py-2 rounded-full no-underline"
+              href="/contact"
+              className="relative z-10 bg-[#6400A1] text-white text-[12px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full no-underline"
             >
               Claim Now
             </a>
@@ -250,7 +272,7 @@ export default function Navbar() {
         {/* Main Nav */}
         <nav
           className={`w-full bg-white border-b border-gray-100 transition-all duration-300 ${
-            scrolled ? "py-2 shadow-lg" : "py-4"
+            scrolled ? "py-1.5 shadow-lg" : "py-2.5"
           }`}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
@@ -269,28 +291,34 @@ export default function Navbar() {
                     : location.pathname.startsWith(item.path);
 
                 return (
-                  <li key={item.label} className="relative py-2">
+                  <li 
+                    key={item.label} 
+                    className="relative py-4" 
+                    onMouseEnter={() => item.dropdown && setOpenMenu(item.label)}
+                    onMouseLeave={() => item.dropdown && setOpenMenu(null)}
+                  >
                     {item.dropdown ? (
-                      <button
-                        onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
-                        className={`flex items-center text-[13px] font-bold bg-transparent border-none outline-none cursor-pointer p-0 m-0 ${
+                      <Link
+                        to={item.path}
+                        onClick={() => setOpenMenu(null)}
+                        className={`flex items-center text-[14px] font-bold no-underline cursor-pointer p-0 m-0 ${
                           isActive || openMenu === item.label ? "text-[#6400A1]" : "text-gray-600"
                         }`}
                       >
                         {item.label}
                         <ChevronDown open={openMenu === item.label} />
-                      </button>
+                      </Link>
                     ) : (
                       <Link
                         to={item.path}
                         onClick={() => setOpenMenu(null)}
-                        className={`text-[13px] font-bold no-underline ${
+                        className={`text-[14px] font-bold no-underline ${
                           isActive ? "text-[#6400A1]" : "text-gray-600"
                         }`}
                       >
                         {item.label}
                       </Link>
-                    )}
+                    )}               
 
                     {item.dropdown && (
                       <DropdownMenu
@@ -309,7 +337,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setOpenMenu(null)}
-                className="hidden lg:flex items-center gap-2.5 px-5 py-2.5 rounded-full text-white font-bold text-[13px] no-underline"
+                className="hidden lg:flex items-center gap-2.5 px-5 py-2 rounded-full text-white font-bold text-[14px] no-underline"
                 style={{
                   background: "linear-gradient(135deg, #7B00C2 0%, #FF1920 100%)",
                   boxShadow: "0 6px 18px -6px rgba(123,0,194,0.4)",
@@ -320,7 +348,7 @@ export default function Navbar() {
               </Link>
 
               <button
-                className="lg:hidden flex flex-col gap-1.5 px-2.5 py-2 bg-purple-50 border border-purple-200 rounded-xl cursor-pointer"
+                className="lg:hidden flex flex-col gap-1 px-2.5 py-1.5 bg-purple-50 border border-purple-200 rounded-xl cursor-pointer"
                 onClick={() => setMobileOpen(true)}
               >
                 <span className="w-5 h-0.5 bg-purple-700 rounded-full block" />

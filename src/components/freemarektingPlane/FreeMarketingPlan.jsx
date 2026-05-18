@@ -97,6 +97,8 @@ export default function FreeMarketingPlan({ onClose }) {
   const [email, setEmail] = useState("");
   const [countryCode, setCountryCode] = useState("+91");
   const [whatsappPref, setWhatsappPref] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const current = STEPS[step];
 
@@ -133,12 +135,63 @@ export default function FreeMarketingPlan({ onClose }) {
     return false;
   };
 
+  // ── FETCH SUBMIT ──────────────────────────────────────────────
+  const submitForm = async () => {
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    const websiteValue =
+      websiteOption === "I have a website" ||
+      websiteOption === "I only use WhatsApp / Social media"
+        ? websiteInput.trim()
+        : websiteOption;
+
+    const payload = {
+      option1: multiSel,
+      option2: multiGridSel,
+      option3: budgetSel ? [budgetSel] : [],
+      website: websiteValue,
+      name: name.trim(),
+      email: email.trim(),
+      phone: `${countryCode}${phone.trim()}`,
+    };
+
+    try {
+      const res = await fetch("https://10x.fctesting.shop/api/submit-all", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      console.log("API response:", data);
+
+      // Move to done screen regardless of response shape
+      setStep((s) => s + 1);
+    } catch (err) {
+      console.error("Submission error:", err);
+      setSubmitError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  // ─────────────────────────────────────────────────────────────
+
   const handleNext = () => {
     if (current.type === "done") {
       onClose?.();
       return;
     }
     if (!canProceed()) return;
+
+    // On contact step → submit via API, then advance
+    if (current.type === "contact") {
+      submitForm();
+      return;
+    }
+
     setStep((s) => s + 1);
   };
 
@@ -226,7 +279,6 @@ export default function FreeMarketingPlan({ onClose }) {
           overflow: hidden;
           margin-bottom: 20px;
         }
-        
 
         .fmp-checkbox {
           width: 18px; height: 18px;
@@ -299,6 +351,18 @@ export default function FreeMarketingPlan({ onClose }) {
           font-size: 24px;
           box-shadow: 0 8px 24px rgba(100,0,161,0.3);
         }
+
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+        .fmp-spinner {
+          width: 18px; height: 18px;
+          border: 2px solid rgba(255,255,255,0.4);
+          border-top-color: #fff;
+          border-radius: 50%;
+          animation: spin 0.7s linear infinite;
+          flex-shrink: 0;
+        }
       `}</style>
 
       {/* Backdrop */}
@@ -335,9 +399,6 @@ export default function FreeMarketingPlan({ onClose }) {
             >
               ✕
             </button>
-
-            {/* Progress Bar */}
-           
 
             {/* Heading */}
             <div className="text-center mb-6">
@@ -406,7 +467,6 @@ export default function FreeMarketingPlan({ onClose }) {
             {/* STEP 4: Website */}
             {current.type === "website" && (
               <div className="mb-7 space-y-4">
-                {/* Options first */}
                 <div className="space-y-2">
                   {current.options.map((opt) => (
                     <button
@@ -426,7 +486,6 @@ export default function FreeMarketingPlan({ onClose }) {
                   ))}
                 </div>
 
-                {/* Conditional UI */}
                 {websiteOption === "I have a website" && (
                   <input
                     type="text"
@@ -539,7 +598,13 @@ export default function FreeMarketingPlan({ onClose }) {
                   </span>
                 </label>
 
-                {/* Positioning line */}
+                {/* Error message */}
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                    <p className="text-sm text-red-600 font-medium">⚠️ {submitError}</p>
+                  </div>
+                )}
+
                 <p className="text-[12.5px] text-gray-500 text-center italic">
                   "We'll personally review your business and suggest the best growth system."
                 </p>
@@ -555,7 +620,6 @@ export default function FreeMarketingPlan({ onClose }) {
                   {current.sub}
                 </p>
 
-                {/* WhatsApp CTA */}
                 <div className="flex flex-col items-center gap-3">
                   <p className="text-sm font-semibold text-gray-700">
                     👉 Want faster response?
@@ -580,7 +644,6 @@ export default function FreeMarketingPlan({ onClose }) {
                   </button>
                 </div>
 
-                {/* What we'll do */}
                 <div className="mt-5 bg-slate-50 rounded-2xl px-5 py-4 text-left">
                   <p className="text-xs font-bold uppercase tracking-[0.05em] text-slate-400 mb-2">In this call, we will:</p>
                   <div className="space-y-1.5">
@@ -610,17 +673,26 @@ export default function FreeMarketingPlan({ onClose }) {
                 <>
                   <button
                     onClick={handleNext}
-                    disabled={!canProceed()}
+                    disabled={!canProceed() || isSubmitting}
                     className="fmp-cta relative inline-flex items-center justify-center gap-2.5 rounded-full px-10 py-4 text-[13px] font-bold tracking-[0.05em] uppercase text-white border-none cursor-pointer"
                     style={{ minWidth: 260 }}
                   >
-                    {current.btn}
-                    <span
-                      className="fmp-arrow inline-flex items-center justify-center w-6 h-6 rounded-full text-sm"
-                      style={{ background: "rgba(255,255,255,0.2)" }}
-                    >
-                      →
-                    </span>
+                    {isSubmitting ? (
+                      <>
+                        <span className="fmp-spinner" />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        {current.btn}
+                        <span
+                          className="fmp-arrow inline-flex items-center justify-center w-6 h-6 rounded-full text-sm"
+                          style={{ background: "rgba(255,255,255,0.2)" }}
+                        >
+                          →
+                        </span>
+                      </>
+                    )}
                   </button>
 
                   {TRUST_TEXT[step] && (
@@ -642,9 +714,7 @@ export default function FreeMarketingPlan({ onClose }) {
               )}
             </div>
           </div>
-          {/* end white modal */}
         </div>
-        {/* end gradient border */}
       </div>
     </>
   );

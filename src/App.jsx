@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
+
 import Layout from "./components/layout/Layout";
 
 import About from "./pages/About";
@@ -19,35 +21,56 @@ import WhatsAppAutomation from "./pages/services/WhatsAppAutomation";
 
 export default function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
 
-      {/* Layout Wrapper */}
-      <Route element={<Layout />}>
+      <Routes>
+        {/* Layout Wrapper */}
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
 
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route
+            path="/services/crm-automation"
+            element={<CRM />}
+          />
+          <Route
+            path="/services/google-my-business-services"
+            element={<GoogleMyBusinessServices />}
+          />
+          <Route
+            path="/services/seo-services"
+            element={<SeoServices />}
+          />
+          <Route
+            path="/services/google-ads-management"
+            element={<GoogleAdsManagement />}
+          />
+          <Route
+            path="/services/whatsapp-automation"
+            element={<WhatsAppAutomation />}
+          />
+          <Route
+            path="/services/marketing-meta-ads-servish"
+            element={<MetaAdsServish />}
+          />
 
-        <Route path="/services" element={<Services />} />
-        <Route path="/services/crm-automation" element={<CRM />} />
-<Route
-  path="/services/google-my-business-services"
-  element={<GoogleMyBusinessServices />}
-/>
-        <Route path="/services/seo-services" element={<SeoServices />} />
-        <Route path="/services/google-ads-management" element={<GoogleAdsManagement />} />
-        <Route path="/services/whatsapp-automation" element={<WhatsAppAutomation />} />
-        <Route path="/services/marketing-meta-ads-servish" element={<MetaAdsServish />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
 
-        <Route path="/about" element={<About />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogDetail />} />
-        <Route path="/case-studies" element={<CaseStudies />} />
-        <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<Home />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route
+            path="/case-studies/:slug"
+            element={<CaseStudyDetail />}
+          />
 
-      </Route>
+          <Route path="/contact" element={<Contact />} />
 
-    </Routes>
+          <Route path="*" element={<Home />} />
+        </Route>
+      </Routes>
+    </>
   );
 }

@@ -97,23 +97,26 @@ export default function MonthlyReports() {
 
   return (
     <section 
-      className="bg-slate-50 py-10 px-4 sm:px-8 relative overflow-hidden" 
+      className="bg-slate-50 py-16 px-4 sm:px-8 relative overflow-hidden" 
       style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
     >
       <div className="max-w-7xl mx-auto">
         
         {/* Main Section Header Title */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-[-0.02em]">
+          <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-[-0.03em]">
             Monthly SEO Deliveries And Reports
           </h2>
+          <p className="text-gray-500 mt-3 text-sm md:text-base font-medium">
+            Select a report below to view real-time architectural insights and strategic frameworks.
+          </p>
         </div>
 
         {/* 2-Column Desktop Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* LEFT COLUMN: Vertical Interactive Tabs Panel (5 Columns wide on desktop) */}
-          <div className="lg:col-span-5 flex flex-col space-y-3 w-full">
+          {/* LEFT COLUMN: Vertical Interactive Tabs Panel */}
+          <div className="lg:col-span-5 flex flex-col space-y-3.5 w-full justify-start">
             {reportData.map((tab, idx) => {
               const isSelected = activeTab === idx
               return (
@@ -122,28 +125,29 @@ export default function MonthlyReports() {
                   onClick={() => setActiveTab(idx)}
                   className={`w-full flex items-center text-left px-6 py-5 rounded-2xl border transition-all duration-300 relative group overflow-hidden ${
                     isSelected 
-                      ? "bg-white border-purple-200 shadow-xl shadow-purple-100/40" 
-                      : "bg-slate-100/70 border-transparent hover:bg-slate-200/50"
+                      ? "bg-white border-purple-600/20 shadow-xl shadow-purple-600/10 scale-[1.01]" 
+                      : "bg-slate-100 border-slate-200/60 hover:bg-purple-50/50 hover:border-purple-200"
                   }`}
                 >
-                  {/* Selected Indicator Accent Stripe (Left Boundary line) */}
+                  {/* Selected Indicator Accent Stripe (Smooth Slidings) */}
                   {isSelected && (
                     <motion.div 
                       layoutId="verticalLine"
                       className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-purple-600 to-pink-600"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
 
                   {/* Icon Dynamic Styling Context */}
-                  <div className={`mr-4 shrink-0 transition-colors duration-300 ${
-                    isSelected ? "text-purple-600" : "text-gray-400 group-hover:text-gray-600"
+                  <div className={`mr-4 shrink-0 transition-all duration-300 ${
+                    isSelected ? "text-purple-600 scale-110" : "text-gray-400 group-hover:text-purple-500"
                   }`}>
                     {tab.icon}
                   </div>
 
                   {/* Button Label Text */}
                   <span className={`text-sm md:text-base font-bold transition-colors duration-300 ${
-                    isSelected ? "text-purple-900" : "text-gray-600 group-hover:text-gray-900"
+                    isSelected ? "text-purple-950" : "text-gray-600 group-hover:text-gray-900"
                   }`}>
                     {tab.tabTitle}
                   </span>
@@ -152,36 +156,49 @@ export default function MonthlyReports() {
             })}
           </div>
 
-          {/* RIGHT COLUMN: Dynamic Data Content Container Box (7 Columns wide on desktop) */}
-          <div className="lg:col-span-7 w-full h-full">
-            <div className="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-100 shadow-2xl shadow-slate-200/50 min-h-[510px] relative flex flex-col justify-between">
+          {/* RIGHT COLUMN: Dynamic Content Container Box */}
+          <div className="lg:col-span-7 w-full">
+            <div className="bg-white rounded-[2rem] p-8 md:p-10 border border-purple-100 shadow-2xl shadow-purple-900/5 h-full min-h-[520px] flex flex-col relative overflow-hidden">
               
+              {/* Decorative top soft gradient corner ring */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-purple-100/40 via-transparent to-transparent rounded-bl-full pointer-events-none" />
+
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="space-y-6"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="flex flex-col h-full justify-between space-y-6"
                 >
-                  {/* Top Intro Summary String (Light Gray Meta Description Style) */}
-                  <p className="text-sm md:text-base text-gray-500 font-medium leading-[1.7] pb-4 border-b border-slate-100">
-                    {reportData[activeTab].intro}
-                  </p>
+                  <div>
+                    {/* Active Header Tag Badge */}
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-50 rounded-full border border-purple-100 mb-4">
+                      <span className="w-1.5 h-1.5 rounded-full bg-purple-600 animate-pulse" />
+                      <span className="text-xs font-bold text-purple-700 uppercase tracking-wider">
+                        {reportData[activeTab].tabTitle}
+                      </span>
+                    </div>
 
-                  {/* Main Metric Key/Value Stack Mapping */}
-                  <div className="space-y-5 max-h-[360px] overflow-y-auto pr-2 custom-scrollbar">
-                    {reportData[activeTab].metrics.map((item, mIdx) => (
-                      <div key={mIdx} className="group/item">
-                        <p className="text-sm md:text-base text-gray-700 leading-[1.7] font-medium">
-                          <strong className="text-gray-900 font-bold block sm:inline mr-1 transition-colors duration-200 group-hover/item:text-purple-700">
-                            {item.label}:
-                          </strong>
-                          <span> {item.value}</span>
-                        </p>
-                      </div>
-                    ))}
+                    {/* Top Intro Summary String */}
+                    <p className="text-sm md:text-[15px] text-gray-600 font-medium leading-[1.7] pb-5 border-b border-slate-100">
+                      {reportData[activeTab].intro}
+                    </p>
+
+                    {/* Main Metric Key/Value Stack Mapping */}
+                    <div className="space-y-4.5 pt-5 max-h-[340px] overflow-y-auto pr-2 custom-scrollbar">
+                      {reportData[activeTab].metrics.map((item, mIdx) => (
+                        <div key={mIdx} className="group/item bg-slate-50/40 p-3.5 rounded-xl border border-transparent hover:border-purple-100/80 hover:bg-purple-50/20 transition-all duration-200">
+                          <p className="text-sm md:text-base text-gray-600 leading-[1.65]">
+                            <strong className="text-gray-900 font-bold block sm:inline mr-1.5 transition-colors duration-200 group-hover/item:text-purple-700">
+                              {item.label}:
+                            </strong>
+                            <span className="font-medium text-gray-600">{item.value}</span>
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                 </motion.div>
@@ -194,21 +211,21 @@ export default function MonthlyReports() {
 
       </div>
 
-      {/* Embedded CSS style inject specifically for cleaner right-side viewport scrolling */}
+      {/* Custom Clean Scrollbar CSS Rules */}
       <style jsx global>{`
         .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
+          width: 5px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: #f1f5f9;
+          background: #f8fafc;
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #cbd5e1;
+          background: #e2e8f0;
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #94a3b8;
+          background: #cbd5e1;
         }
       `}</style>
     </section>

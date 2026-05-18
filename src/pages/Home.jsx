@@ -13,6 +13,7 @@ import SuccessStories from "../components/home/SuccessStories";
 
 import ExpertiseSection from "../components/home/ExpertiseSection";
 import AwardWinningAgency from "../components/home/AwardWinningAgency";
+import Trusted from "../components/home/Trusted";
 
 export default function Home() {
   return (
@@ -30,7 +31,7 @@ export default function Home() {
       <StatsSection />
       <SiCucumber/>
         
-    
+    <Trusted/>
     <SuccessStories/>
       {/* <FinancialPlan /> */}
       {/* <FaqSection/> */}

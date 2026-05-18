@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 export default function SEOServicesChallenges() {
@@ -97,17 +96,41 @@ export default function SEOServicesChallenges() {
     }
   ]
 
-  const rows = [
-    services.slice(0, 3),
-    services.slice(3, 6),
-    services.slice(6, 9),
-  ]
-
   return (
-    <section
-      className="py-20 px-6 sm:px-10 overflow-hidden"
-      style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif", backgroundColor: '#f8fafc' }}
-    >
+    <section className="py-20 px-6 sm:px-10 overflow-hidden bg-[#f8fafc] font-['Montserrat']">
+      
+      {/* Flip card CSS Effect */}
+      <style>{`
+        .seo-card-wrap {
+          perspective: 1000px;
+          min-height: 280px;
+          cursor: pointer;
+        }
+        .seo-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          min-height: 280px;
+          transform-style: preserve-3d;
+          transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+        .seo-card-wrap:hover .seo-card-inner {
+          transform: rotateY(-180deg);
+        }
+        .seo-card-front,
+        .seo-card-back {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+        }
+        .seo-card-back {
+          transform: rotateY(180deg);
+        }
+      `}</style>
+
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}
@@ -117,120 +140,72 @@ export default function SEOServicesChallenges() {
           </h2>
         </div>
 
-        {/* Outer Box */}
-        <div
-          className="rounded-2xl overflow-hidden shadow-2xl"
-          style={{ backgroundColor: '#6400A1', border: '1px solid #4a007a' }}
-        >
-          {rows.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className="grid grid-cols-1 md:grid-cols-3"
-              style={{
-                borderBottom: rowIndex < rows.length - 1 ? '2px solid #000' : 'none',
-              }}
-            >
-              {row.map((service, colIndex) => {
-                // Keep unique hover state logic handled dynamically via framer's whileHover
-                return (
-                  <div
-                    key={colIndex}
-                    className="relative w-full min-h-[280px] bg-transparent [perspective:1000px] group"
-                    style={{
-                      borderRight: colIndex < row.length - 1 ? '2px solid #000' : 'none',
-                    }}
-                  >
-                    {/* Inner 3D Flipping Card Wrapper */}
-                    <motion.div
-                      className="relative w-full h-full [transform-style:preserve-3d] transition-all duration-700 ease-out"
-                      whileHover={{ rotateY: -180 }}
-                      initial={{ opacity: 0, y: 15 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: '-50px' }}
-                      transition={{ duration: 0.5, delay: colIndex * 0.05 }}
-                    >
+        {/* Outer Container (No Outer Borders applied here) */}
+        <div className="rounded-2xl overflow-hidden shadow-2xl bg-[#6400A1]">
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            {services.map((service, index) => {
+              
+              // ─── PERFECT INNER BORDER LOGIC ─────────────────────────────────
+              // Row में आख़िरी कार्ड (3rd, 6th, 9th) पता करने के लिए
+              const isLastInRow = (index + 1) % 3 === 0;
+              // सबसे आख़िरी रो के कार्ड्स (7th, 8th, 9th) पता करने के लिए
+              const isInLastRow = index >= services.length - 3;
+
+              return (
+                <div
+                  key={index}
+                  className={`seo-card-wrap overflow-hidden
+                    ${!isLastInRow ? 'md:border-r-[2px] md:border-black/30' : 'md:border-r-0'} 
+                    ${!isInLastRow ? 'border-b-[2px] border-black/30' : 'border-b-0'}
+                    ${isInLastRow && !isLastInRow ? 'max-md:border-b-[2px] max-md:border-black/30' : ''}
+                  `}
+                >
+                  <div className="seo-card-inner">
+
+                    {/* FRONT SIDE */}
+                    <div className="seo-card-front flex flex-col items-center justify-center text-center p-8 sm:p-10 bg-[#6400A1]">
+                      <div className="mb-5">
+                        {service.icon}
+                      </div>
+                      <h3 className="font-bold tracking-wide mb-3 text-[1.05rem] text-white">
+                        {service.title}
+                      </h3>
+                      <p className="leading-[1.7] font-medium text-[0.85rem] text-[rgba(220,180,255,0.85)] max-w-[260px]">
+                        {service.desc}
+                      </p>
+                    </div>
+
+                    {/* BACK SIDE */}
+                    <div className="seo-card-back overflow-hidden flex items-center justify-center bg-[#6400A1]">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover opacity-90 absolute inset-0"
+                      />
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/35 to-transparent" />
                       
-                      {/* FRONT SIDE (Original UI Text) */}
-                      <div 
-                        className="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center p-8 sm:p-10 [backface-visibility:hidden]"
-                        style={{ backgroundColor: '#6400A1' }}
-                      >
-                        {/* Icon */}
-                        <div className="mb-5 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
-                          {service.icon}
-                        </div>
-
-                        {/* Title */}
-                        <h3
-                          className="font-bold tracking-wide mb-3"
-                          style={{ fontSize: '1.05rem', color: '#fff' }}
-                        >
+                      {/* Back text */}
+                      <div className="absolute bottom-5 left-0 right-0 px-4 text-center">
+                        <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-1 drop-shadow-md">
                           {service.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p
-                          className="leading-[1.7] font-medium"
-                          style={{
-                            color: 'rgba(220,180,255,0.85)',
-                            fontSize: '0.85rem',
-                            maxWidth: '260px',
-                          }}
-                        >
-                          {service.desc}
-                        </p>
+                        </h4>
+                        <span className="inline-block text-[11px] font-bold text-[#fbbf24] tracking-[0.08em] uppercase border border-amber-400/40 bg-amber-950/40 px-2.5 py-1 rounded">
+                          View Strategy →
+                        </span>
                       </div>
+                    </div>
 
-                      {/* BACK SIDE (Full Image UI View on Flip) */}
-                      <div 
-                        className="absolute inset-0 w-full h-full overflow-hidden [backface-visibility:hidden] [transform:rotateY(180deg)] flex items-center justify-center"
-                        style={{ backgroundColor: '#4a007a' }}
-                      >
-                        {/* Background Image */}
-                        <img 
-                          src={service.image} 
-                          alt={service.title} 
-                          className="w-full h-full object-cover opacity-90 transition-transform duration-500 scale-100 group-hover:scale-105" 
-                        />
-                        {/* Dark Gradient Overlay for text over images */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                        
-                        {/* Back-side Text Layer */}
-                        <div className="absolute bottom-5 left-0 right-0 px-4 text-center">
-                          <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-1 drop-shadow-md">
-                            {service.title}
-                          </h4>
-                          <span className="inline-block text-[11px] font-bold text-amber-400 tracking-wider uppercase border border-amber-400/40 bg-amber-950/40 px-2.5 py-1 rounded">
-                            View Strategy →
-                          </span>
-                        </div>
-                      </div>
-
-                    </motion.div>
                   </div>
-                )
-              })}
-            </div>
-          ))}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Button */}
+        {/* Bottom Action Button */}
         <div className="flex justify-center mt-12">
-          <button
-            style={{
-              padding: '0.85rem 2.2rem',
-              background: 'linear-gradient(to right, #f59e0b, #f97316)',
-              color: '#fff',
-              fontWeight: '700',
-              fontSize: '0.8rem',
-              letterSpacing: '1px',
-              textTransform: 'uppercase',
-              border: 'none',
-              borderRadius: '10px',
-              cursor: 'pointer',
-              boxShadow: '0 4px 20px rgba(249,115,22,0.3)',
-            }}
-          >
+          <button className="px-9 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-[0.8rem] tracking-wider uppercase border-none rounded-xl cursor-pointer shadow-[0_4px_20px_rgba(249,115,22,0.3)] transition-transform duration-200 hover:scale-[1.02]">
             Our SEO Packages
           </button>
         </div>

@@ -44,12 +44,12 @@ export default function AboutHero() {
       >
 
         {/* ── Badge ── */}
-        <motion.button
+        {/* <motion.button
           variants={fadeUp}
           transition={{ duration: 0.5 }}
           type="button"
           className="
-            mt-10 mb-7
+            mt-20 mb-7
             flex items-center gap-2
             border border-indigo-500 text-indigo-600
             text-[11px] md:text-[12px] font-bold tracking-[0.04em]
@@ -69,7 +69,7 @@ export default function AboutHero() {
               />
             </svg>
           </span>
-        </motion.button>
+        </motion.button> */}
 
         {/* ── H1 Headline ── */}
         <motion.h1
@@ -79,7 +79,7 @@ export default function AboutHero() {
             text-center text-[#111111] font-bold
             text-[32px] md:text-[42px] lg:text-[52px]
             leading-[1.1] tracking-[-0.02em]
-            max-w-3xl
+            max-w-3xl mt-28 mb-7
           "
         >
         Systems  Not Just 

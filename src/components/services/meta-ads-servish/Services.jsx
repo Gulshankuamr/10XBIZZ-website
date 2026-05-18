@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 import { Search, Monitor, ShoppingBag, Youtube, Zap, MapPin } from 'lucide-react'
 
 const SERVICE_CARDS = [
