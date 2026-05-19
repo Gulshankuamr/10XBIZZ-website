@@ -192,21 +192,36 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Quick Links */}
-              <div className="min-w-[130px]">
-                <p className="font-syne text-[0.78rem] font-bold tracking-[3px] uppercase mb-5" style={{ color: "#D4A017" }}>
-                  Quick Links
-                </p>
-                <ul className="list-none flex flex-col gap-3">
-                  {["Home", "Contact", "Blog", "Privacy Policy", "Cancellation & Refund", "Terms & Conditions"].map((item) => (
-                    <li key={item}>
-                      <a href="#" className="nav-link text-sm font-light inline-block no-underline" style={{ color: "rgba(255,255,255,0.5)" }}>
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+           {/* Quick Links */}
+<div className="min-w-[130px]">
+  <p
+    className="font-syne text-[0.78rem] font-bold tracking-[3px] uppercase mb-5"
+    style={{ color: "#D4A017" }}
+  >
+    Quick Links
+  </p>
+
+  <ul className="list-none flex flex-col gap-3">
+    {[
+      { name: "Home", path: "/" },
+      { name: "Contact", path: "/contact" },
+      { name: "Blog", path: "/blog" },
+      { name: "Privacy Policy", path: "/privacy-policy" },
+      { name: "Cancellation & Refund", path: "/cancellation-refund" },
+      { name: "Terms & Conditions", path: "/terms-conditions" },
+    ].map((item) => (
+      <li key={item.name}>
+        <Link
+          to={item.path}
+          className="nav-link text-sm font-light inline-block no-underline"
+          style={{ color: "rgba(255,255,255,0.5)" }}
+        >
+          {item.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
               {/* Get In Touch */}
               <div className="min-w-[200px]">

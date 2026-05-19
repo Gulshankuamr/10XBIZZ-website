@@ -18,6 +18,7 @@ import SeoServices from "./pages/services/SeoServices";
 import GoogleMyBusinessServices from "./pages/services/GoogleMyBusinessServices";
 import GoogleAdsManagement from "./pages/services/GoogleAdsManagement";
 import WhatsAppAutomation from "./pages/services/WhatsAppAutomation";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 export default function App() {
   return (
@@ -31,6 +32,10 @@ export default function App() {
           <Route path="/home" element={<Home />} />
 
           <Route path="/services" element={<Services />} />
+          <Route
+            path="/privacy-policy"
+            element={<PrivacyPolicy />}
+          />
           <Route
             path="/services/crm-automation"
             element={<CRM />}

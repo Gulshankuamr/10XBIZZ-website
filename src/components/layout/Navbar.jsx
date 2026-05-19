@@ -284,7 +284,7 @@ export default function Navbar() {
 
         {/* Promo Banner */}
         {bannerVisible && (
-          <div className="promo-shimmer relative hidden md:flex items-center justify-center gap-4 overflow-hidden bg-[#0a0a0a] px-10 py-1.5">
+          <div className="promo-shimmer relative hidden md:flex items-center justify-center gap-4 overflow-hidden bg-[#0a0a0a] px-10 py-2.5">
             <div className="relative z-10 flex items-center gap-2">
               <span className="bg-red-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider">
                 Hot

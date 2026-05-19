@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import HeroActionButton from "../ui/HeroActionButton";
+import { Link } from "react-router-dom";
 
 const stats = [
   { value: "10+", label: "Years Of Industry\nExperience" },
@@ -141,9 +142,16 @@ export default function AboutSection() {
                 </span>
               </h1>
 
-              <HeroActionButton className="enq-btn">
+              {/* <HeroActionButton className="enq-btn">
                 Enquire Now <span>→</span>
-              </HeroActionButton>
+              </HeroActionButton> */}
+
+<Link to="/contact">
+  <HeroActionButton className="enq-btn">
+    Enquire Now 
+  </HeroActionButton>
+</Link>
+
             </FadeUp>
           </div>
 

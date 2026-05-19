@@ -1,7 +1,7 @@
 import React from "react";
 import { Award, Briefcase, ShieldCheck } from "lucide-react";
 
-// ─── DATA ARRAYS (आप यहाँ अपनी इमेज का src पाथ डाल सकते हैं) ──────────────────
+// ─── DATA ARRAYS ─────────────────────────────────────────────────────────────
 const FEATURED_LOGOS = [
   { name: "KAROSTARTUP", src: "" },
   { name: "Jagran Josh", src: "" },
@@ -20,21 +20,21 @@ const B2B_LOGOS = [
 
 const LEADING_BRANDS = [
   { name: "SHOGHI" }, { name: "PR Nation" }, { name: "ZOFF" }, { name: "ALLIANCE" }, { name: "glow right" },
-  { name: "Nurtureplus" }, { name: "Ghar Ka Khana" }, { name: "Wodreams" }, { name: "SHWETA GAURI" }, { name: "UpInvest" },
-  { name: "NCR INFRA" }, { name: "HC INTERIOR" }, { name: "Suman Jewels" }, { name: "CHIKARI" }, { name: "Kasturi" },
-  { name: "lawnings" }, { name: "MadVik" }, { name: "Krafty" }, { name: "SET MY HOUSE" }, { name: "indyRaaga" },
-  { name: "Vastu" }, { name: "SIRAA" }, { name: "PEAR" }, { name: "TREKKERS" }, { name: "Hari Darshan" }
+  { name: "Nurtureplus" }, { name: "Ghar Ka Khana" }, { name: "Wodreams" }, { name: "SHWETA GAURI" }, { name: "UpInvest" }
 ];
 
 // ─── REUSABLE LOGO CARD COMPONENT ────────────────────────────────────────────
 const LogoCard = ({ item }) => (
-  <div className="w-full h-[75px] bg-white border-2 border-sky-400 rounded-xl flex items-center justify-center p-3 shadow-sm hover:shadow-md hover:border-purple-600 transition-all duration-300 select-none cursor-pointer">
+  <div className="logo-card w-full h-[75px] bg-white border-2 border-black rounded-xl flex items-center justify-center p-3 shadow-sm hover:shadow-md transition-all duration-300 select-none cursor-pointer font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
     {item.src ? (
       <img src={item.src} alt={item.name} className="max-w-full max-h-full object-contain" />
     ) : (
-      <span className="text-gray-700 font-bold text-center text-[13px] tracking-wide uppercase break-words">
-        {item.name}
-      </span>
+      <div className="flex flex-col items-center justify-center">
+        <span className="text-[10px] text-gray-500 font-bold tracking-[0.2em] leading-none mb-1">DN</span>
+        <span className="text-black font-bold text-center text-[12px] tracking-wide uppercase break-words leading-tight">
+          {item.name}
+        </span>
+      </div>
     )}
   </div>
 );
@@ -42,7 +42,7 @@ const LogoCard = ({ item }) => (
 export default function Trusted() {
   return (
     <>
-      {/* CSS Stylesheet for Smooth Carousel Scrolling & Pause on Hover */}
+      {/* Dynamic CSS Stylesheet for Animations and Premium Gradient Hover Border */}
       <style>{`
         @keyframes scrollLeft {
           0% { transform: translateX(0); }
@@ -65,23 +65,36 @@ export default function Trusted() {
         .hover\\:pause-scroll:hover {
           animation-play-state: paused !important;
         }
+        
+        /* Premium Gradient Hover Border Utility */
+        .logo-card {
+          border-color: #000000;
+          transition: border-image 0.3s ease, border-color 0.3s ease;
+        }
+        .logo-card:hover {
+          border-color: transparent;
+          border-image: linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%);
+          border-image-slice: 1;
+          border-radius: 12px; /* fallback boundary */
+        }
       `}</style>
 
-      <section className="bg-white py-16 px-4 overflow-hidden w-full select-none">
+      <section className="bg-white  mb-12 px-4 overflow-hidden w-full select-none font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
         <div className="max-w-[1200px] mx-auto space-y-16">
 
           {/* 1. FEATURED IN SECTION (Right to Left Scrolling) */}
-          <div className="text-center space-y-6">
+          <div className="text-center space-y-6 flex flex-col items-center">
             <div className="flex flex-col items-center justify-center gap-1">
-              <span className="text-sky-400 font-bold tracking-widest text-lg">─ ─ ─</span>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-[#006699] flex items-center gap-2">
-                <Award className="text-sky-500 w-6 h-6" /> Featured in
+              <span className="inline-block font-bold tracking-[0.05em] uppercase text-[11px] md:text-[12px] text-black">
+                ─ ─ ─ Recognition ─ ─ ─
+              </span>
+              <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px] text-black flex items-center gap-3 justify-center">
+                <Award className="text-black w-8 h-8 flex-shrink-0" /> Featured in
               </h2>
             </div>
             
             <div className="relative w-full flex overflow-x-hidden py-2">
               <div className="animate-scroll-left hover:pause-scroll gap-6">
-                {/* Loops to ensure continuous scrolling text/images */}
                 {FEATURED_LOGOS.map((item, idx) => <div key={`f1-${idx}`} className="w-[180px]"><LogoCard item={item} /></div>)}
                 {FEATURED_LOGOS.map((item, idx) => <div key={`f2-${idx}`} className="w-[180px]"><LogoCard item={item} /></div>)}
                 {FEATURED_LOGOS.map((item, idx) => <div key={`f3-${idx}`} className="w-[180px]"><LogoCard item={item} /></div>)}
@@ -91,11 +104,13 @@ export default function Trusted() {
 
 
           {/* 2. OUR B2B PARTNERS SECTION (Left to Right Scrolling) */}
-          <div className="text-center space-y-6">
+          <div className="text-center space-y-6 flex flex-col items-center">
             <div className="flex flex-col items-center justify-center gap-1">
-              <span className="text-sky-400 font-bold tracking-widest text-lg">─ ─ ─</span>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-[#006699] flex items-center gap-2">
-                <Briefcase className="text-sky-500 w-6 h-6" /> Our B2B Partners
+              <span className="inline-block font-bold tracking-[0.05em] uppercase text-[11px] md:text-[12px] text-black">
+                ─ ─ ─ Network ─ ─ ─
+              </span>
+              <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px] text-black flex items-center gap-3 justify-center">
+                <Briefcase className="text-black w-8 h-8 flex-shrink-0" /> Our B2B Partners
               </h2>
             </div>
 
@@ -109,30 +124,26 @@ export default function Trusted() {
           </div>
 
 
-          {/* 3. LEADING BRANDS TRUST US SECTION (Static Clean Layout - No Animation) */}
-          <div className="text-center space-y-6 pt-4">
+          {/* 3. LEADING BRANDS TRUST US SECTION (Static Layout - 2 Rows Only) */}
+          <div className="text-center space-y-6 pt-4 flex flex-col items-center">
             <div className="flex flex-col items-center justify-center gap-1">
-              <span className="text-sky-400 font-bold tracking-widest text-lg">─ ─ ─</span>
-              <h2 className="text-3xl md:text-4xl font-black text-[#006699] flex items-center gap-2 tracking-tight">
-                <ShieldCheck className="text-sky-500 w-7 h-7" /> Leading Brands Trust Us
+              <span className="inline-block font-bold tracking-[0.05em] uppercase text-[11px] md:text-[12px] text-black">
+                ─ ─ ─ Trust ─ ─ ─
+              </span>
+              <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px] text-black flex items-center gap-3 justify-center">
+                <ShieldCheck className="text-black w-8 h-8 flex-shrink-0" /> Leading Brands Trust Us
               </h2>
             </div>
 
-            {/* Description Paragraphs */}
-            <div className="max-w-4xl mx-auto px-4 space-y-3 text-center">
-              <p className="text-gray-800 font-bold text-[14px] md:text-[15px] leading-relaxed">
-                We value the relationships we build with our clients and are dedicated to providing top-notch service and support.
-              </p>
-              <p className="text-gray-500 text-[12px] leading-relaxed max-w-3xl mx-auto">
-                At <span className="font-semibold text-gray-700">Digital Notebook</span>, we understand the importance of a successful partnership. Our team works closely with each client to understand their unique needs and goals, and provides customized solutions to help them achieve success.
-              </p>
-              <p className="text-gray-400 text-[11px] italic">
-                We take pride in delivering exceptional results and exceeding our client's expectations. From start to finish, we are committed to providing a seamless and positive experience.
+            {/* Premium Typography Standard Paragraph */}
+            <div className="max-w-2xl mx-auto px-4 text-center">
+              <p className="text-base md:text-[18px] font-medium leading-[1.7] text-gray-900">
+                We value the relationships we build with our clients and are dedicated to providing top-notch service and support. At <span className="inline-block font-bold tracking-[-0.02em] text-black">Digital Notebook</span>, we work closely with each partner to deliver exceptional results and customized solutions.
               </p>
             </div>
 
-            {/* Image Exact Replica Grid (5 Columns Layered Layout) */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 pt-6 max-w-[1100px] mx-auto">
+            {/* Image Exact Replica Grid (5 Columns - Limited to 2 Rows) */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 pt-6 w-full max-w-[1100px] mx-auto">
               {LEADING_BRANDS.map((item, idx) => (
                 <LogoCard key={`grid-${idx}`} item={item} />
               ))}
