@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import HeroActionButton from "../ui/HeroActionButton";
 import { Link } from "react-router-dom";
+import FreeMarketingPlan from "../freemarektingPlane/FreeMarketingPlan";
 
 const stats = [
   { value: "10+", label: "Years Of Industry\nExperience" },
@@ -65,6 +66,9 @@ function FadeUp({ children, delay = 0, className = "" }) {
 }
 
 export default function AboutSection() {
+
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <section
       className="w-full py-20 lg:py-32 overflow-hidden font-['Montserrat',ui-sans-serif,system-ui,sans-serif]"
@@ -146,11 +150,12 @@ export default function AboutSection() {
                 Enquire Now <span>→</span>
               </HeroActionButton> */}
 
-<Link to="/contact">
-  <HeroActionButton className="enq-btn">
-    Enquire Now 
-  </HeroActionButton>
-</Link>
+<HeroActionButton
+  className="enq-btn"
+  onClick={() => setOpenModal(true)}
+>
+  Enquire Now
+</HeroActionButton>
 
             </FadeUp>
           </div>
@@ -220,6 +225,9 @@ export default function AboutSection() {
           </div>
         </div>
       </div>
+      {openModal && (
+  <FreeMarketingPlan onClose={() => setOpenModal(false)} />
+)}
     </section>
   );
 }

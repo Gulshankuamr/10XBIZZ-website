@@ -1,5 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react"; // 1. यहाँ useState हुक को फिक्स किया
+import { motion, AnimatePresence } from "framer-motion";
+import FreeMarketingPlan from "../freemarektingPlane/FreeMarketingPlan";
+import HeroActionButton from "../ui/HeroActionButton";
 
 const TRUST_POINTS = [
   { title: "Results-driven approach", icon: "📈" },
@@ -10,6 +12,8 @@ const TRUST_POINTS = [
 ];
 
 export default function WhyChooseUs() {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <section className="relative w-full py-20 bg-white overflow-hidden font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
       {/* Decorative Background Elements (Matching your theme) */}
@@ -54,16 +58,20 @@ export default function WhyChooseUs() {
         {/* Content & Trust Points Grid */}
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <div className="space-y-6">
+            {/* 2. डमी Lorem Ipsum हटाकर प्रोफेशनल टेक्स्ट ऐड कर दिया है */}
             <p className="text-gray-600 leading-[1.7] text-sm md:text-base">
-              There are many variations of passages of Lorem Ipsum available, but the 
-              majority have suffered alteration in some form, by injected humour, or 
-              randomized words which don't look even slightly believable. We focus on 
-              building systems that solve real business problems.
+              We don't believe in one-size-fits-all templates. Our team digs deep into your 
+              business mechanics to discover hidden bottlenecks and build custom automated workflows. 
+              By blending high-converting infrastructure with intelligent tracking, we turn cold 
+              traffic into loyal, paying consumers—consistently.
             </p>
             
-            <button className="px-8 py-4 bg-gradient-to-r from-[#6400A1] to-[#BB000F] text-white rounded-full font-bold text-sm hover:shadow-lg hover:scale-105 transition-all flex items-center gap-3">
+            <HeroActionButton 
+              onClick={() => setOpenModal(true)}
+              className="px-8 py-4 bg-gradient-to-r from-[#6400A1] to-[#BB000F] text-white rounded-full font-bold text-sm hover:shadow-lg hover:scale-105 transition-all flex items-center gap-3 cursor-pointer"
+            >
               Get Started <span>→</span>
-            </button>
+            </HeroActionButton>
           </div>
 
           {/* Icon List (Authority Points) */}
@@ -87,6 +95,11 @@ export default function WhyChooseUs() {
         </div>
 
       </div>
+
+     
+      <AnimatePresence>
+        {openModal && <FreeMarketingPlan onClose={() => setOpenModal(false)} />}
+      </AnimatePresence>
     </section>
   );
 }

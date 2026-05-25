@@ -80,7 +80,7 @@ function BookPageContent({ step, isBackFace }) {
     <div style={{
       width: "100%", height: "100%",
       background: `linear-gradient(135deg, ${s.pageColor} 0%, #ffffff 100%)`,
-      padding: "20px 16px", // Reduced padding for mobile
+      padding: "20px 16px", 
       display: "flex", flexDirection: "column",
       justifyContent: "space-between",
       position: "relative", overflow: "hidden",

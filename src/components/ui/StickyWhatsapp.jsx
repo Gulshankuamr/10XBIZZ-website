@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 
 // ─────────────────────────────────────────────
-//  CONFIG — apna number aur message yahan badlo
+
 // ─────────────────────────────────────────────
-const PHONE   = "919999999999";          // country code + number, no +
+const PHONE   = "916291124216";         
 const MESSAGE = "Hello, I want to know about your services";
-const GIF_SRC = "/public/whatsappoopsticky.gif"; // apni GIF ka path
+const GIF_SRC = "/public/whatsappoopsticky.gif";
 
 const CHAT_MESSAGES = [
   "👋 Hey! Welcome to *10XBIZZ*",

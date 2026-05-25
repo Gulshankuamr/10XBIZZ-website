@@ -10,6 +10,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import  HeroActionButton  from "../ui/HeroActionButton";
+
+import FreeMarketingPlan from "../freemarektingPlane/FreeMarketingPlan";
+
 // ─── Logo ────────────────────────────────────────────────────────────────────
 const Logo = ({ small }) => (
   <div className={`bg-[#6B0AC9] rounded-full inline-flex items-center justify-center ${small ? "px-1.5 py-0.5" : "px-2.5 py-1"}`}>
@@ -51,11 +55,11 @@ const NAV_ITEMS = [
         path: "/services/google-ads-management",
         icon: <Search size={18} className="text-blue-600" />,
       },
-      {
-        label: "WhatsApp Automation",
-        path: "/services/whatsapp-automation",
-        icon: <MessageSquare size={18} className="text-blue-600" />,
-      },
+      // {
+      //   label: "WhatsApp Automation",
+      //   path: "/services/whatsapp-automation",
+      //   icon: <MessageSquare size={18} className="text-blue-600" />,
+      // },
     ],
   },
   { label: "Case Studies", path: "/case-studies" },
@@ -234,6 +238,7 @@ export default function Navbar() {
   const [openMenu, setOpenMenu]           = useState(null);
   const [mobileOpen, setMobileOpen]       = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -361,7 +366,7 @@ export default function Navbar() {
 
             {/* Right: CTA + Hamburger */}
             <div className="flex items-center gap-3">
-              <Link
+              {/* <Link
                 to="/contact"
                 onClick={() => setOpenMenu(null)}
                 className="hidden lg:flex items-center gap-2.5 px-5 py-2 rounded-full text-white font-bold text-[14px] no-underline"
@@ -372,7 +377,19 @@ export default function Navbar() {
               >
                 Book Strategy Call
                 <ArrowRight size={14} strokeWidth={3} />
-              </Link>
+              </Link> */}
+
+
+<HeroActionButton
+  onClick={() => setOpenModal(true)}
+  className="hidden lg:flex items-center gap-2.5 px-3 py-2 rounded-full text-white font-bold text-[14px] no-underline border-0"
+  style={{
+    background: "linear-gradient(135deg, #7B00C2 0%, #FF1920 100%)",
+    boxShadow: "0 6px 18px -6px rgba(123,0,194,0.4)",
+  }}
+>
+  Book Strategy Call
+</HeroActionButton>
 
               <button
                 className="lg:hidden flex flex-col gap-1 px-2.5 py-1.5 bg-purple-50 border border-purple-200 rounded-xl cursor-pointer"
@@ -384,6 +401,8 @@ export default function Navbar() {
               </button>
             </div>
 
+
+
           </div>
         </nav>
       </div>
@@ -394,6 +413,9 @@ export default function Navbar() {
         openMenu={openMenu}
         setOpenMenu={setOpenMenu}
       />
+      {openModal && (
+  <FreeMarketingPlan onClose={() => setOpenModal(false)} />
+)}
     </>
   );
 }

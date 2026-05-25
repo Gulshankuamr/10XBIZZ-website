@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, Users, BarChart3, Zap, ArrowRight, PlayCircle, CheckCircle2, MessageCircle } from "lucide-react";
-import  HeroActionButton  from "../ui/HeroActionButton";
+import HeroActionButton from "../ui/HeroActionButton";
+// Make sure to import your modal component. Update the path if necessary:
+import FreeMarketingPlan from "../freemarektingPlane/FreeMarketingPlan"; 
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 
@@ -15,6 +18,9 @@ const stagger = {
 };
 
 export default function AboutHero() {
+  // Modal state initialized here
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <section
       className="
@@ -55,25 +61,25 @@ export default function AboutHero() {
         </motion.button>
 
         {/* ── H1 Headline (Hook + Clarity) ── */}
-     <motion.h1
-  variants={fadeUp}
-  transition={{ duration: 0.6 }}
-  className="
-    text-center text-[#111111]
-    font-bold
-    text-[34px] md:text-[50px] lg:text-[58px]
-    leading-[1.05]
-    tracking-[-0.02em]
-    max-w-[900px]
-    mx-auto
-  "
->
-  Turn Your Leads Into 
-  Paying Customers
-  <span className="relative block md:inline-block md:ml-3 bg-[linear-gradient(104.17deg,#6400A1_0%,#FF1920_100%)] bg-clip-text text-transparent">
-    — Automatically
-  </span>
-</motion.h1>
+        <motion.h1
+          variants={fadeUp}
+          transition={{ duration: 0.6 }}
+          className="
+            text-center text-[#111111]
+            font-bold
+            text-[34px] md:text-[50px] lg:text-[58px]
+            leading-[1.05]
+            tracking-[-0.02em]
+            max-w-[900px]
+            mx-auto
+          "
+        >
+          Turn Your Leads Into 
+          Paying Customers
+          <span className="relative block md:inline-block md:ml-3 bg-[linear-gradient(104.17deg,#6400A1_0%,#FF1920_100%)] bg-clip-text text-transparent">
+            — Automatically
+          </span>
+        </motion.h1>
 
         {/* ── Subheadline ── */}
         <motion.p
@@ -112,15 +118,20 @@ export default function AboutHero() {
           transition={{ duration: 0.6 }}
           className="mt-12 flex flex-wrap justify-center gap-4 px-4 w-full"
         >
-          <HeroActionButton className="px-8 py-4 bg-indigo-600 text-white rounded-full font-bold text-base flex items-center gap-2 hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200 active:scale-95">
+          {/* Left Button triggers the modal now */}
+          <HeroActionButton 
+            onClick={() => setOpenModal(true)}
+            className="px-8 py-4 bg-indigo-600 text-white rounded-full font-bold text-base flex items-center gap-2 hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200 active:scale-95 cursor-pointer"
+          >
             Book Free Strategy Call
             <ArrowRight size={20} />
           </HeroActionButton>
           
-          <HeroActionButton className="px-8 py-4 bg-[#25D366] text-white rounded-full font-bold text-base flex items-center gap-2 hover:bg-[#20bd5a] transition-all shadow-xl shadow-green-100 active:scale-95">
+          {/* Right Button remains unchanged for WhatsApp */}
+          {/* <HeroActionButton className="px-8 py-4 bg-[#25D366] text-white rounded-full font-bold text-base flex items-center gap-2 hover:bg-[#20bd5a] transition-all shadow-xl shadow-green-100 active:scale-95">
             <MessageCircle size={20} fill="currentColor" className="text-white" />
             Chat on WhatsApp
-          </HeroActionButton>
+          </HeroActionButton> */}
         </motion.div>
 
         {/* ── Hero Image ── */}
@@ -140,6 +151,9 @@ export default function AboutHero() {
         </motion.div>
 
       </motion.main>
+
+      {/* ── Pop-up Modal Conditional Rendering ── */}
+      {openModal && <FreeMarketingPlan onClose={() => setOpenModal(false)} />}
     </section>
   );
 }
