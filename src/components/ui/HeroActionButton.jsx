@@ -105,14 +105,56 @@ function injectStyle() {
   styleInjected = true;
 }
 
-export default function HeroActionButton({ to, href, onClick, variant = "primary", children }) {
+export default function HeroActionButton({  to,
+  href,
+  onClick,
+  variant = "primary",
+  children,
+  className = "",
+  style = {}, }) {
   injectStyle();
 
+  // if (variant === "secondary") {
+  //   if (to) return <Link to={to} className="btn-secondary">{children}</Link>;
+  //   if (href) return <a href={href} className="btn-secondary">{children}</a>;
+  //   return <button onClick={onClick} className="btn-secondary">{children}</button>;
+  // }
+
   if (variant === "secondary") {
-    if (to) return <Link to={to} className="btn-secondary">{children}</Link>;
-    if (href) return <a href={href} className="btn-secondary">{children}</a>;
-    return <button onClick={onClick} className="btn-secondary">{children}</button>;
-  }
+  if (to)
+    return (
+      <Link
+        to={to}
+        className={`btn-secondary ${className}`}
+        style={style}
+      >
+        {children}
+      </Link>
+    );
+
+  if (href)
+    return (
+      <a
+        href={href}
+        className={`btn-secondary ${className}`}
+        style={style}
+      >
+        {children}
+      </a>
+    );
+
+  return (
+    <button
+      onClick={onClick}
+      className={`btn-secondary ${className}`}
+      style={style}
+    >
+      {children}
+    </button>
+  );
+}
+
+
 
   // Primary — 3D button
   const inner = (
@@ -127,7 +169,28 @@ export default function HeroActionButton({ to, href, onClick, variant = "primary
     </>
   );
 
-  if (to) return <Link to={to} className="btn-3d">{inner}</Link>;
-  if (href) return <a href={href} className="btn-3d">{inner}</a>;
-  return <button onClick={onClick} className="btn-3d">{inner}</button>;
+  
+  if (to)
+  return (
+    <Link to={to} className={`btn-3d ${className}`} style={style}>
+      {inner}
+    </Link>
+  );
+
+if (href)
+  return (
+    <a href={href} className={`btn-3d ${className}`} style={style}>
+      {inner}
+    </a>
+  );
+
+return (
+  <button
+    onClick={onClick}
+    className={`btn-3d ${className}`}
+    style={style}
+  >
+    {inner}
+  </button>
+);
 }
