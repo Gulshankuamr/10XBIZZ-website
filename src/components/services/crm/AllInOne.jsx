@@ -2,7 +2,7 @@ import React from 'react';
 import { Mail, Phone, Video, CreditCard } from 'lucide-react';
 
 export default function CRMIntegrations() {
-  // इंटीग्रेशन के लिए 9 लोगो आइटम्स की एरे (सिर्फ नाम या इनलाइन SVG)
+
   const integrations = [
     { name: "HRMS", isSvg: false, icon: <span className="text-[10px] font-bold text-white bg-slate-800 rounded-full w-full h-full flex items-center justify-center">HRMS</span> },
     { name: "Outlook", isSvg: true, svg: (
