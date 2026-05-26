@@ -151,41 +151,43 @@ export default function HoverRevealSection() {
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
       `}</style>
 
-      <section className="max-w-7xl mx-auto py-8 px-8">
-        
-        {/* Header Section */}
-        <div className="mb-8 flex flex-col items-center text-center">
-          
-          {/* Top Label */}
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#5B53FF]">
-              Marketing Services
-            </span>
-          </div>
+    <section className="max-w-7xl mx-auto py-8 px-8">
 
-          {/* Heading */}
-          <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px] text-[#111827]">
-            Growth-driven campaigns for every funnel stage,{" "}
-            <span className="bg-gradient-to-r from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent inline-block font-bold tracking-[-0.02em]">
-              from traffic to conversion.
-            </span>
-          </h2>
+  {/* Header Section */}
+  <div className="mb-8 flex flex-col items-center text-center">
 
-          {/* Description */}
-          <p className="mt-5 text-[#111827]/55 text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
-            Scalable performance marketing, AI-driven automation, and
-            conversion-optimized design to 10x your business.
-          </p>
+    {/* Top Label */}
+    <div className="flex items-center justify-center gap-3 mb-4">
+      <span className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#5B53FF]">
+        Marketing Services
+      </span>
+    </div>
 
-        </div>
+    {/* Heading */}
+    <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[850px] text-[#111827]">
+      Smarter Growth Systems Built To{" "}
+      <span className="bg-gradient-to-r from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent inline-block font-bold tracking-[-0.02em]">
+        Generate, Convert & Scale
+      </span>
+    </h2>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cards.map((card) => (
-            <HoverCard key={card.id} card={card} />
-          ))}
-        </div>
-      </section>
+    {/* Description */}
+    <p className="mt-5 text-[#111827]/55 text-base md:text-[18px] font-medium leading-[1.7] max-w-3xl">
+      From lead generation and CRM automation to high-converting
+      funnels, we build systems designed to help businesses grow more
+      efficiently.
+    </p>
+
+  </div>
+
+  {/* Cards Grid */}
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {cards.map((card) => (
+      <HoverCard key={card.id} card={card} />
+    ))}
+  </div>
+
+</section>
     </div>
   );
 }

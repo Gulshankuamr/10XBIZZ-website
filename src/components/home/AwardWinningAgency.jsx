@@ -132,99 +132,106 @@ export default function AboutSection() {
         }
       `}</style>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-          {/* LEFT COLUMN: Heading & CTA */}
-          <div className="lg:col-span-5">
-            <FadeUp>
-              <div className="w-12 h-1 bg-black mb-8" />
-              <h1 className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-[34px] md:text-[50px] lg:text-[58px] font-bold leading-[1.05] tracking-[-0.02em] max-w-[900px] mb-8 text-[#1a1a1a]">
-                Trusted Growth Partner <br className="hidden md:block" />
-                For Businesses{" "}
-                <span className="text-[#6400A1] inline-block font-bold tracking-[-0.02em]">
-                  Ready To Scale
-                </span>
-              </h1>
+     <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
 
-              {/* <HeroActionButton className="enq-btn">
-                Enquire Now <span>→</span>
-              </HeroActionButton> */}
+    {/* LEFT COLUMN: Heading & CTA */}
+    <div className="lg:col-span-5">
+      <FadeUp>
+        <div className="w-12 h-1 bg-black mb-8" />
 
-<HeroActionButton
-  className="enq-btn"
-  onClick={() => setOpenModal(true)}
->
-  Enquire Now
-</HeroActionButton>
+        <h1 className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-[34px] md:text-[50px] lg:text-[58px] font-bold leading-[1.05] tracking-[-0.02em] max-w-[900px] mb-8 text-[#1a1a1a]">
+          We Build Systems That Help <br className="hidden md:block" />
+          Businesses{" "}
+          <span className="text-[#6400A1] inline-block font-bold tracking-[-0.02em]">
+            Grow Smarter
+          </span>
+        </h1>
 
-            </FadeUp>
-          </div>
+        <HeroActionButton
+          className="enq-btn"
+          onClick={() => setOpenModal(true)}
+        >
+          Enquire Now
+        </HeroActionButton>
+      </FadeUp>
+    </div>
 
-          {/* RIGHT COLUMN: Description & Data */}
-          <div className="lg:col-span-7 flex flex-col gap-10">
-            <FadeUp delay={0.1}>
-              <div className="space-y-6 text-[#444] font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
-                <p className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-[#1a1a1a]">
-                  We deliver—results that speak for themselves.
-                </p>
-                <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
-                  At <strong className="font-bold text-black">10xBizz</strong>, we help
-                  businesses build complete lead generation and conversion
-                  systems designed to attract qualified leads, automate
-                  follow-ups, and improve sales performance.
-                </p>
-                <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
-                  From Google Ads and Meta Ads to CRM setup and WhatsApp
-                  automation, we create systems that help businesses grow with{" "}
-                  <strong className="font-bold text-black">
-                    clarity instead of guesswork.
-                  </strong>
-                </p>
-                <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
-                  Whether you want to generate more leads or build a complete
-                  business growth system — we help you create a{" "}
-                  <strong className="font-bold text-black">scalable foundation</strong>{" "}
-                  for long-term success.
-                </p>
-              </div>
-            </FadeUp>
+    {/* RIGHT COLUMN: Description & Data */}
+    <div className="lg:col-span-7 flex flex-col gap-10">
 
-            {/* Stats Grid */}
-            <FadeUp delay={0.2}>
-              <div className="grid grid-cols-2 lg:grid-cols-4 rounded-[24px] overflow-hidden border-[1.5px] border-[#E2E2DC] shadow-sm">
-                {stats.map((s, i) => (
-                  <div key={i} className="stat-card">
-                    <div className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px] mb-2 highlight-yellow">
-                      <CountUp target={s.value} />
-                    </div>
-                    <div className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#888] leading-tight whitespace-pre-line">
-                      {s.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </FadeUp>
+      <FadeUp delay={0.1}>
+        <div className="space-y-6 text-[#444] font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
 
-            {/* Badges */}
-            {/* <FadeUp delay={0.3}>
-              <div className="space-y-4">
-                <p className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#999]">
-                  Growth Built On Systems
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  {badges.map((b, i) => (
-                    <span key={i} className="badge-pill">
-                      <span className="text-[#6400A1;]">✔</span> {b}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </FadeUp> */}
+          <p className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-[#1a1a1a]">
+            Performance-driven systems built for scalable business growth.
+          </p>
 
-            {/* Final Quote Bar */}
-          </div>
+          <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
+            At <strong className="font-bold text-black">10xBizz</strong>, we
+            help businesses generate qualified leads, automate follow-ups, and
+            improve conversions through performance-driven growth systems.
+          </p>
+
+          <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
+            From Meta Ads and Google Ads to CRM setup, landing pages, and
+            WhatsApp automation — we create scalable systems designed to
+            simplify growth and improve customer acquisition.
+          </p>
+
+          <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl">
+            Whether you're looking to generate more leads, improve conversion
+            rates, or build a stronger online presence, we help you create a
+            foundation built for{" "}
+            <strong className="font-bold text-black">
+              long-term growth.
+            </strong>
+          </p>
+
         </div>
-      </div>
+      </FadeUp>
+
+      {/* Stats Grid */}
+      <FadeUp delay={0.2}>
+        <div className="grid grid-cols-2 lg:grid-cols-4 rounded-[24px] overflow-hidden border-[1.5px] border-[#E2E2DC] shadow-sm">
+
+          {[
+            {
+              value: "3+",
+              label: "Years of Growth Experience",
+            },
+            {
+              value: "50+",
+              label: "Campaigns Managed",
+            },
+            {
+              value: "1000+",
+              label: "Qualified Leads Generated",
+            },
+            {
+              value: "24/7",
+              label: "Lead Capture Systems",
+            },
+          ].map((s, i) => (
+            <div key={i} className="stat-card">
+
+              <div className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px] mb-2 highlight-yellow">
+                {s.value}
+              </div>
+
+              <div className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#888] leading-tight whitespace-pre-line">
+                {s.label}
+              </div>
+
+            </div>
+          ))}
+
+        </div>
+      </FadeUp>
+
+    </div>
+  </div>
+</div>
       {openModal && (
   <FreeMarketingPlan onClose={() => setOpenModal(false)} />
 )}

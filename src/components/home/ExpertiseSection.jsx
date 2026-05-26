@@ -4,48 +4,59 @@ import { motion, AnimatePresence } from "motion/react";
 const services = [
   {
     id: 1,
-    label: "Web & Mobile Development",
-    title: "Build Fast, Modern & Conversion-Focused Digital Experiences",
+    label: "LEAD GENERATION SYSTEMS",
+    title: "Generate High-Intent Leads That Actually Convert",
     description:
-      "We create high-performance websites, landing pages, and mobile applications designed to help businesses generate leads, improve user experience, and grow faster online.",
-    cta: "👉 From websites to full business platforms — we build systems that perform.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80",
+      "We build Meta Ads, Google Ads, and conversion-focused campaigns designed to attract qualified enquiries and improve lead quality.",
+    cta: "👉 More than traffic — we build predictable lead generation systems.",
+    image:
+      "/LEAD GENERATION SYSTEMS.webp",
   },
+
   {
     id: 2,
-    label: "Branding & Design",
-    title: "Create A Brand People Remember & Trust",
+    label: "CRM & LEAD MANAGEMENT",
+    title: "Organize Every Enquiry With A Smarter CRM Workflow",
     description:
-      "We help businesses build strong visual identities through strategic branding, modern UI/UX design, social creatives, and conversion-focused marketing assets.",
-    cta: "👉 Strong branding creates trust before the first conversation even starts.",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&q=80",
+      "Track, manage, and monitor every lead inside a centralized CRM system designed to improve follow-ups and conversions.",
+    cta: "👉 No more lost leads or scattered customer conversations.",
+    image:
+      "/CRM & LEAD MANAGEMENT.webp",
   },
+
   {
     id: 3,
-    label: "Video Content Production",
-    title: "Video Content That Captures Attention & Drives Action",
+    label: "WHATSAPP & AUTOMATION",
+    title: "Automate Follow-Ups & Customer Communication",
     description:
-      "From reels and ad creatives to promotional videos and brand storytelling, we create engaging content designed to increase visibility, engagement, and conversions.",
-    cta: "👉 Attention is the new currency — video helps your brand win it.",
-    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=900&q=80",
+      "We create automated workflows for WhatsApp, reminders, lead nurturing, and instant responses to improve customer engagement.",
+    cta: "👉 Faster responses lead to better conversions.",
+    image:
+      "/WHATSAPP & AUTOMATION.webp",
   },
+
   {
     id: 4,
-    label: "Social Media Marketing",
-    title: "Grow Your Brand With Performance-Driven Social Media Marketing",
+    label: "FUNNELS & LANDING PAGES",
+    title:
+      "Build Landing Pages Designed To Convert Visitors Into Leads",
     description:
-      "We help businesses generate quality leads, improve engagement, and scale revenue using Meta Ads, content strategy, audience targeting, and automated follow-up systems.",
-    cta: "👉 We don't just post content — we build growth systems.",
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&q=80",
+      "We create high-converting funnels and landing pages optimized for lead generation, user experience, and business growth.",
+    cta: "👉 Every page is built with conversion strategy in mind.",
+    image:
+      "/FUNNELS & LANDING PAGES.webp",
   },
+
   {
     id: 5,
-    label: "CRM & Automation Systems",
-    title: "Automate Lead Management & Never Miss A Customer",
+    label: "SEO & LOCAL GROWTH",
+    title:
+      "Improve Your Visibility & Generate Organic Business Growth",
     description:
-      "We set up CRM systems, WhatsApp automation, lead tracking, and follow-up workflows that help businesses organize enquiries and convert more leads into paying customers.",
-    cta: "👉 No missed leads. No manual chaos. Just smarter business growth.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
+      "From SEO optimization to Google My Business management, we help businesses get discovered by the right audience online.",
+    cta: "👉 Long-term visibility starts with strong search presence.",
+    image:
+      "/SEO & LOCAL GROWTH.webp",
   },
 ];
 
@@ -68,58 +79,73 @@ export default function ExpertiseSection() {
         <div className="flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-12 mb-10 lg:mb-[72px]">
 
           {/* Left: Heading */}
-          <div className="flex-none w-full lg:max-w-[560px]">
-            <div className="flex items-center gap-[10px] mb-[18px]">
-              <div
-                className="w-9 h-[2px]"
-                style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}
-              />
-              <span
-                className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase"
-                style={{
-                  background: "linear-gradient(90deg,#6400A1,#BB000F)",
-                  color: "black",
-                }}
-              >
-                Our Expertise
-              </span>
-            </div>
-            <h2
-              className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px]"
-              style={{ color: "#fff" }}
-            >
-              Assuring seamless{" "}
-              <span
-                className="inline-block font-bold tracking-[-0.02em]"
-                style={{
-                  background: "linear-gradient(90deg,#6400A1,#BB000F)",
-                  color: "black",
-                }}
-              >
-                Digital Marketing
-              </span>{" "}
-              /Brand Building solutions
-            </h2>
-          </div>
+   <div className="flex-none w-full lg:max-w-[560px]">
+  <div className="flex items-center gap-[10px] mb-[18px]">
+    <div
+      className="w-9 h-[2px]"
+      style={{ background: "#000" }}
+    />
 
-          {/* Right: Body copy */}
-          <div className="w-full lg:flex-1 lg:max-w-[480px] lg:pt-2">
-            <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl" style={{ color: "#fff" }}>
-              With over a decade of experience. We have served over{" "}
-              <span className="inline-block font-bold tracking-[-0.02em]" style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}>
-                250+ brands
-              </span>{" "}
-              across{" "}
-              <span className="inline-block font-bold tracking-[-0.02em]" style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}>
-                10+ countries
-              </span>{" "}
-              and delivered over{" "}
-              <span className="inline-block font-bold tracking-[-0.02em]" style={{ background: "linear-gradient(90deg,#6400A1,#BB000F)" }}>
-                350+ projects
-              </span>{" "}
-              for successfully achieving our clients brand marketing goals
-            </p>
-          </div>
+    <span
+      className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase"
+      style={{ color: "#000" }}
+    >
+      Our Expertise
+    </span>
+  </div>
+
+  <h2
+    className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px]"
+    style={{ color: "#fff" }}
+  >
+    Growth Systems Designed To{" "}
+    <span
+      className="inline-block font-bold tracking-[-0.02em]"
+      style={{ color: "#000" }}
+    >
+      Generate & Convert
+    </span>{" "}
+    Leads
+  </h2>
+</div>
+
+{/* Right: Body copy */}
+<div className="w-full lg:flex-1 lg:max-w-[480px] lg:pt-2">
+  <p
+    className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl"
+    style={{ color: "#fff" }}
+  >
+    We combine{" "}
+    <span
+      className="font-bold"
+      style={{ color: "#000" }}
+    >
+      lead generation
+    </span>
+    ,{" "}
+    <span
+      className="font-bold"
+      style={{ color: "#000" }}
+    >
+      CRM
+    </span>
+    ,{" "}
+    <span
+      className="font-bold"
+      style={{ color: "#000" }}
+    >
+      automation
+    </span>
+    , and{" "}
+    <span
+      className="font-bold"
+      style={{ color: "#000" }}
+    >
+      conversion strategy
+    </span>{" "}
+    to help businesses grow more efficiently.
+  </p>
+</div>
         </div>
 
         {/* ── Main Layout ── */}

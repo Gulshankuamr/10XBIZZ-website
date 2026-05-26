@@ -409,7 +409,7 @@ export default function FreeMarketingPlan({ onClose }) {
                 {current.heading}
               </h2>
               {current.sub && (
-                <p className="mt-2 text-sm text-gray-400">{current.sub}</p>
+                <p className="mt-2 text-sm text-gray-700 font-semibold">{current.sub}</p>
               )}
             </div>
 
@@ -697,7 +697,7 @@ export default function FreeMarketingPlan({ onClose }) {
 
                   {TRUST_TEXT[step] && (
                     <p
-                      className="text-[12px] text-gray-400 text-center max-w-xs my-1"
+                      className="text-[12px] text-gray-600 text-center max-w-xs my-1 font-semibold"
                       dangerouslySetInnerHTML={{ __html: TRUST_TEXT[step] }}
                     />
                   )}
