@@ -26,7 +26,7 @@ export default function Hero() {
             backgroundClip: 'text',
           }}
         >
-          CRM & Lead Automation
+          CRM & AUTOMATION SYSTEMS
         </motion.p>
 
         {/* Heading */}
@@ -34,9 +34,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl mb-10 text-gray-900"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-5xl mb-10 text-gray-900"
         >
-          CRM Setup & Lead Management Services For{' '}
+          Never Lose A Lead Again.
+          <br />
           <span
             style={{
               background: 'linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)',
@@ -45,8 +46,10 @@ export default function Hero() {
               backgroundClip: 'text',
             }}
           >
-            Business Growth
+            Turn More Enquiries Into Customers
           </span>
+          <br />
+          With CRM & Automation Systems
         </motion.h1>
 
         {/* Content Row */}
@@ -59,26 +62,24 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-600 text-base md:text-[18px] leading-[1.7]"
           >
-            <p className="mb-5">
-              Manage, track, and convert your leads more efficiently with{' '}
-              <span
-                className="font-semibold"
-                style={{
-                  background: 'linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                customized CRM systems and automated follow-ups.
-              </span>{' '}
-              We streamline your entire process to ensure no prospect falls through the cracks.
-            </p>
-            <p className="mb-6">
-              Our sales pipeline management and lead tracking solutions are meticulously designed for growing businesses looking to optimize conversion rates and maximize team productivity.
+            <p className="text-lg md:text-xl font-medium text-gray-700 mb-6">
+              Capture every lead, automate follow-ups, and manage your sales
+              pipeline from one centralized system designed to improve conversions
+              and business growth.
             </p>
 
-            {/* Optional CTA Button */}
+            <p className="mb-5">
+              Your marketing generates leads—but growth happens when those leads
+              are managed properly. We help businesses streamline their sales
+              process with CRM systems, automated follow-ups, lead tracking,
+              and customer journey automation.
+            </p>
+
+            <p className="mb-6">
+              With everything organized in one place, your team can focus on
+              closing more deals instead of chasing spreadsheets and missed
+              enquiries.
+            </p>
           </motion.div>
 
           {/* RIGHT IMAGE */}

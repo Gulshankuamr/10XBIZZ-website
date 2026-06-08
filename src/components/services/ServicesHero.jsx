@@ -145,7 +145,7 @@ export default function AboutHero() {
           
           <img
             className="rounded-[32px] rounded-b-none w-full h-[300px] md:h-[500px] object-cover relative z-0 shadow-[0_-20px_50px_-20px_rgba(0,0,0,0.15)] border-x border-t border-white"
-            src="/googleservish.webp"
+            src="/Serevishhomepage.webp"
             alt="Lead generation automation dashboard"
           />
         </motion.div>

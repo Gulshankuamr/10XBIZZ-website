@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 const services = [
@@ -9,10 +9,8 @@ const services = [
     description:
       "We build Meta Ads, Google Ads, and conversion-focused campaigns designed to attract qualified enquiries and improve lead quality.",
     cta: "👉 More than traffic — we build predictable lead generation systems.",
-    image:
-      "/LEAD GENERATION SYSTEMS.webp",
+    image: "/LEAD GENERATION SYSTEMS.webp",
   },
-
   {
     id: 2,
     label: "CRM & LEAD MANAGEMENT",
@@ -20,10 +18,8 @@ const services = [
     description:
       "Track, manage, and monitor every lead inside a centralized CRM system designed to improve follow-ups and conversions.",
     cta: "👉 No more lost leads or scattered customer conversations.",
-    image:
-      "/CRM & LEAD MANAGEMENT.webp",
+    image: "/CRM & LEAD MANAGEMENT.webp",
   },
-
   {
     id: 3,
     label: "WHATSAPP & AUTOMATION",
@@ -31,38 +27,43 @@ const services = [
     description:
       "We create automated workflows for WhatsApp, reminders, lead nurturing, and instant responses to improve customer engagement.",
     cta: "👉 Faster responses lead to better conversions.",
-    image:
-      "/WHATSAPP & AUTOMATION.webp",
+    image: "/WHATSAPP & AUTOMATION.webp",
   },
-
   {
     id: 4,
     label: "FUNNELS & LANDING PAGES",
-    title:
-      "Build Landing Pages Designed To Convert Visitors Into Leads",
+    title: "Build Landing Pages Designed To Convert Visitors Into Leads",
     description:
       "We create high-converting funnels and landing pages optimized for lead generation, user experience, and business growth.",
     cta: "👉 Every page is built with conversion strategy in mind.",
-    image:
-      "/FUNNELS & LANDING PAGES.webp",
+    image: "/FUNNELS & LANDING PAGES.webp",
   },
-
   {
     id: 5,
     label: "SEO & LOCAL GROWTH",
-    title:
-      "Improve Your Visibility & Generate Organic Business Growth",
+    title: "Improve Your Visibility & Generate Organic Business Growth",
     description:
       "From SEO optimization to Google My Business management, we help businesses get discovered by the right audience online.",
     cta: "👉 Long-term visibility starts with strong search presence.",
-    image:
-      "/SEO & LOCAL GROWTH.webp",
+    image: "/SEO & LOCAL GROWTH.webp",
   },
 ];
 
 export default function ExpertiseSection() {
-  const [active, setActive] = useState(3);
+  const [active, setActive] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef(null);
   const activeService = services[active];
+
+  // Auto-rotation: every 3 seconds, pause on hover
+  useEffect(() => {
+    if (!isPaused) {
+      intervalRef.current = setInterval(() => {
+        setActive((prev) => (prev + 1) % services.length);
+      }, 3000);
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [isPaused]);
 
   return (
     <section
@@ -79,77 +80,53 @@ export default function ExpertiseSection() {
         <div className="flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-12 mb-10 lg:mb-[72px]">
 
           {/* Left: Heading */}
-   <div className="flex-none w-full lg:max-w-[560px]">
-  <div className="flex items-center gap-[10px] mb-[18px]">
-    <div
-      className="w-9 h-[2px]"
-      style={{ background: "#000" }}
-    />
+          <div className="flex-none w-full lg:max-w-[560px]">
+            <div className="flex items-center gap-[10px] mb-[18px]">
+              <div className="w-9 h-[2px]" style={{ background: "#000" }} />
+              <span
+                className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase"
+                style={{ color: "#000" }}
+              >
+                Our Expertise
+              </span>
+            </div>
+            <h2
+              className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px]"
+              style={{ color: "#fff" }}
+            >
+              Growth Systems Designed To{" "}
+              <span
+                className="inline-block font-bold tracking-[-0.02em]"
+                style={{ color: "#000" }}
+              >
+                Generate & Convert
+              </span>{" "}
+              Leads
+            </h2>
+          </div>
 
-    <span
-      className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase"
-      style={{ color: "#000" }}
-    >
-      Our Expertise
-    </span>
-  </div>
-
-  <h2
-    className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[700px]"
-    style={{ color: "#fff" }}
-  >
-    Growth Systems Designed To{" "}
-    <span
-      className="inline-block font-bold tracking-[-0.02em]"
-      style={{ color: "#000" }}
-    >
-      Generate & Convert
-    </span>{" "}
-    Leads
-  </h2>
-</div>
-
-{/* Right: Body copy */}
-<div className="w-full lg:flex-1 lg:max-w-[480px] lg:pt-2">
-  <p
-    className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl"
-    style={{ color: "#fff" }}
-  >
-    We combine{" "}
-    <span
-      className="font-bold"
-      style={{ color: "#000" }}
-    >
-      lead generation
-    </span>
-    ,{" "}
-    <span
-      className="font-bold"
-      style={{ color: "#000" }}
-    >
-      CRM
-    </span>
-    ,{" "}
-    <span
-      className="font-bold"
-      style={{ color: "#000" }}
-    >
-      automation
-    </span>
-    , and{" "}
-    <span
-      className="font-bold"
-      style={{ color: "#000" }}
-    >
-      conversion strategy
-    </span>{" "}
-    to help businesses grow more efficiently.
-  </p>
-</div>
+          {/* Right: Body copy */}
+          <div className="w-full lg:flex-1 lg:max-w-[480px] lg:pt-2">
+            <p
+              className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl"
+              style={{ color: "#fff" }}
+            >
+              We combine{" "}
+              <span className="font-bold" style={{ color: "#000" }}>lead generation</span>,{" "}
+              <span className="font-bold" style={{ color: "#000" }}>CRM</span>,{" "}
+              <span className="font-bold" style={{ color: "#000" }}>automation</span>, and{" "}
+              <span className="font-bold" style={{ color: "#000" }}>conversion strategy</span>{" "}
+              to help businesses grow more efficiently.
+            </p>
+          </div>
         </div>
 
         {/* ── Main Layout ── */}
-        <div className="flex flex-col-reverse lg:grid lg:grid-cols-[480px_1fr] gap-6 lg:gap-8 items-stretch lg:min-h-[520px]">
+        <div
+          className="flex flex-col-reverse lg:grid lg:grid-cols-[480px_1fr] gap-6 lg:gap-8 items-stretch lg:min-h-[520px]"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
 
           {/* LEFT: Service Tabs */}
           <div className="flex flex-col gap-2 lg:gap-3 lg:justify-center">
@@ -221,12 +198,8 @@ export default function ExpertiseSection() {
             })}
           </div>
 
-          {/* RIGHT: Image + Overlay */}
-          <div
-            className="relative rounded-[20px] overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-[520px]"
-            style={{ background: "linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)" }}
-          >
-            {/* Full cover image */}
+          {/* RIGHT: Image Only — no gradient overlay */}
+          <div className="relative rounded-[20px] overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-[520px]">
             <AnimatePresence mode="wait">
               <motion.img
                 key={activeService.id}
@@ -240,36 +213,36 @@ export default function ExpertiseSection() {
               />
             </AnimatePresence>
 
-            {/* Dark gradient overlay */}
+            {/* Bottom Text Overlay — only a subtle gradient behind text for readability */}
             <div
-              className="absolute inset-0"
+              className="absolute bottom-0 left-0 right-0"
               style={{
                 background:
-                  "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.08) 100%)",
+                  "linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 45%, transparent 100%)",
+                paddingTop: "80px",
               }}
-            />
-
-            {/* Bottom Text */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`text-${activeService.id}`}
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute bottom-0 left-0 right-0 px-5 lg:px-8 pb-5 lg:pb-8 pt-4 lg:pt-6"
-              >
-                <h3 className="text-white text-[20px] md:text-[24px] font-bold leading-[1.3] mb-2">
-                  {activeService.title}
-                </h3>
-                <p className="text-white/70 text-sm md:text-base font-semibold leading-[1.5] mb-3 max-w-[650px]">
-                  {activeService.description}
-                </p>
-                <p className="text-amber-400 text-sm md:text-base font-semibold leading-[1.5]">
-                  {activeService.cta}
-                </p>
-              </motion.div>
-            </AnimatePresence>
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`text-${activeService.id}`}
+                  initial={{ opacity: 0, y: 22 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="px-5 lg:px-8 pb-5 lg:pb-8 pt-4 lg:pt-6"
+                >
+                  <h3 className="text-white text-[20px] md:text-[24px] font-bold leading-[1.3] mb-2">
+                    {activeService.title}
+                  </h3>
+                  <p className="text-white/70 text-sm md:text-base font-semibold leading-[1.5] mb-3 max-w-[650px]">
+                    {activeService.description}
+                  </p>
+                  <p className="text-amber-400 text-sm md:text-base font-semibold leading-[1.5]">
+                    {activeService.cta}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
 
         </div>

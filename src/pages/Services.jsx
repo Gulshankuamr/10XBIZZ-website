@@ -29,7 +29,7 @@ export default function Services() {
 
         <ServicesListCard2 />
          
-        <ImagesCard3 />
+        {/* <ImagesCard3 /> */}
 
         {/* <ImagesCard4 /> */}
         <FaqSection/>

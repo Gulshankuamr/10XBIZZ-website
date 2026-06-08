@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 const whatsIncluded = [
   {
     id: 1,
-    title: "Keyword Research",
-    desc: "Identify high-intent search terms and audiences that are most likely to convert into qualified leads for your business.",
+    title: "Audience & Market Research",
+    desc: "Understand your ideal customers, competitors, and market opportunities before spending a single rupee on advertising.",
     highlights: [
-      "Audience Research",
+      "Customer Research",
       "Competitor Analysis",
-      "Search Intent Mapping",
-      "High-Intent Keywords",
-      "Lead Targeting Strategy",
+      "Market Insights",
+      "Audience Targeting",
+      "Growth Opportunities",
     ],
     accent: "#6400A1",
     lightBg: "#F6F0FF",
@@ -22,14 +22,14 @@ const whatsIncluded = [
 
   {
     id: 2,
-    title: "Campaign Setup",
-    desc: "Build and launch optimized ad campaigns designed to generate leads, improve conversions, and reduce wasted spend.",
+    title: "Lead Generation Campaigns",
+    desc: "Launch high-converting Google and Meta campaigns designed to attract qualified enquiries and generate consistent leads.",
     highlights: [
-      "Google Ads Setup",
-      "Meta Ads Campaigns",
-      "Conversion Tracking",
+      "Google Ads",
+      "Meta Ads",
       "Audience Targeting",
-      "Ad Structure Optimization",
+      "Conversion Tracking",
+      "Campaign Structure",
     ],
     accent: "#6400A1",
     lightBg: "#F6F0FF",
@@ -40,14 +40,14 @@ const whatsIncluded = [
 
   {
     id: 3,
-    title: "Landing Page Review",
-    desc: "Optimize landing pages and funnels to improve lead quality, user experience, and conversion performance.",
+    title: "Landing Pages & Funnels",
+    desc: "Convert more visitors into leads with optimized landing pages built for engagement and conversion.",
     highlights: [
-      "Landing Page Optimization",
-      "Conversion Improvements",
+      "Landing Pages",
+      "Funnel Design",
       "CTA Optimization",
-      "Mobile Responsive Design",
-      "Lead Capture Setup",
+      "Mobile Experience",
+      "Lead Capture Forms",
     ],
     accent: "#6400A1",
     lightBg: "#F6F0FF",
@@ -58,14 +58,14 @@ const whatsIncluded = [
 
   {
     id: 4,
-    title: "Conversion Tracking",
-    desc: "Track leads, enquiries, and customer actions with proper analytics and CRM integrations for better decision-making.",
+    title: "Lead Tracking & Analytics",
+    desc: "Know exactly where your leads come from and measure the real performance of your marketing efforts.",
     highlights: [
       "Lead Tracking",
-      "CRM Integration",
       "Analytics Setup",
-      "Performance Monitoring",
-      "ROI Visibility",
+      "CRM Integration",
+      "ROI Monitoring",
+      "Conversion Reports",
     ],
     accent: "#6400A1",
     lightBg: "#F6F0FF",
@@ -76,37 +76,19 @@ const whatsIncluded = [
 
   {
     id: 5,
-    title: "Ongoing Optimization",
-    desc: "Continuously improve campaigns, funnels, and lead systems to reduce CPL and increase overall business growth.",
+    title: "Performance Optimization",
+    desc: "Continuously improve campaigns and conversion systems to reduce costs and increase lead quality.",
     highlights: [
+      "CPL Reduction",
       "Campaign Optimization",
-      "Reduce Cost Per Lead",
-      "Performance Scaling",
       "Lead Quality Improvement",
-      "Growth Strategy Updates",
+      "Scaling Strategies",
+      "Performance Reviews",
     ],
     accent: "#6400A1",
     lightBg: "#F6F0FF",
     borderColor: "#E9D5FF",
     iconUrl: "https://cdn-icons-png.flaticon.com/512/281/281769.png",
-    iconBg: "#EFE5FF",
-  },
-
-  {
-    id: 6,
-    title: "Reporting Dashboard",
-    desc: "Get clear visibility into your marketing performance, leads, conversions, and business growth through detailed reporting systems.",
-    highlights: [
-      "Performance Dashboard",
-      "Lead Reports",
-      "Campaign Insights",
-      "Conversion Reports",
-      "Growth Analytics",
-    ],
-    accent: "#6400A1",
-    lightBg: "#F6F0FF",
-    borderColor: "#E9D5FF",
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/2772/2772128.png",
     iconBg: "#EFE5FF",
   },
 ];
@@ -151,21 +133,19 @@ export default function WhatsIncluded() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm mb-5">
             <span className="w-2 h-2 rounded-full bg-[#6400A1]" />
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#6400A1]">
-              WHAT’S INCLUDED
+              WHAT'S INCLUDED
             </span>
           </div>
 
           <h2 className="text-[clamp(32px,5vw,54px)] font-bold leading-tight tracking-[-2px] text-[#111]">
-            Everything You Need To{" "}
-            <span className="bg-gradient-to-r from-[#6400A1] to-[#FF1920] bg-clip-text text-transparent">
-              Generate & Convert Leads
+            From Lead Generation To
+            <span className="block bg-gradient-to-r from-[#6400A1] to-[#FF1920] bg-clip-text text-transparent">
+              Customer Conversion
             </span>
           </h2>
 
           <p className="mt-5 text-[17px] leading-[1.8] text-[#667085] max-w-[760px] mx-auto">
-            We build a complete lead generation and conversion system —
-            from attracting qualified traffic to automating follow-ups
-            and improving conversions.
+            We combine advertising, automation, CRM, and conversion optimization to help businesses generate more qualified leads and turn them into paying customers.
           </p>
         </div>
 
@@ -188,15 +168,10 @@ export default function WhatsIncluded() {
                 onMouseLeave={() => setHovered(null)}
                 className="relative overflow-hidden rounded-[28px] transition-all duration-300"
                 style={{
-
-                  /* 🔥 THIS IS THE HOVER BACKGROUND */
                   background: isHovered ? "#6400A1" : service.lightBg,
-
                   border: `1.5px solid ${
                     isHovered ? "#6400A1" : service.borderColor
                   }`,
-
-                  /* 🔥 THIS IS THE HOVER SHADOW */
                   boxShadow: isHovered
                     ? "0 20px 40px rgba(100,0,161,0.25)"
                     : "0 4px 12px rgba(0,0,0,0.05)",
@@ -217,7 +192,6 @@ export default function WhatsIncluded() {
 
                   {/* Icon */}
                   <div className="flex justify-center mb-6">
-
                     <div
                       className="w-20 h-20 rounded-2xl flex items-center justify-center"
                       style={{
@@ -227,16 +201,14 @@ export default function WhatsIncluded() {
                       }}
                     >
                       <img
-                       
-  src={service.iconUrl}
-  alt={service.title}
-  width={42}
-  height={42}
-  style={{
-    transition: "0.3s ease",
-  }}
-/>
-                      
+                        src={service.iconUrl}
+                        alt={service.title}
+                        width={42}
+                        height={42}
+                        style={{
+                          transition: "0.3s ease",
+                        }}
+                      />
                     </div>
                   </div>
 
@@ -274,7 +246,6 @@ export default function WhatsIncluded() {
 
                   {/* Highlights */}
                   <div className="space-y-1">
-
                     {service.highlights.map((highlight, i) => (
                       <ServiceHighlightItem
                         key={i}
@@ -287,14 +258,12 @@ export default function WhatsIncluded() {
 
                   {/* Footer */}
                   <div className="mt-auto pt-6">
-
                     <div
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold"
                       style={{
                         background: isHovered
                           ? "rgba(255,255,255,0.12)"
                           : "#6400A110",
-
                         color: isHovered
                           ? "#fff"
                           : "#6400A1",

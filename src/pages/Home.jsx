@@ -32,7 +32,7 @@ export default function Home() {
       <SiCucumber/>
         
     <Trusted/>
-    <SuccessStories/>
+    {/* <SuccessStories/> */}
       {/* <FinancialPlan /> */}
       {/* <FaqSection/> */}
       {/* <Team /> */}

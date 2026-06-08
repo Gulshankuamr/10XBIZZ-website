@@ -4,7 +4,14 @@ import { motion } from "framer-motion";
 import FreeMarketingPlan from "../freemarektingPlane/FreeMarketingPlan"; 
 import HeroActionButton from "../ui/HeroActionButton";
 
-const tags = ["CONVERSION", "OPTIMIZATION", "ECOMMERCE", "ANALYTIC", "LINK BUILDING", "STRATEGY"];
+const tags = [
+  "✅ Lead Generation",
+  "✅ CRM Automation",
+  "✅ Google Ads",
+  "✅ Meta Ads",
+  "✅ WhatsApp Automation",
+  "✅ SEO & Local Growth"
+];
 
 export default function OneStopService() {
 
@@ -12,7 +19,6 @@ export default function OneStopService() {
 
   return (
     <section className="bg-[#F8F9FF] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] py-16 md:py-24 px-6 overflow-hidden">
-      {/* External Font Import */}
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');`}</style>
 
       {/* SVG Responsive Mask Definition */}
@@ -35,15 +41,18 @@ export default function OneStopService() {
           className="text-center lg:text-left"
         >
           <h2 className="text-[32px] md:text-[42px] lg:text-[52px] text-[#111111] font-bold leading-[1.1] mb-6">
-            One-stop <span className="bg-clip-text text-transparent bg-[linear-gradient(104.17deg,#6400A1_0%,#FF1920_100%)]">digital marketing</span> services 🎯
+            Smarter Marketing
+            <br />
+            <span className="bg-clip-text text-transparent bg-[linear-gradient(104.17deg,#6400A1_0%,#FF1920_100%)]">
+              Systems For Modern Businesses
+            </span>
           </h2>
 
           <div className="w-[60px] h-1 bg-[#6400A1] mb-8 mx-auto lg:ml-0" />
 
-          <p className="text-[#667085] text-base md:text-[17px] leading-[1.8] mb-10 max-w-[520px] mx-auto lg:ml-0">
-            An online business is nothing without a proper digital marketing strategy. 
-            The process helps businesses get more recognition worldwide. Our company 
-            is your one-stop solution for promoting your online business. Our process starts with:
+          <p className="text-[#667085] text-base md:text-[17px] leading-[1.8] mb-10 max-w-[580px] mx-auto lg:ml-0">
+            We help businesses generate leads, improve conversions, and automate
+            customer follow-ups through performance-driven marketing and CRM solutions.
           </p>
 
           {/* Tag Grid */}
@@ -59,16 +68,15 @@ export default function OneStopService() {
             ))}
           </div>
 
-        
           <HeroActionButton 
             onClick={() => setOpenModal(true)}
             className="bg-[linear-gradient(104.17deg,#6400A1_0%,#FF1920_100%)] text-white font-bold rounded-full py-4 px-10 text-base shadow-[0_10px_25px_rgba(100,0,161,0.25)] transition-transform duration-300 hover:-translate-y-1 active:scale-95 cursor-pointer"
           >
-            Explore All Services →
+            Build My Growth System
           </HeroActionButton>
         </motion.div>
 
-        {/* RIGHT IMAGE (RESPONSIVE MASK) */}
+        {/* RIGHT IMAGE (RESPONSIVE MASK) — same as before */}
         <motion.div 
           initial={{ opacity: 0, x: 50, scale: 0.9 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -82,23 +90,19 @@ export default function OneStopService() {
           {/* Masked Container */}
           <div 
             className="relative z-10 w-full h-full -rotate-[3deg] md:-rotate-[5deg] shadow-2xl overflow-hidden"
-            style={{
-              clipPath: "url(#blob-mask)"
-            }}
+            style={{ clipPath: "url(#blob-mask)" }}
           >
             <img 
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" 
               alt="Team collaborating on digital marketing" 
               className="w-full h-full object-cover scale-110"
             />
-            {/* Overlay Gradient */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#6400A1]/20 pointer-events-none" />
           </div>
         </motion.div>
 
       </div>
 
-      {/* ── Pop-up Modal Conditional Rendering ── */}
       {openModal && <FreeMarketingPlan onClose={() => setOpenModal(false)} />}
     </section>
   );
