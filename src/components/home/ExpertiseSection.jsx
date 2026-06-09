@@ -137,9 +137,9 @@ export default function ExpertiseSection() {
                   key={service.id}
                   onClick={() => setActive(idx)}
                   whileTap={{ scale: 0.98 }}
+                  // यहाँ से येलो होवर इफेक्ट हटा दिया गया है, बैकग्राउंड वाइट ही रहेगा
                   onMouseEnter={(e) => {
-                    if (!isActive)
-                      e.currentTarget.style.background = "rgba(254, 211, 3, 1)";
+                    if (!isActive) e.currentTarget.style.background = "#FFFFFF";
                   }}
                   onMouseLeave={(e) => {
                     if (!isActive) e.currentTarget.style.background = "#FFFFFF";
@@ -169,8 +169,10 @@ export default function ExpertiseSection() {
                   <span
                     className="text-sm md:text-base leading-[1.5] transition-all duration-300 text-left"
                     style={{
-                      color: isActive ? "#FFFFFF" : "#374151",
-                      fontWeight: isActive ? 700 : 600,
+                      // एक्टिव होने पर टेक्स्ट वाइट (#FFFFFF) रहेगा, वरना प्योर ब्लैक (#000000) रहेगा
+                      color: isActive ? "#FFFFFF" : "#000000",
+                      // दोनों ही स्थिति में टेक्स्ट पूरी तरह से बोल्ड (700) रहेगा
+                      fontWeight: 700,
                     }}
                   >
                     {service.label}

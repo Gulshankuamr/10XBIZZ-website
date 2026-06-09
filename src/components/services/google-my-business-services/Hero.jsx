@@ -40,7 +40,7 @@ export default function SEOHero() {
                 backgroundClip: 'text',
               }}
             >
-              Dominate Local Search
+              LOCAL SEO & GOOGLE BUSINESS PROFILE
             </motion.p>
 
             {/* Clean Anti-aliased Action Title */}
@@ -48,9 +48,9 @@ export default function SEOHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.02em] leading-[1.15] text-gray-900 mb-8"
+              className="text-4xl md:text-5xl lg:text-[54px] font-bold tracking-[-0.02em] leading-[1.15] text-gray-900 mb-6"
             >
-              Turn Nearby Google <br />Searches Into <br />
+              Turn Local Google <br />Searches Into <br />
               <span
                 style={{
                   background: 'linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)',
@@ -59,7 +59,7 @@ export default function SEOHero() {
                   backgroundClip: 'text',
                 }}
               >
-                Real Customers & Local Leads
+                Calls, Leads & Walk-In Customers
               </span>
             </motion.h1>
 
@@ -68,17 +68,27 @@ export default function SEOHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-gray-600 text-base md:text-[18px] space-y-6 leading-[1.7] max-w-xl"
+              className="text-gray-600 text-base md:text-[17px] space-y-5 leading-[1.7] max-w-xl"
             >
-              <p>
-                At <span className="font-bold text-gray-900">10xBizz</span>, we optimize your Google My Business profile to help your business appear where customers are already searching. From Google Maps rankings and local SEO optimization to reviews, profile engagement, and lead-focused visibility — we help you attract more calls, enquiries, walk-ins, and high-intent local customers.
+              {/* Subheadline Highlight */}
+              <p className="font-semibold text-gray-800 text-base md:text-lg leading-relaxed">
+                When people search for your products or services nearby, your business should be the first thing they find. We optimize your Google Business Profile to improve visibility, increase trust, and generate more calls, enquiries, and customer visits.
               </p>
+              
+              {/* Primary Content Paragraphs */}
               <p>
-                Build stronger trust, increase local reach, and grow your business with a Google presence designed to convert nearby searches into real revenue.
+                At <span className="font-bold text-gray-900">10xBizz</span>, we help local businesses improve their Google Maps rankings and stand out in local search results.
+              </p>
+              
+              <p>
+                From profile optimization and review management to local SEO and business visibility strategies, we ensure your business appears where customers are actively searching for solutions.
               </p>
 
-              {/* Conversion Optimized Call-to-Action Component Link */}
-            
+              <p className="font-medium text-gray-700">
+                Whether you're a clinic, coaching center, restaurant, agency, service provider, or local store, we help you attract more high-intent customers without increasing ad spend.
+              </p>
+
+              {/* Conversion Optimized Call-to-Action Component Link Placeholder */}
             </motion.div>
           </div>
 
@@ -90,7 +100,7 @@ export default function SEOHero() {
             className="flex justify-center md:justify-end"
           >
             <img
-              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1000&q=80"
+              src="/ChatGPT Image Jun 1, 2026, 02_52_38 PM.png"
               alt="Google Maps Local Business Dashboard Data Visualization"
               className="w-full max-w-lg md:max-w-xl object-contain mix-blend-multiply"
             />

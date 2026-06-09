@@ -1,6 +1,6 @@
+'use client'
 
 import { motion } from 'framer-motion'
-// import DemoPopModal from '../../views/demo/DemoPopModal'
 import { useState } from 'react'
 
 export default function GoogleAdsHero() {
@@ -14,18 +14,15 @@ export default function GoogleAdsHero() {
       }}
     >
       <div className="max-w-7xl mt-9 mx-auto">
- 
-        {/* Top Label */}
-     
 
-        {/* Heading */}
+        {/* Dynamic Typography Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl mb-10 text-gray-900"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-5xl mb-6 text-gray-900"
         >
-          Google Ads Management Services For{' '}
+          Get More Calls, Enquiries &amp; Customers With{' '}
           <span
             style={{
               background: 'linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)',
@@ -34,24 +31,34 @@ export default function GoogleAdsHero() {
               backgroundClip: 'text',
             }}
           >
-            High-Intent Lead Generation
+            Google Ads
           </span>
         </motion.h1>
 
-        {/* Content Row */}
+        {/* Subheadline Layer */}
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-lg md:text-2xl text-gray-700 font-semibold mb-12 max-w-4xl leading-snug"
+        >
+          Reach people who are already searching for your products or services and turn their intent into real business opportunities.
+        </motion.p>
+
+        {/* Content Row Grid Ecosystem */}
         <div className="grid md:grid-cols-2 gap-10 items-center">
 
-          {/* LEFT TEXT */}
+          {/* LEFT COLUMN: REWRITTEN CONTENT COPY */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-600 text-base md:text-[18px] leading-[1.7]"
+            className="text-gray-600 text-base md:text-[18px] leading-[1.75] font-medium"
           >
             <p className="mb-5">
-              We create and manage Google Ads campaigns that help businesses{' '}
+              Whether you're a local business, service provider, clinic, educator, consultant, or agency, our Google Ads management service helps you attract{' '}
               <span
-                className="font-semibold"
+                className="font-bold"
                 style={{
                   background: 'linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)',
                   WebkitBackgroundClip: 'text',
@@ -59,38 +66,30 @@ export default function GoogleAdsHero() {
                   backgroundClip: 'text',
                 }}
               >
-                attract qualified leads &amp; improve conversions
+                high-quality leads
               </span>{' '}
-              to maximize your return on investment.
+              while reducing wasted ad spend.
             </p>
             <p className="mb-6">
-              Our data-driven approach focuses on targeting the right audience, 
-              optimizing your bidding strategy, and significantly reducing wasted ad spend.
+              Through continuous optimization and performance tracking, we monitor your search behavior patterns to ensure your ad budget works efficiently to scale conversions.
             </p>
-
-            {/* Optional CTA Button */}
-       
           </motion.div>
 
-          {/* RIGHT IMAGE */}
+          {/* RIGHT COLUMN: ADS GRAPHIC VECTOR */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex justify-center md:justify-end"
           >
-            {/* Update this src to your Ads-related illustration */}
             <img
-              src="/AA.webp" 
-              alt="Google Ads Lead Generation"
+              src="/for section 3.png" 
+              alt="Google Ads Leads and Enquiries Management"
               className="w-full max-w-lg md:max-w-xl lg:max-w-2xl object-contain"
             />
           </motion.div>
         </div>
       </div>
-
-      {/* Modal */}
-      {/* {showModal && <DemoPopModal onClose={() => setShowModal(false)} />} */}
     </section>
   )
 }

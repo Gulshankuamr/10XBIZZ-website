@@ -3,38 +3,46 @@ import React from 'react';
 export default function CRMFunnels() {
   const stepsData = [
     {
-      number: "1",
-      title: "Capture & Organize Leads",
-      desc: "Collect leads from websites, ads, WhatsApp, and forms into one centralized CRM system for easy tracking and management."
+      icon: "📥",
+      title: "CAPTURE",
+      tags: [
+        "Meta Ads",
+        "Google Ads",
+        "Website Forms"
+      ]
     },
     {
-      number: "2",
-      title: "Automate Follow-Ups",
-      desc: "Send instant responses, reminders, and follow-up messages automatically to improve response time and engagement."
+      icon: "🤖",
+      title: "AUTOMATE",
+      tags: [
+        "WhatsApp",
+        "Email",
+        "Reminders"
+      ]
     },
     {
-      number: "3",
-      title: "Convert & Manage Customers",
-      desc: "Track conversations, manage your sales pipeline, and turn qualified leads into long-term customers more efficiently."
+      icon: "💰",
+      title: "CONVERT",
+      tags: [
+        "Appointments",
+        "Pipeline",
+        "Reporting"
+      ]
     }
   ];
 
   return (
     <>
-      {/* CSS for Dynamic Premium Layout, Connectors, and Gradient Borders */}
+      {/* CSS for Premium Hover Effects and Gradient Accents */}
       <style>{`
-        // .step-card {
-        //   border: 2px solid #000000;
-        //   transition: border-image 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-        // }
+        .step-card {
+          transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
         .step-card:hover {
           border-color: transparent;
           border-image: linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%);
           border-image-slice: 1;
           transform: translateY(-4px);
-        }
-        .badge-gradient {
-          background: linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%);
         }
         .text-gradient {
           background: linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%);
@@ -55,45 +63,63 @@ export default function CRMFunnels() {
             </span>
             
             {/* Section Heading */}
-            <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] text-gray-900 max-w-3xl">
-              Simple CRM Workflow{" "}
-              <span className="text-gradient">Designed To Convert More Leads</span>
+            <h2 className="text-[32px] md:text-[48px] font-bold leading-tight tracking-[-0.03em] text-gray-900 max-w-3xl">
+              The 3-Step System Behind{" "}
+              <br />
+              <span className="text-gradient">Faster Growth</span>
             </h2>
             
             {/* Section Description */}
-            <p className="text-base md:text-[18px] font-medium leading-[1.7] text-gray-600 max-w-2xl mx-auto">
-              Capture enquiries, automate follow-ups, and manage customer interactions through a streamlined CRM process built for faster business growth.
+            <p className="text-lg md:text-xl leading-relaxed text-gray-600 max-w-3xl mx-auto font-medium">
+              A simple but powerful CRM process designed to improve response time,
+              increase conversions, and save your team hours every week.
             </p>
           </div>
 
-          {/* Steps Horizontal Row Layout (Exact Replica of Image Grid Structure with Connectors) */}
-          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
-            
-            {/* Background Connector Line for Desktop */}
-            <div className="hidden md:block absolute top-[44%] left-[10%] right-[10%] h-[2px] border-t-2 border-dashed border-gray-300 z-0" />
-
+          {/* Steps Flow Layout with Arrow Connectors */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-4">
             {stepsData.map((step, idx) => (
-              <div 
-                key={idx} 
-                className="step-card relative bg-white rounded-2xl p-8 flex flex-col items-start shadow-sm hover:shadow-md z-10"
-              >
-                {/* Number Badge with Gradient Accent */}
-                <div className="badge-gradient w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-base shadow-sm mb-6">
-                  {step.number}
-                </div>
+              <React.Fragment key={idx}>
                 
-                {/* Step Title */}
-                <h3 className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-gray-900 mb-3">
-                  {step.title}
-                </h3>
-                
-                {/* Step Description */}
-                <p className="text-sm md:text-base font-semibold leading-[1.5] text-gray-500">
-                  {step.desc}
-                </p>
-              </div>
-            ))}
+                {/* Step Card */}
+                <div className="step-card bg-white rounded-3xl p-8 min-w-[280px] w-full md:w-80 shadow-sm border border-gray-200 z-10">
+                  <div className="flex flex-col items-center text-center">
+                    
+                    {/* Icon */}
+                    <div className="text-5xl mb-4 transform transition-transform duration-300 hover:scale-110">
+                      {step.icon}
+                    </div>
 
+                    {/* Title */}
+                    <h3 className="text-2xl font-extrabold text-gray-900 tracking-wide mb-5">
+                      {step.title}
+                    </h3>
+
+                    {/* Tags Container */}
+                    <div className="flex flex-wrap justify-center gap-2">
+                      {step.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-slate-100 rounded-full text-sm font-semibold text-slate-700 hover:bg-slate-200 transition-colors duration-200"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                  </div>
+                </div>
+
+                {/* Intelligent Flow Connectors (Down Arrow on Mobile, Right Arrow on Desktop) */}
+                {idx !== stepsData.length - 1 && (
+                  <div className="text-4xl text-gray-400 font-light my-2 md:my-0 md:mx-2 animate-pulse">
+                    <span className="block md:hidden">↓</span>
+                    <span className="hidden md:block">→</span>
+                  </div>
+                )}
+
+              </React.Fragment>
+            ))}
           </div>
 
         </div>

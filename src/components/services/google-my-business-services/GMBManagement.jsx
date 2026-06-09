@@ -1,23 +1,34 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, CheckCircle, XCircle } from 'lucide-react';
+import { ChevronDown, ChevronUp, CheckCircle } from 'lucide-react';
 
 export default function GMBManagement() {
-  // दोनों ड्रॉपडाउन कस्टमाइज़ेशन को अलग-अलग कंट्रोल करने के लिए स्टेट्स
+  // दोनों ड्रॉपडाउन को अलग-अलग कंट्रोल करने के लिए स्टेट्स
   const [isIncludedOpen, setIsIncludedOpen] = useState(true);
-  const [isExcludedOpen, setIsExcludedOpen] = useState(true);
+  const [isOutcomesOpen, setIsOutcomesOpen] = useState(true);
 
   const includedItems = [
-    "Google My Business website redesign",
-    "Information updation",
-    "Keywords insertion",
-    "1 post every week for 3 months",
-    "Guidance on how to get more reviews",
-    "Use of royalty-free stock images or photos which the business will send for the designs."
+    "Google Business Profile Setup & Optimization",
+    "Business Information Optimization (NAP, Categories, Services)",
+    "Review Optimization",
+    "Google Maps Ranking Optimization",
+    "Local Keyword Research & Optimization",
+    "Profile SEO Enhancement",
+    "Weekly Google Posts & Updates",
+    "Review Strategy & Reputation Guidance",
+    "Photo & Visual Optimization",
+    "Products & Services Listing Setup",
+    "Q&A Optimization",
+    "Monthly Performance Reporting",
+    "Competitor Analysis & Local Insights"
   ];
 
-  const excludedItems = [
-    "Writing customers reviews.",
-    "Contacting customers on your (i.e. users) behalf."
+  const expectedOutcomes = [
+    "Improved Google Maps Visibility",
+    "More Customer Calls",
+    "More Website Clicks",
+    "More Direction Requests",
+    "Better Online Reputation",
+    "Increased Local Enquiries"
   ];
 
   return (
@@ -56,23 +67,26 @@ export default function GMBManagement() {
             {/* Soft Ambient Light Glow Circle on Background */}
             <div className="absolute -top-24 -right-24 w-72 h-72 bg-white/10 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Header Title */}
-            <div className="mb-10 relative z-10">
-              <h2 className="text-white text-[28px] md:text-[38px] font-bold leading-[1.1] tracking-[-0.02em]">
-                Google My Business Listing Management
+            {/* Header Title & Subheadline Section */}
+            <div className="mb-10 relative z-10 max-w-4xl">
+              <h2 className="text-white text-[28px] md:text-[38px] font-bold leading-[1.2] tracking-[-0.02em] mb-4">
+                What's Included In Our Google Business Profile Growth Service
               </h2>
+              <p className="text-white/80 text-sm md:text-base font-medium leading-relaxed">
+                Everything needed to improve your Google Maps visibility, attract more local customers, and generate more calls and enquiries.
+              </p>
             </div>
 
             {/* Content Two-Column Layout Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
               
-              {/* ─── COLUMN 1: WHAT IS INCLUDED ─── */}
-              <div className="space-y-4">
+              {/* ─── COLUMN 1: INCLUDED SERVICES (Width: 7/12 on large screens) ─── */}
+              <div className="space-y-4 lg:col-span-7">
                 <button
                   onClick={() => setIsIncludedOpen(!isIncludedOpen)}
                   className="glass-dropdown-btn w-full rounded-2xl p-5 flex items-center justify-between text-white text-base md:text-[18px] font-bold tracking-wide"
                 >
-                  <span>View what is included</span>
+                  <span>Included Services</span>
                   {isIncludedOpen ? <ChevronUp className="w-5 h-5 text-white" /> : <ChevronDown className="w-5 h-5 text-white" />}
                 </button>
 
@@ -92,22 +106,22 @@ export default function GMBManagement() {
                 )}
               </div>
 
-              {/* ─── COLUMN 2: WHAT IS EXCLUDED ─── */}
-              <div className="space-y-4">
+              {/* ─── COLUMN 2: EXPECTED OUTCOMES (Width: 5/12 on large screens) ─── */}
+              <div className="space-y-4 lg:col-span-5">
                 <button
-                  onClick={() => setIsExcludedOpen(!isExcludedOpen)}
+                  onClick={() => setIsOutcomesOpen(!isOutcomesOpen)}
                   className="glass-dropdown-btn w-full rounded-2xl p-5 flex items-center justify-between text-white text-base md:text-[18px] font-bold tracking-wide"
                 >
-                  <span>View what is excluded</span>
-                  {isExcludedOpen ? <ChevronUp className="w-5 h-5 text-white" /> : <ChevronDown className="w-5 h-5 text-white" />}
+                  <span>Expected Outcomes</span>
+                  {isOutcomesOpen ? <ChevronUp className="w-5 h-5 text-white" /> : <ChevronDown className="w-5 h-5 text-white" />}
                 </button>
 
-                {isExcludedOpen && (
+                {isOutcomesOpen && (
                   <div className="content-card bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-white/20">
                     <ul className="space-y-4">
-                      {excludedItems.map((item, idx) => (
+                      {expectedOutcomes.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3.5">
-                          <XCircle className="w-5 h-5 text-rose-500 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm md:text-base font-semibold leading-[1.5] text-gray-800">
                             {item}
                           </span>

@@ -93,7 +93,7 @@ export default function OneStopService() {
             style={{ clipPath: "url(#blob-mask)" }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" 
+              src="/new_image.png" 
               alt="Team collaborating on digital marketing" 
               className="w-full h-full object-cover scale-110"
             />

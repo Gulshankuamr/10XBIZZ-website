@@ -18,7 +18,7 @@ const ImageCardSection = () => {
 
           <div className="relative bg-black/20 rounded-[1.5rem] sm:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 aspect-video md:aspect-[21/9] lg:aspect-[25/9]">
             <img
-              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=80"
+              src="/fpor section 3.png"
               alt="Meta Ads Creative"
               className="w-full h-full object-cover display-block transform transition duration-1000 group-hover:scale-[1.03]"
             />

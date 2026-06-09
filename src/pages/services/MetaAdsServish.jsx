@@ -15,9 +15,9 @@ export default function MetaAdsServish() {
       <WhatWeManage />
       <ImageCardSection />
       <MetaAdsServices />
-      <ProcessSection />
-      <CTA />
-      <Features />
+      {/* <ProcessSection /> */}
+      {/* <CTA /> */}
+      {/* <Features /> */}
     </>
   );
 }

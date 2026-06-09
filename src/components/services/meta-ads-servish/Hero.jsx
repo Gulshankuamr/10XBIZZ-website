@@ -34,9 +34,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl mb-10 text-gray-900"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-5xl mb-10 text-gray-900"
         >
-          Meta Ads Management Services For{' '}
+          Facebook & Instagram Ads{' '}
           <span
             style={{
               background: 'linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)',
@@ -45,7 +45,7 @@ export default function Hero() {
               backgroundClip: 'text',
             }}
           >
-            High-Intent Conversion Campaigns
+            Designed To Generate More Leads & Sales
           </span>
         </motion.h1>
 
@@ -59,23 +59,19 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-600 text-base md:text-[18px] leading-[1.7]"
           >
-            <p className="mb-5">
-              We build Facebook & Instagram ad campaigns that help businesses{' '}
-              <span
-                className="font-semibold"
-                style={{
-                  background: 'linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                capture qualified audiences, retarget warm prospects,
-              </span>{' '}
-              and turn social engagement into scalable revenue.
+            {/* Subheadline acted as a powerful intro paragraph */}
+            <p className="mb-5 font-medium text-gray-800 text-lg md:text-[20px] leading-relaxed">
+              We create data-driven Meta advertising campaigns that help businesses reach the right audience, generate qualified enquiries, and turn social media attention into measurable revenue.
             </p>
+            
+            {/* Paragraph 1 */}
+            <p className="mb-5">
+              From Facebook Feed Ads to Instagram Reels and Lead Generation Campaigns, we build conversion-focused strategies designed to attract high-quality prospects and maximize return on ad spend.
+            </p>
+            
+            {/* Paragraph 2 */}
             <p className="mb-6">
-              From Reels ads to conversion funnels, our Meta Ads expertise focuses on audience targeting, creative performance, and ROI optimization.
+              Our team continuously tests creatives, audiences, placements, and campaign structures to improve lead quality, reduce acquisition costs, and scale profitable campaigns.
             </p>
 
             {/* Optional CTA Button */}
@@ -89,7 +85,7 @@ export default function Hero() {
             className="flex justify-center md:justify-end"
           >
             <img
-              src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1200&q=80"
+              src="/for the first section.webp"
               alt="Meta Ads Campaigns"
               className="w-full max-w-lg md:max-w-xl lg:max-w-2xl object-contain"
             />
@@ -97,8 +93,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Modal */}
-      {/* {showModal && <DemoPopModal onClose={() => setShowModal(false)} />} */}
+     
+      {showModal && <DemoPopModal onClose={() => setShowModal(false)} />}
     </section>
   )
 }

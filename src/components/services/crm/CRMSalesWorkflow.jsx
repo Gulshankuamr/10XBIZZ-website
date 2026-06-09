@@ -2,36 +2,36 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 export default function CRMSalesWorkflow() {
-  const workflowSteps = [
-    {
-      title: "End-to-End Sales Flow",
-      desc: "Leads Automatically Captured into CRM Software"
-    },
-    {
-      title: "Simplified System, No Middleware Needed",
-      desc: "No APIs to manage, no manual syncing"
-    },
-    {
-      title: "Plug-and-Play Digital Ads Integration",
-      desc: "Automatically capture leads from Google and Meta Ads directly into the CRM, eliminate manual entry and missed opportunities"
-    },
-    {
-      title: "Email & Calendar Integration",
-      desc: "Emails, meetings are automatically logged to each lead, with Calendar reminders to ensure timely follow-ups"
-    },
-    {
-      title: "Quotation & Invoicing",
-      desc: "Generate quotations and invoices directly from deals"
-    },
-    {
-      title: "Accounting Integration",
-      desc: "Seamless Integration with, Xero, MYOB, and QuickBooks. Eliminates duplicate data entry, reconciliation errors, and admin workload"
-    },
-    {
-      title: "Built-In Payments, Reduced Debtor Days (DSO)",
-      desc: "Send payment links and receive payment faster via Stripe, PayPal, and CCAvenue"
-    }
-  ];
+const workflowSteps = [
+  {
+    title: "📢 Lead Capture",
+    desc: "Leads from Facebook Ads, Google Ads, websites, and landing pages are automatically captured into your CRM."
+  },
+  {
+    title: "💬 Instant WhatsApp Follow-Up",
+    desc: "Automatically send WhatsApp messages, confirmations, and reminders the moment a lead enquires."
+  },
+  {
+    title: "👥 Lead Tracking",
+    desc: "Track every lead, conversation, appointment, and deal from one centralized dashboard."
+  },
+  {
+    title: "📅 Appointment Booking",
+    desc: "Allow prospects to book meetings directly while automatic reminders reduce no-shows."
+  },
+  {
+    title: "⚙️ CRM Automation",
+    desc: "Automate follow-ups, task assignments, lead nurturing, and customer communication."
+  },
+  {
+    title: "📊 Performance Reporting",
+    desc: "See lead sources, conversion rates, sales performance, and ROI through real-time dashboards."
+  },
+  {
+    title: "🚀 Convert More Customers",
+    desc: "Respond faster, stay organized, and close more deals without increasing manual work."
+  }
+];
 
   return (
     <>
@@ -62,12 +62,15 @@ export default function CRMSalesWorkflow() {
             <div className="dot-matrix absolute -top-4 -left-6 w-24 h-24 opacity-70 hidden sm:block z-0" />
             
             <div className="relative z-10 space-y-4">
-              <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] text-[#0F172A]">
-                One Connected <br />
-                <span className="text-gradient-heading">Sales Workflow</span>
-              </h2>
+           <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] text-[#0F172A]">
+  From Lead To Customer
+  <br />
+  <span className="text-gradient-heading">
+    Automatically
+  </span>
+</h2>
               <p className="text-base md:text-[18px] font-medium leading-[1.7] text-gray-500 max-w-sm">
-                From ads to payments, everything runs in one connected CRM Software.
+                We connect your ads, website, WhatsApp, CRM, and follow-up systems so no lead gets lost and every opportunity gets tracked.
               </p>
             </div>
 

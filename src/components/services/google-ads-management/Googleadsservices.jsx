@@ -1,6 +1,6 @@
-"use client"
+"client"
 
-import React, { forwardRef, useState } from "react"
+import React, { forwardRef } from "react"
 import { motion } from "framer-motion"
 import { 
   CheckCircle2, Rocket, Layout, Code, ArrowRight, 
@@ -32,44 +32,83 @@ const CardSticky = forwardRef(({ index, incrementY = 40, children, className, ..
 ))
 CardSticky.displayName = "CardSticky"
 
-// --- DATA ---
+// --- PROCESS DATA ---
 const PROCESS_PHASES = [
-  { id: "p1", title: "Audit & Strategy", icon: <Layout />, desc: "Analyzing competitors and keywords to build your growth roadmap." },
-  { id: "p2", title: "Campaign Setup", icon: <Code />, desc: "Precision targeting with high-converting copy and landing pages." },
-  { id: "p3", title: "Launch & Monitor", icon: <Rocket />, desc: "Real-time tracking with daily performance monitoring." },
-  { id: "p4", title: "Optimise & Scale", icon: <CheckCircle2 />, desc: "Continuous A/B testing and scaling what actually works." },
+  { 
+    id: "p1", 
+    title: "Research What Customers Are Searching For", 
+    icon: <Layout />, 
+    desc: "Find the exact keywords and opportunities driving high-intent enquiries." 
+  },
+  { 
+    id: "p2", 
+    title: "Build Campaigns That Convert", 
+    icon: <Code />, 
+    desc: "Create ads, landing pages, and tracking systems designed for lead generation." 
+  },
+  { 
+    id: "p3", 
+    title: "Capture Every Lead", 
+    icon: <Rocket />, 
+    desc: "Track calls, forms, WhatsApp enquiries, and customer actions in one place." 
+  },
+  { 
+    id: "p4", 
+    title: "Scale What Works", 
+    icon: <CheckCircle2 />, 
+    desc: "Increase budget on profitable campaigns while reducing wasted ad spend." 
+  },
 ]
 
+// --- COMPLETELY UPDATED SERVICES DATA WITH NEW STRUCTURE ---
 const SERVICE_CARDS = [
   {
-    id: "s1", number: "01", tag: "Search Ads", title: "Capture High Intent", icon: <Search />,
-    desc: "Appear at the top when customers actively search for your services. We drive qualified leads through smart targeting.",
-    includes: ["Keyword Targeting", "Competitor Analysis", "Bid Optimization"]
+    id: "s1",
+    tag: "Search Ads",
+    title: "Capture Customers Ready To Buy",
+    icon: <Search />,
+    desc: "Appear at the top of Google when potential customers actively search for your products or services.",
+    includes: ["High-Intent Keywords", "Competitor Targeting", "Conversion Optimization"]
   },
   {
-    id: "s2", number: "02", tag: "Remarketing", title: "Re-Engage Visitors", icon: <Monitor />,
-    desc: "Stay visible to users who visited but didn't convert. We keep your brand front-and-center across the web.",
-    includes: ["Audience Segments", "Dynamic Ads", "Brand Awareness"]
+    id: "s2",
+    tag: "Remarketing",
+    title: "Bring Lost Visitors Back",
+    icon: <Monitor />,
+    desc: "Reconnect with website visitors who didn't convert and turn missed opportunities into paying customers.",
+    includes: ["Audience Segmentation", "Dynamic Remarketing", "Higher Conversion Rates"]
   },
   {
-    id: "s3", number: "03", tag: "Shopping", title: "Visual Product Ads", icon: <ShoppingBag />,
-    desc: "Boost eCommerce sales with optimized product listings, pricing, and images directly in search results.",
-    includes: ["Merchant Center", "Feed Optimization", "ROAS Focus"]
+    id: "s3",
+    tag: "Shopping Ads",
+    title: "Show Products Before Competitors",
+    icon: <ShoppingBag />,
+    desc: "Display product images, prices, and reviews directly in Google search results to drive more ecommerce sales.",
+    includes: ["Merchant Center Setup", "Product Feed Optimization", "ROAS-Focused Campaigns"]
   },
   {
-    id: "s4", number: "04", tag: "YouTube", title: "Video Advertising", icon: <Youtube />,
-    desc: "Turn views into customers. Strategic targeting designed to increase brand authority and generate leads.",
-    includes: ["In-stream Ads", "Video Strategy", "Performance Optimization"]
+    id: "s4",
+    tag: "YouTube Ads",
+    title: "Build Trust Through Video",
+    icon: <Youtube />,
+    desc: "Reach potential customers with engaging video campaigns that increase awareness, leads, and brand authority.",
+    includes: ["In-Stream Ads", "Video Strategy", "Audience Targeting"]
   },
   {
-    id: "s5", number: "05", tag: "P-Max", title: "AI-Powered Reach", icon: <Zap />,
-    desc: "Leverage machine learning to run ads across Search, Gmail, Maps, and Discover from one optimized campaign.",
-    includes: ["Multi-channel Setup", "AI Optimization", "Advanced Scaling"]
+    id: "s5",
+    tag: "Performance Max",
+    title: "Reach Customers Across Google",
+    icon: <Zap />,
+    desc: "Leverage Google's AI to show your ads across Search, YouTube, Gmail, Maps, and Display from a single campaign.",
+    includes: ["Multi-Channel Reach", "AI Optimization", "Advanced Scaling"]
   },
   {
-    id: "s6", number: "06", tag: "Local Ads", title: "Drive Store Visits", icon: <MapPin />,
-    desc: "Attract nearby customers ready to visit. Perfect for increasing calls, appointments, and walk-in traffic.",
-    includes: ["Google Maps Visibility", "Call Campaigns", "Local Targeting"]
+    id: "s6",
+    tag: "Local Ads",
+    title: "Drive Calls, Appointments & Store Visits",
+    icon: <MapPin />,
+    desc: "Connect with nearby customers searching for local businesses and increase foot traffic, enquiries, and bookings.",
+    includes: ["Google Maps Visibility", "Call Campaigns", "Location Targeting"]
   }
 ]
 
@@ -79,18 +118,18 @@ export default function IntegratedStackPage() {
       
       {/* 1. PROCESS SECTION */}
       <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 border-b border-slate-100">
-        {/* Added pt-28 so text doesn't stick to the very top edge */}
         <div className="sticky top-0 pt-28 h-fit self-start">
           <span className="bg-purple-100 text-[#6400A1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.05em]">
-            Our Workflow
+            OUR GROWTH PROCESS
           </span>
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mt-6 mb-6 leading-[1.05] tracking-[-0.02em] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] max-w-md md:max-w-lg">
-  How we scale <span className="bg-gradient-to-br from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent">
-  your business
-</span>
-</h2>
-          <p className="text-slate-500 text-lg max-w-sm mb-8 leading-[1.7]">
-            A systematic approach to Google Ads ensuring every rupee spent is a calculated investment.
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mt-6 mb-6 leading-[1.1] tracking-[-0.02em] text-gray-900 max-w-md md:max-w-lg">
+            The 4-Step System We Use To{' '}
+            <span className="bg-gradient-to-br from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent">
+              Generate Qualified Leads
+            </span>
+          </h2>
+          <p className="text-slate-500 font-medium text-base md:text-lg max-w-md mb-8 leading-[1.7]">
+            We don't launch ads blindly. Every campaign follows a proven framework designed to attract high-intent customers, improve conversion rates, and maximize return on ad spend.
           </p>
           <HeroActionButton className="flex items-center gap-2 bg-[#6400A1] text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-xl shadow-purple-200">
             Get Started <ArrowRight className="w-5 h-5" />
@@ -102,33 +141,42 @@ export default function IntegratedStackPage() {
             <CardSticky 
               key={phase.id} 
               index={i + 1} 
-              incrementY={110} // Increased so cards "stack" with more visibility
+              incrementY={110} 
               className="bg-white border border-slate-200 rounded-[2.5rem] p-10 shadow-2xl shadow-slate-100"
             >
               <div className="flex justify-between items-center mb-8">
                 <div className="w-14 h-14 bg-purple-50 flex items-center justify-center rounded-2xl text-[#6400A1]">
                   {React.cloneElement(phase.icon, { className: "w-7 h-7" })}
                 </div>
-                {/* <span className="text-6xl font-bold text-slate-100 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">0{i+1}</span> */}
+                <span className="text-5xl font-bold text-slate-100/80 tracking-tight">
+                  0{i + 1}
+                </span>
               </div>
-              <h3 className="text-2xl font-bold mb-4 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">{phase.title}</h3>
-              <p className="text-slate-500 leading-[1.7] text-lg">{phase.desc}</p>
+              <h3 className="text-xl md:text-2xl font-bold mb-4 tracking-tight text-gray-900">
+                {phase.title}
+              </h3>
+              <p className="text-slate-500 font-medium leading-[1.7] text-base">
+                {phase.desc}
+              </p>
             </CardSticky>
           ))}
         </ContainerScroll>
       </section>
 
-      {/* 2. SERVICES SECTION */}
+      {/* 2. SERVICES SECTION - FULLY UPDATED HEADERS & CARDS */}
       <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 space-y-4">
           <span className="bg-purple-100 text-[#6400A1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.05em]">
-            Expert Services
+            EXPERT GOOGLE ADS SOLUTIONS
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-6 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
-            High-Performance <span className="text-[#6400A1]">Campaigns</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-[-0.02em] max-w-4xl mx-auto leading-tight">
+            Google Ads Strategies Designed To{' '}
+            <span className="bg-gradient-to-br from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent">
+              Generate More Leads &amp; Sales
+            </span>
           </h2>
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-            Designed to attract the right audience and maximize ROI across every Google channel.
+          <p className="text-slate-500 font-medium text-base md:text-lg max-w-3xl mx-auto leading-[1.7]">
+            From Search Ads to Performance Max campaigns, we use the right Google advertising strategy to attract qualified customers, reduce wasted spend, and maximize your return on investment.
           </p>
         </div>
 
@@ -136,37 +184,37 @@ export default function IntegratedStackPage() {
           {SERVICE_CARDS.map((card) => (
             <div 
               key={card.id}
-              className="group relative p-8 rounded-[2rem] border border-slate-200 bg-white hover:bg-[#6400A1] transition-all duration-500 cursor-pointer overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-purple-400 hover:-translate-y-2"
+              className="group relative p-8 rounded-[2rem] border border-slate-200 bg-white hover:bg-[#6400A1] transition-all duration-500 cursor-pointer overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-purple-400/30 hover:-translate-y-2 flex flex-col justify-between"
             >
-              {/* Decorative Circle */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-purple-50 group-hover:bg-white/10 transition-colors" />
-              
-              <div className="flex justify-between items-start mb-6">
-                <div className="w-12 h-12 bg-purple-100 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white flex items-center justify-center rounded-xl transition-colors">
-                  {React.cloneElement(card.icon, { className: "w-6 h-6" })}
+              <div>
+                {/* Decorative Ambient Circle */}
+                <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-purple-50 group-hover:bg-white/10 transition-colors duration-500" />
+                
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 bg-purple-100 text-[#6400A1] group-hover:bg-white/20 group-hover:text-amber-400 flex items-center justify-center rounded-xl transition-colors duration-500">
+                    {React.cloneElement(card.icon, { className: "w-6 h-6" })}
+                  </div>
                 </div>
-                {/* <span className="text-5xl font-bold text-slate-50 group-hover:text-white/10 font-['Montserrat',ui-sans-serif,system-ui,sans-serif] transition-colors">
-                  {card.number}
-                </span> */}
+
+                <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.05em] uppercase bg-purple-50 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white mb-4 transition-colors duration-500">
+                  {card.tag}
+                </span>
+
+                <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-white tracking-tight transition-colors duration-500">
+                  {card.title}
+                </h3>
+                
+                <p className="text-slate-500 font-medium text-sm leading-[1.7] group-hover:text-purple-100 mb-6 transition-colors duration-500">
+                  {card.desc}
+                </p>
               </div>
 
-              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.05em] uppercase bg-purple-50 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white mb-4 transition-colors">
-                {card.tag}
-              </span>
-
-              <h3 className="text-xl font-bold mb-3 group-hover:text-white font-['Montserrat',ui-sans-serif,system-ui,sans-serif] transition-colors">
-                {card.title}
-              </h3>
-              
-              <p className="text-slate-500 text-sm leading-[1.7] group-hover:text-purple-100 mb-6 transition-colors">
-                {card.desc}
-              </p>
-
-              <div className="pt-6 border-t border-slate-100 group-hover:border-white/20">
-                <ul className="space-y-2">
+              {/* Dynamic Features List Area */}
+              <div className="pt-6 border-t border-slate-100 group-hover:border-white/20 transition-colors duration-500">
+                <ul className="space-y-2.5">
                   {card.includes.map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-xs font-medium text-slate-600 group-hover:text-white/90">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#6400A1] group-hover:bg-white" />
+                    <li key={idx} className="flex items-center gap-2 text-xs font-semibold text-slate-600 group-hover:text-white/90 transition-colors duration-500">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#6400A1] group-hover:bg-amber-400 transition-colors duration-500" />
                       {item}
                     </li>
                   ))}

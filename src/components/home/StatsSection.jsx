@@ -150,7 +150,7 @@ export default function ChaosVsEdge() {
   useEffect(() => { setProgress(0); }, [activeIndex, activeTab]);
   useEffect(() => () => {
     clearInterval(intervalRef.current);
-    clearTimeout(timeoutRef.current);
+     clearTimeout(timeoutRef.current);
   }, []);
 
   const handleTabChange = (tab) => {
@@ -209,7 +209,7 @@ export default function ChaosVsEdge() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#6400A1]/20 bg-white text-[#6400A1] text-[11px] font-bold tracking-[0.12em] uppercase mb-5 shadow-sm"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#6400A1] animate-pulse" />
-              Lead Conversion System
+              <span className="font-bold text-[#111827]">Lead Conversion System</span>
             </motion.div>
 
             <motion.h2
@@ -221,7 +221,7 @@ export default function ChaosVsEdge() {
             >
               Still Losing Leads Before They{" "}
               <span
-                className="relative inline-block"
+                className="relative inline-block font-black"
                 style={{
                   background: 'linear-gradient(135deg,#6400A1 0%,#BB000F 100%)',
                   WebkitBackgroundClip: 'text',
@@ -238,7 +238,7 @@ export default function ChaosVsEdge() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.12 }}
-              className="text-gray-500 text-base md:text-[17px] font-medium max-w-[560px] mx-auto leading-[1.7]"
+              className="text-gray-900 text-base md:text-[17px] font-semibold max-w-[560px] mx-auto leading-[1.7]"
             >
               Most businesses generate enquiries — but without the right systems,
               follow-ups get delayed, leads go cold, and conversions get lost.
@@ -262,16 +262,16 @@ export default function ChaosVsEdge() {
               <div className="inline-flex p-1.5 bg-gray-100 rounded-2xl gap-1">
                 <button
                   onClick={() => handleTabChange('chaos')}
-                  className={`cvs-tab-chaos flex items-center gap-2 px-5 md:px-7 py-2.5 rounded-xl font-bold transition-all duration-300 text-sm md:text-[15px] text-gray-400 ${activeTab === 'chaos' ? 'active' : ''}`}
+                  className={`cvs-tab-chaos flex items-center gap-2 px-5 md:px-7 py-2.5 rounded-xl font-extrabold transition-all duration-300 text-sm md:text-[15px] ${activeTab === 'chaos' ? 'active' : 'text-gray-900'}`}
                 >
-                  <FiAlertTriangle className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                  <FiAlertTriangle className="w-5 h-5 flex-shrink-0 stroke-[2.5]" />
                   Traditional Workflow
                 </button>
                 <button
                   onClick={() => handleTabChange('edge')}
-                  className={`cvs-tab-edge flex items-center gap-2 px-5 md:px-7 py-2.5 rounded-xl font-bold transition-all duration-300 text-sm md:text-[15px] text-gray-400 ${activeTab === 'edge' ? 'active' : ''}`}
+                  className={`cvs-tab-edge flex items-center gap-2 px-5 md:px-7 py-2.5 rounded-xl font-extrabold transition-all duration-300 text-sm md:text-[15px] ${activeTab === 'edge' ? 'active' : 'text-gray-900'}`}
                 >
-                  <FiCheckCircle className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                  <FiCheckCircle className="w-5 h-5 flex-shrink-0 stroke-[2.5]" />
                   Smart Growth System
                 </button>
               </div>
@@ -292,34 +292,36 @@ export default function ChaosVsEdge() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.28, delay: idx * 0.04 }}
                         onClick={() => handleManualSelect(idx)}
-                        className="relative cursor-pointer rounded-2xl transition-all duration-400 select-none"
+                        className="relative rounded-2xl transition-all duration-400 select-none border"
                         style={{
-                          background: isActive ? '#fff' : 'rgba(247,245,251,0.7)',
-                          border: isActive ? `1.5px solid ${accent}` : '1.5px solid transparent',
+                          background: isActive ? '#fff' : 'rgba(255,255,255,1)',
+                          borderColor: isActive ? accent : '#E5E7EB',
                           boxShadow: isActive ? `0 6px 28px ${accentMid}` : 'none',
                         }}
                       >
                         <div className="p-4 md:p-5">
-                          <div className="flex items-start gap-3 md:gap-4">
-                            {/* Icon bubble */}
+                          <div className="flex items-start gap-4 md:gap-5">
+                            {/* Icon bubble: हमेशा बोल्ड, बड़ा और हाइलाइटेड रहेगा */}
                             <div
-                              className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300"
+                              className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center border-2"
                               style={{
-                                background: isActive ? accentLight : 'rgba(0,0,0,0.04)',
-                                color: isActive ? accent : '#9CA3AF',
+                                background: isActive ? accentLight : '#F9FAFB',
+                                borderColor: accent,
+                                color: accent,
                               }}
                             >
-                              <item.icon className="w-5 h-5" />
+                              <item.icon className="w-6 h-6 stroke-[2.5]" />
                             </div>
 
                             <div className="flex-1 min-w-0">
                               <h3
-                                className="text-[14px] md:text-[15px] font-bold leading-snug mb-1 transition-colors duration-300"
-                                style={{ color: isActive ? '#111827' : '#374151' }}
+                                className="text-[15px] md:text-[16px] font-black leading-snug mb-1.5"
+                                style={{ color: '#111827' }}
                               >
                                 {item.title}
                               </h3>
-                              <p className="text-[13px] md:text-[14px] text-gray-400 font-medium leading-[1.6] line-clamp-2">
+                              {/* डिस्क्रिप्शन को फुल ब्लैक और बोल्डर कर दिया गया है */}
+                              <p className="text-[13px] md:text-[14px] text-gray-950 font-bold leading-[1.6]">
                                 {item.desc}
                               </p>
                             </div>
@@ -329,17 +331,17 @@ export default function ChaosVsEdge() {
                               <motion.div
                                 initial={{ opacity: 0, x: -4 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center"
+                                className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1"
                                 style={{ background: accentLight, color: accent }}
                               >
-                                <FiArrowRight className="w-3.5 h-3.5" />
+                                <FiArrowRight className="w-4 h-4 stroke-[2.5]" />
                               </motion.div>
                             )}
                           </div>
 
                           {/* Progress bar */}
                           {isActive && (
-                            <div className="mt-3.5 h-[3px] bg-gray-100 rounded-full overflow-hidden">
+                            <div className="mt-4 h-[3px] bg-gray-100 rounded-full overflow-hidden">
                               <motion.div
                                 initial={{ scaleX: 0 }}
                                 animate={{ scaleX: progress / 100 }}
@@ -354,10 +356,10 @@ export default function ChaosVsEdge() {
                   })}
 
                   {/* Autoplay toggle */}
-                  <div className="flex justify-end mt-3 pt-1">
+                  <div className="flex justify-end mt-4 pt-1">
                     <button
                       onClick={() => { setIsAutoPlaying(p => !p); if (!isAutoPlaying) setProgress(0); }}
-                      className="flex items-center gap-2 text-[11px] font-semibold text-gray-400 hover:text-gray-600 transition-colors"
+                      className="flex items-center gap-2 text-[11px] font-bold text-gray-900 hover:text-black transition-colors"
                     >
                       <div
                         className="w-8 h-4 rounded-full relative transition-colors duration-300"
@@ -400,7 +402,6 @@ export default function ChaosVsEdge() {
                           className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full opacity-15"
                           style={{ background: isChaos ? '#6400A1' : '#BB000F', filter: 'blur(40px)' }}
                         />
-                        {/* Subtle dot grid */}
                         <div
                           className="absolute inset-0 opacity-[0.06]"
                           style={{
@@ -414,14 +415,13 @@ export default function ChaosVsEdge() {
                         {/* Icon + number */}
                         <div className="flex items-center gap-3 mb-6">
                           <div
-                            className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-                            style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)' }}
+                            className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+                            style={{ background: 'rgba(255,255,255,0.15)', border: `2px solid ${accent}` }}
                           >
-                            <currentItem.icon className="w-6 h-6 text-white" />
+                            <currentItem.icon className="w-7 h-7 text-white stroke-[2.5]" />
                           </div>
                           <div
-                            className="text-[11px] font-bold tracking-[0.12em] uppercase px-3 py-1 rounded-full"
-                            style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)' }}
+                            className="text-[11px] font-black tracking-[0.12em] uppercase px-3 py-1 rounded-full text-white bg-white/20"
                           >
                             {isChaos ? 'Problem' : 'Solution'} {String(activeIndex + 1).padStart(2, '0')}
                           </div>
@@ -432,8 +432,8 @@ export default function ChaosVsEdge() {
                           {currentItem.cardTitle}
                         </h3>
 
-                        {/* Description */}
-                        <p className="text-white/65 text-[14px] md:text-[15px] font-medium leading-[1.75] mb-7">
+                        {/* Description: राइट साइड के कार्ड में भी डिस्क्रिप्शन को हाइलाइट कर दिया गया है */}
+                        <p className="text-white text-[14px] md:text-[15px] font-bold leading-[1.75] mb-7">
                           {currentItem.cardDesc}
                         </p>
 
@@ -442,26 +442,26 @@ export default function ChaosVsEdge() {
                           initial={{ opacity: 0, scale: 0.92 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 0.22, duration: 0.3 }}
-                          className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 text-[13px] font-bold"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 text-[13px] font-black"
                           style={{
-                            background: isChaos ? 'rgba(187,0,15,0.25)' : 'rgba(100,0,161,0.25)',
-                            color: isChaos ? '#FCA5A5' : '#D8B4FE',
-                            border: `1px solid ${isChaos ? 'rgba(187,0,15,0.4)' : 'rgba(100,0,161,0.4)'}`,
+                            background: isChaos ? 'rgba(187,0,15,0.35)' : 'rgba(100,0,161,0.35)',
+                            color: '#FFFFFF',
+                            border: `1.5px solid ${accent}`,
                           }}
                         >
                           {currentItem.impact}
                         </motion.div>
 
                         {/* Divider */}
-                        <div className="h-px w-full mb-6" style={{ background: 'rgba(255,255,255,0.08)' }} />
+                        <div className="h-px w-full mb-6" style={{ background: 'rgba(255,255,255,0.15)' }} />
 
                         {/* CTA */}
                         <button
-                          className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full font-bold text-white text-[14px] transition-all duration-300 hover:gap-3.5 hover:shadow-2xl"
+                          className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full font-black text-white text-[14px] transition-all duration-300 hover:gap-3.5 hover:shadow-2xl"
                           style={{ background: grad, boxShadow: `0 6px 24px ${isChaos ? 'rgba(187,0,15,0.4)' : 'rgba(100,0,161,0.4)'}` }}
                         >
                           {isChaos ? 'Fix This Problem' : 'Get This System'}
-                          <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                          <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 stroke-[2.5]" />
                         </button>
                       </div>
                     </motion.div>
@@ -495,9 +495,9 @@ export default function ChaosVsEdge() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-center mt-10"
           >
-            <p className="text-gray-400 text-[13px] md:text-sm font-medium">
+            <p className="text-gray-900 text-[13px] md:text-sm font-bold">
               The problem is not your ads.{" "}
-              <span className="font-black text-gray-800">The problem is your system.</span>
+              <span className="font-black text-black">The problem is your system.</span>
             </p>
           </motion.div>
 
