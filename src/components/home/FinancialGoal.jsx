@@ -3,13 +3,14 @@ import { useState } from "react";
 const cards = [
   {
     id: 1,
-    image: "/metafacbook.wepb",
+ image: "/metafacbook.wepb",
     alt: "Meta Facebook Ads",
     title: "Meta / Facebook Ads",
     category: "Targeted Social Campaigns",
     services: ["Audience Targeting", "Ad Creatives"],
     stack: ["Meta Ads", "Pixel Tracking"],
     description: "High-engagement Meta Ads campaigns designed to reach click-ready audiences.",
+    bgColor: "#6400A1",
     stackColor: "rgba(0, 122, 255, 0.25)",
     stackTextColor: "#60A5FA",
   },
@@ -22,6 +23,7 @@ const cards = [
     services: ["Search Ads", "Performance Bidding"],
     stack: ["Google Ads", "Analytics"],
     description: "Conversion-first Google Ads strategies that capture demand from ready-to-buy searchers.",
+    bgColor: "#6400A1",
     stackColor: "rgba(234, 67, 53, 0.25)",
     stackTextColor: "#FCA5A5",
   },
@@ -34,6 +36,7 @@ const cards = [
     services: ["Lead Scoring", "Workflow Alerts"],
     stack: ["HubSpot", "Zapier"],
     description: "Automated CRM workflows that move leads faster through the funnel.",
+    bgColor: "#6400A1",
     stackColor: "rgba(255, 122, 0, 0.25)",
     stackTextColor: "#FDBA74",
   },
@@ -46,6 +49,7 @@ const cards = [
     services: ["Chat Funnels", "Follow-up Bots"],
     stack: ["WhatsApp API", "CRM Sync"],
     description: "WhatsApp automation that delivers fast, personalized replies automatically.",
+    bgColor: "#6400A1",
     stackColor: "rgba(37, 211, 102, 0.25)",
     stackTextColor: "#6EE7B7",
   },
@@ -58,6 +62,7 @@ const cards = [
     services: ["Landing Pages", "UX Optimization"],
     stack: ["Webflow", "Figma"],
     description: "Landing pages built to capture attention and increase lead volume.",
+    bgColor: "#6400A1", // Added purple bg color to data
     stackColor: "rgba(168, 85, 247, 0.25)",
     stackTextColor: "#D8B4FE",
   },
@@ -70,6 +75,7 @@ const cards = [
     services: ["Strategy", "Roadmap"],
     stack: ["Growth Audit", "Campaign Planning"],
     description: "Strategic consultation that aligns your roadmap with revenue goals.",
+    bgColor: "#6400A1", // Added purple bg color to data
     stackColor: "rgba(244, 63, 94, 0.25)",
     stackTextColor: "#FCA5A5",
   },
@@ -80,11 +86,12 @@ function HoverCard({ card }) {
 
   return (
     <div
-      className="relative h-[440px] overflow-hidden rounded-[2.5rem] cursor-pointer bg-[#0a0a0a] border border-white/5 shadow-2xl font-['Montserrat',ui-sans-serif,system-ui,sans-serif]"
+      className="relative h-[440px] overflow-hidden rounded-[2.5rem] cursor-pointer border border-white/5 shadow-2xl font-['Montserrat',ui-sans-serif,system-ui,sans-serif]"
+      style={{ backgroundColor: card.bgColor || "#6400A1" }} // Dynamic purple bg applied here behind the image
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Background Image with Zoom effect */}
+      {/* Background Image Container — Zoom effect applies cleanly */}
       <div
         className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out"
         style={{ transform: hovered ? "scale(1.15)" : "scale(1)" }}
@@ -93,15 +100,16 @@ function HoverCard({ card }) {
           src={card.image}
           alt={card.alt}
           className="w-full h-full object-cover"
+          // Completely clean image: No top blurs, no mixBlendMode tints
         />
       </div>
 
-      {/* Always-on dark gradient — bottom 60% so title is always readable */}
+      {/* Bottom dark gradient — only used at the bottom to guarantee text legibility */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.65) 40%, rgba(0,0,0,0.15) 70%, transparent 100%)",
+            "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 35%, transparent 70%)",
         }}
       />
 
@@ -115,9 +123,9 @@ function HoverCard({ card }) {
         </span>
       </div>
 
-      {/* Content — always visible at bottom, extra detail slides up on hover */}
+      {/* Content Layer */}
       <div className="absolute left-0 right-0 bottom-0 z-20 px-7 pb-7 pt-16">
-        {/* Title — always visible, white */}
+        {/* Title */}
         <h3
           className="text-white text-[20px] md:text-[22px] font-bold leading-[1.3] mb-3 transition-all duration-500"
           style={{
@@ -127,7 +135,7 @@ function HoverCard({ card }) {
           {card.title}
         </h3>
 
-        {/* Hover-only: tags + description slide up */}
+        {/* Sliding tags & description on hover */}
         <div
           className="transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden"
           style={{
@@ -179,15 +187,12 @@ export default function HoverRevealSection() {
 
         {/* Header Section */}
         <div className="mb-8 flex flex-col items-center text-center">
-
-          {/* Top Label */}
           <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#5B53FF]">
+            <span className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#6400A1]">
               Marketing Services
             </span>
           </div>
 
-          {/* Heading */}
           <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] max-w-[850px] text-[#111827]">
             Smarter Growth Systems Built To{" "}
             <span className="bg-gradient-to-r from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent inline-block font-bold tracking-[-0.02em]">
@@ -195,13 +200,11 @@ export default function HoverRevealSection() {
             </span>
           </h2>
 
-          {/* Description */}
           <p className="mt-5 text-[#111827]/55 text-base md:text-[18px] font-medium leading-[1.7] max-w-3xl">
             From lead generation and CRM automation to high-converting
             funnels, we build systems designed to help businesses grow more
             efficiently.
           </p>
-
         </div>
 
         {/* Cards Grid */}
