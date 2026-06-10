@@ -48,40 +48,14 @@ export default function Detail() {
   return (
     <div className="bg-white font-sans text-black selection:bg-black selection:text-white antialiased">
       {/* Reading Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 z-[100] h-[2px] bg-[#eeeeee]">
-        <div
-          className="h-full bg-black transition-all duration-100 ease-out"
-          style={{ width: `${progress}%` }}
-        />
-      </div>
+    
 
       {/* Top Header/Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 h-14 flex items-center">
-        <div className="w-full max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <div className="text-lg font-serif font-black tracking-tight">InsightJournal</div>
-          <nav className="hidden md:flex gap-8 text-xs font-medium text-gray-500 tracking-wide">
-            {["Case Studies", "Methods", "About"].map((item) => (
-              <a key={item} href="#" className="hover:text-black transition-colors no-underline">
-                {item}
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-4">
-            <button className="text-gray-400 hover:text-black transition-colors">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-              </svg>
-            </button>
-            <button className="bg-black text-white px-4 py-1.5 text-xs font-bold hover:bg-gray-800 transition-colors rounded-none">
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </header>
+    
 
       <main className="pt-14">
         {/* Full Image Banner Component */}
-        <section className="w-full h-[320px] md:h-[420px] relative overflow-hidden">
+        <section className="w-full h-[320px] md:h-[420px] relative overflow-hidden">  
           <img
             src={study.coverImage}
             alt={study.title}
@@ -90,44 +64,80 @@ export default function Detail() {
         </section>
 
         {/* Floating Content Card Wrapper */}
-        <div className="max-w-4xl mx-auto px-6 relative -mt-36 z-10">
-          <div className="bg-white pt-10 pb-4 pr-6 md:pr-12 max-w-3xl">
-            {/* Breadcrumb path */}
-            <nav className="flex items-center gap-1.5 mb-5 text-[10px] tracking-widest uppercase text-gray-400 font-semibold">
-              <Link to="/" className="hover:text-black no-underline">Home</Link>
-              <span className="text-gray-300">/</span>
-              <Link to="/case-studies" className="hover:text-black no-underline">Case Studies</Link>
-              <span className="text-gray-300">/</span>
-              <span className="text-gray-900">{study.category}</span>
-            </nav>
+       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative -mt-40 z-10">
+  <div className="bg-white max-w-5xl pl-8 md:pl-12 lg:pl-16 pr-6 md:pr-10 lg:pr-14 py-10 shadow-sm">
+    
+    {/* Breadcrumb */}
+    <nav className="flex items-center gap-1.5 mb-5 text-[10px] tracking-widest uppercase text-gray-400 font-semibold">
+      <Link to="/" className="hover:text-black transition-colors no-underline">
+        Home
+      </Link>
 
-            <span className="inline-block text-[10px] font-black tracking-widest text-blue-600 uppercase mb-4">
-              {study.category}
-            </span>
+      <span className="text-gray-300">/</span>
 
-            <h1 className="text-3xl md:text-[42px] font-serif font-bold leading-[1.12] tracking-tight text-gray-900 mb-6">
-              {study.title}
-            </h1>
+      <Link
+        to="/case-studies"
+        className="hover:text-black transition-colors no-underline"
+      >
+        Case Studies
+      </Link>
 
-            <div className="flex items-center gap-3 text-xs text-gray-400 font-medium">
-              <div className="flex items-center gap-2">
-                <img
-                  src={study.clientImage}
-                  alt="Author"
-                  className="w-6 h-6 rounded-full object-cover grayscale border border-gray-200"
-                />
-                <span className="font-bold text-gray-900">Alexandros Kouras</span>
-              </div>
-              <span>•</span>
-              <span>23.04.2024</span>
-              <span>•</span>
-              <span className="flex items-center gap-1">
-                <Clock size={12} className="text-gray-300" />
-                {study.readTime || "12 min read"}
-              </span>
-            </div>
-          </div>
+      <span className="text-gray-300">/</span>
+
+      <span className="text-gray-900">
+        {study.category}
+      </span>
+    </nav>
+
+    {/* Category */}
+    <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-[10px] font-black tracking-[0.2em] text-blue-600 uppercase mb-5">
+      {study.category}
+    </span>
+
+    {/* Title */}
+    <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-[1.05] tracking-tight text-gray-900 mb-6 max-w-4xl">
+      {study.title}
+    </h1>
+
+    {/* Subtitle */}
+    {study.excerpt && (
+      <p className="text-lg md:text-xl leading-relaxed text-gray-600 max-w-3xl mb-8">
+        {study.excerpt}
+      </p>
+    )}
+
+    {/* Meta Info */}
+    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 border-t border-gray-100 pt-5">
+      <div className="flex items-center gap-3">
+        <img
+          src={study.clientImage}
+          alt="Author"
+          className="w-10 h-10 rounded-full object-cover border border-gray-200"
+        />
+
+        <div>
+          <p className="font-semibold text-gray-900 leading-none">
+            Alexandros Kouras
+          </p>
+          <p className="text-xs text-gray-500 mt-1">
+            Case Study Author
+          </p>
         </div>
+      </div>
+
+      <span className="hidden md:block text-gray-300">•</span>
+
+      <span>23 April 2024</span>
+
+      <span className="hidden md:block text-gray-300">•</span>
+
+      <span className="flex items-center gap-1">
+        <Clock size={14} />
+        {study.readTime || "12 min read"}
+      </span>
+    </div>
+  </div>
+</div>
 
         {/* Dynamic Inner Layout Grid */}
         <div className="max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 mt-12 mb-24">
