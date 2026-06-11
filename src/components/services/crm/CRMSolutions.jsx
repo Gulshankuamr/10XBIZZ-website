@@ -1,43 +1,35 @@
 import React from 'react';
-import { 
-  Layers, 
-  Cpu, 
-  GitFork, 
-  Headphones, 
-  MessageSquare, 
-  TrendingUp, 
-  ArrowRight 
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function CRMSolutions() {
   const cardsData = [
     {
-      icon: <Layers className="w-5 h-5 text-[#6400A1]" />,
+      iconSrc: "/public_svg_icone/icons8-lead-50.png",
       title: "Lead Management",
       desc: "Capture every enquiry from your website, ads, WhatsApp, and forms in one organized system so your team can respond faster and close more deals."
     },
     {
-      icon: <Cpu className="w-5 h-5 text-[#6400A1]" />,
+      iconSrc: "/public_svg_icone/icons8-settings-50.png",
       title: "CRM Automation",
       desc: "Automate lead assignments, follow-up reminders, customer nurturing, and repetitive tasks so your team spends less time managing leads and more time closing them."
     },
     {
-      icon: <GitFork className="w-5 h-5 text-[#6400A1]" />,
+      iconSrc: "/public_svg_icone/icons8-trending-50.png",
       title: "Sales Pipeline Management",
       desc: "Track every lead from enquiry to sale with a clear sales pipeline that helps you identify bottlenecks and improve conversion rates."
     },
     {
-      icon: <Headphones className="w-5 h-5 text-[#6400A1]" />,
+      iconSrc: "/public_svg_icone/icons8-message-50.png",
       title: "Customer Support System",
       desc: "Manage customer conversations, support requests, and service tickets from a centralized dashboard to deliver faster and more professional support."
     },
     {
-      icon: <MessageSquare className="w-5 h-5 text-[#6400A1]" />,
+      iconSrc: "/public_svg_icone/icons8-crm-50.png",
       title: "WhatsApp CRM Integration",
       desc: "Connect WhatsApp with your CRM to automatically capture leads, track conversations, send follow-ups, and improve customer engagement."
     },
     {
-      icon: <TrendingUp className="w-5 h-5 text-[#6400A1]" />,
+      iconSrc: "/public_svg_icone/icons8-target-50.png",
       title: "Marketing Automation",
       desc: "Automatically nurture leads through WhatsApp, email, and SMS workflows designed to increase engagement and drive more conversions."
     }
@@ -96,18 +88,26 @@ export default function CRMSolutions() {
                 className="crm-card bg-white rounded-2xl p-8 flex flex-col justify-between items-start shadow-sm hover:shadow-md"
               >
                 <div className="space-y-4 w-full">
-                  <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center">
-                    {card.icon}
+                  {/* Clean, Borderless & Center-Aligned Large PNG Icon Container */}
+                  <div className="flex justify-center items-center mb-6">
+                    <div className="w-16 h-16 flex items-center justify-center p-1 shrink-0">
+                      <img 
+                        src={card.iconSrc} 
+                        alt={card.title} 
+                        className="w-full h-full object-contain" 
+                      />
+                    </div>
                   </div>
-                  <h3 className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-gray-900">
+
+                  <h3 className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-gray-900 text-center">
                     {card.title}
                   </h3>
-                  <p className="text-sm md:text-base font-semibold leading-[1.5] text-gray-500">
+                  <p className="text-sm md:text-base font-semibold leading-[1.5] text-gray-500 text-center">
                     {card.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-auto flex items-center gap-1 group/btn cursor-pointer">
+                <div className="pt-6 mt-auto flex items-center gap-1 group/btn cursor-pointer mx-auto">
                   <span className="gradient-btn-text text-base font-bold leading-none transition-colors duration-300">
                     Get Started
                   </span>

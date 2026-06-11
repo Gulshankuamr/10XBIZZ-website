@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { UserPlus, Film, RefreshCw, FileText, ShoppingBag, Users } from 'lucide-react'
 
 const SERVICE_CARDS = [
   {
@@ -9,7 +8,7 @@ const SERVICE_CARDS = [
     number: '01',
     tag: 'Lead Generation Campaigns',
     title: 'Generate High-Quality Enquiries',
-    icon: <UserPlus />,
+    iconSrc: '/public_svg_icone/icons8-lead-50.png',
     desc: 'Generate high-quality enquiries through Facebook Lead Forms, WhatsApp Ads, and conversion-focused landing pages.',
     includes: ['Lead Forms', 'WhatsApp Leads', 'CRM Integration'],
   },
@@ -18,7 +17,7 @@ const SERVICE_CARDS = [
     number: '02',
     tag: 'Instagram Reels Advertising',
     title: 'Capture Attention With Video',
-    icon: <Film />,
+    iconSrc: '/public_svg_icone/icons8-instagram-50.png',
     desc: 'Capture attention with high-performing short-form video campaigns designed to increase reach, engagement, and conversions.',
     includes: ['Reels Ads', 'Video Strategy', 'Creative Testing'],
   },
@@ -27,7 +26,7 @@ const SERVICE_CARDS = [
     number: '03',
     tag: 'Retargeting Campaigns',
     title: 'Reconnect With Warm Prospects',
-    icon: <RefreshCw />,
+    iconSrc: '/public_svg_icone/icons8-retargeting-50.png',
     desc: 'Reconnect with website visitors, video viewers, and past leads to improve conversion rates and reduce acquisition costs.',
     includes: ['Website Retargeting', 'Dynamic Ads', 'Conversion Recovery'],
   },
@@ -36,7 +35,7 @@ const SERVICE_CARDS = [
     number: '04',
     tag: 'Facebook Lead Ads',
     title: 'Capture Leads Instantly',
-    icon: <FileText />,
+    iconSrc: '/public_svg_icone/icons8-facebook-50.png',
     desc: 'Capture qualified leads directly inside Facebook and instantly send them into your CRM or WhatsApp workflow.',
     includes: ['Instant Forms', 'Lead Qualification', 'Automation Setup'],
   },
@@ -45,7 +44,7 @@ const SERVICE_CARDS = [
     number: '05',
     tag: 'eCommerce Growth Campaigns',
     title: 'Increase Online Sales',
-    icon: <ShoppingBag />,
+    iconSrc: '/public_svg_icone/icons8-google-shopping-50.png',
     desc: 'Increase sales through catalog ads, dynamic product ads, and advanced conversion optimization.',
     includes: ['Catalog Ads', 'Product Feeds', 'ROAS Optimization'],
   },
@@ -54,7 +53,7 @@ const SERVICE_CARDS = [
     number: '06',
     tag: 'Audience Research & Scaling',
     title: 'Find Highest-Converting Buyers',
-    icon: <Users />,
+    iconSrc: '/public_svg_icone/icons8-barchart-50.png',
     desc: 'Find your highest-converting audiences and scale winning campaigns using lookalikes, custom audiences, and behavioral targeting.',
     includes: ['Lookalike Audiences', 'Interest Research', 'Scaling Strategy'],
   },
@@ -88,9 +87,14 @@ export default function MetaAdsServices() {
               <div>
                 <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-purple-50 group-hover:bg-white/10 transition-colors" />
 
-                <div className="flex justify-between items-start mb-6">
-                  <div className="w-12 h-12 bg-purple-100 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white flex items-center justify-center rounded-xl transition-colors">
-                    {React.cloneElement(card.icon, { className: 'w-6 h-6' })}
+                {/* Fixed: PNG Icon remains completely identical on card hover */}
+                <div className="flex justify-center items-center mb-6">
+                  <div className="w-16 h-16 flex items-center justify-center p-1 shrink-0">
+                    <img 
+                      src={card.iconSrc} 
+                      alt={card.title} 
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                 </div>
 

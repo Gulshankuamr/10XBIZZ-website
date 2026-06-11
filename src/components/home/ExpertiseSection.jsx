@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { CornerDownRight } from "lucide-react"; // सुंदर बेंडिंग एरो आइकॉन के लिए
 
 const services = [
   {
@@ -8,7 +9,7 @@ const services = [
     title: "Generate High-Intent Leads That Actually Convert",
     description:
       "We build Meta Ads, Google Ads, and conversion-focused campaigns designed to attract qualified enquiries and improve lead quality.",
-    cta: "👉 More than traffic — we build predictable lead generation systems.",
+    cta: "More than traffic — we build predictable lead generation systems.",
     image: "/LEAD GENERATION SYSTEMS.webp",
   },
   {
@@ -17,7 +18,7 @@ const services = [
     title: "Organize Every Enquiry With A Smarter CRM Workflow",
     description:
       "Track, manage, and monitor every lead inside a centralized CRM system designed to improve follow-ups and conversions.",
-    cta: "👉 No more lost leads or scattered customer conversations.",
+    cta: "No more lost leads or scattered customer conversations.",
     image: "/CRM & LEAD MANAGEMENT.webp",
   },
   {
@@ -26,7 +27,7 @@ const services = [
     title: "Automate Follow-Ups & Customer Communication",
     description:
       "We create automated workflows for WhatsApp, reminders, lead nurturing, and instant responses to improve customer engagement.",
-    cta: "👉 Faster responses lead to better conversions.",
+    cta: "Faster responses lead to better conversions.",
     image: "/WHATSAPP & AUTOMATION.webp",
   },
   {
@@ -35,7 +36,7 @@ const services = [
     title: "Build Landing Pages Designed To Convert Visitors Into Leads",
     description:
       "We create high-converting funnels and landing pages optimized for lead generation, user experience, and business growth.",
-    cta: "👉 Every page is built with conversion strategy in mind.",
+    cta: "Every page is built with conversion strategy in mind.",
     image: "/FUNNELS & LANDING PAGES.webp",
   },
   {
@@ -44,7 +45,7 @@ const services = [
     title: "Improve Your Visibility & Generate Organic Business Growth",
     description:
       "From SEO optimization to Google My Business management, we help businesses get discovered by the right audience online.",
-    cta: "👉 Long-term visibility starts with strong search presence.",
+    cta: "Long-term visibility starts with strong search presence.",
     image: "/SEO & LOCAL GROWTH.webp",
   },
 ];
@@ -55,7 +56,6 @@ export default function ExpertiseSection() {
   const intervalRef = useRef(null);
   const activeService = services[active];
 
-  // Auto-rotation: every 3 seconds, pause on hover
   useEffect(() => {
     if (!isPaused) {
       intervalRef.current = setInterval(() => {
@@ -78,15 +78,10 @@ export default function ExpertiseSection() {
 
         {/* ── Top Header ── */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-12 mb-10 lg:mb-[72px]">
-
-          {/* Left: Heading */}
           <div className="flex-none w-full lg:max-w-[560px]">
             <div className="flex items-center gap-[10px] mb-[18px]">
-              <div className="w-9 h-[2px]" style={{ background: "#000" }} />
-              <span
-                className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase"
-                style={{ color: "#000" }}
-              >
+              <div className="w-9 h-[2px]" style={{ background: "#fff" }} />
+              <span className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase" style={{ color: "#fff" }}>
                 Our Expertise
               </span>
             </div>
@@ -95,27 +90,20 @@ export default function ExpertiseSection() {
               style={{ color: "#fff" }}
             >
               Growth Systems Designed To{" "}
-              <span
-                className="inline-block font-bold tracking-[-0.02em]"
-                style={{ color: "#000" }}
-              >
+              <span className="inline-block font-bold tracking-[-0.02em]" style={{ color: "#FFD600" }}>
                 Generate & Convert
               </span>{" "}
               Leads
             </h2>
           </div>
 
-          {/* Right: Body copy */}
           <div className="w-full lg:flex-1 lg:max-w-[480px] lg:pt-2">
-            <p
-              className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl"
-              style={{ color: "#fff" }}
-            >
+            <p className="text-base md:text-[18px] font-medium leading-[1.7] max-w-2xl" style={{ color: "#ffffffcc" }}>
               We combine{" "}
-              <span className="font-bold" style={{ color: "#000" }}>lead generation</span>,{" "}
-              <span className="font-bold" style={{ color: "#000" }}>CRM</span>,{" "}
-              <span className="font-bold" style={{ color: "#000" }}>automation</span>, and{" "}
-              <span className="font-bold" style={{ color: "#000" }}>conversion strategy</span>{" "}
+              <span className="font-bold" style={{ color: "#FFD600" }}>lead generation</span>,{" "}
+              <span className="font-bold" style={{ color: "#FFD600" }}>CRM</span>,{" "}
+              <span className="font-bold" style={{ color: "#FFD600" }}>automation</span>, and{" "}
+              <span className="font-bold" style={{ color: "#FFD600" }}>conversion strategy</span>{" "}
               to help businesses grow more efficiently.
             </p>
           </div>
@@ -137,13 +125,6 @@ export default function ExpertiseSection() {
                   key={service.id}
                   onClick={() => setActive(idx)}
                   whileTap={{ scale: 0.98 }}
-                  // यहाँ से येलो होवर इफेक्ट हटा दिया गया है, बैकग्राउंड वाइट ही रहेगा
-                  onMouseEnter={(e) => {
-                    if (!isActive) e.currentTarget.style.background = "#FFFFFF";
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive) e.currentTarget.style.background = "#FFFFFF";
-                  }}
                   className="relative w-full px-4 lg:px-6 py-4 lg:py-5 rounded-2xl cursor-pointer flex items-center justify-between outline-none overflow-hidden transition-all duration-300"
                   style={{
                     background: isActive
@@ -169,9 +150,7 @@ export default function ExpertiseSection() {
                   <span
                     className="text-sm md:text-base leading-[1.5] transition-all duration-300 text-left"
                     style={{
-                      // एक्टिव होने पर टेक्स्ट वाइट (#FFFFFF) रहेगा, वरना प्योर ब्लैक (#000000) रहेगा
                       color: isActive ? "#FFFFFF" : "#000000",
-                      // दोनों ही स्थिति में टेक्स्ट पूरी तरह से बोल्ड (700) रहेगा
                       fontWeight: 700,
                     }}
                   >
@@ -200,48 +179,78 @@ export default function ExpertiseSection() {
             })}
           </div>
 
-          {/* RIGHT: Image Only — no gradient overlay */}
+          {/* RIGHT: Image Container with Text Content */}
           <div className="relative rounded-[20px] overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-[520px]">
-            <AnimatePresence mode="wait">
+
+            {/* Image Switcher */}
+            <AnimatePresence mode="sync">
               <motion.img
                 key={activeService.id}
                 src={activeService.image}
                 alt={activeService.label}
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.02 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </AnimatePresence>
 
-            {/* Bottom Text Overlay — only a subtle gradient behind text for readability */}
+            {/* Bottom Text Overlay with Custom Gradient */}
             <div
-              className="absolute bottom-0 left-0 right-0"
+              className="absolute bottom-0 left-0 right-0 z-10"
               style={{
                 background:
-                  "linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 45%, transparent 100%)",
-                paddingTop: "80px",
+                  "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)",
+                paddingTop: "100px",
               }}
             >
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`text-${activeService.id}`}
-                  initial={{ opacity: 0, y: 22 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                   className="px-5 lg:px-8 pb-5 lg:pb-8 pt-4 lg:pt-6"
                 >
-                  <h3 className="text-white text-[20px] md:text-[24px] font-bold leading-[1.3] mb-2">
+                  {/* Label Badge */}
+                  <span
+                    className="inline-block text-[10px] md:text-[11px] font-black uppercase tracking-[0.12em] px-3 py-1 rounded-full mb-3"
+                    style={{ background: "#FFD600", color: "#000" }}
+                  >
+                    {activeService.label}
+                  </span>
+
+                  {/* Title (Fix: text-black removed, changed to text-white) */}
+                  <h3
+                    className="text-white text-[20px] md:text-[26px] font-black leading-[1.25] mb-2"
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}
+                  >
                     {activeService.title}
                   </h3>
-                  <p className="text-white/70 text-sm md:text-base font-semibold leading-[1.5] mb-3 max-w-[650px]">
+
+                  {/* Description */}
+                  <p className="text-white/85 text-sm md:text-[15px] font-semibold leading-[1.6] mb-4 max-w-[620px]">
                     {activeService.description}
                   </p>
-                  <p className="text-amber-400 text-sm md:text-base font-semibold leading-[1.5]">
-                    {activeService.cta}
-                  </p>
+
+                  {/* CTA Area with Corner Down Right Arrow Icon */}
+                  <div className="flex items-start gap-2.5">
+                    <div 
+                      className="flex items-center justify-center rounded-lg p-1 shrink-0 mt-0.5"
+                      style={{ background: "rgba(255, 214, 0, 0.15)" }}
+                    >
+                      {/* Custom Arrow Icon */}
+                      <CornerDownRight size={18} style={{ color: "#FFD600" }} strokeWidth={2.5} />
+                    </div>
+                    <p
+                      className="text-sm md:text-[15px] font-bold leading-[1.5]"
+                      style={{ color: "#FFD600" }}
+                    >
+                      {activeService.cta}
+                    </p>
+                  </div>
                 </motion.div>
               </AnimatePresence>
             </div>

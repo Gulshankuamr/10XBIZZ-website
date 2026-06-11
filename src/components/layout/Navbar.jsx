@@ -1,29 +1,38 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
-  Headphones,
-  Database,
-  Facebook,
-  UserPlus,
-  Search,
-  MessageSquare,
   ArrowRight,
+  Menu,
+  X,
 } from "lucide-react";
 
-import  HeroActionButton  from "../ui/HeroActionButton";
-
+import HeroActionButton from "../ui/HeroActionButton";
 import FreeMarketingPlan from "../freemarektingPlane/FreeMarketingPlan";
 
 // ─── Logo ────────────────────────────────────────────────────────────────────
 const Logo = ({ small }) => (
-  <div className={`bg-[#6B0AC9] rounded-full inline-flex items-center justify-center ${small ? "px-1.5 py-0.5" : "px-2.5 py-1"}`}>
-    <div className={`rounded-full overflow-hidden flex items-center justify-center ${small ? "w-12 h-6" : "w-[85px] h-[46px]"}`}>
-      <img src="/logonew.png" alt="10XBIZZ" className="w-full h-full object-contain" />
+  <div
+    className={`bg-[#6B0AC9] rounded-full inline-flex items-center justify-center transition-all duration-300 ${
+      small ? "px-1.5 py-0.5" : "px-2.5 py-1"
+    }`}
+  >
+    <div
+      className={`rounded-full overflow-hidden flex items-center justify-center transition-all duration-300 ${
+        small
+          ? "w-12 h-6"                             // mobile scrolled — thoda bada
+          : "w-[90px] h-[48px] md:w-[95px] md:h-[52px]"  // default — bada
+      }`}
+    >
+      <img
+        src="/logonew.png"
+        alt="10XBIZZ"
+        className="w-full h-full object-contain"
+      />
     </div>
   </div>
 );
 
-// ─── Nav Items ────────────────────────────────────────────────────────────────
+// ─── Nav Items (Icons changed from Lucide components to public PNG URLs) ─────
 const NAV_ITEMS = [
   { label: "Home", path: "/" },
   {
@@ -33,33 +42,28 @@ const NAV_ITEMS = [
       {
         label: "Meta Ads Services",
         path: "/services/marketing-meta-ads-servish",
-        icon: <Headphones size={18} className="text-blue-600" />,
+        iconSrc: "/public_svg_icone/icons8-meta-50.png",
       },
       {
         label: "CRM Automation",
         path: "/services/crm-automation",
-        icon: <Database size={18} className="text-blue-600" />,
+        iconSrc: "/public_svg_icone/icons8-crm-50.png",
       },
       {
         label: "SEO Services",
         path: "/services/seo-services",
-        icon: <Facebook size={18} className="text-blue-600" />,
+        iconSrc: "/public_svg_icone/icons8-seo-50.png",
       },
       {
         label: "Google My Business",
         path: "/services/google-my-business-services",
-        icon: <UserPlus size={18} className="text-blue-600" />,
+        iconSrc: "/public_svg_icone/icons8-google-shopping-50.png",
       },
       {
         label: "Google Ads Management",
         path: "/services/google-ads-management",
-        icon: <Search size={18} className="text-blue-600" />,
+        iconSrc: "/public_svg_icone/icons8-google-ads-50.png",
       },
-      // {
-      //   label: "WhatsApp Automation",
-      //   path: "/services/whatsapp-automation",
-      //   icon: <MessageSquare size={18} className="text-blue-600" />,
-      // },
     ],
   },
   { label: "Case Studies", path: "/case-studies" },
@@ -70,10 +74,17 @@ const NAV_ITEMS = [
 // ─── Chevron ─────────────────────────────────────────────────────────────────
 const ChevronDown = ({ open }) => (
   <svg
-    width="13" height="13" viewBox="0 0 24 24"
-    fill="none" stroke="currentColor" strokeWidth="2.5"
-    strokeLinecap="round" strokeLinejoin="round"
-    className={`ml-1 inline-block transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`}
+    width="13"
+    height="13"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={`ml-1 inline-block transition-transform duration-200 ${
+      open ? "rotate-180" : "rotate-0"
+    }`}
   >
     <polyline points="6 9 12 15 18 9" />
   </svg>
@@ -83,7 +94,9 @@ const ChevronDown = ({ open }) => (
 const DropdownMenu = ({ items, visible, onClose }) => (
   <div
     className={`absolute top-[calc(100%)] left-1/2 -translate-x-1/2 w-[580px] z-50 transition-all duration-200 ${
-      visible ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-1"
+      visible
+        ? "opacity-100 pointer-events-auto translate-y-0"
+        : "opacity-0 pointer-events-none -translate-y-1"
     }`}
     style={{ paddingTop: "8px" }}
   >
@@ -96,8 +109,12 @@ const DropdownMenu = ({ items, visible, onClose }) => (
             onClick={onClose}
             className="flex items-center gap-3 px-3 py-2.5 rounded-xl no-underline text-gray-700 text-[14px] font-semibold hover:bg-purple-50 transition-colors duration-150"
           >
-            <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
-              {item.icon}
+            <div className="w-8 h-8 rounded-lg bg-transparent flex items-center justify-center shrink-0 overflow-hidden">
+              <img 
+                src={item.iconSrc} 
+                alt={item.label} 
+                className="w-6 h-6 object-contain"
+              />
             </div>
             {item.label}
           </Link>
@@ -114,117 +131,135 @@ const DropdownMenu = ({ items, visible, onClose }) => (
 );
 
 // ─── Mobile Drawer ────────────────────────────────────────────────────────────
-const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => {
+const MobileDrawer = ({ open, onClose, openMobileMenu, setOpenMobileMenu, onBookCall }) => {
   return (
     <>
       {/* Backdrop */}
       <div
         onClick={onClose}
-        className={`lg:hidden fixed inset-0 z-[1000] bg-black/50 transition-opacity duration-300 ${
+        className={`lg:hidden fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       />
 
       {/* Drawer Panel */}
       <div
-        className={`lg:hidden fixed top-0 right-0 h-full z-[1010] flex flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-0 right-0 z-[10000] bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{ width: "85%", maxWidth: 310 }}
+        style={{
+          width: "85%",
+          maxWidth: 320,
+          height: "100dvh",
+          display: "flex",
+          flexDirection: "column",
+        }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
-          <span className="text-[12px] font-bold text-purple-700 uppercase tracking-widest">Menu</span>
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+          <span className="text-[13px] font-bold text-purple-700 uppercase tracking-widest">
+            Menu
+          </span>
           <button
             onClick={onClose}
-            className="w-8 h-8 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 border-none cursor-pointer"
+            className="w-9 h-9 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 border-none cursor-pointer hover:bg-purple-100 transition-colors"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+            <X size={18} strokeWidth={2.5} />
           </button>
         </div>
 
         {/* Nav Links */}
-        <div className="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-0.5">
+        <div style={{ flex: 1, overflowY: "auto" }} className="px-4 py-3 flex flex-col gap-1">
           {NAV_ITEMS.map((item) => (
-            <div key={item.label}>
-
-              {/* Row: Label navigates, Chevron toggles dropdown */}
+            <div key={item.label} className="w-full">
               <div
-                className={`flex items-center justify-between rounded-xl ${
-                  openMenu === item.label ? "bg-purple-50" : ""
+                className={`flex items-center justify-between rounded-xl transition-colors ${
+                  openMobileMenu === item.label ? "bg-purple-50/70" : ""
                 }`}
               >
-                {/* Clicking label → always navigate to that page */}
                 <Link
                   to={item.path}
                   onClick={onClose}
-                  className={`flex-1 text-left px-4 py-3 text-[15px] font-bold uppercase tracking-wide no-underline ${
-                    openMenu === item.label ? "text-[#6400A1]" : "text-gray-800"
+                  className={`flex-1 text-left px-4 py-3 text-[14px] font-bold uppercase tracking-wide no-underline transition-colors ${
+                    openMobileMenu === item.label ? "text-[#6400A1]" : "text-gray-800"
                   }`}
                 >
                   {item.label}
                 </Link>
 
-                {/* Chevron → only toggles sub-menu, does NOT navigate */}
                 {item.dropdown && (
                   <button
                     onClick={(e) => {
+                      e.preventDefault();
                       e.stopPropagation();
-                      setOpenMenu(openMenu === item.label ? null : item.label);
+                      setOpenMobileMenu(
+                        openMobileMenu === item.label ? null : item.label
+                      );
                     }}
-                    className={`px-4 py-3 bg-transparent border-none cursor-pointer ${
-                      openMenu === item.label ? "text-[#6400A1]" : "text-gray-400"
+                    className={`px-4 py-3 bg-transparent border-none cursor-pointer transition-colors ${
+                      openMobileMenu === item.label
+                        ? "text-[#6400A1]"
+                        : "text-gray-400"
                     }`}
                     aria-label={`Toggle ${item.label} submenu`}
                   >
-                    <ChevronDown open={openMenu === item.label} />
+                    <ChevronDown open={openMobileMenu === item.label} />
                   </button>
                 )}
               </div>
 
-              {/* Dropdown Sub-items — each navigates on click */}
+              {/* Dropdown Sub-items */}
               {item.dropdown && (
                 <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    openMenu === item.label ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openMobileMenu === item.label
+                      ? "max-h-[400px] opacity-100 mt-1 mb-2"
+                      : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="ml-4 pl-4 border-l-2 border-purple-200 flex flex-col gap-0.5 py-1">
+                  <div className="ml-4 pl-3 border-l-2 border-purple-200 flex flex-col gap-1 py-1">
                     {item.dropdown.map((sub, i) => (
                       <Link
                         key={i}
                         to={sub.path}
                         onClick={onClose}
-                        className="flex items-center gap-3 py-2.5 px-2 text-[13.5px] font-semibold text-gray-500 no-underline text-left w-full rounded-lg hover:bg-purple-50 hover:text-purple-700 transition-colors"
+                        className="flex items-center gap-3 py-2.5 px-3 text-[13px] font-semibold text-gray-600 no-underline text-left w-full rounded-lg hover:bg-purple-50 hover:text-purple-700 transition-colors"
                       >
-                        <div className="w-7 h-7 rounded-md bg-blue-50 flex items-center justify-center shrink-0">
-                          {sub.icon}
+                        <div className="w-7 h-7 rounded-md bg-transparent flex items-center justify-center shrink-0 overflow-hidden">
+                          <img 
+                            src={sub.iconSrc} 
+                            alt={sub.label} 
+                            className="w-5 h-5 object-contain"
+                          />
                         </div>
-                        {sub.label}
+                        <span className="truncate">{sub.label}</span>
                       </Link>
                     ))}
                   </div>
                 </div>
               )}
-
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="p-3 border-t border-gray-100">
-          <Link
-            to="/contact"
-            onClick={onClose}
-            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-[15px] text-white no-underline"
-            style={{ background: "linear-gradient(101deg, #6400A1 0%, #FF1920 100%)" }}
+        {/* CTA Button in Drawer */}
+        <div
+          style={{ flexShrink: 0 }}
+          className="p-4 border-t border-gray-100 bg-gray-50"
+        >
+          <button
+            onClick={() => {
+              onClose();
+              onBookCall();
+            }}
+            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold text-[14px] text-white shadow-md border-none cursor-pointer"
+            style={{
+              background: "linear-gradient(101deg, #6400A1 0%, #FF1920 100%)",
+            }}
           >
             Book Free Strategy Call
             <ArrowRight size={15} strokeWidth={3} />
-          </Link>
+          </button>
         </div>
       </div>
     </>
@@ -234,9 +269,10 @@ const MobileDrawer = ({ open, onClose, openMenu, setOpenMenu }) => {
 // ─── Main Navbar ──────────────────────────────────────────────────────────────
 export default function Navbar() {
   const location = useLocation();
-  const [scrolled, setScrolled]           = useState(false);
-  const [openMenu, setOpenMenu]           = useState(null);
-  const [mobileOpen, setMobileOpen]       = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null);
+  const [openMobileMenu, setOpenMobileMenu] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const navRef = useRef(null);
@@ -249,21 +285,30 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      // Outside click close is only needed for desktop hover dropdown.
-      // On mobile, drawer is rendered outside navRef and this handler
-      // can swallow submenu link clicks before navigation fires.
       if (window.innerWidth < 1024) return;
-      if (navRef.current && !navRef.current.contains(e.target)) setOpenMenu(null);
+      if (navRef.current && !navRef.current.contains(e.target))
+        setOpenMenu(null);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Auto-close drawer & dropdown on every route change
   useEffect(() => {
     setMobileOpen(false);
     setOpenMenu(null);
+    setOpenMobileMenu(null);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [mobileOpen]);
 
   return (
     <>
@@ -285,8 +330,7 @@ export default function Navbar() {
         }
       `}</style>
 
-      <div className="fixed top-0 left-0 right-0 z-50" ref={navRef}>
-
+      <div className="fixed top-0 left-0 right-0 z-50 w-full" ref={navRef}>
         {/* Promo Banner */}
         {bannerVisible && (
           <div className="promo-shimmer relative hidden md:flex items-center justify-center gap-4 overflow-hidden bg-[#0a0a0a] px-10 py-2.5">
@@ -316,13 +360,16 @@ export default function Navbar() {
         {/* Main Nav */}
         <nav
           className={`w-full bg-white border-b border-gray-100 transition-all duration-300 ${
-            scrolled ? "py-1.5 shadow-lg" : "py-2.5"
+            scrolled ? "py-2 shadow-lg" : "py-3 md:py-4"
           }`}
         >
-          <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
-
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="no-underline shrink-0" onClick={() => setOpenMenu(null)}>
+            <Link
+              to="/"
+              className="no-underline shrink-0"
+              onClick={() => setOpenMenu(null)}
+            >
               <Logo small={scrolled} />
             </Link>
 
@@ -345,11 +392,15 @@ export default function Navbar() {
                       to={item.path}
                       onClick={() => setOpenMenu(null)}
                       className={`flex items-center text-[14px] font-bold no-underline cursor-pointer p-0 m-0 ${
-                        isActive || openMenu === item.label ? "text-[#6400A1]" : "text-gray-600"
+                        isActive || openMenu === item.label
+                          ? "text-[#6400A1]"
+                          : "text-gray-600"
                       }`}
                     >
                       {item.label}
-                      {item.dropdown && <ChevronDown open={openMenu === item.label} />}
+                      {item.dropdown && (
+                        <ChevronDown open={openMenu === item.label} />
+                      )}
                     </Link>
 
                     {item.dropdown && (
@@ -364,58 +415,50 @@ export default function Navbar() {
               })}
             </ul>
 
-            {/* Right: CTA + Hamburger */}
+            {/* Right side */}
             <div className="flex items-center gap-3">
-              {/* <Link
-                to="/contact"
-                onClick={() => setOpenMenu(null)}
-                className="hidden lg:flex items-center gap-2.5 px-5 py-2 rounded-full text-white font-bold text-[14px] no-underline"
-                style={{
-                  background: "linear-gradient(135deg, #7B00C2 0%, #FF1920 100%)",
-                  boxShadow: "0 6px 18px -6px rgba(123,0,194,0.4)",
-                }}
-              >
-                Book Strategy Call
-                <ArrowRight size={14} strokeWidth={3} />
-              </Link> */}
+              {/* Desktop only: Book Strategy Call button */}
+              <div className="hidden lg:block">
+                <HeroActionButton
+                  onClick={() => setOpenModal(true)}
+                  className="flex items-center gap-2.5 px-5 py-2.5 rounded-full text-white font-bold text-[14px] no-underline border-0 cursor-pointer"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #7B00C2 0%, #FF1920 100%)",
+                    boxShadow: "0 6px 18px -6px rgba(123,0,194,0.4)",
+                  }}
+                >
+                  Book Strategy Call
+                </HeroActionButton>
+              </div>
 
-
-<HeroActionButton
-  onClick={() => setOpenModal(true)}
-  className="hidden lg:flex items-center gap-2.5 px-3 py-2 rounded-full text-white font-bold text-[14px] no-underline border-0"
-  style={{
-    background: "linear-gradient(135deg, #7B00C2 0%, #FF1920 100%)",
-    boxShadow: "0 6px 18px -6px rgba(123,0,194,0.4)",
-  }}
->
-  Book Strategy Call
-</HeroActionButton>
-
+              {/* Mobile only: Hamburger */}
               <button
-                className="lg:hidden flex flex-col gap-1 px-2.5 py-1.5 bg-purple-50 border border-purple-200 rounded-xl cursor-pointer"
+                className="lg:hidden flex items-center justify-center p-2.5 bg-purple-50 border border-purple-100 rounded-xl cursor-pointer text-purple-700 hover:bg-purple-100 transition-colors"
                 onClick={() => setMobileOpen(true)}
+                aria-label="Open Menu"
               >
-                <span className="w-5 h-0.5 bg-purple-700 rounded-full block" />
-                <span className="w-5 h-0.5 bg-purple-700 rounded-full block" />
-                <span className="w-3.5 h-0.5 bg-purple-700 rounded-full block self-end" />
+                <Menu size={26} strokeWidth={2.5} />
               </button>
             </div>
-
-
-
           </div>
         </nav>
       </div>
 
+      {/* Mobile Drawer */}
       <MobileDrawer
         open={mobileOpen}
-        onClose={() => { setMobileOpen(false); setOpenMenu(null); }}
-        openMenu={openMenu}
-        setOpenMenu={setOpenMenu}
+        onClose={() => {
+          setMobileOpen(false);
+          setOpenMobileMenu(null);
+        }}
+        openMobileMenu={openMobileMenu}
+        setOpenMobileMenu={setOpenMobileMenu}
+        onBookCall={() => setOpenModal(true)}
       />
-      {openModal && (
-  <FreeMarketingPlan onClose={() => setOpenModal(false)} />
-)}
+
+      {/* Modal */}
+      {openModal && <FreeMarketingPlan onClose={() => setOpenModal(false)} />}
     </>
   );
 }

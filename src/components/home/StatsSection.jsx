@@ -1,27 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import {
-  FiAlertTriangle,
-  FiArrowRight,
-  FiZap,
-  FiTrendingUp,
-  FiMessageCircle,
-  FiRepeat,
-  FiTarget,
-  FiBarChart2,
-  FiClock,
-  FiCheckCircle,
-  FiSettings,
-} from 'react-icons/fi';
-
 // ── Data ──────────────────────────────────────────────────────────────
 const chaosItems = [
   {
     id: 1,
     title: "Leads Come In, But Nobody Responds Fast",
     desc: "Potential customers lose interest when responses are delayed.",
-    icon: FiClock,
+    iconSrc: "/public_svg_icone/icons8-clock-50.png",
     cardTitle: "Slow Responses Kill Conversions",
     cardDesc: "Most leads choose the business that responds first. Delayed follow-ups reduce trust, lower engagement, and increase customer drop-offs.",
     impact: "⚠️ Lost Leads & Missed Revenue",
@@ -30,7 +16,7 @@ const chaosItems = [
     id: 2,
     title: "No System To Track Enquiries",
     desc: "Leads are scattered across calls, WhatsApp, forms, and spreadsheets.",
-    icon: FiBarChart2,
+    iconSrc: "/public_svg_icone/icons8-barchart-50.png",
     cardTitle: "Disorganized Leads Create Revenue Leakage",
     cardDesc: "Without a centralized system, businesses lose visibility on follow-ups, customer history, and conversion progress.",
     impact: "⚠️ Poor Follow-Up Tracking",
@@ -39,7 +25,7 @@ const chaosItems = [
     id: 3,
     title: "Ad Spend But No ROI Visibility",
     desc: "Running campaigns without proper tracking wastes marketing budget.",
-    icon: FiTarget,
+    iconSrc: "/public_svg_icone/icons8-target-50.png",
     cardTitle: "No Tracking Means No Growth Clarity",
     cardDesc: "Without conversion tracking and analytics, businesses struggle to identify what's working and where leads actually come from.",
     impact: "⚠️ Wasted Marketing Budget",
@@ -48,7 +34,7 @@ const chaosItems = [
     id: 4,
     title: "WhatsApp Chats Get Lost",
     desc: "Important conversations disappear inside crowded inboxes.",
-    icon: FiMessageCircle,
+    iconSrc: "/public_svg_icone/icons8-message-50.png",
     cardTitle: "Missed Conversations Reduce Conversions",
     cardDesc: "When customer chats are unmanaged, businesses miss follow-ups, delay responses, and lose sales opportunities.",
     impact: "⚠️ Low Customer Retention",
@@ -57,7 +43,7 @@ const chaosItems = [
     id: 5,
     title: "Manual Follow-Ups Waste Time",
     desc: "Teams spend hours manually replying, reminding, and updating leads.",
-    icon: FiRepeat,
+    iconSrc: "/public_svg_icone/icons8-repeat-50.png",
     cardTitle: "Manual Work Slows Business Growth",
     cardDesc: "Without automation, businesses struggle to scale lead management efficiently while maintaining consistent customer communication.",
     impact: "⚠️ Reduced Team Productivity",
@@ -69,7 +55,7 @@ const edgeItems = [
     id: 1,
     title: "Instant Lead Response System",
     desc: "Automatically engage leads the moment they enquire.",
-    icon: FiZap,
+    iconSrc: "/public_svg_icone/icons8-lightning-bolt-icon-50.png",
     cardTitle: "Faster Responses Improve Conversions",
     cardDesc: "Automated follow-ups and instant notifications help businesses respond quickly and engage leads before competitors do.",
     impact: "✅ Faster Lead Engagement",
@@ -78,7 +64,7 @@ const edgeItems = [
     id: 2,
     title: "Centralized CRM Management",
     desc: "Manage all enquiries from one organized dashboard.",
-    icon: FiTrendingUp,
+    iconSrc: "/public_svg_icone/icons8-trending-50.png",
     cardTitle: "Every Lead Tracked In One Place",
     cardDesc: "A structured CRM system keeps conversations, customer history, and follow-up progress fully organized.",
     impact: "✅ Better Lead Visibility",
@@ -87,7 +73,7 @@ const edgeItems = [
     id: 3,
     title: "Conversion Tracking & Analytics",
     desc: "Understand which campaigns generate real business results.",
-    icon: FiTarget,
+    iconSrc: "/public_svg_icone/icons8-target-50.png",
     cardTitle: "Smarter Decisions With Real Data",
     cardDesc: "Track lead sources, customer journeys, and campaign performance to optimize growth strategies.",
     impact: "✅ Better ROI Clarity",
@@ -96,7 +82,7 @@ const edgeItems = [
     id: 4,
     title: "Automated WhatsApp Workflows",
     desc: "Nurture leads automatically through smart messaging systems.",
-    icon: FiMessageCircle,
+    iconSrc: "/public_svg_icone/icons8-message-50.png",
     cardTitle: "Consistent Communication At Scale",
     cardDesc: "Automated workflows help businesses follow up consistently without missing customer interactions.",
     impact: "✅ Improved Customer Experience",
@@ -105,12 +91,25 @@ const edgeItems = [
     id: 5,
     title: "Scalable Automation Systems",
     desc: "Reduce manual work and improve operational efficiency.",
-    icon: FiSettings,
+    iconSrc: "/public_svg_icone/icons8-settings-50.png",
     cardTitle: "Grow Without Growing Your Team",
     cardDesc: "Smart automation handles repetitive tasks so your team focuses on high-value work that actually drives revenue.",
     impact: "✅ Operational Efficiency",
   },
 ];
+
+// Simple SVG Arrow Component to eliminate external icon dependencies entirely
+const ArrowRightSvg = ({ className }) => (
+  <svg 
+    className={className} 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2.5" 
+    viewBox="0 0 24 24"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+  </svg>
+);
 
 // ── Component ─────────────────────────────────────────────────────────
 export default function ChaosVsEdge() {
@@ -262,16 +261,24 @@ export default function ChaosVsEdge() {
               <div className="inline-flex p-1.5 bg-gray-100 rounded-2xl gap-1">
                 <button
                   onClick={() => handleTabChange('chaos')}
-                  className={`cvs-tab-chaos flex items-center gap-2 px-5 md:px-7 py-2.5 rounded-xl font-extrabold transition-all duration-300 text-sm md:text-[15px] ${activeTab === 'chaos' ? 'active' : 'text-gray-900'}`}
+                  className={`cvs-tab-chaos flex items-center gap-2.5 px-5 md:px-7 py-2.5 rounded-xl font-extrabold transition-all duration-300 text-sm md:text-[15px] ${activeTab === 'chaos' ? 'active' : 'text-gray-900'}`}
                 >
-                  <FiAlertTriangle className="w-5 h-5 flex-shrink-0 stroke-[2.5]" />
+                  <img 
+                    src="/public_svg_icone/icons8-alert-50.png" 
+                    alt="Traditional Alert" 
+                    className="w-5 h-5 object-contain flex-shrink-0" 
+                  />
                   Traditional Workflow
                 </button>
                 <button
                   onClick={() => handleTabChange('edge')}
-                  className={`cvs-tab-edge flex items-center gap-2 px-5 md:px-7 py-2.5 rounded-xl font-extrabold transition-all duration-300 text-sm md:text-[15px] ${activeTab === 'edge' ? 'active' : 'text-gray-900'}`}
+                  className={`cvs-tab-edge flex items-center gap-2.5 px-5 md:px-7 py-2.5 rounded-xl font-extrabold transition-all duration-300 text-sm md:text-[15px] ${activeTab === 'edge' ? 'active' : 'text-gray-900'}`}
                 >
-                  <FiCheckCircle className="w-5 h-5 flex-shrink-0 stroke-[2.5]" />
+                  <img 
+                    src="/public_svg_icone/icons8-green-circle-50.png" 
+                    alt="Smart Green Tick" 
+                    className="w-5 h-5 object-contain flex-shrink-0" 
+                  />
                   Smart Growth System
                 </button>
               </div>
@@ -301,16 +308,19 @@ export default function ChaosVsEdge() {
                       >
                         <div className="p-4 md:p-5">
                           <div className="flex items-start gap-4 md:gap-5">
-                            {/* Icon bubble: हमेशा बोल्ड, बड़ा और हाइलाइटेड रहेगा */}
+                            {/* Icon bubble mapping to high-quality PNG asset */}
                             <div
-                              className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center border-2"
+                              className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center border-2 p-2.5 overflow-hidden"
                               style={{
                                 background: isActive ? accentLight : '#F9FAFB',
                                 borderColor: accent,
-                                color: accent,
                               }}
                             >
-                              <item.icon className="w-6 h-6 stroke-[2.5]" />
+                              <img 
+                                src={item.iconSrc} 
+                                alt={item.title} 
+                                className="w-full h-full object-contain" 
+                              />
                             </div>
 
                             <div className="flex-1 min-w-0">
@@ -320,21 +330,20 @@ export default function ChaosVsEdge() {
                               >
                                 {item.title}
                               </h3>
-                              {/* डिस्क्रिप्शन को फुल ब्लैक और बोल्डर कर दिया गया है */}
                               <p className="text-[13px] md:text-[14px] text-gray-950 font-bold leading-[1.6]">
                                 {item.desc}
                               </p>
                             </div>
 
-                            {/* Active chevron */}
+                            {/* Active chevron arrow */}
                             {isActive && (
                               <motion.div
                                 initial={{ opacity: 0, x: -4 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1"
-                                style={{ background: accentLight, color: accent }}
+                                className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1 text-white"
+                                style={{ background: accent }}
                               >
-                                <FiArrowRight className="w-4 h-4 stroke-[2.5]" />
+                                <ArrowRightSvg className="w-3.5 h-3.5" />
                               </motion.div>
                             )}
                           </div>
@@ -412,13 +421,17 @@ export default function ChaosVsEdge() {
                       </div>
 
                       <div className="relative z-10 p-7 md:p-9">
-                        {/* Icon + number */}
+                        {/* PNG Icon + number status */}
                         <div className="flex items-center gap-3 mb-6">
                           <div
-                            className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
-                            style={{ background: 'rgba(255,255,255,0.15)', border: `2px solid ${accent}` }}
+                            className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 p-3 bg-white/10"
+                            style={{ border: `2px solid ${accent}` }}
                           >
-                            <currentItem.icon className="w-7 h-7 text-white stroke-[2.5]" />
+                            <img 
+                              src={currentItem.iconSrc} 
+                              alt={currentItem.cardTitle} 
+                              className="w-full h-full object-contain brightness-0 invert" 
+                            />
                           </div>
                           <div
                             className="text-[11px] font-black tracking-[0.12em] uppercase px-3 py-1 rounded-full text-white bg-white/20"
@@ -432,7 +445,7 @@ export default function ChaosVsEdge() {
                           {currentItem.cardTitle}
                         </h3>
 
-                        {/* Description: राइट साइड के कार्ड में भी डिस्क्रिप्शन को हाइलाइट कर दिया गया है */}
+                        {/* Description */}
                         <p className="text-white text-[14px] md:text-[15px] font-bold leading-[1.75] mb-7">
                           {currentItem.cardDesc}
                         </p>
@@ -455,13 +468,13 @@ export default function ChaosVsEdge() {
                         {/* Divider */}
                         <div className="h-px w-full mb-6" style={{ background: 'rgba(255,255,255,0.15)' }} />
 
-                        {/* CTA */}
+                        {/* CTA Button */}
                         <button
                           className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full font-black text-white text-[14px] transition-all duration-300 hover:gap-3.5 hover:shadow-2xl"
                           style={{ background: grad, boxShadow: `0 6px 24px ${isChaos ? 'rgba(187,0,15,0.4)' : 'rgba(100,0,161,0.4)'}` }}
                         >
                           {isChaos ? 'Fix This Problem' : 'Get This System'}
-                          <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 stroke-[2.5]" />
+                          <ArrowRightSvg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                         </button>
                       </div>
                     </motion.div>
@@ -495,13 +508,14 @@ export default function ChaosVsEdge() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-center mt-10"
           >
-            <p className="text-gray-900 text-[13px] md:text-sm font-bold">
+            <p className="text-gray-900 text-[13px] md:sm font-bold">
               The problem is not your ads.{" "}
               <span className="font-black text-black">The problem is your system.</span>
             </p>
           </motion.div>
 
         </div>
+        
       </section>
     </>
   );

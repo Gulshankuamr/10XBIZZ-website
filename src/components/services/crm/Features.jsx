@@ -1,49 +1,40 @@
 import React from 'react';
-import { 
-  Database, 
-  GitBranch, 
-  MessageSquare, 
-  Cpu, 
-  Users, 
-  BarChart3, 
-  CheckCircle2, 
-  ArrowRight 
-} from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function CRMFeatures() {
   const featuresData = [
     {
-      icon: <Database className="w-5 h-5 text-[#6400A1] icon-glow" />,
+      iconSrc: "/public_svg_icone/icons8-lead-50.png",
       title: "Lead Capture Automation",
       desc: "Automatically capture leads from websites, ads, landing pages, and WhatsApp into one organized CRM dashboard.",
       bullets: ["Instant lead collection", "Auto lead assignment", "Multi-source integrations"]
     },
     {
-      icon: <GitBranch className="w-5 h-5 text-[#6400A1] icon-glow" />,
+      iconSrc: "/public_svg_icone/icons8-trending-50.png",
       title: "Sales Pipeline Tracking",
       desc: "Track every lead stage from enquiry to conversion with a structured and easy-to-manage sales pipeline system.",
       bullets: ["Drag & drop pipeline", "Deal stage tracking", "Sales progress visibility"]
     },
     {
-      icon: <MessageSquare className="w-5 h-5 text-[#6400A1] icon-glow" />,
+      iconSrc: "/public_svg_icone/icons8-message-50.png",
       title: "WhatsApp CRM Integration",
       desc: "Connect WhatsApp with your CRM to automate customer communication and improve response speed.",
       bullets: ["Instant replies", "Automated follow-ups", "Centralized conversations"]
     },
     {
-      icon: <Cpu className="w-5 h-5 text-[#6400A1] icon-glow" />,
+      iconSrc: "/public_svg_icone/icons8-settings-50.png",
       title: "CRM Workflow Automation",
       desc: "Automate repetitive tasks, reminders, notifications, and follow-up workflows to save time and improve efficiency.",
       bullets: ["Smart workflows", "Task automation", "Auto reminders"]
     },
     {
-      icon: <Users className="w-5 h-5 text-[#6400A1] icon-glow" />,
+      iconSrc: "/public_svg_icone/icons8-crm-50.png",
       title: "Customer Management System",
       desc: "Store customer information, conversation history, and activity logs in one secure centralized system.",
       bullets: ["Customer profiles", "Interaction history", "Organized database"]
     },
     {
-      icon: <BarChart3 className="w-5 h-5 text-[#6400A1] icon-glow" />,
+      iconSrc: "/public_svg_icone/icons8-barchart-50.png",
       title: "Analytics & Reporting",
       desc: "Monitor lead performance, sales growth, and team productivity with easy-to-understand CRM reports.",
       bullets: ["Sales insights", "Lead tracking reports", "Performance analytics"]
@@ -64,9 +55,6 @@ export default function CRMFeatures() {
           border-image-slice: 1;
           transform: translateY(-6px);
           box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
-        }
-        .feature-card:hover .icon-box {
-          background: linear-gradient(125.94deg, rgba(100, 0, 161, 0.08) 0%, rgba(187, 0, 15, 0.08) 100%);
         }
         .text-gradient {
           background: linear-gradient(125.94deg, #6400A1 0%, #BB000F 100%);
@@ -107,14 +95,18 @@ export default function CRMFeatures() {
                 key={idx} 
                 className="feature-card bg-white rounded-[24px] p-8 flex flex-col justify-between items-start shadow-sm"
               >
-                <div className="space-y-5 w-full">
-                  {/* Icon Wrapper with Glow transition */}
-                  <div className="icon-box w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center transition-all duration-300">
-                    {item.icon}
+                <div className="space-y-5 w-full flex flex-col items-center">
+                  {/* Clean, Borderless & Center-Aligned Large PNG Icon Container */}
+                  <div className="w-16 h-16 flex items-center justify-center p-1 shrink-0">
+                    <img 
+                      src={item.iconSrc} 
+                      alt={item.title} 
+                      className="w-full h-full object-contain" 
+                    />
                   </div>
                   
                   {/* Title & Desc */}
-                  <div className="space-y-2">
+                  <div className="space-y-2 text-center w-full">
                     <h3 className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-gray-900">
                       {item.title}
                     </h3>
@@ -136,9 +128,6 @@ export default function CRMFeatures() {
               </div>
             ))}
           </div>
-
-          {/* ─── PREMIUM CTA SECTION ─── */}
-       
 
         </div>
       </section>

@@ -2,26 +2,22 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Users, Bot, BarChart3 } from 'lucide-react'
 
 const managementData = [
   {
     title: "Generate Qualified Leads",
     description: "Reach the right audience with targeted campaigns designed to attract customers actively searching for your products or services.",
-    icon: <Users className="w-6 h-6 text-[#6400A1]" />,
-    bgColor: "bg-purple-50"
+    iconSrc: "/public_svg_icone/icons8-lead-50.png"
   },
   {
     title: "Automate Customer Follow-Ups",
     description: "Convert more leads with CRM automation, WhatsApp workflows, email sequences, and intelligent nurturing systems.",
-    icon: <Bot className="w-6 h-6 text-[#6400A1]" />,
-    bgColor: "bg-purple-50"
+    iconSrc: "/public_svg_icone/icons8-settings-50.png"
   },
   {
     title: "Scale With Confidence",
     description: "Track every lead, measure every campaign, and make data-backed decisions that help your business grow sustainably.",
-    icon: <BarChart3 className="w-6 h-6 text-[#6400A1]" />,
-    bgColor: "bg-purple-50"
+    iconSrc: "/public_svg_icone/icons8-barchart-50.png"
   }
 ]
 
@@ -56,25 +52,31 @@ export default function WhatWeManage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.55, delay: index * 0.12 }}
               whileHover={{ 
                 y: -8,
-                boxShadow: "0 20px 40px rgba(100, 0, 161, 0.08)",
-                borderColor: "rgba(100, 0, 161, 0.15)"
+                boxShadow: "0 30px 60px -12px rgba(100, 0, 161, 0.14)",
+                borderColor: "#6400A1" // Hover karne par clean purple border active hoga
               }}
-              className="p-8 md:p-10 rounded-[2.5rem] border border-gray-100 shadow-sm transition-all bg-white flex flex-col justify-between h-full group"
+              className="p-8 md:p-10 rounded-[2.5rem] border-2 border-slate-200 bg-white shadow-[0_15px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300 flex flex-col justify-between h-full group"
             >
               <div>
-                <div className="flex justify-between items-start mb-8 gap-4">
+                <div className="flex flex-col items-center text-center mb-6">
+                  {/* Clean, Borderless & Center-Aligned Large PNG Icon Container */}
+                  <div className="w-16 h-16 flex items-center justify-center p-1 shrink-0 mb-6">
+                    <img 
+                      src={item.iconSrc} 
+                      alt={item.title} 
+                      className="w-full h-full object-contain" 
+                    />
+                  </div>
+
                   <h3 className="text-2xl font-bold text-gray-900 leading-snug tracking-[-0.01em]">
                     {item.title}
                   </h3>
-                  <div className={`p-4 rounded-2xl ${item.bgColor} flex-shrink-0 transition-colors duration-300 group-hover:bg-purple-100`}>
-                    {item.icon}
-                  </div>
                 </div>
                 
-                <p className="text-gray-600 leading-[1.7] text-base font-medium">
+                <p className="text-gray-600 leading-[1.7] text-base font-medium text-center">
                   {item.description}
                 </p>
               </div>

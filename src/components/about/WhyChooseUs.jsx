@@ -70,7 +70,7 @@ export default function WhyChooseUs() {
               onClick={() => setOpenModal(true)}
               className="px-8 py-4 bg-gradient-to-r from-[#6400A1] to-[#BB000F] text-white rounded-full font-bold text-sm hover:shadow-lg hover:scale-105 transition-all flex items-center gap-3 cursor-pointer"
             >
-              Get Started <span>→</span>
+              Get Started 
             </HeroActionButton>
           </div>
 
