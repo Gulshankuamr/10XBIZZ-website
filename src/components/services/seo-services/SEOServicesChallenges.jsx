@@ -145,10 +145,9 @@ export default function SEOServicesChallenges() {
           <div className="grid grid-cols-1 md:grid-cols-3">
             {services.map((service, index) => {
               
-              // ─── PERFECT INNER BORDER LOGIC ─────────────────────────────────
-              // Row में आख़िरी कार्ड (3rd, 6th, 9th) पता करने के लिए
+           
               const isLastInRow = (index + 1) % 3 === 0;
-              // सबसे आख़िरी रो के कार्ड्स (7th, 8th, 9th) पता करने के लिए
+              
               const isInLastRow = index >= services.length - 3;
 
               return (

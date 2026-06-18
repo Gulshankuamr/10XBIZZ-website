@@ -1,21 +1,45 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { blogCategories, blogPosts } from "./data";
+import { getAllBlogs } from "../services/blogService";
 
 const INITIAL_VISIBLE = 6;
 const LOAD_MORE_STEP = 3;
 
 export default function BlogList() {
+  const [blogPosts, setBlogPosts] = useState([]);
   const [activeCategory, setActiveCategory] = useState("All");
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        setLoading(true);
+        const res = await getAllBlogs();
+        setBlogPosts(res.success && Array.isArray(res.data) ? res.data : []);
+      } catch (err) {
+        setError("Unable to load blogs right now.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  const blogCategories = useMemo(() => {
+    const categories = blogPosts.map((post) => post.category).filter(Boolean);
+    return ["All", ...new Set(categories)];
+  }, [blogPosts]);
 
   const filteredPosts = useMemo(() => {
     if (activeCategory === "All") return blogPosts;
     return blogPosts.filter((post) => post.category === activeCategory);
-  }, [activeCategory]);
+  }, [activeCategory, blogPosts]);
 
   const visiblePosts = filteredPosts.slice(0, visibleCount);
   const hasMore = visibleCount < filteredPosts.length;
@@ -65,19 +89,31 @@ export default function BlogList() {
         </div>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {visiblePosts.map((post, index) => (
+          {loading && (
+            <div className="col-span-full rounded-3xl border border-white/60 bg-white/75 p-8 text-center text-sm font-bold text-slate-500">
+              Loading blogs...
+            </div>
+          )}
+
+          {!loading && error && (
+            <div className="col-span-full rounded-3xl border border-red-100 bg-white p-8 text-center text-sm font-bold text-red-500">
+              {error}
+            </div>
+          )}
+
+          {!loading && !error && visiblePosts.map((post, index) => (
             <motion.article
-              key={post.slug}
+              key={post.blog_id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
               className="group overflow-hidden rounded-3xl border border-white/60 bg-white/75 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_26px_50px_rgba(100,0,161,0.16)]"
             >
-              <Link to={`/blog/${post.slug}`} className="no-underline">
+              <Link to={`/blog/${post.blog_id}`} className="no-underline">
                 <div className="overflow-hidden">
                   <img
-                    src={post.thumbnail}
+                    src={post.featured_image || "/placeholder.svg"}
                     alt={post.title}
                     className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -89,10 +125,10 @@ export default function BlogList() {
                   <h2 className="mt-4 text-[22px] font-bold leading-[1.2] tracking-[-0.02em] text-slate-900">
                     {post.title}
                   </h2>
-                  <p className="mt-3 text-sm font-medium leading-[1.7] text-slate-600">{post.excerpt}</p>
+                  <p className="mt-3 text-sm font-medium leading-[1.7] text-slate-600">{post.short_description}</p>
                   <div className="mt-5 flex items-center justify-between text-xs font-semibold text-slate-500">
-                    <span>{post.author}</span>
-                    <span>{post.date}</span>
+                    <span>Team 10XBIZZ</span>
+                    <span>{post.created_at ? new Date(post.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) : ""}</span>
                   </div>
                   <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-[linear-gradient(125.94deg,#6400A1_0%,#BB000F_100%)] px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 group-hover:gap-3">
                     Read More <ArrowUpRight size={14} />
@@ -106,13 +142,13 @@ export default function BlogList() {
         <div className="mt-10 flex justify-center">
           <button
             onClick={() => setVisibleCount((count) => count + LOAD_MORE_STEP)}
-            disabled={!hasMore}
+            disabled={!hasMore || loading}
             className="rounded-full px-7 py-3 text-sm font-bold text-white transition-all duration-300"
             style={{
               background: "linear-gradient(125.94deg,#6400A1_0%,#BB000F_100%)",
               boxShadow: hasMore ? "0 10px 25px rgba(100,0,161,0.28)" : "none",
-              opacity: hasMore ? 1 : 0.55,
-              cursor: hasMore ? "pointer" : "not-allowed",
+              opacity: hasMore && !loading ? 1 : 0.55,
+              cursor: hasMore && !loading ? "pointer" : "not-allowed",
             }}
           >
             {hasMore ? "Load More" : "More blogs coming soon"}

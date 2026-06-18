@@ -15,6 +15,7 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -24,14 +25,49 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.agree) return alert("Please accept the terms to continue.");
+
+    if (!formData.agree) {
+      setSubmitError("Please accept the terms to continue.");
+      return;
+    }
+
+    setSubmitError("");
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+
+    const payload = {
+      first_name: formData.firstName.trim(),
+      last_name: formData.lastName.trim(),
+      phone_number: formData.phone.trim(),
+      business_email: formData.email.trim(),
+      business_name: formData.businessName.trim(),
+      monthly_revenue: formData.revenue,
+      service_interested_in: formData.service,
+      tell_us_about: formData.message.trim(),
+    };
+
+    try {
+      const response = await fetch("https://10x.fctesting.shop/api/business-inquiries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || `Request failed with status ${response.status}`);
+      }
+
       setSubmitted(true);
-    }, 1500);
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
+      setSubmitError("Submission failed. Please try again or contact us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -150,6 +186,11 @@ export default function Contact() {
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-5">
+                    {submitError ? (
+                      <div className="rounded-2xl border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-700">
+                        {submitError}
+                      </div>
+                    ) : null}
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                       <FormGroup label="First Name" required>
                         <input type="text" name="firstName" className="form-input-custom" placeholder="Rahul" value={formData.firstName} onChange={handleChange} required />
@@ -169,11 +210,11 @@ export default function Contact() {
                       <FormGroup label="Monthly Revenue">
                         <select name="revenue" className="form-input-custom appearance-none" value={formData.revenue} onChange={handleChange}>
                           <option value="">Select Range</option>
-                          <option value="below1l">Below ₹1 Lakh</option>
-                          <option value="1l-5l">₹1L – ₹5L</option>
-                          <option value="5l-20l">₹5L – ₹20L</option>
-                          <option value="20l-1cr">₹20L – ₹1 Cr</option>
-                          <option value="above1cr">Above ₹1 Cr</option>
+                          <option value="Below ₹1 Lakh">Below ₹1 Lakh</option>
+                          <option value="₹1L – ₹5L">₹1L – ₹5L</option>
+                          <option value="₹5L – ₹20L">₹5L – ₹20L</option>
+                          <option value="₹20L – ₹1 Cr">₹20L – ₹1 Cr</option>
+                          <option value="Above ₹1 Cr">Above ₹1 Cr</option>
                         </select>
                       </FormGroup>
                     </div>
@@ -181,13 +222,13 @@ export default function Contact() {
                     <FormGroup label="Service Interested In" required>
                       <select name="service" className="form-input-custom appearance-none" value={formData.service} onChange={handleChange} required>
                         <option value="">Choose a Service</option>
-                        <option value="fb-ads">Facebook & Instagram Ads</option>
-                        <option value="lead-gen">Lead Generation</option>
-                        <option value="crm">CRM Automation</option>
-                        <option value="whatsapp">WhatsApp Automation</option>
-                        <option value="funnel">Sales Funnel</option>
-                        <option value="consultation">Marketing Consultation</option>
-                        <option value="full-package">Full Digital Marketing Package</option>
+                        <option value="Facebook & Instagram Ads">Facebook & Instagram Ads</option>
+                        <option value="Lead Generation">Lead Generation</option>
+                        <option value="CRM Automation">CRM Automation</option>
+                        <option value="WhatsApp Automation">WhatsApp Automation</option>
+                        <option value="Sales Funnel">Sales Funnel</option>
+                        <option value="Marketing Consultation">Marketing Consultation</option>
+                        <option value="Full Digital Marketing Package">Full Digital Marketing Package</option>
                       </select>
                     </FormGroup>
 

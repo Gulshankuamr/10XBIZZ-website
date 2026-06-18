@@ -1,11 +1,22 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, Clock, Share2, User, Grid, Link2, ChevronRight, Trophy, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { caseStudies } from "./data";
+import { getAllCaseStudies, getCaseStudyById } from "../services/caseStudyService";
+
+const API_ORIGIN = "https://10x.fctesting.shop";
+
+const resolveImageUrl = (src) => {
+  if (!src) return "/placeholder.svg";
+  if (src.startsWith("http")) return src;
+  return `${API_ORIGIN}${src}`;
+};
 
 export default function Detail() {
-  const { slug } = useParams();
-  const study = caseStudies.find((item) => item.slug === slug);
+  const { id } = useParams();
+  const [study, setStudy] = useState(null);
+  const [relatedStudies, setRelatedStudies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [progress, setProgress] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
   const articleRef = useRef(null);
@@ -21,7 +32,38 @@ export default function Detail() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (!study) {
+  useEffect(() => {
+    const fetchStudy = async () => {
+      try {
+        setLoading(true);
+        const [detailRes, listRes] = await Promise.all([
+          getCaseStudyById(id),
+          getAllCaseStudies(),
+        ]);
+        const list = listRes.success && Array.isArray(listRes.data) ? listRes.data : [];
+
+        setStudy(detailRes.success ? detailRes.data : null);
+        setRelatedStudies(list.filter((item) => String(item.case_study_id) !== String(id)).slice(0, 3));
+        setError("");
+      } catch (err) {
+        setError("Unable to load this case study right now.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStudy();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <section className="bg-white mt-[64px] px-6 py-20 text-center font-sans">
+        <p className="text-sm font-bold text-gray-500">Loading case study...</p>
+      </section>
+    );
+  }
+
+  if (error || !study) {
     return (
       <section className="bg-white mt-[64px] px-6 py-20 text-center font-sans">
         <h1 className="text-3xl font-bold text-[#1a1c1c]">Case study not found</h1>
@@ -32,7 +74,10 @@ export default function Detail() {
     );
   }
 
-  const related = caseStudies.filter((s) => s.slug !== study.slug).slice(0, 3);
+  const imageUrl = resolveImageUrl(study.featured_image);
+  const createdDate = study.created_at
+    ? new Date(study.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })
+    : "";
 
   const faqs = [
     {
@@ -57,7 +102,7 @@ export default function Detail() {
         {/* Full Image Banner Component */}
         <section className="w-full h-[320px] md:h-[420px] relative overflow-hidden">  
           <img
-            src={study.coverImage}
+            src={imageUrl}
             alt={study.title}
             className="w-full h-full object-cover filter grayscale brightness-75"
           />
@@ -85,13 +130,13 @@ export default function Detail() {
       <span className="text-gray-300">/</span>
 
       <span className="text-gray-900">
-        {study.category}
+        {study.industry || "Case Study"}
       </span>
     </nav>
 
     {/* Category */}
     <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-[10px] font-black tracking-[0.2em] text-blue-600 uppercase mb-5">
-      {study.category}
+      {study.industry || "Case Study"}
     </span>
 
     {/* Title */}
@@ -100,9 +145,9 @@ export default function Detail() {
     </h1>
 
     {/* Subtitle */}
-    {study.excerpt && (
+    {study.short_description && (
       <p className="text-lg md:text-xl leading-relaxed text-gray-600 max-w-3xl mb-8">
-        {study.excerpt}
+        {study.short_description}
       </p>
     )}
 
@@ -110,7 +155,7 @@ export default function Detail() {
     <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 border-t border-gray-100 pt-5">
       <div className="flex items-center gap-3">
         <img
-          src={study.clientImage}
+          src={imageUrl}
           alt="Author"
           className="w-10 h-10 rounded-full object-cover border border-gray-200"
         />
@@ -127,13 +172,13 @@ export default function Detail() {
 
       <span className="hidden md:block text-gray-300">•</span>
 
-      <span>23 April 2024</span>
+      <span>{createdDate}</span>
 
       <span className="hidden md:block text-gray-300">•</span>
 
       <span className="flex items-center gap-1">
         <Clock size={14} />
-        {study.readTime || "12 min read"}
+        8 min read
       </span>
     </div>
   </div>
@@ -208,20 +253,20 @@ export default function Detail() {
 
               {/* Accurate Drop cap implementation */}
               <p className="text-gray-900 first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-2 first-letter:font-serif first-letter:leading-[0.85] first-letter:pt-1">
-                {study.excerpt || "The evolution of metropolitan hubs is no longer merely a question of concrete and steel. In the modern era, the intelligence of a city is measured by the fidelity of its data and the responsiveness of its infrastructure to the needs of millions. As we move towards 2030, the integration of IoT sensors and real-time analytics is redefining what it means to live in an 'efficient' environment."}
+                {study.short_description || "This case study shows how a focused digital strategy helped improve visibility, lead quality, and growth outcomes."}
               </p>
 
               <h2 id="toc" className="text-lg font-bold text-gray-900 pt-4 tracking-tight font-sans">
-                Designing for Scale
+                Challenge
               </h2>
               <p>
-                When we initiated the "Project Aether" initiative in Copenhagen, the primary challenge wasn't just collecting data—it was creating a scalable architecture that could handle petabytes of environmental information without latency. We needed to ensure that every street light, every bus sensor, and every air quality monitor functioned as a single, cohesive nervous system.
+                {study.challenge || "The client needed a clearer digital presence and a stronger system for turning online attention into qualified business opportunities."}
               </p>
 
               {/* Exact Quote Box Layout */}
               <blockquote className="my-8 pl-5 border-l border-gray-900 py-2">
                 <p className="text-[19px] leading-relaxed italic text-gray-900 font-serif">
-                  "Data is the new asphalt; it's the foundation upon which every future city will be built."
+                  "{study.solution || "A focused digital system works best when strategy, design, and conversion paths move together."}"
                 </p>
                 <cite className="block mt-2 text-[9px] font-sans text-gray-400 not-italic uppercase tracking-widest font-semibold">
                   — ANNETTE THOMAS, HEAD OF URBAN INNOVATIONS
@@ -231,24 +276,24 @@ export default function Detail() {
               {/* Twin Metrics Row */}
               <div className="grid grid-cols-2 gap-4 py-4 my-6 text-center">
                 <div>
-                  <span className="block text-3xl font-bold font-sans text-blue-600">45%</span>
-                  <span className="text-[9px] uppercase tracking-wider font-bold text-gray-400 font-sans block mt-1">Reduction in Traffic</span>
+                  <span className="block text-3xl font-bold font-sans text-blue-600">100%</span>
+                  <span className="text-[9px] uppercase tracking-wider font-bold text-gray-400 font-sans block mt-1">Digital Focus</span>
                 </div>
                 <div>
-                  <span className="block text-3xl font-bold font-sans text-blue-600">20%</span>
-                  <span className="text-[9px] uppercase tracking-wider font-bold text-gray-400 font-sans block mt-1">Energy Saved</span>
+                  <span className="block text-3xl font-bold font-sans text-blue-600">3x</span>
+                  <span className="text-[9px] uppercase tracking-wider font-bold text-gray-400 font-sans block mt-1">Growth System</span>
                 </div>
               </div>
 
               <p>
-                The results were immediate. By utilizing predictive modeling, we were able to reroute public transport in real-time based on pedestrian density, reducing commute times by nearly half in high-congestion zones.
+                {study.results || "The project created a stronger online foundation and improved the client's ability to generate qualified leads from digital channels."}
               </p>
 
               {/* Micro-processor/Diagram Image component placeholder */}
               <figure className="my-6">
                 <div className="bg-gray-100 overflow-hidden border border-gray-100">
                   <img
-                    src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800&auto=format&fit=crop"
+                    src={imageUrl}
                     alt="Infrastructure Node Processing Block"
                     className="w-full aspect-[16/9] object-cover"
                   />
@@ -264,16 +309,16 @@ export default function Detail() {
                 <div className="sm:col-span-7 space-y-2">
                   <h3 className="text-sm font-bold text-gray-900">Interoperability Challenges</h3>
                   <p className="text-xs leading-relaxed text-gray-600">
-                    The biggest hurdle remains the fragmentation of legacy platforms. Integrating 40-year-old power grids with cutting-edge edge computing requires an abstraction layer that handles raw execution sequences without failover leaks.
+                    {study.challenge || "The biggest hurdle was connecting the client's offer, audience expectations, and online experience into one clear conversion path."}
                   </p>
                 </div>
                 <div className="sm:col-span-5 bg-gray-50 p-4 border border-gray-100">
                   <h4 className="font-bold text-gray-900 mb-3 text-[10px] tracking-wider uppercase">Key Insights</h4>
                   <ul className="space-y-2.5">
                     {[
-                      "Decentralized mesh management reduces failover points.",
-                      "Primary flow encryption is non-negotiable for public trust.",
-                      "Cloud-native caching allows sub-millisecond batch updates."
+                      study.solution || "Built a responsive digital experience around client goals.",
+                      study.results || "Improved visibility and lead generation outcomes.",
+                      study.industry ? `Industry focus: ${study.industry}` : "Clearer positioning for target customers."
                     ].map((item, idx) => (
                       <li key={idx} className="flex gap-2 text-[11px] text-gray-600 items-start">
                         <svg className="w-3 h-3 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -342,7 +387,7 @@ export default function Detail() {
                   <div>
                     <h4 className="font-bold text-xs tracking-wide uppercase text-blue-100">Outcome Summary</h4>
                     <p className="text-xs opacity-90 leading-relaxed mt-1">
-                      {study.finalOutcome || "The network architecture achieved a massive 42% latency optimization reduction across IoT nodes and saved the municipal power budget upwards of $4M annually during testing parameters."}
+                      {study.results || "A practical growth system with stronger visibility, clearer messaging, and more confidence in digital acquisition."}
                     </p>
                   </div>
                 </div>
@@ -352,7 +397,7 @@ export default function Detail() {
               <div id="author" className="mt-12 pt-6 border-t border-gray-100 font-sans">
                 <div className="flex gap-4 items-start">
                   <img
-                    src={study.clientImage}
+                    src={imageUrl}
                     alt="Alexandros Kouras"
                     className="w-12 h-12 rounded-full border border-gray-200 object-cover grayscale"
                   />

@@ -63,11 +63,11 @@ export default function App() {
 
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogDetail />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
 
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route
-            path="/case-studies/:slug"
+            path="/case-studies/:id"
             element={<CaseStudyDetail />}
           />
 

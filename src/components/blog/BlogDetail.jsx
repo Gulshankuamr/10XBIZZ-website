@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowLeft,
@@ -11,9 +11,8 @@ import {
   Clock,
   ArrowRight,
   Send,
-  User,
 } from "lucide-react";
-import { blogPosts } from "./data";
+import { getBlogById } from "../services/blogService";
 
 /* ─────────────────────────────────────────────
    Tiny reusable primitives
@@ -42,6 +41,16 @@ function ShareButton({ icon: Icon }) {
 const HIGHLIGHT_WORDS = new Set(["growth", "conversion", "strategy", "pipeline"]);
 
 function ContentBlock({ block, idx }) {
+  if (block.type === "html") {
+    return (
+      <div
+        key={idx}
+        className="text-[15px] sm:text-[16px] leading-[1.85] text-slate-600 [&_p]:mb-4 [&_strong]:font-bold [&_strong]:text-[#6400A1]"
+        dangerouslySetInnerHTML={{ __html: block.html }}
+      />
+    );
+  }
+
   if (block.type === "heading") {
     return (
       <h2
@@ -131,14 +140,47 @@ function NotFound() {
 ───────────────────────────────────────────── */
 
 export default function BlogDetail() {
-  const { slug } = useParams();
-  const post = blogPosts.find((p) => p.slug === slug);
-
+  const { id } = useParams();
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [commentName, setCommentName] = useState("");
   const [commentEmail, setCommentEmail] = useState("");
   const [commentText, setCommentText] = useState("");
 
-  if (!post) return <NotFound />;
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        setLoading(true);
+        const res = await getBlogById(id);
+        setPost(res.success ? res.data : null);
+        setError("");
+      } catch (err) {
+        setError("Unable to load this blog right now.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlog();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <section className="bg-[#F7F5FF] mt-[86px] min-h-[60vh] flex items-center justify-center px-6 py-20 font-[Montserrat,sans-serif]">
+        <p className="text-sm font-bold text-slate-500">Loading blog...</p>
+      </section>
+    );
+  }
+
+  if (error || !post) return <NotFound />;
+
+  const contentBlocks = post.content
+    ? [{ type: "html", html: post.content }]
+    : [{ type: "paragraph", text: post.short_description || "" }];
+  const displayDate = post.created_at
+    ? new Date(post.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
+    : "";
 
   const inputBase =
     "w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#6400A1]/50 transition-colors";
@@ -180,7 +222,7 @@ export default function BlogDetail() {
               <span className="text-slate-800">{post.author}</span>
               <span className="text-slate-200">•</span>
               <span className="flex items-center gap-1.5 text-slate-400">
-                <Calendar size={12} /> {post.date}
+                <Calendar size={12} /> {displayDate}
               </span>
               <span className="text-slate-200">•</span>
               <span className="flex items-center gap-1.5 text-slate-400">
@@ -188,7 +230,7 @@ export default function BlogDetail() {
               </span>
               <span className="text-slate-200">•</span>
               <span className="flex items-center gap-1.5 text-slate-400">
-                <Clock size={12} /> {post.readingTime}
+                <Clock size={12} /> 5 min read
               </span>
             </div>
           </header>
@@ -196,7 +238,7 @@ export default function BlogDetail() {
           {/* Hero image */}
           <div className="rounded-2xl overflow-hidden bg-slate-100 mb-8">
             <img
-              src={post.thumbnail}
+              src={post.featured_image || "/placeholder.svg"}
               alt={post.title}
               className="w-full h-auto max-h-[420px] object-cover"
             />
@@ -204,7 +246,7 @@ export default function BlogDetail() {
 
           {/* Article body */}
           <section className="space-y-5">
-            {post.content.map((block, idx) => (
+            {contentBlocks.map((block, idx) => (
               <ContentBlock key={idx} block={block} idx={idx} />
             ))}
           </section>
