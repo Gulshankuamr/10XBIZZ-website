@@ -76,11 +76,11 @@ export default function SEOHero() {
               </p>
               
               {/* Primary Content Paragraphs */}
-              <p>
+              <p className="font-medium text-gray-700">
                 At <span className="font-bold text-gray-900">10xBizz</span>, we help local businesses improve their Google Maps rankings and stand out in local search results.
               </p>
               
-              <p>
+              <p className="font-medium text-gray-700">
                 From profile optimization and review management to local SEO and business visibility strategies, we ensure your business appears where customers are actively searching for solutions.
               </p>
 

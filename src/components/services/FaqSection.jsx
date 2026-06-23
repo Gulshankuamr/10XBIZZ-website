@@ -118,7 +118,7 @@ const FaqSection = () => {
   </h2>
 
   <p
-    className="mx-auto mt-4 max-w-[680px] text-[15px] font-normal leading-7 text-[#667085]"
+    className="mx-auto mt-4 max-w-[680px] text-[15px] font-normal leading-7 text-gray-900 sm:text-[16px]"
     style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
   >
     Anything missing? Include your question when getting your custom marketing plan.
@@ -186,7 +186,7 @@ const FaqSection = () => {
                           {faq.answer.map((paragraph) => (
                             <p
                               key={paragraph}
-                              className="mb-4 text-[15px] font-normal leading-7 text-[#5e6574] last:mb-0 sm:text-[16px]"
+                              className="mb-4 text-[15px] font-normal leading-7 text-gray-900 last:mb-0 sm:text-[16px]"
                               style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
                             >
                               {paragraph}

@@ -149,7 +149,7 @@ export default function AboutSection() {
         </h1>
 
         <HeroActionButton
-          className="enq-btn"
+          // className="enq-btn"
           onClick={() => setOpenModal(true)}
         >
           Enquire Now

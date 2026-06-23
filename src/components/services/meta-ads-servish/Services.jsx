@@ -62,7 +62,7 @@ const SERVICE_CARDS = [
 export default function MetaAdsServices() {
   return (
     <main className="bg-white font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-slate-900 selection:bg-purple-200">
-      <section className="max-w-7xl mx-auto px-6 py-24">
+      <section className="max-w-7xl mx-auto px-6 py-8">
         
         {/* Header Module */}
         <div className="text-center mb-16">
@@ -72,58 +72,58 @@ export default function MetaAdsServices() {
           <h2 className="text-3xl md:text-5xl font-bold mt-6 mb-6 max-w-4xl mx-auto leading-tight tracking-tight">
             From Awareness To Conversion — We Manage Every <span className="text-[#6400A1]">Meta Campaign Type</span>
           </h2>
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto font-medium">
+          <p className="text-slate-800 text-lg max-w-2xl mx-auto font-medium">
             Whether you're looking to generate leads, increase sales, or scale your business, our Meta Ads strategies are built to deliver measurable results.
           </p>
         </div>
 
         {/* Dynamic Service Grid Matrix */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICE_CARDS.map((card) => (
-            <div
-              key={card.id}
-              className="group relative p-8 rounded-[2rem] border border-slate-200 bg-white hover:bg-[#6400A1] transition-all duration-500 cursor-pointer overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-purple-400/30 hover:-translate-y-2 flex flex-col justify-between"
-            >
-              <div>
-                <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-purple-50 group-hover:bg-white/10 transition-colors" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {SERVICE_CARDS.map((card) => (
+    <div
+      key={card.id}
+      className="group relative p-8 rounded-[2.5rem] border-4 border-slate-950 bg-white hover:bg-[#6400A1] transition-all duration-500 cursor-pointer overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 flex flex-col justify-between"
+    >
+      <div>
+        <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-purple-50 group-hover:bg-white/10 transition-colors" />
 
-                {/* Fixed: PNG Icon remains completely identical on card hover */}
-                <div className="flex justify-center items-center mb-6">
-                  <div className="w-16 h-16 flex items-center justify-center p-1 shrink-0">
-                    <img 
-                      src={card.iconSrc} 
-                      alt={card.title} 
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                </div>
-
-                <span className="inline-block px-3 py-1 rounded-full text-[11px] md:text-xs font-bold tracking-[0.05em] uppercase bg-purple-50 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white mb-4 transition-colors">
-                  {card.tag}
-                </span>
-
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-white transition-colors tracking-tight leading-tight">
-                  {card.title}
-                </h3>
-
-                <p className="text-slate-500 text-base md:text-sm leading-[1.65] group-hover:text-purple-100 mb-6 transition-colors font-medium">
-                  {card.desc}
-                </p>
-              </div>
-
-              <div className="pt-6 border-t border-slate-100 group-hover:border-white/20 mt-auto">
-                <ul className="space-y-2">
-                  {card.includes.map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm font-semibold text-slate-600 group-hover:text-white/90">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#6400A1] group-hover:bg-white shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+        {/* Enlarged and Centered PNG Icon Module */}
+        <div className="flex justify-center items-center mb-8">
+          <div className="w-24 h-24 bg-purple-50/50 rounded-2xl border border-purple-100 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/10 transition-colors duration-300 shrink-0">
+            <img 
+              src={card.iconSrc} 
+              alt={card.title} 
+              className="w-12 h-12 object-contain"
+            />
+          </div>
         </div>
+
+        <span className="inline-block px-3 py-1 rounded-full text-[11px] md:text-xs font-bold tracking-[0.05em] uppercase bg-purple-50 text-[#6400A1] group-hover:bg-white/20 group-hover:text-white mb-4 transition-colors">
+          {card.tag}
+        </span>
+
+        <h3 className="text-2xl font-bold mb-3 text-slate-900 group-hover:text-white transition-colors tracking-tight leading-tight">
+          {card.title}
+        </h3>
+
+        <p className="text-slate-600 text-base md:text-sm leading-[1.65] group-hover:text-purple-100 mb-6 transition-colors font-medium">
+          {card.desc}
+        </p>
+      </div>
+
+      <div className="pt-6 border-t border-slate-200 group-hover:border-white/20 mt-auto">
+        <ul className="space-y-2">
+          {card.includes.map((item, idx) => (
+            <li key={idx} className="flex items-center gap-2 text-sm font-semibold text-slate-600 group-hover:text-white/90">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#6400A1] group-hover:bg-white shrink-0" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ))}
+</div>
       </section>
     </main>
   )

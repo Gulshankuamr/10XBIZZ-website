@@ -170,7 +170,7 @@ export default function GoogleAdsServicePage() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <div className="px-6 pb-6 text-slate-600 text-sm md:text-base font-medium leading-[1.75] border-t border-slate-100 pt-4 bg-white/40布">
+                <div className="px-6 pb-6 text-slate-800 text-sm md:text-base font-medium leading-[1.75] border-t border-slate-100 pt-4 bg-white/40布">
                   {faq.a}
                 </div>
               </motion.div>

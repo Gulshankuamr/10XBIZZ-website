@@ -83,51 +83,51 @@ export default function CRMFeatures() {
             <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] text-gray-900 max-w-3xl">
               Powerful Features Built To <span className="text-gradient">Automate & Scale Your Business</span>
             </h2>
-            <p className="text-base md:text-[18px] font-medium leading-[1.7] text-gray-500 max-w-2xl mx-auto">
+            <p className="text-base md:text-[18px] font-medium leading-[1.7] text-gray-900 max-w-2xl mx-auto">
               Manage leads, automate follow-ups, improve customer communication, and streamline your sales process with a complete CRM growth system.
             </p>
           </div>
 
           {/* 3-Column Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-4">
-            {featuresData.map((item, idx) => (
-              <div 
-                key={idx} 
-                className="feature-card bg-white rounded-[24px] p-8 flex flex-col justify-between items-start shadow-sm"
-              >
-                <div className="space-y-5 w-full flex flex-col items-center">
-                  {/* Clean, Borderless & Center-Aligned Large PNG Icon Container */}
-                  <div className="w-16 h-16 flex items-center justify-center p-1 shrink-0">
-                    <img 
-                      src={item.iconSrc} 
-                      alt={item.title} 
-                      className="w-full h-full object-contain" 
-                    />
-                  </div>
-                  
-                  {/* Title & Desc */}
-                  <div className="space-y-2 text-center w-full">
-                    <h3 className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-gray-900">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm md:text-base font-semibold leading-[1.5] text-gray-500">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-4">
+  {featuresData.map((item, idx) => (
+    <div 
+      key={idx} 
+      className="feature-card bg-white rounded-[2.5rem] border-4 border-slate-950 p-8 flex flex-col justify-between items-start shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 transition-all duration-300"
+    >
+      <div className="space-y-5 w-full flex flex-col items-center">
+        {/* Clean, Borderless & Center-Aligned Large PNG Icon Container */}
+        <div className="w-16 h-16 flex items-center justify-center p-1 shrink-0">
+          <img 
+            src={item.iconSrc} 
+            alt={item.title} 
+            className="w-full h-full object-contain" 
+          />
+        </div>
+        
+        {/* Title & Desc */}
+        <div className="space-y-2 text-center w-full">
+          <h3 className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-gray-900">
+            {item.title}
+          </h3>
+          <p className="text-sm md:text-base font-semibold leading-[1.5] text-gray-900">
+            {item.desc}
+          </p>
+        </div>
+      </div>
 
-                {/* Small Clean Text Features (Bullet Points) */}
-                <div className="w-full pt-6 mt-6 border-t border-gray-100 space-y-2.5">
-                  {item.bullets.map((bullet, bIdx) => (
-                    <div key={bIdx} className="flex items-center gap-2.5 text-xs md:text-sm font-semibold text-gray-700">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                      <span>{bullet}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+      {/* Small Clean Text Features (Bullet Points) */}
+      <div className="w-full pt-6 mt-6 border-t border-gray-200 space-y-2.5">
+        {item.bullets.map((bullet, bIdx) => (
+          <div key={bIdx} className="flex items-center gap-2.5 text-xs md:text-sm font-semibold text-gray-700">
+            <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+            <span>{bullet}</span>
           </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
 
         </div>
       </section>

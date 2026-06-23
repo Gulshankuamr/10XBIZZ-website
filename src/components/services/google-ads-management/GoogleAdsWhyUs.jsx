@@ -36,7 +36,7 @@ export default function GoogleAdsWhyChooseUs() {
   }
 
   return (
-    <section className="relative bg-white py-24 px-6 overflow-hidden min-h-[600px] flex items-center font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
+    <section className="relative bg-white py-12 px-6 overflow-hidden min-h-[600px] flex items-center font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         
         {/* LEFT: PREMIUM ILLUSTRATION / IMAGE LAYER */}

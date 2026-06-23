@@ -75,7 +75,7 @@ export default function CRMSalesWorkflow() {
                   Automatically
                 </span>
               </h2>
-              <p className="text-base md:text-[18px] font-medium leading-[1.7] text-gray-500 max-w-sm">
+              <p className="text-base md:text-[18px] font-medium leading-[1.7] text-gray-900 max-w-sm">
                 We connect your ads, website, WhatsApp, CRM, and follow-up systems so no lead gets lost and every opportunity gets tracked.
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function CRMSalesWorkflow() {
                   <h3 className="text-base md:text-[18px] font-bold leading-[1.3] text-gray-900 tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="text-sm md:text-base font-semibold leading-[1.5] text-gray-500">
+                  <p className="text-sm md:text-base font-semibold leading-[1.5] text-gray-900">
                     {step.desc}
                   </p>
                 </div>

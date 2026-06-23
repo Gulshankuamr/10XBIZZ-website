@@ -71,7 +71,7 @@ export default function GMBBenefits() {
 
   return (
     <section 
-      className="bg-[#FCFCFD] py-24 px-6 sm:px-12 relative overflow-hidden"
+      className="bg-[#FCFCFD] py-12 px-6 sm:px-12 relative overflow-hidden"
       style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
     >
       {/* Background Soft Subtle Ambient Aura Glow */}
@@ -95,7 +95,7 @@ export default function GMBBenefits() {
           </motion.h2>
         </div>
 
-        {/* 6-Card Clean Layout Grid Pattern */}
+        {/* 6-Card Clean Layout Grid Pattern with Brutalist Border/Shadow Structure */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {benefits.map((item, index) => (
             <motion.div
@@ -104,16 +104,16 @@ export default function GMBBenefits() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="bg-white rounded-[1.5rem] p-8 border border-slate-100 flex flex-col justify-start relative overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.02)]"
+              className="bg-white rounded-[2rem] p-8 border-4 border-slate-950 flex flex-col justify-start relative overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
               {/* Top Row: Icon Container and Card Counter Side-by-Side */}
               <div className="flex justify-between items-center mb-6">
-                <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-[#6400A1]">
+                <div className="w-12 h-12 rounded-xl border-2 border-slate-900 bg-purple-50 flex items-center justify-center text-[#6400A1]">
                   {item.icon}
                 </div>
-                <span className="text-sm font-bold tracking-wider text-slate-300 font-mono">
+                {/* <span className="text-sm font-bold tracking-wider text-slate-400 font-mono">
                   {item.num}
-                </span>
+                </span> */}
               </div>
 
               {/* Dynamic Title Headline Heading */}
@@ -121,8 +121,8 @@ export default function GMBBenefits() {
                 {item.title}
               </h3>
 
-              {/* Dynamic Paragraph Description Content Copy */}
-              <p className="text-sm md:text-[15px] text-slate-500 font-medium leading-relaxed">
+              {/* Dynamic Paragraph Description Content Copy updated to slate-800 */}
+              <p className="text-sm md:text-[15px] text-slate-800 font-medium leading-relaxed">
                 {item.desc}
               </p>
             </motion.div>

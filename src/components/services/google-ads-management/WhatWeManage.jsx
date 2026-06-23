@@ -44,7 +44,7 @@ export default function WhatWeManage() {
           </div>
         </div>
 
-        {/* Dynamic 3-Cards Grid System */}
+        {/* Dynamic 3-Cards Grid System with Instant Pure CSS Brutalist Hover Structure */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {managementData.map((item, index) => (
             <motion.div
@@ -53,12 +53,7 @@ export default function WhatWeManage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: index * 0.12 }}
-              whileHover={{ 
-                y: -8,
-                boxShadow: "0 30px 60px -12px rgba(100, 0, 161, 0.14)",
-                borderColor: "#6400A1" // Hover karne par clean purple border active hoga
-              }}
-              className="p-8 md:p-10 rounded-[2.5rem] border-2 border-slate-200 bg-white shadow-[0_15px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300 flex flex-col justify-between h-full group"
+              className="p-8 md:p-10 rounded-[2.5rem] border-4 border-slate-950 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:-translate-y-1 hover:translate-x-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:border-[#6400A1] flex flex-col justify-between h-full group"
             >
               <div>
                 <div className="flex flex-col items-center text-center mb-6">
@@ -76,7 +71,8 @@ export default function WhatWeManage() {
                   </h3>
                 </div>
                 
-                <p className="text-gray-600 leading-[1.7] text-base font-medium text-center">
+                {/* Text description updated to highly legible slate-800 */}
+                <p className="text-slate-800 leading-[1.7] text-base font-medium text-center">
                   {item.description}
                 </p>
               </div>

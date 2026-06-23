@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { CornerDownRight } from "lucide-react"; // सुंदर बेंडिंग एरो आइकॉन के लिए
+import { CornerDownRight } from "lucide-react"; 
 
 const services = [
   {
@@ -117,144 +117,130 @@ export default function ExpertiseSection() {
         >
 
           {/* LEFT: Service Tabs */}
-          <div className="flex flex-col gap-2 lg:gap-3 lg:justify-center">
-            {services.map((service, idx) => {
-              const isActive = active === idx;
-              return (
-                <motion.button
-                  key={service.id}
-                  onClick={() => setActive(idx)}
-                  whileTap={{ scale: 0.98 }}
-                  className="relative w-full px-4 lg:px-6 py-4 lg:py-5 rounded-2xl cursor-pointer flex items-center justify-between outline-none overflow-hidden transition-all duration-300"
-                  style={{
-                    background: isActive
-                      ? "linear-gradient(135deg,#6400A1 0%,#BB000F 100%)"
-                      : "#FFFFFF",
-                    border: isActive
-                      ? "1.5px solid transparent"
-                      : "1.5px solid #E5E7EB",
-                    boxShadow: isActive
-                      ? "0 8px 28px rgba(100,0,161,0.22)"
-                      : "0 1px 3px rgba(0,0,0,0.06)",
-                  }}
-                >
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeBorder"
-                      className="absolute inset-0 rounded-2xl pointer-events-none"
-                      style={{ border: "1.5px solid rgba(255,255,255,0.2)" }}
-                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    />
-                  )}
+       <div className="flex flex-col gap-3 lg:gap-4 lg:justify-center w-full">
+  {services.map((service, idx) => {
+    const isActive = active === idx;
+    return (
+      <motion.button
+        key={service.id}
+        onClick={() => setActive(idx)}
+        whileTap={{ scale: 0.98 }}
+        className="relative w-full px-6 lg:px-8 py-6 lg:py-7 rounded-2xl cursor-pointer flex items-center justify-between outline-none overflow-hidden transition-all duration-300"
+        style={{
+          background: isActive
+            ? "linear-gradient(135deg,#6400A1 0%,#BB000F 100%)"
+            : "#FFFFFF",
+          border: isActive
+            ? "1.5px solid transparent"
+            : "1.5px solid #E5E7EB",
+          boxShadow: isActive
+            ? "0 8px 28px rgba(100,0,161,0.22)"
+            : "0 1px 3px rgba(0,0,0,0.06)",
+        }}
+      >
+        {isActive && (
+          <motion.div
+            layoutId="activeBorder"
+            className="absolute inset-0 rounded-2xl pointer-events-none"
+            style={{ border: "1.5px solid rgba(255,255,255,0.2)" }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          />
+        )}
 
-                  <span
-                    className="text-sm md:text-base leading-[1.5] transition-all duration-300 text-left"
-                    style={{
-                      color: isActive ? "#FFFFFF" : "#000000",
-                      fontWeight: 700,
-                    }}
-                  >
-                    {service.label}
-                  </span>
-
-                  <motion.div
-                    animate={{
-                      background: isActive ? "rgba(255,255,255,0.2)" : "#F3F4F6",
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="w-8 h-8 lg:w-9 lg:h-9 rounded-full flex items-center justify-center flex-shrink-0 ml-3"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path
-                        d="M3 8h10M9 4l4 4-4 4"
-                        stroke={isActive ? "#fff" : "#6400A1"}
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </motion.div>
-                </motion.button>
-              );
-            })}
-          </div>
+        <span
+          className="text-base md:text-lg lg:text-xl leading-[1.5] transition-all duration-300 text-left font-extrabold tracking-wide"
+          style={{
+            color: isActive ? "#FFFFFF" : "#000000",
+          }}
+        >
+          {service.label}
+        </span>
+      </motion.button>
+    );
+  })}
+</div>
 
           {/* RIGHT: Image Container with Text Content */}
-          <div className="relative rounded-[20px] overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-[520px]">
+<div className="relative rounded-[20px] overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-[520px] flex items-end">
 
-            {/* Image Switcher */}
-            <AnimatePresence mode="sync">
-              <motion.img
-                key={activeService.id}
-                src={activeService.image}
-                alt={activeService.label}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </AnimatePresence>
+  {/* Image Switcher */}
+  <AnimatePresence mode="sync">
+    <motion.img
+      key={activeService.id}
+      src={activeService.image}
+      alt={activeService.label}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+  </AnimatePresence>
 
-            {/* Bottom Text Overlay with Custom Gradient */}
-            <div
-              className="absolute bottom-0 left-0 right-0 z-10"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)",
-                paddingTop: "100px",
-              }}
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`text-${activeService.id}`}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                  className="px-5 lg:px-8 pb-5 lg:pb-8 pt-4 lg:pt-6"
-                >
-                  {/* Label Badge */}
-                  <span
-                    className="inline-block text-[10px] md:text-[11px] font-black uppercase tracking-[0.12em] px-3 py-1 rounded-full mb-3"
-                    style={{ background: "#FFD600", color: "#000" }}
-                  >
-                    {activeService.label}
-                  </span>
+  {/* Dedicated Dark Overlay specifically for Text Readability */}
+  <div className="absolute inset-x-0 bottom-0 pointer-events-none"
+    style={{
+      background: "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.25) 85%, transparent 100%)",
+      paddingTop: "120px"
+    }}
+  />
 
-                  {/* Title (Fix: text-black removed, changed to text-white) */}
-                  <h3
-                    className="text-white text-[20px] md:text-[26px] font-black leading-[1.25] mb-2"
-                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}
-                  >
-                    {activeService.title}
-                  </h3>
+  {/* Bottom Content Container */}
+  <div className="relative z-10 w-full">
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={`text-${activeService.id}`}
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        className="px-5 lg:px-8 pb-5 lg:pb-8 pt-4 lg:pt-6"
+      >
+        {/* Label Badge */}
+        <span
+          className="inline-block text-[10px] md:text-[11px] font-black uppercase tracking-[0.12em] px-3 py-1 rounded-full mb-3"
+          style={{ background: "#FFD600", color: "#000" }}
+        >
+          {activeService.label}
+        </span>
 
-                  {/* Description */}
-                  <p className="text-white/85 text-sm md:text-[15px] font-semibold leading-[1.6] mb-4 max-w-[620px]">
-                    {activeService.description}
-                  </p>
+        {/* Title with Gradient Fill and strong drop shadow for image visibility */}
+        <h3
+          className="text-transparent bg-clip-text text-[20px] md:text-[26px] font-black leading-[1.25] mb-2"
+          style={{ 
+            backgroundImage: "linear-gradient(135deg, #6400A1 0%, #BB000F 100%)",
+            filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.9))"
+          }}
+        >
+          {activeService.title}
+        </h3>
 
-                  {/* CTA Area with Corner Down Right Arrow Icon */}
-                  <div className="flex items-start gap-2.5">
-                    <div 
-                      className="flex items-center justify-center rounded-lg p-1 shrink-0 mt-0.5"
-                      style={{ background: "rgba(255, 214, 0, 0.15)" }}
-                    >
-                      {/* Custom Arrow Icon */}
-                      <CornerDownRight size={18} style={{ color: "#FFD600" }} strokeWidth={2.5} />
-                    </div>
-                    <p
-                      className="text-sm md:text-[15px] font-bold leading-[1.5]"
-                      style={{ color: "#FFD600" }}
-                    >
-                      {activeService.cta}
-                    </p>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+        {/* Highlighted Description with solid backing */}
+        <div className="inline-block p-3 rounded-xl bg-black/50 backdrop-blur-sm border border-white/10 mb-4 max-w-[620px]">
+          <p className="text-white text-sm md:text-[15px] font-bold leading-[1.6]">
+            {activeService.description}
+          </p>
+        </div>
+
+        {/* CTA Area */}
+        <div className="flex items-start gap-2.5">
+          <div 
+            className="flex items-center justify-center rounded-lg p-1 shrink-0 mt-0.5"
+            style={{ background: "rgba(255, 214, 0, 0.15)" }}
+          >
+            <CornerDownRight size={18} style={{ color: "#FFD600" }} strokeWidth={2.5} />
           </div>
+          <p
+            className="text-sm md:text-[15px] font-bold leading-[1.5]"
+            style={{ color: "#FFD600" }}
+          >
+            {activeService.cta}
+          </p>
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  </div>
+</div>
 
         </div>
       </div>

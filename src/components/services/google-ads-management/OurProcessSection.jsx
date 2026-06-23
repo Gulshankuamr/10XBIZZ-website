@@ -122,7 +122,7 @@ export default function OurProcessSection() {
                     {step.title}
                   </h3>
                   
-                  <p className="text-slate-500 text-sm font-medium leading-[1.65] mb-6">
+                  <p className="text-slate-800 text-sm font-medium leading-[1.65] mb-6">
                     {step.description}
                   </p>
                   

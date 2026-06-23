@@ -66,7 +66,7 @@ export default function CRMSolutions() {
         }
       `}</style>
 
-      <section className="bg-[#F8FAFC] py-20 px-6 sm:px-10 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
+      <section className="bg-[#F8FAFC] py-6 px-6 sm:px-10 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
         <div className="max-w-7xl mx-auto space-y-12">
 
           {/* Header Section */}
@@ -81,41 +81,41 @@ export default function CRMSolutions() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
-            {cardsData.map((card, idx) => (
-              <div
-                key={idx}
-                className="crm-card bg-white rounded-2xl p-8 flex flex-col justify-between items-start shadow-sm hover:shadow-md"
-              >
-                <div className="space-y-4 w-full">
-                  {/* Clean, Borderless & Center-Aligned Large PNG Icon Container */}
-                  <div className="flex justify-center items-center mb-6">
-                    <div className="w-16 h-16 flex items-center justify-center p-1 shrink-0">
-                      <img 
-                        src={card.iconSrc} 
-                        alt={card.title} 
-                        className="w-full h-full object-contain" 
-                      />
-                    </div>
-                  </div>
-
-                  <h3 className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-gray-900 text-center">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm md:text-base font-semibold leading-[1.5] text-gray-500 text-center">
-                    {card.desc}
-                  </p>
-                </div>
-
-                <div className="pt-6 mt-auto flex items-center gap-1 group/btn cursor-pointer mx-auto">
-                  <span className="gradient-btn-text text-base font-bold leading-none transition-colors duration-300">
-                    Get Started
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-gray-900 group-hover/btn:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            ))}
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
+  {cardsData.map((card, idx) => (
+    <div
+      key={idx}
+      className="crm-card bg-white rounded-[2.5rem] border-4 border-slate-950 p-8 flex flex-col justify-between items-start shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 transition-all duration-300"
+    >
+      <div className="space-y-4 w-full">
+        {/* Clean, Borderless & Center-Aligned Large PNG Icon Container */}
+        <div className="flex justify-center items-center mb-6">
+          <div className="w-16 h-16 flex items-center justify-center p-1 shrink-0">
+            <img 
+              src={card.iconSrc} 
+              alt={card.title} 
+              className="w-full h-full object-contain" 
+            />
           </div>
+        </div>
+
+        <h3 className="text-[20px] md:text-[24px] font-bold leading-[1.3] text-gray-900 text-center">
+          {card.title}
+        </h3>
+        <p className="text-sm md:text-base font-semibold leading-[1.5] text-gray-500 text-center">
+          {card.desc}
+        </p>
+      </div>
+
+      <div className="pt-6 mt-auto flex items-center gap-1 group/btn cursor-pointer mx-auto">
+        <span className="gradient-btn-text text-base font-bold leading-none transition-colors duration-300">
+          Get Started
+        </span>
+        <ArrowRight className="w-4 h-4 text-gray-900 group-hover/btn:translate-x-1 transition-transform" />
+      </div>
+    </div>
+  ))}
+</div>
 
         </div>
       </section>

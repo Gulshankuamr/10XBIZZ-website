@@ -64,39 +64,39 @@ const LEADING_BRANDS = [
 ];
 
 const BrandCard = ({ item }) => (
-  <div
-    className="group relative flex items-center justify-center rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl"
-    style={{
-      background: "#fff",
-      border: "1.5px solid #e5e7eb",
-      height: "110px",
-    }}
-  >
-    {/* Gradient border on hover */}
-    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
+  <div className="flex flex-col items-center gap-2 flex-shrink-0 w-[160px] sm:w-[180px]">
+    <div
+      className="group relative flex items-center justify-center rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl w-full"
       style={{
-        background: "linear-gradient(135deg, #6400A1 0%, #BB000F 100%)",
-        padding: "2px",
+        background: "#fff",
+        border: "1.5px solid #e5e7eb",
+        height: "120px",
       }}
-    />
-    <div className="absolute inset-[2px] bg-white rounded-[14px] z-[1] group-hover:bg-gray-50 transition-colors duration-300" />
-
-    {/* Logo Image */}
-    <div className="relative z-[2] flex items-center justify-center w-full h-full px-4 py-3">
-      <img
-        src={item.src}
-        alt={item.name}
-        className="max-h-[72px] max-w-full object-contain transition-transform duration-300 group-hover:scale-110"
-        style={{ filter: "none" }}
+    >
+      {/* Gradient border on hover */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
+        style={{
+          background: "linear-gradient(135deg, #6400A1 0%, #BB000F 100%)",
+          padding: "2px",
+        }}
       />
-    </div>
+      <div className="absolute inset-[2px] bg-white rounded-[14px] z-[1] group-hover:bg-gray-50 transition-colors duration-300" />
 
-    {/* Name tooltip on hover */}
-    <div className="absolute bottom-0 left-0 right-0 z-[3] bg-gradient-to-t from-black/60 to-transparent px-3 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-b-2xl">
-      <span className="text-white text-[11px] font-semibold tracking-wide truncate block text-center">
-        {item.name}
-      </span>
+      {/* Logo Image */}
+      <div className="relative z-[2] flex items-center justify-center w-full h-full px-4 py-3">
+        <img
+          src={item.src}
+          alt={item.name}
+          className="max-h-[72px] max-w-full object-contain transition-transform duration-300 group-hover:scale-110"
+          style={{ filter: "none" }}
+        />
+      </div>
     </div>
+    
+    {/* Always visible brand name below the logo card */}
+    <span className="text-gray-700 text-xs font-bold tracking-wide truncate block text-center w-full">
+      {item.name}
+    </span>
   </div>
 );
 
@@ -106,13 +106,24 @@ export default function Trusted() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
         .trusted-section * { font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif; }
+        
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 35s linear infinite;
+        }
+        .animate-marquee:hover {
+          animation-play-state: paused;
+        }
       `}</style>
 
       <section
-        className="trusted-section bg-white py-16 px-4 w-full"
+        className="trusted-section bg-white py-4 px-4 w-full overflow-hidden"
         style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
       >
-        <div className="max-w-[1100px] mx-auto">
+        <div className="max-w-[1200px] mx-auto">
 
           {/* Header */}
           <div className="text-center mb-4">
@@ -131,7 +142,7 @@ export default function Trusted() {
 
           {/* Subtitle */}
           <div className="max-w-[600px] mx-auto text-center mb-12">
-            <p className="text-[15px] md:text-[16px] leading-[1.75] text-gray-500 font-medium">
+            <p className="text-[15px] md:text-[16px] leading-[1.75] text-gray-900 font-medium">
               We value the relationships we build with our clients and are dedicated to providing
               top-notch service and support. At{" "}
               <span className="font-bold text-black">Digital Notebook</span>, we work closely
@@ -140,7 +151,7 @@ export default function Trusted() {
           </div>
 
           {/* Divider line */}
-          <div className="flex items-center gap-4 mb-10 px-2">
+          <div className="flex items-center gap-4 mb-14 px-2">
             <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-gray-200" />
             <div
               className="w-2 h-2 rounded-full flex-shrink-0"
@@ -149,11 +160,18 @@ export default function Trusted() {
             <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-gray-200" />
           </div>
 
-          {/* Brand Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-            {LEADING_BRANDS.map((item, idx) => (
-              <BrandCard key={idx} item={item} />
-            ))}
+          {/* Continuous Scrolling Marquee Row */}
+          <div className="flex overflow-hidden relative w-full py-4">
+            <div className="flex shrink-0 gap-6 animate-marquee w-max items-start">
+              {/* Original Set */}
+              {LEADING_BRANDS.map((item, idx) => (
+                <BrandCard key={`orig-${idx}`} item={item} />
+              ))}
+              {/* Duplicate Set for Seamless Infinite Loop */}
+              {LEADING_BRANDS.map((item, idx) => (
+                <BrandCard key={`dup-${idx}`} item={item} />
+              ))}
+            </div>
           </div>
 
         </div>

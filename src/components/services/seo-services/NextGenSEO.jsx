@@ -72,43 +72,37 @@ export default function NextGenSEO() {
         </div>
 
         {/* Interactive 3-Card Grid System */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {seoCards.map((card, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ 
-                backgroundColor: "#6400A1",
-                scale: 1.02,
-                y: -5
-              }}
-              className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 flex flex-col justify-start transition-all duration-300 group cursor-pointer"
-            >
-              {/* Card Title */}
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 leading-tight transition-colors duration-300 group-hover:text-white">
-                {card.title}
-              </h3>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+  {seoCards.map((card, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="bg-white rounded-[2.5rem] p-8 md:p-10 border-4 border-slate-950 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:bg-[#6400A1] flex flex-col justify-start transition-colors duration-300 group cursor-pointer"
+    >
+      {/* Card Title */}
+      <h3 className="text-2xl font-bold text-gray-900 mb-6 leading-tight transition-colors duration-300 group-hover:text-white">
+        {card.title}
+      </h3>
 
-              {/* Card Bullet Points List */}
-              <ul className="space-y-4 flex-grow">
-                {card.bullets.map((bullet, bIdx) => (
-                  <li 
-                    key={bIdx} 
-                    className="flex items-start text-sm md:text-base text-gray-600 font-medium leading-[1.7] transition-colors duration-300 group-hover:text-purple-100"
-                  >
-                    {/* Minimalist Modern Custom Bullet Dot */}
-                    <span className="inline-block w-2 h-2 rounded-full bg-gray-900 mt-2 mr-3 shrink-0 transition-colors duration-300 group-hover:bg-amber-400" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-
+      {/* Card Bullet Points List */}
+      <ul className="space-y-4 flex-grow">
+        {card.bullets.map((bullet, bIdx) => (
+          <li 
+            key={bIdx} 
+            className="flex items-start text-sm md:text-base text-gray-600 font-medium leading-[1.7] transition-colors duration-300 group-hover:text-purple-100"
+          >
+            {/* Minimalist Modern Custom Bullet Dot */}
+            <span className="inline-block w-2 h-2 rounded-full bg-gray-900 mt-2 mr-3 shrink-0 transition-colors duration-300 group-hover:bg-amber-400" />
+            <span>{bullet}</span>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  ))}
+</div>
       </div>
     </section>
   )

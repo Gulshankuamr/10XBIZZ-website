@@ -134,7 +134,7 @@ export default function SEOServicesChallenges() {
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-[-0.02em] max-w-3xl mx-auto leading-tight">
             A Trusted Modern SEO Service Company to Overcome Your SEO Challenges!
           </h2>
@@ -169,7 +169,7 @@ export default function SEOServicesChallenges() {
                       <h3 className="font-bold tracking-wide mb-3 text-[1.05rem] text-white">
                         {service.title}
                       </h3>
-                      <p className="leading-[1.7] font-medium text-[0.85rem] text-[rgba(220,180,255,0.85)] max-w-[260px]">
+                      <p className="leading-[1.7] font-medium text-[0.85rem] text-white max-w-[260px]">
                         {service.desc}
                       </p>
                     </div>

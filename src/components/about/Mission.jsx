@@ -60,7 +60,7 @@ export default function Mission() {
                 Our mission is to help businesses grow with systems that are measurable, scalable, and built for long-term success.
               </p>
               
-              <p>
+              <p className="text-gray-900">
                 We believe marketing should create predictable growth — not confusion. 
                 Most agencies focus on vanity metrics; we focus on the **infrastructure of your success**.
               </p>
@@ -79,7 +79,7 @@ export default function Mission() {
                 ))}
               </div>
 
-              <p className="pt-4 italic text-slate-500 border-t border-slate-100">
+              <p className="pt-4 italic text-slate-800 border-t border-slate-100">
                 "We don't just build websites or run ads; we build the future of your business operations."
               </p>
             </div>

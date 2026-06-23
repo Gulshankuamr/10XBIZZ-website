@@ -52,17 +52,17 @@ export default function Story() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <p className="text-xl text-slate-500 leading-[1.7] font-light">
+            <p className="text-xl text-gray-900 leading-[1.7] font-light">
               We didn't just start another agency. We started a movement to end the cycle of wasted marketing budgets and missed opportunities.
             </p>
 
             <div className="border-l-4 border-[#6400A1] pl-6 py-2 bg-slate-50/50 rounded-r-xl">
-              <p className="text-lg text-slate-800 font-semibold leading-[1.7]">
+              <p className="text-lg text-gray-900 font-semibold leading-[1.7]">
                 We saw businesses burning money on ads without a system to capture and convert. Leads were getting lost, and growth was left to chance.
               </p>
             </div>
 
-            <div className="space-y-6 text-[17px] text-slate-600 leading-[1.8]">
+            <div className="space-y-6 text-[17px] text-gray-900 leading-[1.8]">
               <p>
                 Leads were drowning in WhatsApp chats and forgotten spreadsheets. Follow-ups depended on busy owners' memories. We realized the problem wasn't traffic—it was the <span className="text-[#6400A1] font-bold">Leaky Bucket</span>.
               </p>

@@ -63,7 +63,7 @@ export default function CRMIntegrations() {
             <h2 className="text-[30px] md:text-[42px] font-bold leading-[1.1] tracking-[-0.02em] text-gray-900">
               All-In-One <span className="text-gradient-title">CRM Software</span>
             </h2>
-            <p className="text-base md:text-[18px] font-medium leading-[1.7] text-gray-600 max-w-4xl mx-auto">
+            <p className="text-base md:text-[18px] font-medium leading-[1.7] text-gray-900 max-w-4xl mx-auto">
               With native integration to HRMS, Accounting, Email, WhatsApp, Zoom, Teams, and Payment Gateways, your sales team stays productive, accountable, and focused on closing deals, whether they're in the office or on the move.
             </p>
           </div>

@@ -18,7 +18,7 @@ export default function OneStopService() {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <section className="bg-[#F8F9FF] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] py-16 md:py-24 px-6 overflow-hidden">
+    <section className="bg-[#F8F9FF] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] py-12 md:py-24 px-6 overflow-hidden">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');`}</style>
 
       {/* SVG Responsive Mask Definition */}
@@ -50,7 +50,7 @@ export default function OneStopService() {
 
           <div className="w-[60px] h-1 bg-[#6400A1] mb-8 mx-auto lg:ml-0" />
 
-          <p className="text-[#667085] text-base md:text-[17px] leading-[1.8] mb-10 max-w-[580px] mx-auto lg:ml-0">
+          <p className="text-gray-900 text-base md:text-[17px] leading-[1.8] mb-10 max-w-[580px] mx-auto lg:ml-0">
             We help businesses generate leads, improve conversions, and automate
             customer follow-ups through performance-driven marketing and CRM solutions.
           </p>

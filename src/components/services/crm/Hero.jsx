@@ -62,20 +62,20 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-600 text-base md:text-[18px] leading-[1.7]"
           >
-            <p className="text-lg md:text-xl font-medium text-gray-700 mb-6">
+            <p className="text-lg md:text-xl font-medium text-gray-900 mb-6">
               Capture every lead, automate follow-ups, and manage your sales
               pipeline from one centralized system designed to improve conversions
               and business growth.
             </p>
 
-            <p className="mb-5">
+            <p className="mb-5 text-gray-700">
               Your marketing generates leads—but growth happens when those leads
               are managed properly. We help businesses streamline their sales
               process with CRM systems, automated follow-ups, lead tracking,
               and customer journey automation.
             </p>
 
-            <p className="mb-6">
+            <p className="mb-6 text-gray-700">
               With everything organized in one place, your team can focus on
               closing more deals instead of chasing spreadsheets and missed
               enquiries.

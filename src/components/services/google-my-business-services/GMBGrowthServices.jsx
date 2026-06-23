@@ -76,7 +76,7 @@ export default function GMBGrowthServices() {
 
   return (
     <section 
-      className="bg-slate-50 py-24 px-6 sm:px-12 relative overflow-hidden"
+      className="bg-slate-50 py-12 px-6 sm:px-12 relative overflow-hidden"
       style={{ fontFamily: "'Montserrat', ui-sans-serif, system-ui, sans-serif" }}
     >
       {/* Background Soft Colorful Ambient Aura Glow */}
@@ -105,57 +105,47 @@ export default function GMBGrowthServices() {
           </motion.p>
         </div>
 
-        {/* 6-Card Layout Grid Pattern */}
+        {/* 6-Card Layout Grid Pattern with Snappy Pure CSS Brutalist Hover Structure */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {services.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ 
-                backgroundColor: "#6400A1",
-                scale: 1.02,
-                y: -6,
-                boxShadow: "0 20px 40px rgba(100, 0, 161, 0.25)"
-              }}
-              className="bg-white rounded-[2rem] p-8 md:p-10 shadow-lg shadow-slate-200/60 border border-slate-100 flex flex-col justify-between relative group cursor-pointer overflow-hidden transition-all duration-300"
+              className="bg-white hover:bg-[#6400A1] rounded-[2rem] p-8 md:p-10 border-4 border-slate-950 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between relative group cursor-pointer overflow-hidden transition-colors duration-200 hover:-translate-y-1 hover:translate-x-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               <div>
                 {/* Absolute Top-Right Counter Card Numbering */}
-                <div className="absolute top-6 right-8 text-3xl font-bold tracking-[-0.02em] text-slate-100 group-hover:text-purple-800/40 transition-colors duration-300 pointer-events-none select-none">
+                <div className="absolute top-6 right-8 text-3xl font-bold tracking-[-0.02em] text-slate-100 group-hover:text-purple-800/40 transition-colors duration-200 pointer-events-none select-none">
                   {item.num}
                 </div>
 
                 {/* Icon Container Graphic Box with Dynamic Brand Accent Line */}
-                <div className="mb-6 w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-50 to-pink-50 border border-purple-100/40 flex items-center justify-center text-[#6400A1] group-hover:from-white/10 group-hover:to-white/5 group-hover:border-white/20 group-hover:text-amber-400 transition-all duration-300">
+                <div className="mb-6 w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-50 to-pink-50 border-2 border-slate-950 flex items-center justify-center text-[#6400A1] group-hover:from-white/10 group-hover:to-white/5 group-hover:border-white/20 group-hover:text-amber-400 transition-colors duration-200">
                   {item.icon}
                 </div>
 
                 {/* Dynamic Title Headline Heading */}
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 tracking-[-0.02em] leading-snug transition-colors duration-300 group-hover:text-white">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 tracking-[-0.02em] leading-snug transition-colors duration-200 group-hover:text-white">
                   {item.title}
                 </h3>
 
                 {/* Dynamic Paragraph Description Content Copy */}
-                <p className="text-sm md:text-base text-gray-600 font-medium leading-[1.7] transition-colors duration-300 group-hover:text-purple-100 mb-6">
+                <p className="text-sm md:text-base text-gray-900 font-medium leading-[1.7] transition-colors duration-200 group-hover:text-purple-100 mb-6">
                   {item.desc}
                 </p>
               </div>
 
               {/* Outcomes Section Configured inside each card */}
-              <div className="border-t border-slate-100/80 pt-4 group-hover:border-white/10 transition-colors duration-300">
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-400 group-hover:text-amber-400 transition-colors duration-300 block mb-3">
+              <div className="border-t border-slate-300/60 pt-4 group-hover:border-white/10 transition-colors duration-200">
+                <span className="text-xs font-bold uppercase tracking-wider text-gray-500 group-hover:text-amber-400 transition-colors duration-200 block mb-3">
                   Expected Outcome:
                 </span>
                 <ul className="space-y-2.5">
                   {item.outcomes.map((outcome, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <svg className="w-4 h-4 text-emerald-500 group-hover:text-amber-400 mt-0.5 flex-shrink-0 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-emerald-600 group-hover:text-amber-400 mt-0.5 flex-shrink-0 transition-colors duration-200" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
-                      <span className="text-xs md:text-sm font-semibold text-gray-700 group-hover:text-white transition-colors duration-300">
+                      <span className="text-xs md:text-sm font-semibold text-gray-900 group-hover:text-white transition-colors duration-200">
                         {outcome}
                       </span>
                     </li>
@@ -163,7 +153,7 @@ export default function GMBGrowthServices() {
                 </ul>
               </div>
 
-            </motion.div>
+            </div>
           ))}
         </div>
 

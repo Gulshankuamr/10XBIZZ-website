@@ -58,7 +58,7 @@ export default function LeadConversionSection() {
             — Automatically
           </h2>
 
-          <p className="text-[#667085] text-base md:text-[18px] leading-[1.7] mb-8 font-medium">
+          <p className="text-gray-900 text-base md:text-[18px] leading-[1.7] mb-8 font-medium">
             We help businesses generate high-quality leads, organize them in CRM, and automate follow-ups — so you never miss a potential customer.
           </p>
 

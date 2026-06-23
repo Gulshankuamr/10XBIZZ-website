@@ -60,17 +60,17 @@ export default function Hero() {
             className="text-gray-600 text-base md:text-[18px] leading-[1.7]"
           >
             {/* Subheadline acted as a powerful intro paragraph */}
-            <p className="mb-5 font-medium text-gray-800 text-lg md:text-[20px] leading-relaxed">
+            <p className="mb-5 font-medium text-gray-900 text-lg md:text-[20px] leading-relaxed">
               We create data-driven Meta advertising campaigns that help businesses reach the right audience, generate qualified enquiries, and turn social media attention into measurable revenue.
             </p>
             
             {/* Paragraph 1 */}
-            <p className="mb-5">
+            <p className="mb-5 text-gray-900 text-lg">
               From Facebook Feed Ads to Instagram Reels and Lead Generation Campaigns, we build conversion-focused strategies designed to attract high-quality prospects and maximize return on ad spend.
             </p>
             
             {/* Paragraph 2 */}
-            <p className="mb-6">
+            <p className="mb-6 text-gray-900 text-lg">
               Our team continuously tests creatives, audiences, placements, and campaign structures to improve lead quality, reduce acquisition costs, and scale profitable campaigns.
             </p>
 

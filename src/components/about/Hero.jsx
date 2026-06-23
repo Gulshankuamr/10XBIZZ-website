@@ -110,7 +110,7 @@ export default function AboutHero() {
           variants={fadeUp}
           transition={{ duration: 0.55 }}
           className="
-            mt-5 text-center text-[#667085]
+            mt-5 text-center text-gray-900
             max-w-xl
             text-base md:text-[17px]
             leading-[1.8] font-normal

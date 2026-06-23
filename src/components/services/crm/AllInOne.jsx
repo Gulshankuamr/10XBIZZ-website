@@ -265,7 +265,7 @@ export default function CRMIntegrations() {
               Everything Connected{" "}
               <span className="crm-grad">For Faster Growth</span>
             </h2>
-            <p>
+            <p className="text-gray-900 font-semibold">
               Capture leads from your website, Meta Ads, Google Ads, WhatsApp, and forms.
               Automatically organize, nurture, and convert them through a fully connected
               CRM and automation system.
@@ -284,7 +284,7 @@ export default function CRMIntegrations() {
                   <div className="crm-ring">
                     {item.icon}
                   </div>
-                  <span className="crm-label">{item.label}</span>
+                  <span className=" text-black font-semibold">{item.label}</span>
                 </div>
               ))}
             </div>

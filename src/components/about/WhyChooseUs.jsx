@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
             Why Businesses <span className="italic text-[#6400A1]">Choose Us</span>
           </h2>
           
-          <p className="text-gray-600 text-base md:text-[18px] leading-[1.7]">
+          <p className="text-gray-900 text-base md:text-[18px] leading-[1.7]">
             Our mission is to drive progress and enhance the lives of our customers by 
             delivering superior products and services that exceed expectations.
           </p>
@@ -58,8 +58,8 @@ export default function WhyChooseUs() {
         {/* Content & Trust Points Grid */}
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <div className="space-y-6">
-            {/* 2. डमी Lorem Ipsum हटाकर प्रोफेशनल टेक्स्ट ऐड कर दिया है */}
-            <p className="text-gray-600 leading-[1.7] text-sm md:text-base">
+         
+            <p className="text-gray-900 leading-[1.7] text-sm md:text-base">
               We don't believe in one-size-fits-all templates. Our team digs deep into your 
               business mechanics to discover hidden bottlenecks and build custom automated workflows. 
               By blending high-converting infrastructure with intelligent tracking, we turn cold 

@@ -59,38 +59,40 @@ export default function WhatWeManage() {
         </div>
 
         {/* Features Management Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {managementData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: index * 0.12 }}
-              whileHover={{ y: -6 }}
-              className="p-8 md:p-10 rounded-[2.5rem] border border-white/60 bg-white shadow-[0_20px_50px_-12px_rgba(100,0,161,0.04)] hover:shadow-[0_30px_60px_-10px_rgba(100,0,161,0.12)] hover:border-purple-200/50 transition-all duration-300 flex flex-col h-full"
-            >
-              <div className="flex justify-between items-start mb-8 gap-4">
-                <h3 className="text-[22px] font-black text-gray-900 leading-[1.25] tracking-[-0.02em]">
-                  {item.title}
-                </h3>
-                
-                {/* Modern Borderless Large PNG Icon Wrapper */}
-                <div className="w-14 h-14 rounded-2xl bg-[#6400A1]/10 flex items-center justify-center p-3 shrink-0">
-                  <img 
-                    src={item.iconSrc} 
-                    alt={item.title} 
-                    className="w-full h-full object-contain" 
-                  />
-                </div>
-              </div>
-
-              <p className="text-gray-950 font-bold leading-[1.7] text-[15px] mt-auto">
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
+       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {managementData.map((item, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.55, delay: index * 0.12 }}
+      whileHover={{ y: -6, scale: 1.02 }}
+      className="p-8 md:p-10 rounded-[2.5rem] border-4 border-slate-950 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 flex flex-col h-full justify-between"
+    >
+      <div>
+        <div className="flex justify-between items-start mb-8 gap-4">
+          <h3 className="text-[22px] font-black text-gray-900 leading-[1.25] tracking-[-0.02em]">
+            {item.title}
+          </h3>
+          
+          {/* Modern Borderless Large PNG Icon Wrapper */}
+          <div className="w-14 h-14 rounded-2xl bg-[#6400A1]/10 flex items-center justify-center p-3 shrink-0">
+            <img 
+              src={item.iconSrc} 
+              alt={item.title} 
+              className="w-full h-full object-contain" 
+            />
+          </div>
         </div>
+      </div>
+
+      <p className="text-gray-950 font-bold leading-[1.7] text-[15px] mt-auto">
+        {item.description}
+      </p>
+    </motion.div>
+  ))}
+</div>
       </div>
     </section>
   )

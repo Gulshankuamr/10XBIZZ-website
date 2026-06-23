@@ -98,14 +98,14 @@ const ServiceHighlightItem = ({ text, accent, isHovered }) => (
     <div
       className="w-1.5 h-1.5 rounded-full flex-shrink-0"
       style={{
-        background: isHovered ? "rgba(255,255,255,0.7)" : accent,
+        background: isHovered ? "#FFFFFF" : accent,
       }}
     />
 
     <span
-      className="text-[13px] font-medium"
+      className="text-[14px] font-semibold tracking-wide"
       style={{
-        color: isHovered ? "rgba(255,255,255,0.85)" : "#475569",
+        color: isHovered ? "#FFFFFF" : "#334155",
       }}
     >
       {text}
@@ -118,7 +118,6 @@ export default function WhatsIncluded() {
 
   return (
     <section className="relative bg-[#F8F9FF] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-
       {/* Background Blur */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-40" />
@@ -126,10 +125,8 @@ export default function WhatsIncluded() {
       </div>
 
       <div className="relative max-w-7xl mx-auto">
-
         {/* Header */}
         <div className="text-center mb-16">
-
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm mb-5">
             <span className="w-2 h-2 rounded-full bg-[#6400A1]" />
             <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#6400A1]">
@@ -144,152 +141,148 @@ export default function WhatsIncluded() {
             </span>
           </h2>
 
-          <p className="mt-5 text-[17px] leading-[1.8] text-[#667085] max-w-[760px] mx-auto">
+          <p className="mt-5 text-[17px] leading-[1.8] text-gray-900 max-w-[760px] mx-auto">
             We combine advertising, automation, CRM, and conversion optimization to help businesses generate more qualified leads and turn them into paying customers.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+  {/* Grid */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+  {whatsIncluded.map((service, idx) => {
+    const isHovered = hovered === service.id;
 
-          {whatsIncluded.map((service, idx) => {
+    return (
+      <motion.div
+        key={service.id}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: idx * 0.08 }}
+        onMouseEnter={() => setHovered(service.id)}
+        onMouseLeave={() => setHovered(null)}
+        className="relative overflow-hidden rounded-[32px] transition-all duration-200 border-4 border-slate-950 hover:-translate-y-1 hover:translate-x-1"
+        style={{
+          background: isHovered ? "#6400A1" : service.lightBg,
+          boxShadow: isHovered
+            ? "4px 4px 0px 0px rgba(0,0,0,1)"
+            : "8px 8px 0px 0px rgba(0,0,0,1)",
+        }}
+      >
+        {/* Glow */}
+        <div
+          className="absolute -top-20 -right-20 w-40 h-40 rounded-full pointer-events-none"
+          style={{
+            background: isHovered
+              ? "rgba(255,255,255,0.08)"
+              : "#6400A110",
+          }}
+        />
 
-            const isHovered = hovered === service.id;
-
-            return (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
-                whileHover={{ y: -8 }}
-                onMouseEnter={() => setHovered(service.id)}
-                onMouseLeave={() => setHovered(null)}
-                className="relative overflow-hidden rounded-[28px] transition-all duration-300"
+        <div className="relative p-8 min-h-[420px] flex flex-col">
+          {/* Icon */}
+          <div className="flex justify-center mb-6">
+            <div
+              className="w-20 h-20 rounded-2xl border-2 border-slate-950 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+              style={{
+                background: isHovered
+                  ? "rgba(255,255,255,0.12)"
+                  : service.iconBg,
+              }}
+            >
+              <img
+                src={service.iconUrl}
+                alt={service.title}
+                width={42}
+                height={42}
                 style={{
-                  background: isHovered ? "#6400A1" : service.lightBg,
-                  border: `1.5px solid ${
-                    isHovered ? "#6400A1" : service.borderColor
-                  }`,
-                  boxShadow: isHovered
-                    ? "0 20px 40px rgba(100,0,161,0.25)"
-                    : "0 4px 12px rgba(0,0,0,0.05)",
+                  transition: "0.2s ease",
                 }}
-              >
+              />
+            </div>
+          </div>
 
-                {/* Glow */}
-                <div
-                  className="absolute -top-20 -right-20 w-40 h-40 rounded-full"
-                  style={{
-                    background: isHovered
-                      ? "rgba(255,255,255,0.08)"
-                      : "#6400A110",
-                  }}
-                />
+          {/* Title */}
+          <h3
+            className="text-[24px] font-bold text-center leading-tight mb-4 tracking-tight"
+            style={{
+              color: isHovered ? "#fff" : "#111827",
+            }}
+          >
+            {service.title}
+          </h3>
 
-                <div className="relative p-7 min-h-[390px] flex flex-col">
+          {/* Description - Optimized for bold, clean brutalist readability */}
+          <p
+            className="text-[15px] leading-[1.8] text-center mb-6 font-semibold"
+            style={{
+              color: isHovered
+                ? "#FFFFFF"
+                : "#1f2937",
+            }}
+          >
+            {service.desc}
+          </p>
 
-                  {/* Icon */}
-                  <div className="flex justify-center mb-6">
-                    <div
-                      className="w-20 h-20 rounded-2xl flex items-center justify-center"
-                      style={{
-                        background: isHovered
-                          ? "rgba(255,255,255,0.12)"
-                          : service.iconBg,
-                      }}
-                    >
-                      <img
-                        src={service.iconUrl}
-                        alt={service.title}
-                        width={42}
-                        height={42}
-                        style={{
-                          transition: "0.3s ease",
-                        }}
-                      />
-                    </div>
-                  </div>
+          {/* Divider */}
+          <div
+            className="h-0.5 w-full mb-5 opacity-40"
+            style={{
+              background: isHovered
+                ? "rgba(255,255,255,0.5)"
+                : "#94a3b8",
+            }}
+          />
 
-                  {/* Title */}
-                  <h3
-                    className="text-[24px] font-bold text-center leading-tight mb-3"
-                    style={{
-                      color: isHovered ? "#fff" : "#111827",
-                    }}
-                  >
-                    {service.title}
-                  </h3>
+          {/* Highlights */}
+          <div className="space-y-2">
+            {service.highlights.map((highlight, i) => (
+              <ServiceHighlightItem
+                key={i}
+                text={highlight}
+                accent={service.accent}
+                isHovered={isHovered}
+              />
+            ))}
+          </div>
 
-                  {/* Description */}
-                  <p
-                    className="text-[14px] leading-[1.8] text-center mb-6"
-                    style={{
-                      color: isHovered
-                        ? "rgba(255,255,255,0.82)"
-                        : "#667085",
-                    }}
-                  >
-                    {service.desc}
-                  </p>
-
-                  {/* Divider */}
-                  <div
-                    className="h-px w-full mb-5"
-                    style={{
-                      background: isHovered
-                        ? "rgba(255,255,255,0.15)"
-                        : "#E2E8F0",
-                    }}
-                  />
-
-                  {/* Highlights */}
-                  <div className="space-y-1">
-                    {service.highlights.map((highlight, i) => (
-                      <ServiceHighlightItem
-                        key={i}
-                        text={highlight}
-                        accent={service.accent}
-                        isHovered={isHovered}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Footer */}
-                  <div className="mt-auto pt-6">
-                    <div
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold"
-                      style={{
-                        background: isHovered
-                          ? "rgba(255,255,255,0.12)"
-                          : "#6400A110",
-                        color: isHovered
-                          ? "#fff"
-                          : "#6400A1",
-                      }}
-                    >
-                      ✓ Included In Growth System
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Border */}
-                <motion.div
-                  className="absolute bottom-0 left-0 h-1"
-                  style={{
-                    background:
-                      "linear-gradient(90deg,#6400A1 0%,#FF1920 100%)",
-                  }}
-                  initial={{ width: 0 }}
-                  animate={{
-                    width: isHovered ? "100%" : 0,
-                  }}
-                />
-              </motion.div>
-            );
-          })}
+          {/* Footer */}
+          <div className="mt-auto pt-6">
+            <div
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold border border-slate-950 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+              style={{
+                background: isHovered
+                  ? "rgba(255,255,255,0.18)"
+                  : "#6400A110",
+                color: isHovered
+                  ? "#fff"
+                  : "#6400A1",
+                borderColor: isHovered
+                  ? "rgba(255,255,255,0.3)"
+                  : "#cbd5e1"
+              }}
+            >
+              ✓ Included In Growth System
+            </div>
+          </div>
         </div>
+
+        {/* Bottom Accent Border */}
+        <motion.div
+          className="absolute bottom-0 left-0 h-1"
+          style={{
+            background:
+              "linear-gradient(90deg,#6400A1 0%,#FF1920 100%)",
+          }}
+          initial={{ width: 0 }}
+          animate={{
+            width: isHovered ? "100%" : 0,
+          }}
+          transition={{ duration: 0.3 }}
+        />
+      </motion.div>
+    );
+  })}
+</div>
       </div>
     </section>
   );

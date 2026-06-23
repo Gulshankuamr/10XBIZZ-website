@@ -36,10 +36,10 @@ export default function WhyChooseUs() {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-2xl overflow-hidden shadow-2xl order-2 md:order-1"
+          className=""
         >
           <img
-            src="https://images.unsplash.com/photo-1522204523234-8724b8f2eeaa?w=1000&q=80"
+            src="/New-Project-36.webp"
             alt="SEO Strategy"
             className="w-full h-auto object-cover"
           />

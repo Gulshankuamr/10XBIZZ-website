@@ -60,7 +60,7 @@ export default function ProblemSection() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] bg-[#FAFBFF] py-24 px-6 relative overflow-hidden">
+    <section className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] bg-[#FAFBFF] py-12 px-6 relative overflow-hidden">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');`}</style>
 
       {/* Bg Decor */}
@@ -76,115 +76,117 @@ export default function ProblemSection() {
           <motion.h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-[-0.02em]">
             Why Most <span style={{ color: ACCENT }}>Google Ads</span> Fail
           </motion.h2>
-          <motion.p className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
+          <motion.p className="text-lg text-gray-900 max-w-2xl mx-auto font-medium">
             Stop guessing with your budget. We identify the leaks in your funnel that are draining your profits.
           </motion.p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {cards.map((card, idx) => {
-            const isHovered = hovered === card.id;
-            return (
-              <motion.div
-                key={card.id}
-                onMouseEnter={() => setHovered(card.id)}
-                onMouseLeave={() => setHovered(null)}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                style={{
-                  borderRadius: 32,
-                  overflow: "hidden",
-                  border: `2px solid ${isHovered ? ACCENT : card.borderColor}`,
-                  background: "#ffffff",
-                  boxShadow: isHovered ? "0 30px 60px -15px rgba(100,0,161,0.2)" : "0 10px 30px rgba(0,0,0,0.03)",
-                  transition: "all 0.4s ease",
-                  display: "flex",
-                  flexDirection: "column",
-                  cursor: "default"
-                }}
-              >
-                {/* Image Section - No Blur/Overlay on Hover */}
-                <div style={{ height: 260, overflow: "hidden", flexShrink: 0 }}>
-                  <img
-                    src={card.imageUrl}
-                    alt={card.title}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      filter: "grayscale(0%)", // Explicitly no grayscale or blur
-                      transform: isHovered ? "scale(1.05)" : "scale(1)",
-                      transition: "transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)",
-                    }}
-                  />
-                </div>
-
-                {/* Content Section - Hover Effect Happens Here */}
-                <div 
-                  style={{ 
-                    padding: "32px", 
-                    flex: 1, 
-                    display: "flex", 
-                    flexDirection: "column",
-                    background: isHovered ? ACCENT : "#ffffff",
-                    transition: "background 0.4s ease"
-                  }}
-                >
-                  <h3 style={{
-                    fontSize: 22,
-                    fontWeight: 900,
-                    color: isHovered ? "#ffffff" : "#111",
-                    marginBottom: 16,
-                    lineHeight: 1.2,
-                    transition: "color 0.3s ease"
-                  }}>
-                    {card.title}
-                  </h3>
-
-                  <p style={{
-                    fontSize: 15,
-                    fontWeight: 600, // Modern Bold Look
-                    color: isHovered ? "rgba(255,255,255,0.9)" : "#4B5563",
-                    lineHeight: 1.7,
-                    marginBottom: 24,
-                    flex: 1,
-                    transition: "color 0.3s ease"
-                  }}>
-                    {card.desc}
-                  </p>
-
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <a
-                      href="#"
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 10,
-                        fontSize: 13,
-                        fontWeight: 800,
-                        letterSpacing: "1px",
-                        textTransform: "uppercase",
-                        textDecoration: "none",
-                        color: isHovered ? "#ffffff" : ACCENT,
-                        transition: "all 0.3s ease",
-                      }}
-                    >
-                      Analyze My Campaign
-                      <span style={{
-                        fontSize: 18,
-                        transform: isHovered ? "translateX(5px)" : "translateX(0)",
-                        transition: "transform 0.3s ease"
-                      }}>→</span>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+     {/* Grid */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+  {cards.map((card, idx) => {
+    const isHovered = hovered === card.id;
+    return (
+      <motion.div
+        key={card.id}
+        onMouseEnter={() => setHovered(card.id)}
+        onMouseLeave={() => setHovered(null)}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: idx * 0.1 }}
+        style={{
+          borderRadius: 32,
+          overflow: "hidden",
+          border: `4px solid ${isHovered ? ACCENT : "#0f172a"}`,
+          background: "#ffffff",
+          boxShadow: isHovered ? "4px 4px 0 0 rgba(0,0,0,1)" : "8px 8px 0 0 rgba(0,0,0,1)",
+          transition: "all 0.2s ease",
+          display: "flex",
+          flexDirection: "column",
+          cursor: "default"
+        }}
+        className="hover:-translate-y-1 hover:translate-x-1"
+      >
+        {/* Image Section - No Blur/Overlay on Hover */}
+        <div style={{ height: 260, overflow: "hidden", flexShrink: 0 }}>
+          <img
+            src={card.imageUrl}
+            alt={card.title}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              filter: "grayscale(0%)", // Explicitly no grayscale or blur
+              transform: isHovered ? "scale(1.05)" : "scale(1)",
+              transition: "transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)",
+            }}
+          />
         </div>
+
+        {/* Content Section - Hover Effect Happens Here */}
+        <div 
+          style={{ 
+            padding: "32px", 
+            flex: 1, 
+            display: "flex", 
+            flexDirection: "column",
+            background: isHovered ? ACCENT : "#ffffff",
+            transition: "background 0.2s ease"
+          }}
+        >
+          <h3 style={{
+            fontSize: 22,
+            fontWeight: 900,
+            color: isHovered ? "#ffffff" : "#111",
+            marginBottom: 16,
+            lineHeight: 1.2,
+            transition: "color 0.2s ease"
+          }}>
+            {card.title}
+          </h3>
+
+          <p style={{
+            fontSize: 15,
+            fontWeight: 600, // Modern Bold Look
+            color: isHovered ? "rgba(255,255,255,0.9)" : "#1f2937",
+            lineHeight: 1.7,
+            marginBottom: 24,
+            flex: 1,
+            transition: "color 0.2s ease"
+          }}>
+            {card.desc}
+          </p>
+
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <a
+              href="#"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                fontSize: 13,
+                fontWeight: 800,
+                letterSpacing: "1px",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                color: isHovered ? "#ffffff" : ACCENT,
+                transition: "all 0.2s ease",
+              }}
+            >
+              Analyze My Campaign
+              <span style={{
+                fontSize: 18,
+                transform: isHovered ? "translateX(5px)" : "translateX(0)",
+                transition: "transform 0.2s ease"
+              }}>→</span>
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    );
+  })}
+</div>
       </div>
     </section>
   );

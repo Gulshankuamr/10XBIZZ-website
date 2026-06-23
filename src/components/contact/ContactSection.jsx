@@ -128,38 +128,44 @@ export default function Contact() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
           
           {/* INFO COLUMN */}
-          <div className="lg:col-span-2 space-y-4 pt-12">
-            {[
-              { icon: "📞", title: "Call Us Directly", val: "+91 98765 43210", sub: "Mon–Sat, 10am – 7pm IST" },
-              { icon: "✉️", title: "Email", val: "hello@10xbizz.com", sub: "Reply within 2 business hours" },
-              { icon: "💬", title: "WhatsApp", val: "Chat Instantly", sub: "Available 24/7 on WhatsApp" },
-            ].map((c) => (
-              <div key={c.title} className="group flex items-start gap-4 rounded-2xl border border-purple-100 bg-white p-5 transition-all hover:translate-y-[-2px] hover:shadow-xl hover:shadow-purple-500/10">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-50 to-red-50 text-xl">
-                  {c.icon}
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#6400A1]">{c.title}</p>
-                  <p className="text-base font-bold text-gray-900">{c.val}</p>
-                  <p className="text-xs text-gray-400">{c.sub}</p>
-                </div>
-              </div>
-            ))}
+          <div className="lg:col-span-2 space-y-4 pt-12 my-4 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
+  {[
+    { icon: "📞", title: "Call Us Directly", val: "+91 98765 43210", sub: "Mon–Sat, 10am – 7pm IST" },
+    { icon: "✉️", title: "Email", val: "hello@10xbizz.com", sub: "Reply within 2 business hours" },
+    { icon: "💬", title: "WhatsApp", val: "Chat Instantly", sub: "Available 24/7 on WhatsApp" },
+  ].map((c) => (
+    <div 
+      key={c.title} 
+      className="group flex items-start gap-4 rounded-2xl border-2 border-slate-900 bg-white p-5 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:border-[#6400A1]"
+    >
+      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border-2 border-slate-900 bg-gradient-to-br from-purple-50 to-red-50 text-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+        {c.icon}
+      </div>
+      <div>
+        <p className="text-[10px] font-bold uppercase tracking-wider text-[#6400A1]">{c.title}</p>
+        <p className="text-base font-bold text-gray-900">{c.val}</p>
+        <p className="text-xs text-slate-600 font-medium">{c.sub}</p>
+      </div>
+    </div>
+  ))}
 
-            <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2">
-              {[
-                { num: "500+", lbl: "Happy Clients" },
-                { num: "4.9★", lbl: "Avg Rating" },
-                { num: "8+", lbl: "Years Exp." },
-                { num: "3X", lbl: "Avg ROI" },
-              ].map((s) => (
-                <div key={s.lbl} className="rounded-2xl border border-purple-50 bg-gradient-to-br from-purple-50/50 to-red-50/50 p-5 text-center">
-                  <p className="text-2xl font-bold text-[#6400A1]">{s.num}</p>
-                  <p className="mt-1 text-[10px] font-bold uppercase tracking-wide text-gray-400">{s.lbl}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+  <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2">
+    {[
+      { num: "500+", lbl: "Happy Clients" },
+      { num: "4.9★", lbl: "Avg Rating" },
+      { num: "8+", lbl: "Years Exp." },
+      { num: "3X", lbl: "Avg ROI" },
+    ].map((s) => (
+      <div 
+        key={s.lbl} 
+        className="rounded-2xl border-2 border-slate-900 bg-gradient-to-br from-purple-50/50 to-red-50/50 p-5 text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+      >
+        <p className="text-2xl font-bold text-[#6400A1]">{s.num}</p>
+        <p className="mt-1 text-[10px] font-bold uppercase tracking-wide text-slate-700">{s.lbl}</p>
+      </div>
+    ))}
+  </div>
+</div>
 
           {/* FORM COLUMN */}
           <div className="lg:col-span-3">

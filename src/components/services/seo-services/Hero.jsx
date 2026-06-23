@@ -57,9 +57,9 @@ export default function SEOHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-600 text-base md:text-[18px] leading-[1.7]"
+            className="text-gray-900 text-base md:text-[18px] leading-[1.7]"
           >
-            <p className="mb-5">
+            <p className="mb-5 text-gray-800">
               Improve your Google rankings, attract targeted traffic, and generate long-term business growth through data-driven SEO strategy. We help brands{' '}
               <span
                 className="font-semibold"
@@ -74,7 +74,7 @@ export default function SEOHero() {
               </span>{' '}
               and turn high-intent search queries into recurring revenue.
             </p>
-            <p className="mb-6">
+            <p className="mb-6 text-gray-800">
               From advanced keyword intelligence and on-page optimization to authoritative link building and local SEO, our technical expertise focuses on delivering sustainable 10x business scaling and measurable ROI.
             </p>
 

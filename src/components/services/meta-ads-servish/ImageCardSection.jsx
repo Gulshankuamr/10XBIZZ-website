@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const ImageCardSection = () => {
   return (
     <section 
-      className="w-full flex items-center justify-center px-4 sm:px-10 -mt-20 md:py-16 bg-white"
+      className="w-full flex items-center justify-center px-4 sm:px-10  md:py-8 bg-white"
     >
       <div className="max-w-7xl w-full mx-auto">
         <motion.div

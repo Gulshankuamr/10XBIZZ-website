@@ -26,7 +26,7 @@ export default function AboutHero() {
       className="
         relative overflow-hidden
         bg-gradient-to-b from-[#F5F7FF] via-[#fffbee] to-[#E6EFFF]
-        px-6 sm:px-10 pt-12 pb-0 my-20
+        px-6 sm:px-10 pt-12 pb-0 my-4
         min-h-screen
         font-['Montserrat',ui-sans-serif,system-ui,sans-serif]
       "
@@ -86,7 +86,7 @@ export default function AboutHero() {
           variants={fadeUp}
           transition={{ duration: 0.55 }}
           className="
-            mt-6 text-center text-[#667085]
+            mt-6 text-center text-geray-900
             max-w-2xl
             text-base md:text-[18px]
             leading-[1.7] font-medium

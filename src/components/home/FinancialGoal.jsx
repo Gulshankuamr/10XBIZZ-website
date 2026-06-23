@@ -200,7 +200,7 @@ export default function HoverRevealSection() {
             </span>
           </h2>
 
-          <p className="mt-5 text-[#111827]/55 text-base md:text-[18px] font-medium leading-[1.7] max-w-3xl">
+          <p className="mt-5 text-gray-900 text-base md:text-[18px] font-medium leading-[1.7] max-w-3xl">
             From lead generation and CRM automation to high-converting
             funnels, we build systems designed to help businesses grow more
             efficiently.
