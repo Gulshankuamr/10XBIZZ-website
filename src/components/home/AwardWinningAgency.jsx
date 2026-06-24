@@ -138,7 +138,7 @@ export default function AboutSection() {
     {/* LEFT COLUMN: Heading & CTA */}
     <div className="lg:col-span-5">
       <FadeUp>
-        <div className="w-12 h-1 bg-black mb-8" />
+        
 
         <h1 className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif] text-[34px] md:text-[50px] lg:text-[58px] font-bold leading-[1.05] tracking-[-0.02em] max-w-[900px] mb-8 text-[#1a1a1a]">
           We Build Systems That Help <br className="hidden md:block" />

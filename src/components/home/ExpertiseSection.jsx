@@ -205,15 +205,14 @@ export default function ExpertiseSection() {
         </span>
 
         {/* Title with Gradient Fill and strong drop shadow for image visibility */}
-        <h3
-          className="text-transparent bg-clip-text text-[20px] md:text-[26px] font-black leading-[1.25] mb-2"
-          style={{ 
-            backgroundImage: "linear-gradient(135deg, #6400A1 0%, #BB000F 100%)",
-            filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.9))"
-          }}
-        >
-          {activeService.title}
-        </h3>
+      <h3
+  className="text-[#000000] text-[20px] md:text-[26px] font-black leading-[1.25] mb-2"
+  style={{ 
+    textShadow: "0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.5)"
+  }}
+>
+  {activeService.title}
+</h3>
 
         {/* Highlighted Description with solid backing */}
         <div className="inline-block p-3 rounded-xl bg-black/50 backdrop-blur-sm border border-white/10 mb-4 max-w-[620px]">
