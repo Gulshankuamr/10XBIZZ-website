@@ -101,8 +101,8 @@ function ModernCard({ card }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Top Illustration Area — Slightly increased height for larger uniform images */}
-      <div className="relative flex items-center justify-center h-[210px] px-6 py-4 overflow-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-fuchsia-50">
+      {/* Top Illustration Area — Edge-to-edge with 1px border clearance */}
+      <div className="relative flex items-center justify-center h-[210px] w-full px-1.5 py-4 overflow-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-fuchsia-50 border-b border-[#6400A1]/10">
         {/* Subtle radial glow behind image */}
         <div className="absolute w-[160px] h-[100px] rounded-full bg-[#6400A1]/8 blur-[32px] bottom-3 left-1/2 -translate-x-1/2" />
 
@@ -112,9 +112,9 @@ function ModernCard({ card }) {
         <img
           src={card.image}
           alt={card.alt}
-          className={`relative z-10 h-[150px] w-auto max-w-full object-contain drop-shadow-[0_12px_24px_rgba(100,0,161,0.15)] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+          className={`relative z-10 h-[170px] w-full max-w-[calc(100%-12px)] object-contain drop-shadow-[0_12px_24px_rgba(100,0,161,0.15)] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
             hovered
-              ? "-translate-y-1.5 scale-[1.04] rotate-[1.5deg]"
+              ? "-translate-y-1.5 scale-[1.02] rotate-[0.5deg]"
               : "translate-y-0 scale-100 rotate-0"
           }`}
         />

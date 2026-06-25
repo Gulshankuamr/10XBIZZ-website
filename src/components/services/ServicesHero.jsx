@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, Users, BarChart3, Zap, ArrowRight, PlayCircle, CheckCircle2, MessageCircle } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import HeroActionButton from "../ui/HeroActionButton";
 // Make sure to import your modal component. Update the path if necessary:
 import FreeMarketingPlan from "../freemarektingPlane/FreeMarketingPlan"; 
@@ -26,7 +26,7 @@ export default function AboutHero() {
       className="
         relative overflow-hidden
         bg-gradient-to-b from-[#F5F7FF] via-[#fffbee] to-[#E6EFFF]
-        px-6 sm:px-10 pt-12 pb-0 my-4
+        px-6 sm:px-10 pt-24 md:pt-28 lg:pt-32 pb-0 my-4
         min-h-screen
         font-['Montserrat',ui-sans-serif,system-ui,sans-serif]
       "
@@ -86,7 +86,7 @@ export default function AboutHero() {
           variants={fadeUp}
           transition={{ duration: 0.55 }}
           className="
-            mt-6 text-center text-geray-900
+            mt-6 text-center text-gray-900
             max-w-2xl
             text-base md:text-[18px]
             leading-[1.7] font-medium
@@ -118,36 +118,29 @@ export default function AboutHero() {
           transition={{ duration: 0.6 }}
           className="mt-12 flex flex-wrap justify-center gap-4 px-4 w-full"
         >
-          {/* Left Button triggers the modal now */}
+          {/* Left Button triggers the modal now, arrow icon removed */}
           <HeroActionButton 
             onClick={() => setOpenModal(true)}
             className="px-8 py-4 bg-indigo-600 text-white rounded-full font-bold text-base flex items-center gap-2 hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200 active:scale-95 cursor-pointer"
           >
             Book Free Strategy Call
-            <ArrowRight size={20} />
           </HeroActionButton>
-          
-          {/* Right Button remains unchanged for WhatsApp */}
-          {/* <HeroActionButton className="px-8 py-4 bg-[#25D366] text-white rounded-full font-bold text-base flex items-center gap-2 hover:bg-[#20bd5a] transition-all shadow-xl shadow-green-100 active:scale-95">
-            <MessageCircle size={20} fill="currentColor" className="text-white" />
-            Chat on WhatsApp
-          </HeroActionButton> */}
         </motion.div>
 
-        {/* ── Hero Image ── */}
+        {/* ── Hero Image: Fixed cut off issues by using object-contain/object-scale-down ── */}
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="mt-10 w-full max-w-5xl relative"
+          className="mt-12 w-full max-w-5xl relative flex justify-center"
         >
           {/* Subtle decoration behind image */}
           <div className="absolute -top-10 -left-10 w-32 h-32 bg-amber-200/20 rounded-full blur-3xl" />
           
-          <img
-            className="rounded-[32px] rounded-b-none w-full h-[300px] md:h-[500px] object-cover relative z-0 shadow-[0_-20px_50px_-20px_rgba(0,0,0,0.15)] border-x border-t border-white"
-            src="/Serevishhomepage.webp"
-            alt="Lead generation automation dashboard"
-          />
+      <img
+  className="rounded-t-[32px] block w-full relative z-0 shadow-[0_-20px_50px_-20px_rgba(0,0,0,0.15)] border-x border-t border-white bg-white/50"
+  src="/Serevishhomepage.webp"
+  alt="Lead generation automation dashboard"
+/>
         </motion.div>
 
       </motion.main>

@@ -387,7 +387,7 @@ export default function Hero() {
               className="btn-primary-3d"
             >
               See How It Works
-              <span className="btn-arrow">→</span>
+              
             </button>
 
           </div>

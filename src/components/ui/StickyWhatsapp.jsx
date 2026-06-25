@@ -1,11 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
-// ─────────────────────────────────────────────
-
-// ─────────────────────────────────────────────
 const PHONE   = "916291124216";         
 const MESSAGE = "Hello, I want to know about your services";
-const GIF_SRC = "/public/whatsappoopsticky.gif";
 
 const CHAT_MESSAGES = [
   "👋 Hey! Welcome to *10XBIZZ*",
@@ -13,161 +9,14 @@ const CHAT_MESSAGES = [
   "Let’s talk! Get your *FREE Strategy Call* today. 📞"
 ];
 
-// ─────────────────────────────────────────────
-//  Styles (plain object — no external CSS needed)
-// ─────────────────────────────────────────────
-const S = {
-  // Sticky button
-  btn: {
-    position: "fixed",
-    bottom: 24,
-    right: 24,
-    width: 58,
-    height: 58,
-    borderRadius: "50%",
-    overflow: "hidden",
-    cursor: "pointer",
-    zIndex: 9999,
-    border: "none",
-    background: "transparent",
-    padding: 0,
-    transition: "transform 0.2s ease",
-    boxShadow: "0 4px 16px rgba(0,0,0,0.25)",
-  },
-  btnImg: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    borderRadius: "50%",
-    display: "block",
-  },
-  btnFallback: {
-    width: "100%",
-    height: "100%",
-    borderRadius: "50%",
-    background: "#25D366",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  // Popup wrapper
-  popup: (open) => ({
-    position: "fixed",
-    bottom: 92,
-    right: 24,
-    width: 270,
-    background: "#fff",
-    borderRadius: "16px 16px 4px 16px",
-    overflow: "hidden",
-    boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
-    zIndex: 9998,
-    transformOrigin: "bottom right",
-    transition: "opacity 0.22s ease, transform 0.22s ease",
-    opacity: open ? 1 : 0,
-    transform: open ? "scale(1) translateY(0)" : "scale(0.88) translateY(14px)",
-    pointerEvents: open ? "all" : "none",
-  }),
-
-  // Header
-  header: {
-    background: "#075E54",
-    padding: "10px 12px",
-    display: "flex",
-    alignItems: "center",
-    gap: 10,
-  },
-  avatar: {
-    width: 36,
-    height: 36,
-    borderRadius: "50%",
-    background: "#25D366",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexShrink: 0,
-  },
-  name: { color: "#fff", fontSize: 13, fontWeight: 600, lineHeight: 1.2, margin: 0 },
-  status: { color: "#9BE2D3", fontSize: 11, margin: 0 },
-  closeBtn: {
-    marginLeft: "auto",
-    background: "none",
-    border: "none",
-    color: "rgba(255,255,255,0.7)",
-    fontSize: 18,
-    cursor: "pointer",
-    lineHeight: 1,
-    padding: "2px 4px",
-  },
-
-  // Chat body
-  body: {
-    background: "#ECE5DD",
-    backgroundImage:
-      "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ccc5bc' fill-opacity='0.25'%3E%3Ccircle cx='30' cy='30' r='12'/%3E%3C/g%3E%3C/svg%3E\")",
-    padding: "12px 10px 10px",
-    display: "flex",
-    flexDirection: "column",
-    gap: 7,
-    minHeight: 110,
-  },
-
-  // Bubble
-  bubble: {
-    background: "#fff",
-    borderRadius: "8px 8px 8px 2px",
-    padding: "7px 10px 5px",
-    maxWidth: "90%",
-    alignSelf: "flex-start",
-  },
-  bubbleText: { fontSize: 12.5, color: "#111", lineHeight: 1.45, margin: 0 },
-  bubbleTime: { fontSize: 10, color: "#aaa", textAlign: "right", marginTop: 3 },
-
-  // Typing dots
-  typing: {
-    background: "#fff",
-    borderRadius: "8px 8px 8px 2px",
-    padding: "9px 13px",
-    alignSelf: "flex-start",
-    display: "flex",
-    gap: 4,
-    alignItems: "center",
-  },
-
-  // CTA
-  cta: {
-    display: "block",
-    textAlign: "center",
-    background: "#25D366",
-    color: "#fff",
-    fontSize: 13,
-    fontWeight: 600,
-    padding: "11px",
-    textDecoration: "none",
-    border: "none",
-    width: "100%",
-    cursor: "pointer",
-    letterSpacing: 0.2,
-  },
-};
-
-// ─────────────────────────────────────────────
-//  Typing Dots
-// ─────────────────────────────────────────────
 function TypingDots() {
   return (
-    <div style={S.typing}>
+    <div className="bg-white rounded-t-lg rounded-bl-lg rounded-br-sm px-3.5 py-2.5 self-start flex gap-1 items-center">
       {[0, 1, 2].map((i) => (
         <span
           key={i}
-          style={{
-            width: 7,
-            height: 7,
-            borderRadius: "50%",
-            background: "#aaa",
-            display: "inline-block",
-            animation: `waTyping 1.2s ${i * 0.2}s infinite`,
-          }}
+          style={{ animationDelay: `${i * 0.2}s` }}
+          className="w-1.5 h-1.5 rounded-full bg-[#aaa] inline-block animate-bounce"
         />
       ))}
     </div>
@@ -178,10 +27,10 @@ function TypingDots() {
 function BubbleText({ text }) {
   const parts = text.split(/\*(.*?)\*/g);
   return (
-    <p style={S.bubbleText}>
+    <p className="text-[12.5px] text-[#111] leading-[1.45] m-0">
       {parts.map((p, i) =>
         i % 2 === 1 ? (
-          <strong key={i} style={{ color: "#075E54" }}>
+          <strong key={i} className="text-[#075E54]">
             {p}
           </strong>
         ) : (
@@ -206,9 +55,6 @@ function nowTime() {
   return new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: false });
 }
 
-// ─────────────────────────────────────────────
-//  Main Component
-// ─────────────────────────────────────────────
 export default function StickyWhatsapp() {
   const [open, setOpen]         = useState(false);
   const [gifError, setGifError] = useState(false);
@@ -250,64 +96,59 @@ export default function StickyWhatsapp() {
     }, 3200);
   };
 
-  const handleMouseEnter = () => {
-    setOpen(true);
-    clearTimers();
-    startAnimation();
-  };
-
-  const handleMouseLeave = () => {
-    setOpen(false);
-    clearTimers();
-  };
-
-  const handleClose = (e) => {
-    e.stopPropagation();
-    setOpen(false);
-    clearTimers();
+  const handleToggleChat = () => {
+    if (!open) {
+      setOpen(true);
+      clearTimers();
+      startAnimation();
+    } else {
+      setOpen(false);
+      clearTimers();
+    }
   };
 
   useEffect(() => () => clearTimers(), []);
 
   return (
-    <>
-      {/* Keyframe injection */}
-      <style>{`
-        @keyframes waTyping {
-          0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-          30% { transform: translateY(-5px); opacity: 1; }
-        }
-        .wa-cta-hover:hover { background: #1ebe5a !important; }
-        .wa-close-hover:hover { color: #fff !important; }
-        .wa-btn-scale:hover { transform: scale(1.1) !important; }
-      `}</style>
-
-      {/* ── Popup ── */}
+    <div className="font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
+      {/* ── Popup (Stays open persistently until closed manually) ── */}
       <div
-        style={S.popup(open)}
-        onMouseEnter={() => { /* keep open if mouse moves to popup */ setOpen(true); }}
-        onMouseLeave={handleMouseLeave}
+        className={`fixed bottom-[92px] right-6 w-[270px] bg-white rounded-[16px_16px_4px_16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.18)] z-[9998] origin-bottom-right transition-all duration-220 ${
+          open 
+            ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" 
+            : "opacity-0 scale-95 translate-y-[14px] pointer-events-none"
+        }`}
       >
         {/* Header */}
-        <div style={S.header}>
-          <div style={S.avatar}>
+        <div className="bg-[#075E54] p-[10px_12px] flex items-center gap-2.5">
+          <div className="w-9 h-9 rounded-full bg-[#25D366] flex items-center justify-center flex-shrink-0">
             <WaIcon size={20} />
           </div>
           <div>
-            <p style={S.name}>Sales Support</p>
-            <p style={S.status}>● online</p>
+            <p className="text-white text-[13px] font-semibold leading-[1.2] m-0">Sales Support</p>
+            <p className="text-[#9BE2D3] text-[11px] m-0">● online</p>
           </div>
-          <button style={S.closeBtn} className="wa-close-hover" onClick={handleClose}>
+          <button 
+            className="ml-auto bg-transparent border-0 text-[rgba(255,255,255,0.7)] text-[18px] cursor-pointer leading-none p-[2px_4px] transition-colors hover:text-white" 
+            onClick={handleToggleChat}
+            aria-label="Close chat"
+          >
             ✕
           </button>
         </div>
 
         {/* Chat messages */}
-        <div style={S.body}>
+        <div 
+          className="p-[12px_10px_10px] flex flex-col gap-[7px] min-h-[110px]"
+          style={{
+            background: "#ECE5DD",
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ccc5bc' fill-opacity='0.25'%3E%3Ccircle cx='30' cy='30' r='12'/%3E%3C/g%3E%3C/svg%3E\")"
+          }}
+        >
           {visibleMsgs.map((idx) => (
-            <div key={idx} style={S.bubble}>
+            <div key={idx} className="bg-white rounded-[8px_8px_8px_2px] p-[7px_10px_5px] max-w-[90%] self-start shadow-sm">
               <BubbleText text={CHAT_MESSAGES[idx]} />
-              <p style={S.bubbleTime}>{nowTime()}</p>
+              <p className="text-[10px] text-[#aaa] text-right mt-[3px] m-0">{nowTime()}</p>
             </div>
           ))}
           {showTyping && <TypingDots />}
@@ -318,37 +159,31 @@ export default function StickyWhatsapp() {
           href={waUrl}
           target="_blank"
           rel="noopener noreferrer"
-          style={S.cta}
-          className="wa-cta-hover"
+          className="block text-center bg-[#25D366] text-white text-[13px] font-semibold p-2.5 no-underline w-full cursor-pointer tracking-[0.2px] transition-colors hover:bg-[#1ebe5a]"
         >
           Chat on WhatsApp →
         </a>
       </div>
 
-      {/* ── Sticky Button ── */}
-      <div
-        style={S.btn}
-        className="wa-btn-scale"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onClick={() => {
-          if (!open) { setOpen(true); startAnimation(); }
-          else setOpen(false);
-        }}
+      {/* ── Sticky Button (Icon) ── */}
+      <button
+        className="fixed bottom-6 right-6 w-[58px] h-[58px] rounded-full overflow-hidden cursor-pointer z-[9999] border-0 bg-transparent p-0 shadow-[0_4px_16px_rgba(0,0,0,0.25)] transition-transform duration-200 hover:scale-110"
+        onClick={handleToggleChat}
+        aria-label="Open WhatsApp chat"
       >
         {!gifError ? (
           <img
-            src="whatsappoopsticky.gif"
+            src="/whatsappoopsticky.gif"
             alt="Chat on WhatsApp"
-            style={S.btnImg}
+            className="w-full h-full object-cover rounded-full block"
             onError={() => setGifError(true)}
           />
         ) : (
-          <div style={S.btnFallback}>
+          <div className="w-full h-full rounded-full bg-[#25D366] flex items-center justify-center">
             <WaIcon size={28} />
           </div>
         )}
-      </div>
-    </>
+      </button>
+    </div>
   );
 }

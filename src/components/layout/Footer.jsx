@@ -99,6 +99,23 @@ const ContactItem = ({ icon, label, value }) => (
   </div>
 );
 
+// ── Quick Links — all routes including policy pages ──
+const quickLinks = [
+  { name: "Home",                   path: "/" },
+  { name: "Contact",                path: "/contact" },
+  { name: "Blog",                   path: "/blog" },
+  { name: "Privacy Policy",         path: "/privacy-policy" },
+  { name: "Cancellation & Refund",  path: "/cancellation-refund" },
+  { name: "Terms & Conditions",     path: "/terms-and-conditions" },
+];
+
+// ── Bottom bar policy links ──
+const bottomLinks = [
+  { name: "Privacy Policy",        path: "/privacy-policy" },
+  { name: "Terms & Conditions",    path: "/terms-and-conditions" },
+  { name: "Cancellation & Refund", path: "/cancellation-refund" },
+];
+
 export default function Footer() {
   return (
     <>
@@ -128,6 +145,8 @@ export default function Footer() {
         }
         .bot-link {
           transition: color 0.2s;
+          color: rgba(255,255,255,0.35);
+          text-decoration: none;
         }
         .bot-link:hover {
           color: rgba(255,255,255,0.7) !important;
@@ -169,7 +188,7 @@ export default function Footer() {
                 Empowering growth with smart AI tools. At 10xbizz, we simplify processes and unlock potential—your goal, our AI-powered path to success.
               </p>
 
-              {/* Social Icons — always show brand color */}
+              {/* Social Icons */}
               <div className="flex gap-3 mt-1">
                 {socialLinks.map((s) => (
                   <a
@@ -193,7 +212,7 @@ export default function Footer() {
             <div className="footer-nav flex flex-wrap gap-12">
 
               {/* Resources */}
-              <div className="min-w-[130px]">
+              {/* <div className="min-w-[130px]">
                 <p className="font-syne text-[0.78rem] font-bold tracking-[3px] uppercase mb-5" style={{ color: "#D4A017" }}>
                   Resources
                 </p>
@@ -206,22 +225,15 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
 
-              {/* Quick Links */}
-              <div className="min-w-[160px]">
+              {/* Quick Links — now using React Router <Link> */}
+              <div className="min-w-[180px]">
                 <p className="font-syne text-[0.78rem] font-bold tracking-[3px] uppercase mb-5" style={{ color: "#D4A017" }}>
                   Quick Links
                 </p>
                 <ul className="list-none flex flex-col gap-3">
-                  {[
-                    { name: "Home", path: "/" },
-                    { name: "Contact", path: "/contact" },
-                    { name: "Blog", path: "/blog" },
-                    { name: "Privacy Policy", path: "/privacy-policy" },
-                    { name: "Cancellation & Refund", path: "/cancellation-refund" },
-                    { name: "Terms & Conditions", path: "/terms-conditions" },
-                  ].map((item) => (
+                  {quickLinks.map((item) => (
                     <li key={item.name}>
                       <Link
                         to={item.path}
@@ -276,21 +288,20 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── BOTTOM BAR ── */}
+          {/* ── BOTTOM BAR — now using React Router <Link> ── */}
           <div className="footer-bottom flex flex-wrap gap-3 justify-between items-center pt-5 pb-4">
             <p className="text-[0.8rem] font-light" style={{ color: "rgba(255,255,255,0.35)" }}>
               © 2026 10xBizz. All rights reserved.
             </p>
             <div className="footer-bottom-links flex gap-6">
-              {["Privacy Policy", "Terms of Service", "Refund Policy"].map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  className="bot-link text-[0.8rem] font-light no-underline"
-                  style={{ color: "rgba(255,255,255,0.35)" }}
+              {bottomLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="bot-link text-[0.8rem] font-light"
                 >
-                  {link}
-                </a>
+                  {link.name}
+                </Link>
               ))}
             </div>
           </div>

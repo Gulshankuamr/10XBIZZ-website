@@ -18,7 +18,11 @@ import SeoServices from "./pages/services/SeoServices";
 import GoogleMyBusinessServices from "./pages/services/GoogleMyBusinessServices";
 import GoogleAdsManagement from "./pages/services/GoogleAdsManagement";
 import WhatsAppAutomation from "./pages/services/WhatsAppAutomation";
+
+// ── Policy Pages ──────────────────────────────────────────────
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CancellationRefund from "./pages/CancellationRefund";
+import TermsConditions from "./pages/TermsConditions";
 
 export default function App() {
   return (
@@ -32,46 +36,27 @@ export default function App() {
           <Route path="/home" element={<Home />} />
 
           <Route path="/services" element={<Services />} />
-          <Route
-            path="/privacy-policy"
-            element={<PrivacyPolicy />}
-          />
-          <Route
-            path="/services/crm-automation"
-            element={<CRM />}
-          />
-          <Route
-            path="/services/google-my-business-services"
-            element={<GoogleMyBusinessServices />}
-          />
-          <Route
-            path="/services/seo-services"
-            element={<SeoServices />}
-          />
-          <Route
-            path="/services/google-ads-management"
-            element={<GoogleAdsManagement />}
-          />
-          <Route
-            path="/services/whatsapp-automation"
-            element={<WhatsAppAutomation />}
-          />
-          <Route
-            path="/services/marketing-meta-ads-servish"
-            element={<MetaAdsServish />}
-          />
+
+          <Route path="/services/crm-automation" element={<CRM />} />
+          <Route path="/services/google-my-business-services" element={<GoogleMyBusinessServices />} />
+          <Route path="/services/seo-services" element={<SeoServices />} />
+          <Route path="/services/google-ads-management" element={<GoogleAdsManagement />} />
+          <Route path="/services/whatsapp-automation" element={<WhatsAppAutomation />} />
+          <Route path="/services/marketing-meta-ads-servish" element={<MetaAdsServish />} />
 
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
 
           <Route path="/case-studies" element={<CaseStudies />} />
-          <Route
-            path="/case-studies/:id"
-            element={<CaseStudyDetail />}
-          />
+          <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
 
           <Route path="/contact" element={<Contact />} />
+
+          {/* ── Policy Routes ── */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/cancellation-refund" element={<CancellationRefund />} />
+          <Route path="/terms-and-conditions" element={<TermsConditions />} />
 
           <Route path="*" element={<Home />} />
         </Route>

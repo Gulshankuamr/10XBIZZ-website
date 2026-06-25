@@ -3,7 +3,7 @@
 import React, { forwardRef } from "react"
 import { motion } from "framer-motion"
 import { 
-  CheckCircle2, Rocket, Layout, Code, ArrowRight, 
+  CheckCircle2, Rocket, Layout, Code, 
   Search, Monitor, ShoppingBag, Youtube, Zap, MapPin 
 } from "lucide-react"
 
@@ -132,7 +132,7 @@ export default function IntegratedStackPage() {
             We don't launch ads blindly. Every campaign follows a proven framework designed to attract high-intent customers, improve conversion rates, and maximize return on ad spend.
           </p>
           <HeroActionButton className="flex items-center gap-2 bg-[#6400A1] border-4 border-slate-950 text-white px-8 py-4 rounded-2xl font-bold hover:-translate-y-1 hover:translate-x-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] w-fit">
-            Get Started <ArrowRight className="w-5 h-5" />
+            Get Started 
           </HeroActionButton>
         </div>
 
