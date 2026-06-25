@@ -129,7 +129,7 @@ export default function StickyWhatsapp() {
             <p className="text-[#9BE2D3] text-[11px] m-0">● online</p>
           </div>
           <button 
-            className="ml-auto bg-transparent border-0 text-[rgba(255,255,255,0.7)] text-[18px] cursor-pointer leading-none p-[2px_4px] transition-colors hover:text-white" 
+            className="ml-14  bg-transparent border-0 text-[rgba(255,255,255,0.7)] text-[18px] cursor-pointer leading-none p-[2px_4px] transition-colors hover:text-white" 
             onClick={handleToggleChat}
             aria-label="Close chat"
           >
