@@ -3,7 +3,7 @@ import { useState } from "react";
 const cards = [
   {
     id: 1,
-    image: "/metafacbook.wepb",
+    image: "/Meta  and facebook ads_new.png",
     alt: "Meta Facebook Ads",
     title: "Meta / Facebook Ads",
     category: "Targeted Social Campaigns",
@@ -93,7 +93,7 @@ function ModernCard({ card }) {
   return (
     <div
       onClick={() => (window.location.href = card.path)}
-      className={`relative flex flex-col h-[520px] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] bg-white rounded-[8px] border-[3px] border-[#6400A1] overflow-hidden cursor-pointer transition-all duration-500 ${
+      className={`relative flex flex-col h-[550px] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] bg-white rounded-[8px] border-[3px] border-[#6400A1] overflow-hidden cursor-pointer transition-all duration-500 ${
         hovered
           ? "shadow-[0_24px_56px_rgba(100,0,161,0.15),0_4px_12px_rgba(0,0,0,0.06)] -translate-y-2 scale-[1.01]"
           : "shadow-[0_6px_32px_rgba(100,0,161,0.05),0_1px_4px_rgba(0,0,0,0.03)] translate-y-0 scale-100"
@@ -101,18 +101,18 @@ function ModernCard({ card }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Top Illustration Area — Edge-to-edge with 1px border clearance */}
-      <div className="relative flex items-center justify-center h-[210px] w-full px-1.5 py-4 overflow-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-fuchsia-50 border-b border-[#6400A1]/10">
+      {/* Top Illustration Area — Increased height to 240px with full coverage */}
+      <div className="relative flex items-center justify-center h-[240px] w-full overflow-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-fuchsia-50 border-b border-[#6400A1]/10">
         {/* Subtle radial glow behind image */}
-        <div className="absolute w-[160px] h-[100px] rounded-full bg-[#6400A1]/8 blur-[32px] bottom-3 left-1/2 -translate-x-1/2" />
+        {/* <div className="absolute w-[160px] h-[100px] rounded-full bg-[#6400A1]/8 blur-[32px] bottom-3 left-1/2 -translate-x-1/2" /> */}
 
         {/* Floating shadow ellipse */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90px] h-2.5 rounded-full bg-[#6400A1]/12 blur-[4px]" />
+        {/* <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90px] h-2.5 rounded-full bg-[#6400A1]/12 blur-[4px]" /> */}
 
         <img
           src={card.image}
           alt={card.alt}
-          className={`relative z-10 h-[170px] w-full max-w-[calc(100%-12px)] object-contain drop-shadow-[0_12px_24px_rgba(100,0,161,0.15)] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+          className={`relative z-10 w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
             hovered
               ? "-translate-y-1.5 scale-[1.02] rotate-[0.5deg]"
               : "translate-y-0 scale-100 rotate-0"
@@ -122,7 +122,7 @@ function ModernCard({ card }) {
 
       {/* Bottom Content Area */}
       <div
-        className={`flex flex-col justify-between flex-1 px-6 pt-5 pb-6 transition-colors duration-500 ${
+        className={`flex flex-col justify-between flex-1 px-6 pt-4 pb-6 transition-colors duration-500 ${
           hovered ? "bg-[#6400A1]" : "bg-white"
         }`}
       >
@@ -144,7 +144,7 @@ function ModernCard({ card }) {
           {card.description}
         </p>
 
-        {/* Tags — Styled with black tabs/text when unhovered and inverted to white on hover */}
+        {/* Tags */}
         <div className="flex flex-wrap justify-center gap-2">
           {card.services.map((s) => (
             <span
