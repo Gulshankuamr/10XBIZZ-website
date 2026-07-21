@@ -3,7 +3,7 @@ import { useState } from "react";
 const cards = [
   {
     id: 1,
-    image: "/Meta  and facebook ads_new.png",
+    image: "/image1.png",
     alt: "Meta Facebook Ads",
     title: "Meta / Facebook Ads",
     category: "Targeted Social Campaigns",
@@ -17,7 +17,7 @@ const cards = [
   },
   {
     id: 2,
-    image: "/googleads.webp",
+    image: "/image2.png",
     alt: "Google Ads",
     title: "Google Ads",
     category: "High-Intent Traffic",
@@ -31,7 +31,7 @@ const cards = [
   },
   {
     id: 3,
-    image: "/CRM AUTOMATION.webp",
+    image: "/image3.png",
     alt: "CRM Automation",
     title: "CRM Automation",
     category: "Pipeline & Lead Management",
@@ -45,7 +45,7 @@ const cards = [
   },
   {
     id: 4,
-    image: "/whtsapp automation.webp",
+    image: "/image4.png",
     alt: "WhatsApp Automation",
     title: "WhatsApp Automation",
     category: "Automated Customer Messaging",
@@ -59,7 +59,7 @@ const cards = [
   },
   {
     id: 5,
-    image: "/Generated Image May 13, 2026 - 1_05PM.png",
+    image: "/image5.png",
     alt: "Website Design",
     title: "Website & Landing Page",
     category: "Conversion-Focused Design",
@@ -73,7 +73,7 @@ const cards = [
   },
   {
     id: 6,
-    image: "/futuristic_marketing_strategy_illustration_glowing_neon_target_with_arrow.png",
+    image: "/image5.png",
     alt: "Consultation",
     title: "Marketing Consultation",
     category: "Expert Growth Guidance",
@@ -93,42 +93,32 @@ function ModernCard({ card }) {
   return (
     <div
       onClick={() => (window.location.href = card.path)}
-      className={`relative flex flex-col h-[550px] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] bg-white rounded-[8px] border-[3px] border-[#6400A1] overflow-hidden cursor-pointer transition-all duration-500 ${
+      className={`relative flex flex-col h-[550px] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] bg-white rounded-[16px] border border-[#6400A1]/20 overflow-hidden cursor-pointer transition-all duration-400 ${
         hovered
-          ? "shadow-[0_24px_56px_rgba(100,0,161,0.15),0_4px_12px_rgba(0,0,0,0.06)] -translate-y-2 scale-[1.01]"
-          : "shadow-[0_6px_32px_rgba(100,0,161,0.05),0_1px_4px_rgba(0,0,0,0.03)] translate-y-0 scale-100"
+          ? "shadow-[0_20px_50px_rgba(100,0,161,0.18)] -translate-y-1.5"
+          : "shadow-[0_4px_20px_rgba(100,0,161,0.04)] translate-y-0"
       }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Top Illustration Area — Increased height to 240px with full coverage */}
-      <div className="relative flex items-center justify-center h-[240px] w-full overflow-hidden bg-gradient-to-br from-purple-50 via-pink-50 to-fuchsia-50 border-b border-[#6400A1]/10">
-        {/* Subtle radial glow behind image */}
-        {/* <div className="absolute w-[160px] h-[100px] rounded-full bg-[#6400A1]/8 blur-[32px] bottom-3 left-1/2 -translate-x-1/2" /> */}
-
-        {/* Floating shadow ellipse */}
-        {/* <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90px] h-2.5 rounded-full bg-[#6400A1]/12 blur-[4px]" /> */}
-
+      {/* Top Illustration Area — Clean, stable frame with zero zoom/scale motion */}
+      <div className="relative flex items-center justify-center h-[240px] w-full overflow-hidden bg-gradient-to-br from-purple-50/70 via-white to-fuchsia-50/50 border-b border-[#6400A1]/10">
         <img
           src={card.image}
           alt={card.alt}
-          className={`relative z-10 w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-            hovered
-              ? "-translate-y-1.5 scale-[1.02] rotate-[0.5deg]"
-              : "translate-y-0 scale-100 rotate-0"
-          }`}
+          className="relative z-10 w-full h-full object-cover select-none pointer-events-none"
         />
       </div>
 
       {/* Bottom Content Area */}
       <div
-        className={`flex flex-col justify-between flex-1 px-6 pt-4 pb-6 transition-colors duration-500 ${
+        className={`flex flex-col justify-between flex-1 px-6 pt-5 pb-6 transition-colors duration-400 ${
           hovered ? "bg-[#6400A1]" : "bg-white"
         }`}
       >
         {/* Title */}
         <h3
-          className={`text-[20px] font-extrabold leading-[1.25] text-center tracking-[-0.01em] transition-colors duration-500 ${
+          className={`text-[20px] font-extrabold leading-[1.25] text-center tracking-[-0.01em] transition-colors duration-400 ${
             hovered ? "text-white" : "text-gray-900"
           }`}
         >
@@ -137,22 +127,22 @@ function ModernCard({ card }) {
 
         {/* Description */}
         <p
-          className={`text-[14px] font-semibold leading-[1.55] text-center transition-colors duration-500 ${
-            hovered ? "text-fuchsia-100" : "text-gray-800"
+          className={`text-[14px] font-medium leading-[1.55] text-center transition-colors duration-400 ${
+            hovered ? "text-fuchsia-100" : "text-gray-600"
           }`}
         >
           {card.description}
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap justify-center gap-2">
+        <div className="flex flex-wrap justify-center gap-1.5">
           {card.services.map((s) => (
             <span
               key={s}
-              className={`px-3.5 py-1 rounded-full text-[11px] font-bold border transition-all duration-500 ${
+              className={`px-3 py-1 rounded-full text-[11px] font-semibold border transition-all duration-400 ${
                 hovered
-                  ? "bg-white/15 text-white border-white/25"
-                  : "bg-black text-white border-gray-800"
+                  ? "bg-white/15 text-white border-white/20"
+                  : "bg-gray-100 text-gray-800 border-gray-200"
               }`}
             >
               {s}
@@ -161,10 +151,10 @@ function ModernCard({ card }) {
           {card.stack.map((t) => (
             <span
               key={t}
-              className={`px-3.5 py-1 rounded-full text-[11px] font-bold border transition-all duration-500 ${
+              className={`px-3 py-1 rounded-full text-[11px] font-semibold border transition-all duration-400 ${
                 hovered
                   ? "bg-white/10 text-white border-white/15"
-                  : "bg-black text-white border-gray-800"
+                  : "bg-gray-100 text-gray-800 border-gray-200"
               }`}
             >
               {t}
@@ -178,10 +168,10 @@ function ModernCard({ card }) {
             e.stopPropagation();
             window.location.href = card.path;
           }}
-          className={`w-full py-3.5 rounded-[14px] text-[14px] font-extrabold tracking-[0.02em] transition-all duration-400 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+          className={`w-full py-3.5 rounded-[12px] text-[14px] font-bold tracking-[0.01em] transition-all duration-300 ${
             hovered
-              ? "bg-white text-[#6400A1] shadow-[0_6px_20px_rgba(0,0,0,0.12)] scale-[1.015]"
-              : "bg-gradient-to-br from-[#6400A1] via-[#7b1fa2] to-[#8e24aa] text-white shadow-[0_4px_14px_rgba(100,0,161,0.3)] scale-100"
+              ? "bg-white text-[#6400A1] shadow-[0_4px_16px_rgba(0,0,0,0.1)]"
+              : "bg-[#6400A1] text-white shadow-[0_4px_12px_rgba(100,0,161,0.25)] hover:bg-[#520084]"
           }`}
         >
           {card.buttonLabel}
@@ -195,26 +185,26 @@ export default function HoverRevealSection() {
   return (
     <div className="min-h-screen bg-[#fdfaff] font-['Montserrat',ui-sans-serif,system-ui,sans-serif] overflow-x-hidden">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
       `}</style>
 
-      <section className="max-w-7xl mx-auto py-12 px-6">
+      <section className="max-w-7xl mx-auto py-16 px-6">
         {/* Header Section */}
-        <div className="flex flex-col items-center text-center mb-10">
+        <div className="flex flex-col items-center text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-3">
-            <span className="text-[11px] md:text-[12px] font-bold tracking-[0.05em] uppercase text-[#6400A1]">
+            <span className="text-[11px] md:text-[12px] font-bold tracking-[0.08em] uppercase text-[#6400A1] bg-[#6400A1]/10 px-3 py-1 rounded-full">
               Marketing Services
             </span>
           </div>
 
           <h2 className="text-[30px] md:text-[42px] font-extrabold leading-[1.1] tracking-[-0.02em] max-w-[850px] text-gray-900">
             Smarter Growth Systems Built To{" "}
-            <span className="bg-gradient-to-r from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent inline-block font-bold tracking-[-0.02em]">
+            <span className="bg-gradient-to-r from-[#6400A1] to-[#BB000F] bg-clip-text text-transparent inline-block font-extrabold">
               Generate, Convert & Scale
             </span>
           </h2>
 
-          <p className="mt-4 text-gray-700 text-base md:text-[17px] font-medium leading-[1.6] max-w-3xl">
+          <p className="mt-4 text-gray-600 text-base md:text-[17px] font-medium leading-[1.6] max-w-3xl">
             From lead generation and CRM automation to high-converting
             funnels, we build systems designed to help businesses grow more
             efficiently.
