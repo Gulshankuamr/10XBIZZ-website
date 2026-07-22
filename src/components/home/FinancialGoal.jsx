@@ -3,7 +3,7 @@ import { useState } from "react";
 const cards = [
   {
     id: 1,
-    image: "/image1.png",
+    image: "/Meta  and facebook ads_new.png",
     alt: "Meta Facebook Ads",
     title: "Meta / Facebook Ads",
     category: "Targeted Social Campaigns",
@@ -17,7 +17,7 @@ const cards = [
   },
   {
     id: 2,
-    image: "/image2.png",
+    image: "/googleads.webp",
     alt: "Google Ads",
     title: "Google Ads",
     category: "High-Intent Traffic",
@@ -31,7 +31,7 @@ const cards = [
   },
   {
     id: 3,
-    image: "/image3.png",
+    image: "/CRM AUTOMATION.webp",
     alt: "CRM Automation",
     title: "CRM Automation",
     category: "Pipeline & Lead Management",
@@ -45,7 +45,7 @@ const cards = [
   },
   {
     id: 4,
-    image: "/image4.png",
+    image: "/whtsapp automation.webp",
     alt: "WhatsApp Automation",
     title: "WhatsApp Automation",
     category: "Automated Customer Messaging",
@@ -59,7 +59,7 @@ const cards = [
   },
   {
     id: 5,
-    image: "/image5.png",
+    image: "/Generated Image May 13, 2026 - 1_05PM.png",
     alt: "Website Design",
     title: "Website & Landing Page",
     category: "Conversion-Focused Design",
@@ -73,7 +73,7 @@ const cards = [
   },
   {
     id: 6,
-    image: "/image5.png",
+    image: "/futuristic_marketing_strategy_illustration_glowing_neon_target_with_arrow.png",
     alt: "Consultation",
     title: "Marketing Consultation",
     category: "Expert Growth Guidance",
