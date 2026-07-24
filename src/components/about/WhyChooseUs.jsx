@@ -1,41 +1,42 @@
-import React, { useState } from "react"; // 1. यहाँ useState हुक को फिक्स किया
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FreeMarketingPlan from "../freemarektingPlane/FreeMarketingPlan";
 import HeroActionButton from "../ui/HeroActionButton";
+import { CheckCircle2, ShieldCheck, Cpu, Database, TrendingUp, Users, ArrowRight } from "lucide-react";
 
 const TRUST_POINTS = [
-  { title: "Results-driven approach", icon: "📈" },
-  { title: "Personalized strategy", icon: "🧠" },
-  { title: "Automation expertise", icon: "🤖" },
-  { title: "Long-term support", icon: "🤝" },
-  { title: "Business-first thinking", icon: "💼" },
+  { title: "Complete growth ecosystem under one roof", icon: <CheckCircle2 className="size-5 text-[#6400A1]" /> },
+  { title: "AI-powered automation that works 24/7", icon: <Cpu className="size-5 text-[#BB000F]" /> },
+  { title: "Marketing backed by measurable data", icon: <TrendingUp className="size-5 text-[#6400A1]" /> },
+  { title: "CRM-driven sales processes", icon: <Database className="size-5 text-[#BB000F]" /> },
+  { title: "Scalable solutions for growing businesses", icon: <ShieldCheck className="size-5 text-[#6400A1]" /> },
+  { title: "Long-term strategic partnership—not just another agency", icon: <Users className="size-5 text-[#BB000F]" /> },
 ];
 
 export default function WhyChooseUs() {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <section className="relative w-full py-20 bg-white overflow-hidden font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
-      {/* Decorative Background Elements (Matching your theme) */}
-      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#6400A1]/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#BB000F]/5 rounded-full blur-[100px] pointer-events-none" />
+    <section className="relative w-full py-24 md:py-32 bg-white overflow-hidden font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-10 right-0 w-[400px] h-[400px] bg-[#6400A1]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-[400px] h-[400px] bg-[#BB000F]/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-[10px] uppercase tracking-[0.2em] font-bold mb-5 text-[#6400A1]">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-[11px] uppercase tracking-[0.2em] font-bold mb-5 text-[#6400A1]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#BB000F] animate-pulse" />
-            Trust / Authority
+            Authority & Trust
           </div>
           
-          <h2 className="text-[36px] md:text-[50px] font-bold text-gray-900 leading-tight tracking-[-0.02em] mb-6 font-['Montserrat',ui-sans-serif,system-ui,sans-serif]">
-            Why Businesses <span className="italic text-[#6400A1]">Choose Us</span>
+          <h2 className="text-[36px] sm:text-[44px] md:text-[52px] font-bold text-slate-900 leading-[1.15] tracking-tight mb-6">
+            Why Businesses <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6400A1] to-[#BB000F]">Choose 10xBizz</span>
           </h2>
           
-          <p className="text-gray-900 text-base md:text-[18px] leading-[1.7]">
-            Our mission is to drive progress and enhance the lives of our customers by 
-            delivering superior products and services that exceed expectations.
+          <p className="text-slate-600 text-base md:text-[18px] leading-[1.7] max-w-2xl mx-auto">
+            We don't just run ads or build scattered pages. We engineer predictable, high-converting growth systems designed to scale your revenue on autopilot.
           </p>
         </div>
 
@@ -44,59 +45,73 @@ export default function WhyChooseUs() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative w-full h-[300px] md:h-[450px] rounded-[30px] overflow-hidden shadow-2xl mb-12"
+          className="relative w-full h-[320px] sm:h-[420px] md:h-[500px] rounded-[32px] overflow-hidden shadow-2xl mb-16 border border-slate-100"
         >
           <img 
             src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2000" 
-            alt="Team collaborating"
+            alt="Team collaborating on growth strategies"
             className="w-full h-full object-cover"
           />
-          {/* Subtle Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          {/* Multi-stop Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+          
+          <div className="absolute bottom-8 left-8 right-8 md:left-12 md:right-12 text-white">
+            <span className="text-xs font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-white/20 backdrop-blur-md mb-3 inline-block font-bold">
+              Engineering Excellence
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-bold">Built for Founders Who Want Measurable Impact</h3>
+          </div>
         </motion.div>
 
         {/* Content & Trust Points Grid */}
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          <div className="space-y-6">
-         
-            <p className="text-gray-900 leading-[1.7] text-sm md:text-base">
-              We don't believe in one-size-fits-all templates. Our team digs deep into your 
-              business mechanics to discover hidden bottlenecks and build custom automated workflows. 
-              By blending high-converting infrastructure with intelligent tracking, we turn cold 
-              traffic into loyal, paying consumers—consistently.
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Summary Box */}
+          <div className="lg:col-span-5 space-y-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              Eliminating Guesswork From Your Scale Strategy
+            </h3>
+            
+            <p className="text-slate-600 leading-[1.8] text-base">
+              Most businesses struggle because their marketing, CRM, and sales follow-ups live in silos. We connect every touchpoint into a unified ecosystem—ensuring every rupee spent converts into high-intent pipeline value.
             </p>
             
-            <HeroActionButton 
-              onClick={() => setOpenModal(true)}
-              className="px-8 py-4 bg-gradient-to-r from-[#6400A1] to-[#BB000F] text-white rounded-full font-bold text-sm hover:shadow-lg hover:scale-105 transition-all flex items-center gap-3 cursor-pointer"
-            >
-              Get Started 
-            </HeroActionButton>
+            <div className="pt-2">
+              <HeroActionButton 
+                onClick={() => setOpenModal(true)}
+                className="px-8 py-4 bg-gradient-to-r from-[#6400A1] to-[#BB000F] text-white rounded-full font-bold text-sm hover:shadow-xl hover:scale-105 transition-all inline-flex items-center gap-3 cursor-pointer group shadow-lg shadow-purple-900/20"
+              >
+                <span>Get Your Custom Growth Plan</span>
+                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+              </HeroActionButton>
+            </div>
           </div>
 
-          {/* Icon List (Authority Points) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Right Trust Points Grid */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {TRUST_POINTS.map((point, index) => (
               <motion.div 
                 key={index}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-[#6400A1]/30 transition-colors"
+                className="flex items-start gap-3.5 p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 hover:border-[#6400A1]/30 hover:bg-white hover:shadow-lg transition-all duration-300"
               >
-                <span className="text-xl">{point.icon}</span>
-                <span className="font-bold text-gray-800 text-sm tracking-[-0.02em]">
+                <div className="shrink-0 mt-0.5 p-2 rounded-xl bg-white shadow-sm border border-slate-100">
+                  {point.icon}
+                </div>
+                <span className="font-semibold text-slate-800 text-sm md:text-[15px] leading-snug">
                   {point.title}
                 </span>
               </motion.div>
             ))}
           </div>
+
         </div>
 
       </div>
 
-     
       <AnimatePresence>
         {openModal && <FreeMarketingPlan onClose={() => setOpenModal(false)} />}
       </AnimatePresence>

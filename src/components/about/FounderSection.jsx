@@ -26,7 +26,7 @@ export default function FounderSection() {
       ref={ref}
       style={{
         background: "linear-gradient(125.94deg, #4c007a 0%, #8b000b 100%)",
-        minHeight: "80vh", // Height kam ki gayi hai
+        minHeight: "80vh",
         width: "100%",
         position: "relative",
         overflow: "hidden",
@@ -89,8 +89,11 @@ export default function FounderSection() {
           </div>
 
           <div className={`fu d3${visible?" in":""}`} style={{marginBottom:20}}>
-            <p style={{fontSize:15, color:"rgba(255,255,255,0.8)", lineHeight:1.6, maxWidth:400}}>
-              Building <span style={{color:"#fff", fontWeight:700}}>profitable systems</span> for businesses that are tired of guessing. No fluff, just 10x growth.
+            <h3 style={{fontSize:16, fontWeight:700, color:"#fff", marginBottom:8}}>
+              Ready to Build a Business That Grows on Autopilot?
+            </h3>
+            <p style={{fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.6, maxWidth:440}}>
+              Whether you're launching your first campaign or scaling an established business, we'll help you build a complete system that turns marketing into measurable growth.
             </p>
           </div>
 
@@ -114,7 +117,7 @@ export default function FounderSection() {
           display:"flex", alignItems:"center", justifyContent:"center"
         }}>
           {/* Subtle Glow behind image */}
-          <div  style={{
+          <div style={{
              position:"absolute", width:"80%", height:"80%",
              background:"radial-gradient(circle, rgba(232,121,249,0.2) 0%, transparent 70%)",
              filter:"blur(40px)"
@@ -126,19 +129,15 @@ export default function FounderSection() {
             style={{
               width:"100%", height:"100%",
               maxHeight:"550px",
-              objectFit:"contain", // Contain se photo cut nahi hogi
+              objectFit:"contain",
               zIndex:2,
               opacity: visible ? 1 : 0,
               transition: "opacity 1.5s ease",
-              /* Border blending logic */
               maskImage: "radial-gradient(circle, black 50%, rgba(0,0,0,0.5) 70%, transparent 100%)",
               WebkitMaskImage: "radial-gradient(circle, black 40%, rgba(0,0,0,0.3) 70%, transparent 95%)",
             }}
             className="mt-20"
           />
-
-          {/* Floating badge */}
-       
         </div>
 
       </div>

@@ -1,5 +1,3 @@
-
-
 import { motion } from "framer-motion";
 import { TrendingUp, Users, BarChart3, Zap } from "lucide-react";
 
@@ -43,34 +41,6 @@ export default function AboutHero() {
         className="relative z-10 flex flex-col items-center max-w-5xl mx-auto w-full"
       >
 
-        {/* ── Badge ── */}
-        {/* <motion.button
-          variants={fadeUp}
-          transition={{ duration: 0.5 }}
-          type="button"
-          className="
-            mt-20 mb-7
-            flex items-center gap-2
-            border border-indigo-500 text-indigo-600
-            text-[11px] md:text-[12px] font-bold tracking-[0.04em]
-            rounded-full px-4 pr-1.5 py-1.5
-            hover:bg-indigo-50 transition-colors
-          "
-        >
-          We Build Growth 
-          <span className="flex items-center justify-center size-6 rounded-full bg-indigo-600 flex-shrink-0">
-            <svg width="12" height="10" viewBox="0 0 16 13" fill="none">
-              <path
-                d="M1 6.5h14M9.5 1 15 6.5 9.5 12"
-                stroke="#fff"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-        </motion.button> */}
-
         {/* ── H1 Headline ── */}
         <motion.h1
           variants={fadeUp}
@@ -82,27 +52,11 @@ export default function AboutHero() {
             max-w-3xl mt-28 mb-7
           "
         >
-        Systems  Not Just 
-{" "}
-          <span className="bg-[linear-gradient(104.17deg,#6400A1_0%,#FF1920_100%)] bg-clip-text text-transparent">
-            Marketing Campaigns
-            <svg
-              className="absolute -bottom-1 left-0 w-full"
-              height="6"
-              viewBox="0 0 200 6"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0 5 Q50 1 100 4 Q150 7 200 3"
-                stroke="#6366f1"
-                strokeWidth="2.5"
-                fill="none"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>{" "}
-          in every industry
+          Marketing Gets Attention. <br />
+          <span className="bg-[linear-gradient(104.17deg,#6400A1_0%,#FF1920_100%)] bg-clip-text text-transparent relative">
+            Systems Build Businesses.
+          
+          </span>
         </motion.h1>
 
         {/* ── Subheadline ── */}
@@ -110,17 +64,14 @@ export default function AboutHero() {
           variants={fadeUp}
           transition={{ duration: 0.55 }}
           className="
-            mt-5 text-center text-gray-900
-            max-w-xl
+            mt-2 text-center text-gray-900
+            max-w-2xl
             text-base md:text-[17px]
             leading-[1.8] font-normal
           "
         >
-         At 10xBizz, we help businesses generate leads, automate follow-ups, and convert enquiries into real customers through strategy-driven systems.
+          We connect ads, leads, CRM, automation and sales into one intelligent growth system—turning more opportunities into customers and creating a clear path to scalable growth.
         </motion.p>
-
-  
-     
 
         {/* ── Hero Image ── */}
         <motion.div
@@ -130,8 +81,6 @@ export default function AboutHero() {
         >
           {/* Glow under image */}
           <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-12 bg-indigo-300/25 blur-2xl rounded-full" />
-
-   
 
           <img
             className="rounded-[32px] rounded-b-none w-full h-72 sm:h-96 object-cover relative z-0"
