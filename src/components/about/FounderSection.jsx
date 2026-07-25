@@ -76,17 +76,47 @@ export default function FounderSection() {
           flex:"0 0 50%", padding:"80px 40px",
           display:"flex", flexDirection:"column", justifyContent:"center",
         }}>
-          <div className={`fu d1${visible?" in":""}`} style={{marginBottom:10}}>
-            <span style={{fontSize:10, fontWeight:700, letterSpacing:".2em", color:"#e879f9"}}>FOUNDER</span>
-          </div>
+         <div className={`fu d1${visible ? " in" : ""}`} style={{ marginBottom: 10 }}>
+  <span style={{
+    fontSize: 12,
+    fontWeight: 800,
+    letterSpacing: ".3em",
+    color: "#e879f9",
+    textTransform: "uppercase",
+    padding: "6px 14px",
+    background: "rgba(232, 121, 249, 0.1)",
+    border: "1px solid rgba(232, 121, 249, 0.3)",
+    borderRadius: "20px",
+    backdropFilter: "blur(8px)",
+    boxShadow: "0 0 15px rgba(232, 121, 249, 0.2)",
+    display: "inline-block"
+  }}>FOUNDER</span>
+</div>
 
-          <div className={`fu d2${visible?" in":""}`}>
-            <h1 className="bn" style={{
-              fontFamily:"'Bebas Neue',sans-serif",
-              fontSize:"clamp(60px,8vw,100px)",
-              color:"#fff", lineHeight:0.9, marginBottom:20,
-            }}>ARNAB</h1>
-          </div>
+       <div className={`fu d2${visible ? " in" : ""}`}>
+  <h1 className="bn" style={{
+    fontFamily: "'Bebas Neue', sans-serif",
+    fontSize: "clamp(60px, 8vw, 100px)",
+    color: "#ffffff",
+    lineHeight: 0.9,
+    marginBottom: 20,
+    letterSpacing: "3px",
+    textTransform: "uppercase",
+    textShadow: `
+      0 1px 0 #cccccc,
+      0 2px 0 #b3b3b3,
+      0 3px 0 #999999,
+      0 4px 0 #808080,
+      0 5px 0 #666666,
+      0 6px 1px rgba(0, 0, 0, 0.1),
+      0 0 5px rgba(0, 0, 0, 0.1),
+      0 1px 3px rgba(0, 0, 0, 0.3),
+      0 3px 5px rgba(0, 0, 0, 0.2),
+      0 5px 10px rgba(65, 0, 119, 0.4),
+      0 10px 20px rgba(65, 0, 119, 0.3)
+    `
+  }}>ARNAB</h1>
+</div>
 
           <div className={`fu d3${visible?" in":""}`} style={{marginBottom:20}}>
             <h3 style={{fontSize:16, fontWeight:700, color:"#fff", marginBottom:8}}>
@@ -106,9 +136,25 @@ export default function FounderSection() {
             ))}
           </div>
 
-          <div className={`fu d5${visible?" in":""}`}>
-            <button className="cta-btn">LET'S TALK BUSINESS</button>
-          </div>
+      <div className={`fu d5${visible ? " in" : ""}`}>
+  <button 
+    className="cta-btn" 
+    style={{ 
+      backgroundColor: "#410077", 
+      fontWeight: "800",
+      letterSpacing: "1px",
+      border: "2px solid #5a00a3",
+      borderRadius: "8px",
+      padding: "14px 28px",
+      color: "#ffffff",
+      boxShadow: "0 4px 15px rgba(65, 0, 119, 0.4)",
+      cursor: "pointer",
+      transition: "all 0.3s ease"
+    }}
+  >
+    LET'S TALK BUSINESS
+  </button>
+</div>
         </div>
 
         {/* ── RIGHT — BLENDED IMAGE ── */}

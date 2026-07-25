@@ -22,6 +22,7 @@ const socialLinks = [
   {
     title: "Facebook",
     brand: "facebook",
+    url: "https://www.facebook.com/10xbizz",
     color: "#1877F2",
     icon: (
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -32,6 +33,7 @@ const socialLinks = [
   {
     title: "WhatsApp",
     brand: "whatsapp",
+    url: "https://wa.me/message/4G76CBCLNWPLK1",
     color: "#25D366",
     icon: (
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -42,6 +44,7 @@ const socialLinks = [
   {
     title: "LinkedIn",
     brand: "linkedin",
+    url: "https://www.linkedin.com/in/arnab-chakraborty-40452528/",
     color: "#0A66C2",
     icon: (
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -52,6 +55,7 @@ const socialLinks = [
   {
     title: "YouTube",
     brand: "youtube",
+    url: "#",
     color: "#FF0000",
     icon: (
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -62,6 +66,7 @@ const socialLinks = [
   {
     title: "Instagram",
     brand: "instagram",
+    url: "#",
     color: "#E1306C",
     icon: (
       <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -101,7 +106,7 @@ const ContactItem = ({ icon, label, value }) => (
 
 // ── Quick Links — all routes including policy pages ──
 const quickLinks = [
-  { name: "Home",                   path: "/" },
+  { name: "Home",                  path: "/" },
   { name: "Contact",                path: "/contact" },
   { name: "Blog",                   path: "/blog" },
   { name: "Privacy Policy",         path: "/privacy-policy" },
@@ -111,8 +116,8 @@ const quickLinks = [
 
 // ── Bottom bar policy links ──
 const bottomLinks = [
-  { name: "Privacy Policy",        path: "/privacy-policy" },
-  { name: "Terms & Conditions",    path: "/terms-and-conditions" },
+  { name: "Privacy Policy",         path: "/privacy-policy" },
+  { name: "Terms & Conditions",     path: "/terms-and-conditions" },
   { name: "Cancellation & Refund", path: "/cancellation-refund" },
 ];
 
@@ -193,7 +198,9 @@ export default function Footer() {
                 {socialLinks.map((s) => (
                   <a
                     key={s.title}
-                    href="#"
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     title={s.title}
                     className="social-btn flex items-center justify-center w-[38px] h-[38px] rounded-[10px] no-underline"
                     style={{
@@ -211,23 +218,7 @@ export default function Footer() {
             {/* Nav + Contact */}
             <div className="footer-nav flex flex-wrap gap-12">
 
-              {/* Resources */}
-              {/* <div className="min-w-[130px]">
-                <p className="font-syne text-[0.78rem] font-bold tracking-[3px] uppercase mb-5" style={{ color: "#D4A017" }}>
-                  Resources
-                </p>
-                <ul className="list-none flex flex-col gap-3">
-                  {["Course", "Books", "Youtube"].map((item) => (
-                    <li key={item}>
-                      <a href="#" className="nav-link text-sm font-light inline-block no-underline">
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div> */}
-
-              {/* Quick Links — now using React Router <Link> */}
+              {/* Quick Links — using React Router <Link> */}
               <div className="min-w-[180px]">
                 <p className="font-syne text-[0.78rem] font-bold tracking-[3px] uppercase mb-5" style={{ color: "#D4A017" }}>
                   Quick Links
@@ -288,7 +279,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── BOTTOM BAR — now using React Router <Link> ── */}
+          {/* ── BOTTOM BAR — using React Router <Link> ── */}
           <div className="footer-bottom flex flex-wrap gap-3 justify-between items-center pt-5 pb-4">
             <p className="text-[0.8rem] font-light" style={{ color: "rgba(255,255,255,0.35)" }}>
               © 2026 10xBizz. All rights reserved.
