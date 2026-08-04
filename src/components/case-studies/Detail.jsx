@@ -3,7 +3,7 @@ import { ArrowLeft, Clock, Share2, User, Grid, Link2, ChevronRight, Trophy, Chev
 import { useState, useEffect, useRef } from "react";
 import { getAllCaseStudies, getCaseStudyById } from "../services/caseStudyService";
 
-const API_ORIGIN = "https://10x.fctesting.shop";
+const API_ORIGIN = "https://one0x-backend-ihzf.onrender.com";
 
 const resolveImageUrl = (src) => {
   if (!src) return "/placeholder.svg";
