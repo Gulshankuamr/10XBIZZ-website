@@ -7,7 +7,7 @@ const FALLBACK_BANNER = {
   ctaLink: "/contact",
 };
 
-const BANNER_API_URL = "https://10x.fctesting.shop/api/banner";
+const BANNER_API_URL = "https://one0x-backend-ihzf.onrender.com/api/banner";
 
 // API response shape:
 // { success: true, data: [{ banner_id, offer_type, offer_description }] }
