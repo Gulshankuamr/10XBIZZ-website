@@ -48,7 +48,7 @@ export default function Contact() {
     };
 
     try {
-      const response = await fetch("https://10x.fctesting.shop/api/business-inquiries", {
+      const response = await fetch("https://one0x-backend-ihzf.onrender.com/api/business-inquiries", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
