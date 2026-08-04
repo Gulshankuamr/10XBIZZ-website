@@ -158,7 +158,7 @@ export default function FreeMarketingPlan({ onClose }) {
     };
 
     try {
-      const res = await fetch("https://10x.fctesting.shop/api/submit-all", {
+      const res = await fetch("https://one0x-backend-ihzf.onrender.com/api/submit-all", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
