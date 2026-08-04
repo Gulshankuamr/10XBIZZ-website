@@ -1,4 +1,4 @@
-const BASE_URL = "https://10x.fctesting.shop/api";
+const BASE_URL = "https://one0x-backend-ihzf.onrender.com/api";
 
 const requestJson = async (url) => {
   const res = await fetch(url);
