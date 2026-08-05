@@ -13,7 +13,7 @@ const cards = [
     stackColor: "bg-black",
     stackTextColor: "text-white",
     buttonLabel: "Read More",
-    path: "http://localhost:3000/services/marketing-meta-ads-servish",
+    path: "https://www.10xbizz.com/services/marketing-meta-ads-servish",
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const cards = [
     stackColor: "bg-black",
     stackTextColor: "text-white",
     buttonLabel: "Read More",
-    path: "http://localhost:3000/services/google-ads-management",
+    path: "https://www.10xbizz.com/services/google-ads-management",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const cards = [
     stackColor: "bg-black",
     stackTextColor: "text-white",
     buttonLabel: "Read More",
-    path: "http://localhost:3000/services/crm-automation",
+    path: "https://www.10xbizz.com/services/crm-automation",
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ const cards = [
     stackColor: "bg-black",
     stackTextColor: "text-white",
     buttonLabel: "Read More",
-    path: "http://localhost:3000/services/seo-services",
+    path: "https://www.10xbizz.com/services/seo-services",
   },
   {
     id: 5,
@@ -69,7 +69,7 @@ const cards = [
     stackColor: "bg-black",
     stackTextColor: "text-white",
     buttonLabel: "Read More",
-    path: "http://localhost:3000/services/google-my-business-services",
+    path: "https://www.10xbizz.com/services/google-my-business-services",
   },
   {
     id: 6,
@@ -83,7 +83,7 @@ const cards = [
     stackColor: "bg-black",
     stackTextColor: "text-white",
     buttonLabel: "Read More",
-    path: "http://localhost:3000/services/marketing-meta-ads-servish",
+    path: "https://www.10xbizz.com/services/marketing-meta-ads-servish",
   },
 ];
 
